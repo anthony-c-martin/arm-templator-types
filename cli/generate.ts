@@ -221,7 +221,8 @@ function writeDefinition(definition: ObjectProperty, name: string) {
   appendOutput(`export interface ${name} {`);
   for (const key of Object.keys(definition.properties)) {
     const required = definition.required.indexOf(key) > -1;
-    appendOutput(`  ${key}${required ? '' : '?'}: Expressionable<${definition.properties[key].getType()}>;`);
+    let escapedKey = key.match(/\W/) ? `'${key}'` : key;
+    appendOutput(`  ${escapedKey}${required ? '' : '?'}: Expressionable<${definition.properties[key].getType()}>;`);
   }
   appendOutput(`}`);
   appendOutput(``);
@@ -265,7 +266,7 @@ function writeBuilderFunction(definition: ObjectProperty, name: string) {
 
   let indent = 0;
   const typeSections = typeName.split('/').splice(1);
-  for (const section of typeSections) {
+  for (const section of typeSections.map(s => s.replace(/\W/g, ''))) {
     appendOutput(`export namespace ${section} {`, indent);
     indent += 2;
   }
@@ -306,14 +307,16 @@ let globalApiVersion;
 
 writeHeaders(schemaPath);
 
-for (const name of Object.keys(schema.definitions)) {
-  if (name.endsWith('_childResource')) {
-    // skip outputting _childResource definitions
-    continue;
+if (schema.definitions) {
+  for (const name of Object.keys(schema.definitions)) {
+    if (name.endsWith('_childResource')) {
+      // skip outputting _childResource definitions
+      continue;
+    }
+    
+    const definition = getDefinition(schema.definitions[name], name);
+    writeDefinition(definition, name);
   }
-  
-  const definition = getDefinition(schema.definitions[name], name);
-  writeDefinition(definition, name);
 }
 
 if (!schema.resourceDefinitions) {
@@ -327,7 +330,9 @@ for (const name of Object.keys(resources)) {
   writeBuilderFunction(definition, name);
 }
 
-fs.writeFileSync(
-  `${__dirname}/../lib/${shortNamespace.toLowerCase()}.${globalApiVersion}.ts`,
-  output,
-  { encoding: 'utf8' });
+const parentDir = `${__dirname}/../lib/${shortNamespace.toLowerCase()}`;
+if (!fs.existsSync(parentDir)) {
+  fs.mkdirSync(parentDir);
+}
+
+fs.writeFileSync(`${parentDir}/${globalApiVersion}.ts`, output, { encoding: 'utf8' });

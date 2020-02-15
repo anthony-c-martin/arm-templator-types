@@ -3204,10 +3204,10 @@ export interface RerunTumblingWindowTrigger {
 }
 
 export interface RerunTumblingWindowTriggerTypeProperties {
-  maxConcurrency: Expressionable<number>;
-  parentTrigger?: Expressionable<any>;
+  parentTrigger: Expressionable<any>;
   requestedEndTime: Expressionable<string>;
   requestedStartTime: Expressionable<string>;
+  rerunConcurrency: Expressionable<number>;
 }
 
 export interface ResponsysLinkedService {
@@ -4401,21 +4401,6 @@ export namespace factories {
         location,
         properties,
       };
-    }
-  }
-}
-export namespace factories {
-  export namespace triggers {
-    export namespace rerunTriggers {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: any, location: Expressionable<string>): ResourceDefinition<any> {
-        return {
-          type: 'Microsoft.DataFactory/factories/triggers/rerunTriggers',
-          apiVersion: '2018-06-01',
-          name: concatResourceName(...name),
-          location,
-          properties,
-        };
-      }
     }
   }
 }

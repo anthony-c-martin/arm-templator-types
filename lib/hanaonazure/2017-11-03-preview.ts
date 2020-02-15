@@ -1,0 +1,75 @@
+// Generated using 'npm run generate /Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-11-03-preview/Microsoft.HanaOnAzure.json'
+import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
+import { concatResourceName } from 'arm-templator';
+
+export interface Disk {
+  diskSizeGB?: Expressionable<number>;
+  name?: Expressionable<string>;
+}
+
+export interface HanaInstanceProperties {
+  hardwareProfile?: Expressionable<HardwareProfile>;
+  networkProfile?: Expressionable<NetworkProfile>;
+  osProfile?: Expressionable<OSProfile>;
+  partnerNodeId?: Expressionable<string>;
+  storageProfile?: Expressionable<StorageProfile>;
+}
+
+export interface HardwareProfile {
+}
+
+export interface IpAddress {
+  ipAddress?: Expressionable<string>;
+}
+
+export interface NetworkProfile {
+  networkInterfaces?: Expressionable<IpAddress[]>;
+}
+
+export interface OSProfile {
+  computerName?: Expressionable<string>;
+  sshPublicKey?: Expressionable<string>;
+}
+
+export interface SapMonitorProperties {
+  enableCustomerAnalytics?: Expressionable<boolean>;
+  hanaDbCredentialsMsiId?: Expressionable<string>;
+  hanaDbName?: Expressionable<string>;
+  hanaDbPassword?: Expressionable<string>;
+  hanaDbPasswordKeyVaultUrl?: Expressionable<string>;
+  hanaDbSqlPort?: Expressionable<number>;
+  hanaDbUsername?: Expressionable<string>;
+  hanaHostname?: Expressionable<string>;
+  hanaSubnet?: Expressionable<string>;
+  keyVaultId?: Expressionable<string>;
+  logAnalyticsWorkspaceArmId?: Expressionable<string>;
+  logAnalyticsWorkspaceId?: Expressionable<string>;
+  logAnalyticsWorkspaceSharedKey?: Expressionable<string>;
+}
+
+export interface StorageProfile {
+  osDisks?: Expressionable<Disk[]>;
+}
+
+export namespace hanaInstances {
+  export function create(name: Expressionable<string>, properties: HanaInstanceProperties, location: Expressionable<string>): ResourceDefinition<HanaInstanceProperties> {
+    return {
+      type: 'Microsoft.HanaOnAzure/hanaInstances',
+      apiVersion: '2017-11-03-preview',
+      name: name,
+      location,
+      properties,
+    };
+  }
+}
+export namespace sapMonitors {
+  export function create(name: Expressionable<string>, properties: SapMonitorProperties, location: Expressionable<string>): ResourceDefinition<SapMonitorProperties> {
+    return {
+      type: 'Microsoft.HanaOnAzure/sapMonitors',
+      apiVersion: '2017-11-03-preview',
+      name: name,
+      location,
+      properties,
+    };
+  }
+}
