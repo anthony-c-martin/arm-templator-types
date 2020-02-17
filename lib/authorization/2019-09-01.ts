@@ -11,7 +11,9 @@ export interface PolicyAssignmentProperties {
   policyDefinitionId?: Expressionable<string>;
   scope?: Expressionable<string>;
   notScopes?: Expressionable<string[]>;
+  parameters?: Expressionable<any>;
   description?: Expressionable<string>;
+  metadata?: Expressionable<any>;
   enforcementMode?: Expressionable<('Default' | 'DoNotEnforce')>;
 }
 
@@ -20,10 +22,14 @@ export interface PolicyDefinitionProperties {
   mode?: Expressionable<string>;
   displayName?: Expressionable<string>;
   description?: Expressionable<string>;
+  policyRule: Expressionable<any>;
+  metadata?: Expressionable<any>;
+  parameters?: Expressionable<any>;
 }
 
 export interface PolicyDefinitionReference {
   policyDefinitionId: Expressionable<string>;
+  parameters?: Expressionable<any>;
   policyDefinitionReferenceId?: Expressionable<string>;
   groupNames?: Expressionable<string[]>;
 }
@@ -32,6 +38,8 @@ export interface PolicySetDefinitionProperties {
   policyType?: Expressionable<('NotSpecified' | 'BuiltIn' | 'Custom' | 'Static')>;
   displayName?: Expressionable<string>;
   description?: Expressionable<string>;
+  metadata?: Expressionable<any>;
+  parameters?: Expressionable<any>;
   policyDefinitions: Expressionable<PolicyDefinitionReference[]>;
   policyDefinitionGroups?: Expressionable<PolicyDefinitionGroup[]>;
 }

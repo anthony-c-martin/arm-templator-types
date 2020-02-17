@@ -46,6 +46,7 @@ export interface KeyVaultProperties {
 }
 
 export interface ManagementPoliciesRules {
+  policy?: Expressionable<any>;
 }
 
 export interface NetworkRuleSet {

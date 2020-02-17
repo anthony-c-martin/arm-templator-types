@@ -490,6 +490,8 @@ export interface VirtualMachineExtensionProperties {
   type?: Expressionable<string>;
   typeHandlerVersion?: Expressionable<string>;
   autoUpgradeMinorVersion?: Expressionable<boolean>;
+  settings?: Expressionable<any>;
+  protectedSettings?: Expressionable<any>;
   instanceView?: Expressionable<VirtualMachineExtensionInstanceView>;
 }
 
@@ -531,6 +533,7 @@ export interface VirtualMachineScaleSetDataDisk {
 
 export interface VirtualMachineScaleSetExtension {
   name?: Expressionable<string>;
+  properties?: Expressionable<any>;
 }
 
 export interface VirtualMachineScaleSetExtensionProfile {
@@ -543,6 +546,8 @@ export interface VirtualMachineScaleSetExtensionProperties {
   type?: Expressionable<string>;
   typeHandlerVersion?: Expressionable<string>;
   autoUpgradeMinorVersion?: Expressionable<boolean>;
+  settings?: Expressionable<any>;
+  protectedSettings?: Expressionable<any>;
   provisionAfterExtensions?: Expressionable<string[]>;
 }
 

@@ -548,9 +548,9 @@ export interface PacketCaptureFilter {
 
 export interface PacketCaptureParameters {
   target: Expressionable<string>;
-  bytesToCapturePerPacket?: Expressionable<('0')>;
-  totalBytesPerSession?: Expressionable<('1073741824')>;
-  timeLimitInSeconds?: Expressionable<('18000')>;
+  bytesToCapturePerPacket?: Expressionable<(0)>;
+  totalBytesPerSession?: Expressionable<(1073741824)>;
+  timeLimitInSeconds?: Expressionable<(18000)>;
   storageLocation: Expressionable<PacketCaptureStorageLocation>;
   filters?: Expressionable<PacketCaptureFilter[]>;
 }

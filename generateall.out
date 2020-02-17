@@ -1,2141 +1,1646 @@
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-09-16/Microsoft.HealthcareApis.json"
 
 
-/Users/antm88/Desktop/arm-templator-types/cli/generate.ts:135
-        throw `Failed to read array property ${JSON.stringify(prop)}`;
-        ^
-Failed to read array property {"type":"array","description":"The origins to be allowed via CORS.","items":{"anyOf":[{"type":"string","description":"An origin for CORS.","pattern":"^(?:(?:(?:[hH][tT][tT][pP](?:[sS]|))\\:\\/\\/(?:[a-zA-Z0-9-]+[.]?)+(?:\\:[0-9]{1,5})?|[*]))$"},{"$ref":"https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"}]}}
-npm ERR! code ELIFECYCLE
-npm ERR! errno 1
-npm ERR! arm-templator-types@0.0.2 generate: `ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-09-16/Microsoft.HealthcareApis.json"`
-npm ERR! Exit status 1
-npm ERR! 
-npm ERR! Failed at the arm-templator-types@0.0.2 generate script.
-npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
-
-npm ERR! A complete log of this run can be found in:
-npm ERR!     /Users/antm88/.npm/_logs/2020-02-17T05_42_10_983Z-debug.log
-
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-02-01-preview/Microsoft.AppConfiguration.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-08-20-preview/Microsoft.HealthcareApis.json"
 
 
-/Users/antm88/Desktop/arm-templator-types/cli/generate.ts:135
-        throw `Failed to read array property ${JSON.stringify(prop)}`;
-        ^
-Failed to read array property {"type":"array","description":"The origins to be allowed via CORS.","items":{"anyOf":[{"type":"string","description":"An origin for CORS.","pattern":"^(?:(?:(?:[hH][tT][tT][pP](?:[sS]|))\\:\\/\\/(?:[a-zA-Z0-9-]+[.]?)+(?:\\:[0-9]{1,5})?|[*]))$"},{"$ref":"https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"}]}}
-npm ERR! code ELIFECYCLE
-npm ERR! errno 1
-npm ERR! arm-templator-types@0.0.2 generate: `ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-08-20-preview/Microsoft.HealthcareApis.json"`
-npm ERR! Exit status 1
-npm ERR! 
-npm ERR! Failed at the arm-templator-types@0.0.2 generate script.
-npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
-
-npm ERR! A complete log of this run can be found in:
-npm ERR!     /Users/antm88/.npm/_logs/2020-02-17T05_42_23_887Z-debug.log
-
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-08-01-preview/Microsoft.Genomics.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-08-01/Microsoft.Network.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2015-08-19/Microsoft.Search.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2016-05-16/Microsoft.AnalysisServices.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-08-01/Microsoft.AnalysisServices.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2016-06-01/Microsoft.RecoveryServices.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2015-06-01/Microsoft.KeyVault.json"
 
 
-/Users/antm88/Desktop/arm-templator-types/cli/generate.ts:88
-    throw `Unable to process $ref ${ref}`;
-    ^
-Unable to process $ref https://schema.management.azure.com/schemas/common/definitions.json#/definitions/resourceBase
-npm ERR! code ELIFECYCLE
-npm ERR! errno 1
-npm ERR! arm-templator-types@0.0.2 generate: `ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2015-06-01/Microsoft.KeyVault.json"`
-npm ERR! Exit status 1
-npm ERR! 
-npm ERR! Failed at the arm-templator-types@0.0.2 generate script.
-npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
-
-npm ERR! A complete log of this run can be found in:
-npm ERR!     /Users/antm88/.npm/_logs/2020-02-17T05_42_44_831Z-debug.log
-
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2016-10-01/Microsoft.KeyVault.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-01-10/Microsoft.RecoveryServices.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2014-06-01/Microsoft.Web.json"
 
 
-/Users/antm88/Desktop/arm-templator-types/cli/generate.ts:88
-    throw `Unable to process $ref ${ref}`;
-    ^
-Unable to process $ref https://schema.management.azure.com/schemas/common/definitions.json#/definitions/resourceBase
-npm ERR! code ELIFECYCLE
-npm ERR! errno 1
-npm ERR! arm-templator-types@0.0.2 generate: `ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2014-06-01/Microsoft.Web.json"`
-npm ERR! Exit status 1
-npm ERR! 
-npm ERR! Failed at the arm-templator-types@0.0.2 generate script.
-npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
-
-npm ERR! A complete log of this run can be found in:
-npm ERR!     /Users/antm88/.npm/_logs/2020-02-17T05_42_53_316Z-debug.log
-
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2015-08-01/Microsoft.Web.json"
 
 
-/Users/antm88/Desktop/arm-templator-types/cli/generate.ts:88
-    throw `Unable to process $ref ${ref}`;
-    ^
-Unable to process $ref https://schema.management.azure.com/schemas/common/definitions.json#/definitions/resourceBase
-npm ERR! code ELIFECYCLE
-npm ERR! errno 1
-npm ERR! arm-templator-types@0.0.2 generate: `ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2015-08-01/Microsoft.Web.json"`
-npm ERR! Exit status 1
-npm ERR! 
-npm ERR! Failed at the arm-templator-types@0.0.2 generate script.
-npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
-
-npm ERR! A complete log of this run can be found in:
-npm ERR!     /Users/antm88/.npm/_logs/2020-02-17T05_42_56_170Z-debug.log
-
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2015-04-01/Microsoft.DomainRegistration.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2015-08-01/Microsoft.CertificateRegistration.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2016-03-01/Microsoft.Web.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2016-08-01/Microsoft.Web.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2016-09-01/Microsoft.Web.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-09-07-privatepreview/Microsoft.Kusto.json"
 
 
-/Users/antm88/Desktop/arm-templator-types/cli/generate.ts:88
-    throw `Unable to process $ref ${ref}`;
-    ^
-Unable to process $ref #/resourceDefinitions/clusters_databases
-npm ERR! code ELIFECYCLE
-npm ERR! errno 1
-npm ERR! arm-templator-types@0.0.2 generate: `ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-09-07-privatepreview/Microsoft.Kusto.json"`
-npm ERR! Exit status 1
-npm ERR! 
-npm ERR! Failed at the arm-templator-types@0.0.2 generate script.
-npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
-
-npm ERR! A complete log of this run can be found in:
-npm ERR!     /Users/antm88/.npm/_logs/2020-02-17T05_43_13_362Z-debug.log
-
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-09-07-preview/Microsoft.Kusto.json"
 
 
-/Users/antm88/Desktop/arm-templator-types/cli/generate.ts:88
-    throw `Unable to process $ref ${ref}`;
-    ^
-Unable to process $ref #/resourceDefinitions/clusters_databases
-npm ERR! code ELIFECYCLE
-npm ERR! errno 1
-npm ERR! arm-templator-types@0.0.2 generate: `ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-09-07-preview/Microsoft.Kusto.json"`
-npm ERR! Exit status 1
-npm ERR! 
-npm ERR! Failed at the arm-templator-types@0.0.2 generate script.
-npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
-
-npm ERR! A complete log of this run can be found in:
-npm ERR!     /Users/antm88/.npm/_logs/2020-02-17T05_43_16_261Z-debug.log
-
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-01-21/Microsoft.Kusto.json"
 
 
-/Users/antm88/Desktop/arm-templator-types/cli/generate.ts:88
-    throw `Unable to process $ref ${ref}`;
-    ^
-Unable to process $ref #/resourceDefinitions/clusters_databases
-npm ERR! code ELIFECYCLE
-npm ERR! errno 1
-npm ERR! arm-templator-types@0.0.2 generate: `ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-01-21/Microsoft.Kusto.json"`
-npm ERR! Exit status 1
-npm ERR! 
-npm ERR! Failed at the arm-templator-types@0.0.2 generate script.
-npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
-
-npm ERR! A complete log of this run can be found in:
-npm ERR!     /Users/antm88/.npm/_logs/2020-02-17T05_43_19_022Z-debug.log
-
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-05-15/Microsoft.Kusto.json"
 
 
-/Users/antm88/Desktop/arm-templator-types/cli/generate.ts:88
-    throw `Unable to process $ref ${ref}`;
-    ^
-Unable to process $ref #/resourceDefinitions/clusters_databases
-npm ERR! code ELIFECYCLE
-npm ERR! errno 1
-npm ERR! arm-templator-types@0.0.2 generate: `ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-05-15/Microsoft.Kusto.json"`
-npm ERR! Exit status 1
-npm ERR! 
-npm ERR! Failed at the arm-templator-types@0.0.2 generate script.
-npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
-
-npm ERR! A complete log of this run can be found in:
-npm ERR!     /Users/antm88/.npm/_logs/2020-02-17T05_43_21_927Z-debug.log
-
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-09-07/Microsoft.Kusto.json"
 
 
-/Users/antm88/Desktop/arm-templator-types/cli/generate.ts:88
-    throw `Unable to process $ref ${ref}`;
-    ^
-Unable to process $ref #/resourceDefinitions/clusters_databases
-npm ERR! code ELIFECYCLE
-npm ERR! errno 1
-npm ERR! arm-templator-types@0.0.2 generate: `ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-09-07/Microsoft.Kusto.json"`
-npm ERR! Exit status 1
-npm ERR! 
-npm ERR! Failed at the arm-templator-types@0.0.2 generate script.
-npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
-
-npm ERR! A complete log of this run can be found in:
-npm ERR!     /Users/antm88/.npm/_logs/2020-02-17T05_43_24_896Z-debug.log
-
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-11-09/Microsoft.Kusto.json"
 
 
-/Users/antm88/Desktop/arm-templator-types/cli/generate.ts:88
-    throw `Unable to process $ref ${ref}`;
-    ^
-Unable to process $ref #/resourceDefinitions/clusters_databases
-npm ERR! code ELIFECYCLE
-npm ERR! errno 1
-npm ERR! arm-templator-types@0.0.2 generate: `ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-11-09/Microsoft.Kusto.json"`
-npm ERR! Exit status 1
-npm ERR! 
-npm ERR! Failed at the arm-templator-types@0.0.2 generate script.
-npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
-
-npm ERR! A complete log of this run can be found in:
-npm ERR!     /Users/antm88/.npm/_logs/2020-02-17T05_43_28_042Z-debug.log
-
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2014-04-01/Microsoft.Insights.json"
 
 
-/Users/antm88/Desktop/arm-templator-types/cli/generate.ts:88
-    throw `Unable to process $ref ${ref}`;
-    ^
-Unable to process $ref https://schema.management.azure.com/schemas/common/definitions.json#/definitions/Iso8601Duration
-npm ERR! code ELIFECYCLE
-npm ERR! errno 1
-npm ERR! arm-templator-types@0.0.2 generate: `ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2014-04-01/Microsoft.Insights.json"`
-npm ERR! Exit status 1
-npm ERR! 
-npm ERR! Failed at the arm-templator-types@0.0.2 generate script.
-npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
-
-npm ERR! A complete log of this run can be found in:
-npm ERR!     /Users/antm88/.npm/_logs/2020-02-17T05_43_30_923Z-debug.log
-
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2014-02-26/microsoft.visualstudio.json"
 
 
-/Users/antm88/Desktop/arm-templator-types/cli/generate.ts:88
-    throw `Unable to process $ref ${ref}`;
-    ^
-Unable to process $ref https://schema.management.azure.com/schemas/common/definitions.json#/definitions/resourceBase
-npm ERR! code ELIFECYCLE
-npm ERR! errno 1
-npm ERR! arm-templator-types@0.0.2 generate: `ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2014-02-26/microsoft.visualstudio.json"`
-npm ERR! Exit status 1
-npm ERR! 
-npm ERR! Failed at the arm-templator-types@0.0.2 generate script.
-npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
-
-npm ERR! A complete log of this run can be found in:
-npm ERR!     /Users/antm88/.npm/_logs/2020-02-17T05_43_33_791Z-debug.log
-
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2015-04-01/Microsoft.NotificationHubs.json"
 
 
-/Users/antm88/Desktop/arm-templator-types/cli/generate.ts:88
-    throw `Unable to process $ref ${ref}`;
-    ^
-Unable to process $ref https://schema.management.azure.com/schemas/common/definitions.json#/definitions/resourceBase
-npm ERR! code ELIFECYCLE
-npm ERR! errno 1
-npm ERR! arm-templator-types@0.0.2 generate: `ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2015-04-01/Microsoft.NotificationHubs.json"`
-npm ERR! Exit status 1
-npm ERR! 
-npm ERR! Failed at the arm-templator-types@0.0.2 generate script.
-npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
-
-npm ERR! A complete log of this run can be found in:
-npm ERR!     /Users/antm88/.npm/_logs/2020-02-17T05_43_36_755Z-debug.log
-
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-04-01/Microsoft.NotificationHubs.json"
 
 
-/Users/antm88/Desktop/arm-templator-types/cli/generate.ts:88
-    throw `Unable to process $ref ${ref}`;
-    ^
-Unable to process $ref https://schema.management.azure.com/schemas/common/definitions.json#/definitions/resourceBase
-npm ERR! code ELIFECYCLE
-npm ERR! errno 1
-npm ERR! arm-templator-types@0.0.2 generate: `ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-04-01/Microsoft.NotificationHubs.json"`
-npm ERR! Exit status 1
-npm ERR! 
-npm ERR! Failed at the arm-templator-types@0.0.2 generate script.
-npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
-
-npm ERR! A complete log of this run can be found in:
-npm ERR!     /Users/antm88/.npm/_logs/2020-02-17T05_43_39_550Z-debug.log
-
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2015-11-01/Microsoft.Network.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-03-01/Microsoft.Network.json"
 
 
-/Users/antm88/Desktop/arm-templator-types/cli/generate.ts:88
-    throw `Unable to process $ref ${ref}`;
-    ^
-Unable to process $ref https://schema.management.azure.com/schemas/common/definitions.json#/definitions/numberOrExpression
-npm ERR! code ELIFECYCLE
-npm ERR! errno 1
-npm ERR! arm-templator-types@0.0.2 generate: `ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-03-01/Microsoft.Network.json"`
-npm ERR! Exit status 1
-npm ERR! 
-npm ERR! Failed at the arm-templator-types@0.0.2 generate script.
-npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
-
-npm ERR! A complete log of this run can be found in:
-npm ERR!     /Users/antm88/.npm/_logs/2020-02-17T05_43_45_398Z-debug.log
-
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-05-01/Microsoft.Network.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-04-01/Microsoft.Network.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2015-08-01/Microsoft.Storage.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2016-01-01/Microsoft.Storage.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-06-01/Microsoft.Storage.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-10-01/Microsoft.Storage.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-02-01/Microsoft.Storage.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-11-01/Microsoft.Storage.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-04-01/Microsoft.Storage.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-06-01/Microsoft.Storage.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-03-01-preview/Microsoft.Storage.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-07-01/Microsoft.Storage.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2015-08-01/Microsoft.Compute.json"
 
 
-/Users/antm88/Desktop/arm-templator-types/cli/generate.ts:118
-                throw `Missing items declaration`;
-                ^
-Missing items declaration
-npm ERR! code ELIFECYCLE
-npm ERR! errno 1
-npm ERR! arm-templator-types@0.0.2 generate: `ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2015-08-01/Microsoft.Compute.json"`
-npm ERR! Exit status 1
-npm ERR! 
-npm ERR! Failed at the arm-templator-types@0.0.2 generate script.
-npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
-
-npm ERR! A complete log of this run can be found in:
-npm ERR!     /Users/antm88/.npm/_logs/2020-02-17T05_44_23_207Z-debug.log
-
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2014-08-01-preview/Microsoft.Scheduler.json"
 
 
-/Users/antm88/Desktop/arm-templator-types/cli/generate.ts:88
-    throw `Unable to process $ref ${ref}`;
-    ^
-Unable to process $ref https://schema.management.azure.com/schemas/common/definitions.json#/definitions/resourceBase
-npm ERR! code ELIFECYCLE
-npm ERR! errno 1
-npm ERR! arm-templator-types@0.0.2 generate: `ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2014-08-01-preview/Microsoft.Scheduler.json"`
-npm ERR! Exit status 1
-npm ERR! 
-npm ERR! Failed at the arm-templator-types@0.0.2 generate script.
-npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
-
-npm ERR! A complete log of this run can be found in:
-npm ERR!     /Users/antm88/.npm/_logs/2020-02-17T05_44_26_125Z-debug.log
-
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2015-10-01-preview/Microsoft.DataLakeStore.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2016-11-01/Microsoft.DataLakeStore.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2016-01-29/Microsoft.PowerBI.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-10-01/Microsoft.PowerBIDedicated.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2016-03-30/Microsoft.DataCatalog.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2015-05-04-preview/Microsoft.Network.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2016-04-01/Microsoft.Network.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2015-06-01/Microsoft.Cdn.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2016-04-02/Microsoft.Cdn.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2015-02-01-preview/Microsoft.Logic.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2016-06-01/Microsoft.Logic.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2016-10-01/Microsoft.Logic.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-07-01/Microsoft.Logic.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2016-06-01/Microsoft.Web.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2016-03-01/Microsoft.Scheduler.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2016-05-01-preview/Microsoft.MachineLearning.json"
 
 
-/Users/antm88/Desktop/arm-templator-types/cli/generate.ts:135
+/Users/antm88/Desktop/arm-templator-types/cli/generate.ts:150
         throw `Failed to read array property ${JSON.stringify(prop)}`;
         ^
 Failed to read array property {"type":"array","items":{"type":"object"}}
 npm ERR! code ELIFECYCLE
 npm ERR! errno 1
-npm ERR! arm-templator-types@0.0.2 generate: `ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2016-05-01-preview/Microsoft.MachineLearning.json"`
+npm ERR! arm-templator-types@0.0.4 generate: `ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2016-05-01-preview/Microsoft.MachineLearning.json"`
 npm ERR! Exit status 1
 npm ERR! 
-npm ERR! Failed at the arm-templator-types@0.0.2 generate script.
+npm ERR! Failed at the arm-templator-types@0.0.4 generate script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /Users/antm88/.npm/_logs/2020-02-17T05_45_12_025Z-debug.log
+npm ERR!     /Users/antm88/.npm/_logs/2020-02-17T15_49_30_067Z-debug.log
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2016-04-01/Microsoft.MachineLearning.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-11-19/Microsoft.MachineLearningServices.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-05-01-preview/Microsoft.MachineLearningExperimentation.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-03-01-preview/Microsoft.MachineLearningServices.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2015-10-01/Microsoft.Media.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-07-01/Microsoft.Media.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2016-09-01/Microsoft.Authorization.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2016-09-01-preview/Microsoft.Solutions.json"
 
 
-/Users/antm88/Desktop/arm-templator-types/cli/generate.ts:88
+/Users/antm88/Desktop/arm-templator-types/cli/generate.ts:103
     throw `Unable to process $ref ${ref}`;
     ^
 Unable to process $ref https://schema.management.azure.com/schemas/common/definitions.json#/definitions/resourcePlan
 npm ERR! code ELIFECYCLE
 npm ERR! errno 1
-npm ERR! arm-templator-types@0.0.2 generate: `ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2016-09-01-preview/Microsoft.Solutions.json"`
+npm ERR! arm-templator-types@0.0.4 generate: `ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2016-09-01-preview/Microsoft.Solutions.json"`
 npm ERR! Exit status 1
 npm ERR! 
-npm ERR! Failed at the arm-templator-types@0.0.2 generate script.
+npm ERR! Failed at the arm-templator-types@0.0.4 generate script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /Users/antm88/.npm/_logs/2020-02-17T05_45_35_941Z-debug.log
+npm ERR!     /Users/antm88/.npm/_logs/2020-02-17T15_49_52_617Z-debug.log
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2016-07-07/Microsoft.ApiManagement.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-03-01/Microsoft.ApiManagement.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-01-01/Microsoft.ApiManagement.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-06-01-preview/Microsoft.ApiManagement.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-01-01/Microsoft.ApiManagement.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2016-04-30-preview/Microsoft.Compute.json"
 
 
-/Users/antm88/Desktop/arm-templator-types/cli/generate.ts:118
-                throw `Missing items declaration`;
-                ^
-Missing items declaration
-npm ERR! code ELIFECYCLE
-npm ERR! errno 1
-npm ERR! arm-templator-types@0.0.2 generate: `ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2016-04-30-preview/Microsoft.Compute.json"`
-npm ERR! Exit status 1
-npm ERR! 
-npm ERR! Failed at the arm-templator-types@0.0.2 generate script.
-npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
-
-npm ERR! A complete log of this run can be found in:
-npm ERR!     /Users/antm88/.npm/_logs/2020-02-17T05_45_53_345Z-debug.log
-
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-03-01-preview/Microsoft.Insights.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2016-06-01/Microsoft.Network.json"
 
 
-/Users/antm88/Desktop/arm-templator-types/cli/generate.ts:88
-    throw `Unable to process $ref ${ref}`;
-    ^
-Unable to process $ref https://schema.management.azure.com/schemas/common/definitions.json#/definitions/numberOrExpression
-npm ERR! code ELIFECYCLE
-npm ERR! errno 1
-npm ERR! arm-templator-types@0.0.2 generate: `ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2016-06-01/Microsoft.Network.json"`
-npm ERR! Exit status 1
-npm ERR! 
-npm ERR! Failed at the arm-templator-types@0.0.2 generate script.
-npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
-
-npm ERR! A complete log of this run can be found in:
-npm ERR!     /Users/antm88/.npm/_logs/2020-02-17T05_45_59_081Z-debug.log
-
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2016-07-01/Microsoft.Network.json"
 
 
-/Users/antm88/Desktop/arm-templator-types/cli/generate.ts:88
-    throw `Unable to process $ref ${ref}`;
-    ^
-Unable to process $ref https://schema.management.azure.com/schemas/common/definitions.json#/definitions/numberOrExpression
-npm ERR! code ELIFECYCLE
-npm ERR! errno 1
-npm ERR! arm-templator-types@0.0.2 generate: `ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2016-07-01/Microsoft.Network.json"`
-npm ERR! Exit status 1
-npm ERR! 
-npm ERR! Failed at the arm-templator-types@0.0.2 generate script.
-npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
-
-npm ERR! A complete log of this run can be found in:
-npm ERR!     /Users/antm88/.npm/_logs/2020-02-17T05_46_02_004Z-debug.log
-
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2016-08-01/Microsoft.Network.json"
 
 
-/Users/antm88/Desktop/arm-templator-types/cli/generate.ts:88
-    throw `Unable to process $ref ${ref}`;
-    ^
-Unable to process $ref https://schema.management.azure.com/schemas/common/definitions.json#/definitions/numberOrExpression
-npm ERR! code ELIFECYCLE
-npm ERR! errno 1
-npm ERR! arm-templator-types@0.0.2 generate: `ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2016-08-01/Microsoft.Network.json"`
-npm ERR! Exit status 1
-npm ERR! 
-npm ERR! Failed at the arm-templator-types@0.0.2 generate script.
-npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
-
-npm ERR! A complete log of this run can be found in:
-npm ERR!     /Users/antm88/.npm/_logs/2020-02-17T05_46_04_868Z-debug.log
-
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2016-09-01/Microsoft.Network.json"
 
 
-/Users/antm88/Desktop/arm-templator-types/cli/generate.ts:88
-    throw `Unable to process $ref ${ref}`;
-    ^
-Unable to process $ref https://schema.management.azure.com/schemas/common/definitions.json#/definitions/numberOrExpression
-npm ERR! code ELIFECYCLE
-npm ERR! errno 1
-npm ERR! arm-templator-types@0.0.2 generate: `ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2016-09-01/Microsoft.Network.json"`
-npm ERR! Exit status 1
-npm ERR! 
-npm ERR! Failed at the arm-templator-types@0.0.2 generate script.
-npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
-
-npm ERR! A complete log of this run can be found in:
-npm ERR!     /Users/antm88/.npm/_logs/2020-02-17T05_46_07_704Z-debug.log
-
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2016-10-01/Microsoft.Network.json"
 
 
-/Users/antm88/Desktop/arm-templator-types/cli/generate.ts:88
-    throw `Unable to process $ref ${ref}`;
-    ^
-Unable to process $ref https://schema.management.azure.com/schemas/common/definitions.json#/definitions/numberOrExpression
-npm ERR! code ELIFECYCLE
-npm ERR! errno 1
-npm ERR! arm-templator-types@0.0.2 generate: `ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2016-10-01/Microsoft.Network.json"`
-npm ERR! Exit status 1
-npm ERR! 
-npm ERR! Failed at the arm-templator-types@0.0.2 generate script.
-npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
-
-npm ERR! A complete log of this run can be found in:
-npm ERR!     /Users/antm88/.npm/_logs/2020-02-17T05_46_10_521Z-debug.log
-
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2016-11-01/Microsoft.Network.json"
 
 
-/Users/antm88/Desktop/arm-templator-types/cli/generate.ts:88
-    throw `Unable to process $ref ${ref}`;
-    ^
-Unable to process $ref https://schema.management.azure.com/schemas/common/definitions.json#/definitions/numberOrExpression
-npm ERR! code ELIFECYCLE
-npm ERR! errno 1
-npm ERR! arm-templator-types@0.0.2 generate: `ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2016-11-01/Microsoft.Network.json"`
-npm ERR! Exit status 1
-npm ERR! 
-npm ERR! Failed at the arm-templator-types@0.0.2 generate script.
-npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
-
-npm ERR! A complete log of this run can be found in:
-npm ERR!     /Users/antm88/.npm/_logs/2020-02-17T05_46_13_449Z-debug.log
-
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2016-12-01/Microsoft.Network.json"
 
 
-/Users/antm88/Desktop/arm-templator-types/cli/generate.ts:88
-    throw `Unable to process $ref ${ref}`;
-    ^
-Unable to process $ref https://schema.management.azure.com/schemas/common/definitions.json#/definitions/numberOrExpression
-npm ERR! code ELIFECYCLE
-npm ERR! errno 1
-npm ERR! arm-templator-types@0.0.2 generate: `ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2016-12-01/Microsoft.Network.json"`
-npm ERR! Exit status 1
-npm ERR! 
-npm ERR! Failed at the arm-templator-types@0.0.2 generate script.
-npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
-
-npm ERR! A complete log of this run can be found in:
-npm ERR!     /Users/antm88/.npm/_logs/2020-02-17T05_46_16_325Z-debug.log
-
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-06-01/Microsoft.Network.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-03-30/Microsoft.Compute.json"
 
 
-/Users/antm88/Desktop/arm-templator-types/cli/generate.ts:118
-                throw `Missing items declaration`;
-                ^
-Missing items declaration
-npm ERR! code ELIFECYCLE
-npm ERR! errno 1
-npm ERR! arm-templator-types@0.0.2 generate: `ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-03-30/Microsoft.Compute.json"`
-npm ERR! Exit status 1
-npm ERR! 
-npm ERR! Failed at the arm-templator-types@0.0.2 generate script.
-npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
-
-npm ERR! A complete log of this run can be found in:
-npm ERR!     /Users/antm88/.npm/_logs/2020-02-17T05_46_22_074Z-debug.log
-
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-04-01/Microsoft.Insights.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2015-05-01/Microsoft.Insights.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2016-03-01/Microsoft.StreamAnalytics.json"
 
 
-/Users/antm88/Desktop/arm-templator-types/cli/generate.ts:88
-    throw `Unable to process $ref ${ref}`;
-    ^
-Unable to process $ref #/resourceDefinitions/streamingjobs_inputs
-npm ERR! code ELIFECYCLE
-npm ERR! errno 1
-npm ERR! arm-templator-types@0.0.2 generate: `ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2016-03-01/Microsoft.StreamAnalytics.json"`
-npm ERR! Exit status 1
-npm ERR! 
-npm ERR! Failed at the arm-templator-types@0.0.2 generate script.
-npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
-
-npm ERR! A complete log of this run can be found in:
-npm ERR!     /Users/antm88/.npm/_logs/2020-02-17T05_46_30_671Z-debug.log
-
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-08-01/Microsoft.Network.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-09-01/Microsoft.Network.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-10-01/Microsoft.Network.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2016-11-01/Microsoft.ImportExport.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-02-02/Microsoft.Migrate.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-06-01/Microsoft.AzureStack.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-11-01/Microsoft.Network.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-12-01/Microsoft.Compute.json"
 
 
-/Users/antm88/Desktop/arm-templator-types/cli/generate.ts:118
-                throw `Missing items declaration`;
-                ^
-Missing items declaration
-npm ERR! code ELIFECYCLE
-npm ERR! errno 1
-npm ERR! arm-templator-types@0.0.2 generate: `ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-12-01/Microsoft.Compute.json"`
-npm ERR! Exit status 1
-npm ERR! 
-npm ERR! Failed at the arm-templator-types@0.0.2 generate script.
-npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
-
-npm ERR! A complete log of this run can be found in:
-npm ERR!     /Users/antm88/.npm/_logs/2020-02-17T05_46_57_520Z-debug.log
-
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2015-05-01-preview/Microsoft.Network.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2015-06-15/Microsoft.Network.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2016-03-30/Microsoft.Network.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-01-01/Microsoft.Network.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-02-01/Microsoft.Network.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-06-01/Microsoft.Network.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-07-01/Microsoft.Network.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-10-01/Microsoft.Network.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-11-01/Microsoft.Network.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-12-01/Microsoft.Network.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-02-01/Microsoft.Network.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-04-01/Microsoft.Network.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-06-01/Microsoft.Network.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-07-01/Microsoft.Network.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-08-01/Microsoft.Network.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-09-01/Microsoft.Network.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-05-01/Microsoft.Network.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-09-01/Microsoft.Network.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-11-01/Microsoft.Network.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-11-15-preview/Microsoft.DataMigration.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-11-15-privatepreview/Microsoft.DataMigration.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2016-03-01/Microsoft.Insights.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-10-01/Microsoft.Insights.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-03-01/Microsoft.Insights.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-01-01/Microsoft.EventGrid.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-06-01/Microsoft.EventGrid.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-04-16/Microsoft.Insights.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2016-12-01/Microsoft.RecoveryServices.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-07-01/Microsoft.RecoveryServices.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-04-01/Microsoft.Compute.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-06-01/Microsoft.Compute.Galleries.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-06-01/Microsoft.Compute.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-06-01/Microsoft.Compute.Extensions.json"
 
 
-/Users/antm88/Desktop/arm-templator-types/cli/generate.ts:118
-                throw `Missing items declaration`;
-                ^
-Missing items declaration
-npm ERR! code ELIFECYCLE
-npm ERR! errno 1
-npm ERR! arm-templator-types@0.0.2 generate: `ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-06-01/Microsoft.Compute.Extensions.json"`
-npm ERR! Exit status 1
-npm ERR! 
-npm ERR! Failed at the arm-templator-types@0.0.2 generate script.
-npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
-
-npm ERR! A complete log of this run can be found in:
-npm ERR!     /Users/antm88/.npm/_logs/2020-02-17T05_50_02_169Z-debug.log
-
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-10-01/Microsoft.Compute.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-10-01/Microsoft.Compute.Extensions.json"
 
 
-/Users/antm88/Desktop/arm-templator-types/cli/generate.ts:118
-                throw `Missing items declaration`;
-                ^
-Missing items declaration
-npm ERR! code ELIFECYCLE
-npm ERR! errno 1
-npm ERR! arm-templator-types@0.0.2 generate: `ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-10-01/Microsoft.Compute.Extensions.json"`
-npm ERR! Exit status 1
-npm ERR! 
-npm ERR! Failed at the arm-templator-types@0.0.2 generate script.
-npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
-
-npm ERR! A complete log of this run can be found in:
-npm ERR!     /Users/antm88/.npm/_logs/2020-02-17T05_50_11_358Z-debug.log
-
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-03-01/Microsoft.Compute.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-03-01/Microsoft.Compute.Extensions.json"
 
 
-/Users/antm88/Desktop/arm-templator-types/cli/generate.ts:118
-                throw `Missing items declaration`;
-                ^
-Missing items declaration
-npm ERR! code ELIFECYCLE
-npm ERR! errno 1
-npm ERR! arm-templator-types@0.0.2 generate: `ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-03-01/Microsoft.Compute.Extensions.json"`
-npm ERR! Exit status 1
-npm ERR! 
-npm ERR! Failed at the arm-templator-types@0.0.2 generate script.
-npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
-
-npm ERR! A complete log of this run can be found in:
-npm ERR!     /Users/antm88/.npm/_logs/2020-02-17T05_50_18_570Z-debug.log
-
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-03-01/Microsoft.Compute.Galleries.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-05-01/Microsoft.Maps.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-05-01-preview/Microsoft.Insights.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2015-11-01-preview/Microsoft.OperationsManagement.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-06-01/Microsoft.StorSimple.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2016-10-01/Microsoft.StorSimple.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-10-01/Microsoft.SignalRService.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2015-08-31-preview/Microsoft.ManagedIdentity.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-11-30/Microsoft.ManagedIdentity.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2015-06-01-preview/Microsoft.Security.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-08-01-preview/Microsoft.Security.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-06-01/Microsoft.Security.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-03-01/Microsoft.Insights.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-06-01-preview/Microsoft.ManagedServices.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-06-01/Microsoft.ManagedServices.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-09-01-preview/Microsoft.BareMetal.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-03-01/Microsoft.Authorization.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-05-01/Microsoft.Authorization.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-01-01/Microsoft.Authorization.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-06-01/Microsoft.Authorization.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-09-01/Microsoft.Authorization.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-02-01/Microsoft.Web.json"
 
 
-/Users/antm88/Desktop/arm-templator-types/cli/generate.ts:213
+/Users/antm88/Desktop/arm-templator-types/cli/generate.ts:237
                 throw `Unable to process oneOf for resource ${name}`;
                 ^
 Unable to process oneOf for resource sites_config
 npm ERR! code ELIFECYCLE
 npm ERR! errno 1
-npm ERR! arm-templator-types@0.0.2 generate: `ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-02-01/Microsoft.Web.json"`
+npm ERR! arm-templator-types@0.0.4 generate: `ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-02-01/Microsoft.Web.json"`
 npm ERR! Exit status 1
 npm ERR! 
-npm ERR! Failed at the arm-templator-types@0.0.2 generate script.
+npm ERR! Failed at the arm-templator-types@0.0.4 generate script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /Users/antm88/.npm/_logs/2020-02-17T05_51_33_735Z-debug.log
+npm ERR!     /Users/antm88/.npm/_logs/2020-02-17T15_54_27_556Z-debug.log
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-11-01/Microsoft.Web.json"
 
 
-/Users/antm88/Desktop/arm-templator-types/cli/generate.ts:213
+/Users/antm88/Desktop/arm-templator-types/cli/generate.ts:237
                 throw `Unable to process oneOf for resource ${name}`;
                 ^
 Unable to process oneOf for resource sites_config
 npm ERR! code ELIFECYCLE
 npm ERR! errno 1
-npm ERR! arm-templator-types@0.0.2 generate: `ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-11-01/Microsoft.Web.json"`
+npm ERR! arm-templator-types@0.0.4 generate: `ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-11-01/Microsoft.Web.json"`
 npm ERR! Exit status 1
 npm ERR! 
-npm ERR! Failed at the arm-templator-types@0.0.2 generate script.
+npm ERR! Failed at the arm-templator-types@0.0.4 generate script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /Users/antm88/.npm/_logs/2020-02-17T05_51_36_273Z-debug.log
+npm ERR!     /Users/antm88/.npm/_logs/2020-02-17T15_54_30_398Z-debug.log
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-05-01-preview/Microsoft.AppPlatform.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-07-01/Microsoft.Compute.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-07-01/Microsoft.Compute.Extensions.json"
 
 
-/Users/antm88/Desktop/arm-templator-types/cli/generate.ts:118
-                throw `Missing items declaration`;
-                ^
-Missing items declaration
-npm ERR! code ELIFECYCLE
-npm ERR! errno 1
-npm ERR! arm-templator-types@0.0.2 generate: `ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-07-01/Microsoft.Compute.Extensions.json"`
-npm ERR! Exit status 1
-npm ERR! 
-npm ERR! Failed at the arm-templator-types@0.0.2 generate script.
-npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
-
-npm ERR! A complete log of this run can be found in:
-npm ERR!     /Users/antm88/.npm/_logs/2020-02-17T05_51_48_138Z-debug.log
-
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-01-01/Microsoft.AAD.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-06-01/Microsoft.AAD.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2020-01-01/Microsoft.AAD.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-03-01/Microsoft.AlertsManagement.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-05-05-preview/Microsoft.AlertsManagement.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-06-01/Microsoft.AlertsManagement.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-09-01-preview/Microsoft.Attestation.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2015-10-31/Microsoft.Automation.json"
 
 
-/Users/antm88/Desktop/arm-templator-types/cli/generate.ts:213
+/Users/antm88/Desktop/arm-templator-types/cli/generate.ts:237
                 throw `Unable to process oneOf for resource ${name}`;
                 ^
 Unable to process oneOf for resource automationAccounts_runbooks_draft
 npm ERR! code ELIFECYCLE
 npm ERR! errno 1
-npm ERR! arm-templator-types@0.0.2 generate: `ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2015-10-31/Microsoft.Automation.json"`
+npm ERR! arm-templator-types@0.0.4 generate: `ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2015-10-31/Microsoft.Automation.json"`
 npm ERR! Exit status 1
 npm ERR! 
-npm ERR! Failed at the arm-templator-types@0.0.2 generate script.
+npm ERR! Failed at the arm-templator-types@0.0.4 generate script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /Users/antm88/.npm/_logs/2020-02-17T05_52_18_144Z-debug.log
+npm ERR!     /Users/antm88/.npm/_logs/2020-02-17T15_55_07_670Z-debug.log
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-05-15-preview/Microsoft.Automation.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-01-15/Microsoft.Automation.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-06-30/Microsoft.Automation.json"
 
 
-/Users/antm88/Desktop/arm-templator-types/cli/generate.ts:213
+/Users/antm88/Desktop/arm-templator-types/cli/generate.ts:237
                 throw `Unable to process oneOf for resource ${name}`;
                 ^
 Unable to process oneOf for resource automationAccounts_runbooks_draft
 npm ERR! code ELIFECYCLE
 npm ERR! errno 1
-npm ERR! arm-templator-types@0.0.2 generate: `ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-06-30/Microsoft.Automation.json"`
+npm ERR! arm-templator-types@0.0.4 generate: `ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-06-30/Microsoft.Automation.json"`
 npm ERR! Exit status 1
 npm ERR! 
-npm ERR! Failed at the arm-templator-types@0.0.2 generate script.
+npm ERR! Failed at the arm-templator-types@0.0.4 generate script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /Users/antm88/.npm/_logs/2020-02-17T05_52_30_677Z-debug.log
+npm ERR!     /Users/antm88/.npm/_logs/2020-02-17T15_55_15_947Z-debug.log
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-03-01-preview/Microsoft.AzureData.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2015-12-01/Microsoft.Batch.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-01-01/Microsoft.Batch.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-05-01/Microsoft.Batch.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-09-01/Microsoft.Batch.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-12-01/Microsoft.Batch.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-04-01/Microsoft.Batch.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-08-01/Microsoft.Batch.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-09-01-preview/Microsoft.BatchAI.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-03-01/Microsoft.BatchAI.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-05-01/Microsoft.BatchAI.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-06-01-preview/Microsoft.Blockchain.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-12-01/Microsoft.BotService.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-07-12/Microsoft.BotService.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2015-08-01/Microsoft.Cache.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2016-04-01/Microsoft.Cache.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-02-01/Microsoft.Cache.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-10-01/Microsoft.Cache.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-03-01/Microsoft.Cache.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-07-01/Microsoft.Cache.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2016-02-01-preview/Microsoft.CognitiveServices.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-04-18/Microsoft.CognitiveServices.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-01-31/Microsoft.Consumption.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-03-31/Microsoft.Consumption.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-06-30/Microsoft.Consumption.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-08-31/Microsoft.Consumption.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-10-01/Microsoft.Consumption.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-01-01/Microsoft.Consumption.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-04-01-preview/Microsoft.Consumption.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-05-01/Microsoft.Consumption.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-05-01-preview/Microsoft.Consumption.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-06-01/Microsoft.Consumption.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-10-01/Microsoft.Consumption.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-08-01-preview/Microsoft.ContainerInstance.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-10-01-preview/Microsoft.ContainerInstance.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-12-01-preview/Microsoft.ContainerInstance.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-02-01-preview/Microsoft.ContainerInstance.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-04-01/Microsoft.ContainerInstance.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-06-01/Microsoft.ContainerInstance.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-09-01/Microsoft.ContainerInstance.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-10-01/Microsoft.ContainerInstance.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2016-06-27-preview/Microsoft.ContainerRegistry.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-03-01/Microsoft.ContainerRegistry.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-06-01-preview/Microsoft.ContainerRegistry.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-10-01/Microsoft.ContainerRegistry.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-02-01-preview/Microsoft.ContainerRegistry.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-09-01/Microsoft.ContainerRegistry.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-04-01/Microsoft.ContainerRegistry.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-05-01/Microsoft.ContainerRegistry.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-05-01-preview/Microsoft.ContainerRegistry.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-06-01-preview/Microsoft.ContainerRegistry.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-12-01-preview/Microsoft.ContainerRegistry.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2016-03-30/Microsoft.ContainerService.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2016-09-30/Microsoft.ContainerService.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-01-31/Microsoft.ContainerService.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-07-01/Microsoft.ContainerService.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-08-31/Microsoft.ContainerService.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-03-31/Microsoft.ContainerService.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-08-01-preview/Microsoft.ContainerService.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-09-30-preview/Microsoft.ContainerService.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-02-01/Microsoft.ContainerService.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-04-01/Microsoft.ContainerService.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-04-30/Microsoft.ContainerService.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-06-01/Microsoft.ContainerService.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-08-01/Microsoft.ContainerService.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-10-01/Microsoft.ContainerService.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-11-01/Microsoft.ContainerService.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2020-01-01/Microsoft.ContainerService.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-09-01-preview/Microsoft.CustomProviders.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-01-01/Microsoft.DataBox.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-09-01/Microsoft.DataBox.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-03-01/Microsoft.DataBoxEdge.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-07-01/Microsoft.DataBoxEdge.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-08-01/Microsoft.DataBoxEdge.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-04-01/Microsoft.Databricks.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-09-01-preview/Microsoft.DataFactory.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-06-01/Microsoft.DataFactory.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2015-10-01-preview/Microsoft.DataLakeAnalytics.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2016-11-01/Microsoft.DataLakeAnalytics.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-11-01-preview/Microsoft.DataShare.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-11-01/Microsoft.DataShare.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-06-01/Microsoft.DBforMariaDB.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-06-01-preview/Microsoft.DBforMariaDB.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-12-01/Microsoft.DBforMySQL.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-12-01-preview/Microsoft.DBforMySQL.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-06-01/Microsoft.DBforMySQL.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-12-01/Microsoft.DBforPostgreSQL.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-12-01-preview/Microsoft.DBforPostgreSQL.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-06-01/Microsoft.DBforPostgreSQL.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-09-01-preview/Microsoft.DeploymentManager.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-11-01-preview/Microsoft.DeploymentManager.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2016-02-03/Microsoft.Devices.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-01-19/Microsoft.Devices.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-07-01/Microsoft.Devices.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-01-22/Microsoft.Devices.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-04-01/Microsoft.Devices.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-12-01-preview/Microsoft.Devices.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-03-22/Microsoft.Devices.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-03-22-preview/Microsoft.Devices.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-07-01-preview/Microsoft.Devices.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-11-04/Microsoft.Devices.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-08-21-preview/Microsoft.Devices.Provisioning.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-11-15/Microsoft.Devices.Provisioning.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-01-22/Microsoft.Devices.Provisioning.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-07-01-preview/Microsoft.DevOps.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-04-01/Microsoft.DevSpaces.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2015-05-21-preview/Microsoft.DevTestLab.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2016-05-15/Microsoft.DevTestLab.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-09-15/Microsoft.DevTestLab.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2015-04-08/Microsoft.DocumentDB.json"
 
 
-/Users/antm88/Desktop/arm-templator-types/cli/generate.ts:213
+/Users/antm88/Desktop/arm-templator-types/cli/generate.ts:237
                 throw `Unable to process oneOf for resource ${name}`;
                 ^
 Unable to process oneOf for resource databaseAccounts_apis_databases_settings
 npm ERR! code ELIFECYCLE
 npm ERR! errno 1
-npm ERR! arm-templator-types@0.0.2 generate: `ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2015-04-08/Microsoft.DocumentDB.json"`
+npm ERR! arm-templator-types@0.0.4 generate: `ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2015-04-08/Microsoft.DocumentDB.json"`
 npm ERR! Exit status 1
 npm ERR! 
-npm ERR! Failed at the arm-templator-types@0.0.2 generate script.
+npm ERR! Failed at the arm-templator-types@0.0.4 generate script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /Users/antm88/.npm/_logs/2020-02-17T05_57_56_534Z-debug.log
+npm ERR!     /Users/antm88/.npm/_logs/2020-02-17T16_00_51_183Z-debug.log
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2015-11-06/Microsoft.DocumentDB.json"
 
 
-/Users/antm88/Desktop/arm-templator-types/cli/generate.ts:213
+/Users/antm88/Desktop/arm-templator-types/cli/generate.ts:237
                 throw `Unable to process oneOf for resource ${name}`;
                 ^
 Unable to process oneOf for resource databaseAccounts_apis_databases_settings
 npm ERR! code ELIFECYCLE
 npm ERR! errno 1
-npm ERR! arm-templator-types@0.0.2 generate: `ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2015-11-06/Microsoft.DocumentDB.json"`
+npm ERR! arm-templator-types@0.0.4 generate: `ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2015-11-06/Microsoft.DocumentDB.json"`
 npm ERR! Exit status 1
 npm ERR! 
-npm ERR! Failed at the arm-templator-types@0.0.2 generate script.
+npm ERR! Failed at the arm-templator-types@0.0.4 generate script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /Users/antm88/.npm/_logs/2020-02-17T05_57_59_077Z-debug.log
+npm ERR!     /Users/antm88/.npm/_logs/2020-02-17T16_00_54_886Z-debug.log
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2016-03-19/Microsoft.DocumentDB.json"
 
 
-/Users/antm88/Desktop/arm-templator-types/cli/generate.ts:213
+/Users/antm88/Desktop/arm-templator-types/cli/generate.ts:237
                 throw `Unable to process oneOf for resource ${name}`;
                 ^
 Unable to process oneOf for resource databaseAccounts_apis_databases_settings
 npm ERR! code ELIFECYCLE
 npm ERR! errno 1
-npm ERR! arm-templator-types@0.0.2 generate: `ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2016-03-19/Microsoft.DocumentDB.json"`
+npm ERR! arm-templator-types@0.0.4 generate: `ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2016-03-19/Microsoft.DocumentDB.json"`
 npm ERR! Exit status 1
 npm ERR! 
-npm ERR! Failed at the arm-templator-types@0.0.2 generate script.
+npm ERR! Failed at the arm-templator-types@0.0.4 generate script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /Users/antm88/.npm/_logs/2020-02-17T05_58_02_496Z-debug.log
+npm ERR!     /Users/antm88/.npm/_logs/2020-02-17T16_00_58_624Z-debug.log
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2016-03-31/Microsoft.DocumentDB.json"
 
 
-/Users/antm88/Desktop/arm-templator-types/cli/generate.ts:213
+/Users/antm88/Desktop/arm-templator-types/cli/generate.ts:237
                 throw `Unable to process oneOf for resource ${name}`;
                 ^
 Unable to process oneOf for resource databaseAccounts_apis_databases_settings
 npm ERR! code ELIFECYCLE
 npm ERR! errno 1
-npm ERR! arm-templator-types@0.0.2 generate: `ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2016-03-31/Microsoft.DocumentDB.json"`
+npm ERR! arm-templator-types@0.0.4 generate: `ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2016-03-31/Microsoft.DocumentDB.json"`
 npm ERR! Exit status 1
 npm ERR! 
-npm ERR! Failed at the arm-templator-types@0.0.2 generate script.
+npm ERR! Failed at the arm-templator-types@0.0.4 generate script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /Users/antm88/.npm/_logs/2020-02-17T05_58_05_517Z-debug.log
+npm ERR!     /Users/antm88/.npm/_logs/2020-02-17T16_01_01_418Z-debug.log
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-08-01/Microsoft.DocumentDB.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-08-01-preview/Microsoft.DocumentDB.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-12-12/Microsoft.DocumentDB.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-12-03/Microsoft.EnterpriseKnowledgeGraph.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2014-09-01/Microsoft.EventHub.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2015-08-01/Microsoft.EventHub.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-04-01/Microsoft.EventHub.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-01-01-preview/Microsoft.EventHub.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-11-03-preview/Microsoft.HanaOnAzure.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2015-03-01-preview/Microsoft.HDInsight.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-06-01-preview/Microsoft.HDInsight.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-12-12/Microsoft.HybridCompute.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2016-06-01/Microsoft.HybridData.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-09-01/Microsoft.IotCentral.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-10-01-preview/Microsoft.IoTSpaces.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-10-15/Microsoft.LabServices.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-06-01-preview/Microsoft.MachineLearningCompute.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-08-01-preview/Microsoft.MachineLearningCompute.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-06-01-preview/Microsoft.Maintenance.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-06-01-preview/Microsoft.ManagedNetwork.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-08-15/Microsoft.NetApp.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-05-01/Microsoft.NetApp.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-06-01/Microsoft.NetApp.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-07-01/Microsoft.NetApp.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-08-01/Microsoft.NetApp.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-10-01/Microsoft.NetApp.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-11-01/Microsoft.NetApp.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2015-03-20/Microsoft.OperationalInsights.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2015-11-01-preview/Microsoft.OperationalInsights.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-08-01-preview/Microsoft.OperationalInsights.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-08-01-preview/Microsoft.Peering.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-09-01-preview/Microsoft.Peering.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2020-01-01-preview/Microsoft.Peering.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-07-01-preview/Microsoft.PolicyInsights.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-07-01/Microsoft.PolicyInsights.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2015-08-01-preview/Microsoft.Portal.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-10-01-preview/Microsoft.Portal.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-01-01-preview/Microsoft.Portal.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2016-07-01/Microsoft.Relay.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-04-01/Microsoft.Relay.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2015-11-01/Microsoft.Resources.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2016-02-01/Microsoft.Resources.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2016-07-01/Microsoft.Resources.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2016-09-01/Microsoft.Resources.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-05-10/Microsoft.Resources.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-02-01/Microsoft.Resources.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-05-01/Microsoft.Resources.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-03-01/Microsoft.Resources.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-05-01/Microsoft.Resources.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-05-10/Microsoft.Resources.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-07-01/Microsoft.Resources.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-08-01/Microsoft.Resources.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-10-01/Microsoft.Resources.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-10-01-preview/Microsoft.Resources.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2015-08-01/Microsoft.ServiceBus.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-04-01/Microsoft.ServiceBus.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-01-01-preview/Microsoft.ServiceBus.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2016-09-01/Microsoft.ServiceFabric.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-07-01-preview/Microsoft.ServiceFabric.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-02-01/Microsoft.ServiceFabric.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-03-01/Microsoft.ServiceFabric.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-03-01-preview/Microsoft.ServiceFabric.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-06-01-preview/Microsoft.ServiceFabric.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-07-01-preview/Microsoft.ServiceFabricMesh.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-09-01-preview/Microsoft.ServiceFabricMesh.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2014-04-01/Microsoft.Sql.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2015-05-01-preview/Microsoft.Sql.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-03-01-preview/Microsoft.Sql.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-10-01-preview/Microsoft.Sql.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-06-01-preview/Microsoft.Sql.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-06-01-preview/Microsoft.Sql.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-03-01-preview/Microsoft.SqlVirtualMachine.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-08-01-preview/Microsoft.StorageCache.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-11-01/Microsoft.StorageCache.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-06-05-preview/Microsoft.StorageSync.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-04-02/Microsoft.StorageSync.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-07-01/Microsoft.StorageSync.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-10-01/Microsoft.StorageSync.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-02-01/Microsoft.StorageSync.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-03-01/Microsoft.StorageSync.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-06-01/Microsoft.StorageSync.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-02-28-preview/Microsoft.TimeSeriesInsights.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-11-15/Microsoft.TimeSeriesInsights.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-08-15-preview/Microsoft.TimeSeriesInsights.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-02-01-preview/Microsoft.VirtualMachineImages.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-02-01-preview/Microsoft.VirtualMachineImages.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-05-01-preview/Microsoft.VirtualMachineImages.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-04-01/Microsoft.VMwareCloudSimple.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-09-16-preview/Microsoft.WindowsESU.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-02-16-preview/Microsoft.WindowsIoT.json"
 
 
-> arm-templator-types@0.0.2 generate /Users/antm88/Desktop/arm-templator-types
+> arm-templator-types@0.0.4 generate /Users/antm88/Desktop/arm-templator-types
 > ts-node cli/generate "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-06-01/Microsoft.WindowsIoT.json"
 

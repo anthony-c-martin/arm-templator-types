@@ -97,11 +97,29 @@ class ObjectProperty extends Property {
 }
 
 function processRef(ref: string): Property {
-  const defsIndex = ref.indexOf('#/definitions/');
-  if (defsIndex === 0) {
+  if (ref.indexOf('#/definitions/') === 0) {
     const refName = ref.slice('#/definitions/'.length);
 
     return new RefProperty(refName);
+  }
+
+  if (ref.indexOf('#/resourceDefinitions/') === 0) {
+    const refName = ref.slice('#/resourceDefinitions/'.length);
+
+    return new RefProperty(refName);
+  }
+
+  switch (ref) {
+    case 'https://schema.management.azure.com/schemas/common/definitions.json#/definitions/numberOrExpression':
+      return new PrimitiveProperty('number');
+    case 'https://schema.management.azure.com/schemas/common/definitions.json#/definitions/resourceBase':
+      return new ObjectProperty({
+        name: new PrimitiveProperty('string'),
+        type: new PrimitiveProperty('string'),
+        location: new PrimitiveProperty('string'),
+      }, ['name', 'type', 'location'], [], null);
+    case 'https://schema.management.azure.com/schemas/common/definitions.json#/definitions/Iso8601Duration':
+      return new PrimitiveProperty('string');
   }
 
   throw `Unable to process $ref ${ref}`;
@@ -127,7 +145,7 @@ function getProperty(prop: any): Property | null {
   }
 
   if (!prop.type) {
-    return null;
+    return new PrimitiveProperty('any');
   }
 
   switch (prop.type) {
@@ -140,7 +158,7 @@ function getProperty(prop: any): Property | null {
       return new PrimitiveProperty('number');
     case 'array':
       if (!prop.items) {
-        throw `Missing items declaration`;
+        return new ArrayProperty(new PrimitiveProperty('any'));
       }
       return getArrayProperty(prop);
     case 'object':
@@ -207,17 +225,28 @@ function getDefinition(jsonDef: any, jsonName: string): ObjectProperty {
 }
 
 function flattenOneOf(prop: any, replaceFunc: (prop: any) => void) {
-  if (!Array.isArray(prop.oneOf)) {
+  if (Array.isArray(prop.oneOf)) {
+    const oneOf: any[] = prop.oneOf;
+    prop.oneOf = oneOf.filter(p => p.$ref !== 'https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression');
+    if (prop.oneOf.length === 1) {
+      prop = prop.oneOf[0];
+    }
+  
+    replaceFunc(prop);
     return prop;
   }
 
-  const oneOf: any[] = prop.oneOf;
-  prop.oneOf = oneOf.filter(p => p.$ref !== 'https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression');
-  if (prop.oneOf.length === 1) {
-    prop = prop.oneOf[0];
+  if (Array.isArray(prop.anyOf)) {
+    const anyOf: any[] = prop.anyOf;
+    prop.anyOf = anyOf.filter(p => p.$ref !== 'https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression');
+    if (prop.anyOf.length === 1) {
+      prop = prop.anyOf[0];
+    }
+  
+    replaceFunc(prop);
+    return prop;
   }
 
-  replaceFunc(prop);
   return prop;
 }
 

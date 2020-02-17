@@ -375,3 +375,4 @@ npm run generate -- "/Users/antm88/Desktop/azure-resource-manager-schemas/schema
 npm run generate -- "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-09-16-preview/Microsoft.WindowsESU.json"
 npm run generate -- "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-02-16-preview/Microsoft.WindowsIoT.json"
 npm run generate -- "/Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-06-01/Microsoft.WindowsIoT.json"
+

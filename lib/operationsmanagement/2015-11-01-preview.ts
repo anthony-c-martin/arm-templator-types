@@ -11,6 +11,7 @@ export interface ManagementConfigurationProperties {
   applicationId?: Expressionable<string>;
   parentResourceType: Expressionable<string>;
   parameters: Expressionable<ArmTemplateParameter[]>;
+  template: Expressionable<any>;
 }
 
 export interface SolutionPlan {

@@ -1,9 +1,11 @@
-// Generated using 'npm run generate /Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-10-01/Microsoft.Compute.json'
+// Generated using 'npm run generate /Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-12-01/Microsoft.Compute.json'
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 import { concatResourceName } from 'arm-templator';
 
-export interface AdditionalCapabilities {
-  ultraSSDEnabled?: Expressionable<boolean>;
+export interface extensionsChild {
+  type: Expressionable<('extensions')>;
+  apiVersion: Expressionable<('2017-12-01')>;
+  properties: Expressionable<any>;
 }
 
 export interface AdditionalUnattendContent {
@@ -15,11 +17,6 @@ export interface AdditionalUnattendContent {
 
 export interface ApiEntityReference {
   id?: Expressionable<string>;
-}
-
-export interface AutomaticOSUpgradePolicy {
-  enableAutomaticOSUpgrade?: Expressionable<boolean>;
-  disableAutomaticRollback?: Expressionable<boolean>;
 }
 
 export interface AvailabilitySetProperties {
@@ -49,10 +46,6 @@ export interface DiagnosticsProfile {
   bootDiagnostics?: Expressionable<BootDiagnostics>;
 }
 
-export interface DiffDiskSettings {
-  option?: Expressionable<('Local')>;
-}
-
 export interface DiskEncryptionSettings {
   diskEncryptionKey?: Expressionable<KeyVaultSecretReference>;
   keyEncryptionKey?: Expressionable<KeyVaultKeyReference>;
@@ -70,7 +63,7 @@ export interface ImageDataDisk {
   blobUri?: Expressionable<string>;
   caching?: Expressionable<('None' | 'ReadOnly' | 'ReadWrite')>;
   diskSizeGB?: Expressionable<number>;
-  storageAccountType?: Expressionable<('Standard_LRS' | 'Premium_LRS' | 'StandardSSD_LRS' | 'UltraSSD_LRS')>;
+  storageAccountType?: Expressionable<('Standard_LRS' | 'Premium_LRS')>;
 }
 
 export interface ImageOSDisk {
@@ -81,7 +74,7 @@ export interface ImageOSDisk {
   blobUri?: Expressionable<string>;
   caching?: Expressionable<('None' | 'ReadOnly' | 'ReadWrite')>;
   diskSizeGB?: Expressionable<number>;
-  storageAccountType?: Expressionable<('Standard_LRS' | 'Premium_LRS' | 'StandardSSD_LRS' | 'UltraSSD_LRS')>;
+  storageAccountType?: Expressionable<('Standard_LRS' | 'Premium_LRS')>;
 }
 
 export interface ImageProperties {
@@ -98,7 +91,7 @@ export interface ImageReference {
 }
 
 export interface ImageStorageProfile {
-  osDisk?: Expressionable<ImageOSDisk>;
+  osDisk: Expressionable<ImageOSDisk>;
   dataDisks?: Expressionable<ImageDataDisk[]>;
   zoneResilient?: Expressionable<boolean>;
 }
@@ -124,12 +117,11 @@ export interface KeyVaultSecretReference {
 export interface LinuxConfiguration {
   disablePasswordAuthentication?: Expressionable<boolean>;
   ssh?: Expressionable<SshConfiguration>;
-  provisionVMAgent?: Expressionable<boolean>;
 }
 
 export interface ManagedDiskParameters {
   id?: Expressionable<string>;
-  storageAccountType?: Expressionable<('Standard_LRS' | 'Premium_LRS' | 'StandardSSD_LRS' | 'UltraSSD_LRS')>;
+  storageAccountType?: Expressionable<('Standard_LRS' | 'Premium_LRS')>;
 }
 
 export interface NetworkInterfaceReference {
@@ -153,7 +145,6 @@ export interface OSDisk {
   image?: Expressionable<VirtualHardDisk>;
   caching?: Expressionable<('None' | 'ReadOnly' | 'ReadWrite')>;
   writeAcceleratorEnabled?: Expressionable<boolean>;
-  diffDiskSettings?: Expressionable<DiffDiskSettings>;
   createOption: Expressionable<('FromImage' | 'Empty' | 'Attach')>;
   diskSizeGB?: Expressionable<number>;
   managedDisk?: Expressionable<ManagedDiskParameters>;
@@ -167,7 +158,6 @@ export interface OSProfile {
   windowsConfiguration?: Expressionable<WindowsConfiguration>;
   linuxConfiguration?: Expressionable<LinuxConfiguration>;
   secrets?: Expressionable<VaultSecretGroup[]>;
-  allowExtensionOperations?: Expressionable<boolean>;
 }
 
 export interface Plan {
@@ -212,7 +202,7 @@ export interface SubResource {
 export interface UpgradePolicy {
   mode?: Expressionable<('Automatic' | 'Manual' | 'Rolling')>;
   rollingUpgradePolicy?: Expressionable<RollingUpgradePolicy>;
-  automaticOSUpgradePolicy?: Expressionable<AutomaticOSUpgradePolicy>;
+  automaticOSUpgrade?: Expressionable<boolean>;
 }
 
 export interface VaultCertificate {
@@ -250,15 +240,12 @@ export interface VirtualMachineExtensionProperties {
 
 export interface VirtualMachineIdentity {
   type?: Expressionable<('SystemAssigned' | 'UserAssigned' | 'SystemAssigned, UserAssigned' | 'None')>;
-}
-
-export interface VirtualMachineIdentityUserAssignedIdentitiesValue {
+  identityIds?: Expressionable<string[]>;
 }
 
 export interface VirtualMachineProperties {
   hardwareProfile?: Expressionable<HardwareProfile>;
   storageProfile?: Expressionable<StorageProfile>;
-  additionalCapabilities?: Expressionable<AdditionalCapabilities>;
   osProfile?: Expressionable<OSProfile>;
   networkProfile?: Expressionable<NetworkProfile>;
   diagnosticsProfile?: Expressionable<DiagnosticsProfile>;
@@ -278,7 +265,7 @@ export interface VirtualMachineScaleSetDataDisk {
 
 export interface VirtualMachineScaleSetExtension {
   name?: Expressionable<string>;
-  properties?: Expressionable<any>;
+  properties?: Expressionable<VirtualMachineScaleSetExtensionProperties>;
 }
 
 export interface VirtualMachineScaleSetExtensionProfile {
@@ -293,14 +280,11 @@ export interface VirtualMachineScaleSetExtensionProperties {
   autoUpgradeMinorVersion?: Expressionable<boolean>;
   settings?: Expressionable<any>;
   protectedSettings?: Expressionable<any>;
-  provisionAfterExtensions?: Expressionable<string[]>;
 }
 
 export interface VirtualMachineScaleSetIdentity {
   type?: Expressionable<('SystemAssigned' | 'UserAssigned' | 'SystemAssigned, UserAssigned' | 'None')>;
-}
-
-export interface VirtualMachineScaleSetIdentityUserAssignedIdentitiesValue {
+  identityIds?: Expressionable<string[]>;
 }
 
 export interface VirtualMachineScaleSetIPConfiguration {
@@ -315,18 +299,12 @@ export interface VirtualMachineScaleSetIPConfigurationProperties {
   publicIPAddressConfiguration?: Expressionable<VirtualMachineScaleSetPublicIPAddressConfiguration>;
   privateIPAddressVersion?: Expressionable<('IPv4' | 'IPv6')>;
   applicationGatewayBackendAddressPools?: Expressionable<SubResource[]>;
-  applicationSecurityGroups?: Expressionable<SubResource[]>;
   loadBalancerBackendAddressPools?: Expressionable<SubResource[]>;
   loadBalancerInboundNatPools?: Expressionable<SubResource[]>;
 }
 
-export interface VirtualMachineScaleSetIpTag {
-  ipTagType?: Expressionable<string>;
-  tag?: Expressionable<string>;
-}
-
 export interface VirtualMachineScaleSetManagedDiskParameters {
-  storageAccountType?: Expressionable<('Standard_LRS' | 'Premium_LRS' | 'StandardSSD_LRS' | 'UltraSSD_LRS')>;
+  storageAccountType?: Expressionable<('Standard_LRS' | 'Premium_LRS')>;
 }
 
 export interface VirtualMachineScaleSetNetworkConfiguration {
@@ -358,8 +336,6 @@ export interface VirtualMachineScaleSetOSDisk {
   caching?: Expressionable<('None' | 'ReadOnly' | 'ReadWrite')>;
   writeAcceleratorEnabled?: Expressionable<boolean>;
   createOption: Expressionable<('FromImage' | 'Empty' | 'Attach')>;
-  diffDiskSettings?: Expressionable<DiffDiskSettings>;
-  diskSizeGB?: Expressionable<number>;
   osType?: Expressionable<('Windows' | 'Linux')>;
   image?: Expressionable<VirtualHardDisk>;
   vhdContainers?: Expressionable<string[]>;
@@ -397,8 +373,6 @@ export interface VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettings {
 export interface VirtualMachineScaleSetPublicIPAddressConfigurationProperties {
   idleTimeoutInMinutes?: Expressionable<number>;
   dnsSettings?: Expressionable<VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettings>;
-  ipTags?: Expressionable<VirtualMachineScaleSetIpTag[]>;
-  publicIPPrefix?: Expressionable<SubResource>;
 }
 
 export interface VirtualMachineScaleSetStorageProfile {
@@ -410,19 +384,16 @@ export interface VirtualMachineScaleSetStorageProfile {
 export interface VirtualMachineScaleSetVMProfile {
   osProfile?: Expressionable<VirtualMachineScaleSetOSProfile>;
   storageProfile?: Expressionable<VirtualMachineScaleSetStorageProfile>;
-  additionalCapabilities?: Expressionable<AdditionalCapabilities>;
   networkProfile?: Expressionable<VirtualMachineScaleSetNetworkProfile>;
   diagnosticsProfile?: Expressionable<DiagnosticsProfile>;
   extensionProfile?: Expressionable<VirtualMachineScaleSetExtensionProfile>;
   licenseType?: Expressionable<string>;
   priority?: Expressionable<('Regular' | 'Low')>;
-  evictionPolicy?: Expressionable<('Deallocate' | 'Delete')>;
 }
 
 export interface VirtualMachineScaleSetVMProperties {
   hardwareProfile?: Expressionable<HardwareProfile>;
   storageProfile?: Expressionable<StorageProfile>;
-  additionalCapabilities?: Expressionable<AdditionalCapabilities>;
   osProfile?: Expressionable<OSProfile>;
   networkProfile?: Expressionable<NetworkProfile>;
   diagnosticsProfile?: Expressionable<DiagnosticsProfile>;
@@ -447,11 +418,305 @@ export interface WinRMListener {
   certificateUrl?: Expressionable<string>;
 }
 
+export interface genericExtension {
+  publisher: Expressionable<string>;
+  type: Expressionable<string>;
+  typeHandlerVersion: Expressionable<string>;
+}
+
+export interface iaaSDiagnostics {
+  publisher: Expressionable<('Microsoft.Azure.Diagnostics')>;
+  type: Expressionable<('IaaSDiagnostics')>;
+  typeHandlerVersion: Expressionable<string>;
+  autoUpgradeMinorVersion: Expressionable<boolean>;
+  settings: Expressionable<any>;
+  protectedSettings: Expressionable<any>;
+}
+
+export interface iaaSAntimalware {
+  publisher: Expressionable<('Microsoft.Azure.Security')>;
+  type: Expressionable<('IaaSAntimalware')>;
+  typeHandlerVersion: Expressionable<string>;
+  autoUpgradeMinorVersion: Expressionable<boolean>;
+  settings: Expressionable<any>;
+}
+
+export interface customScriptExtension {
+  publisher: Expressionable<('Microsoft.Compute')>;
+  type: Expressionable<('CustomScriptExtension')>;
+  typeHandlerVersion: Expressionable<string>;
+  autoUpgradeMinorVersion: Expressionable<boolean>;
+  settings: Expressionable<any>;
+  protectedSettings: Expressionable<any>;
+}
+
+export interface customScriptForLinux {
+  publisher: Expressionable<('Microsoft.OSTCExtensions')>;
+  type: Expressionable<('CustomScriptForLinux')>;
+  typeHandlerVersion: Expressionable<string>;
+  autoUpgradeMinorVersion: Expressionable<boolean>;
+  settings: Expressionable<any>;
+  protectedSettings: Expressionable<any>;
+}
+
+export interface linuxDiagnostic {
+  publisher: Expressionable<('Microsoft.OSTCExtensions')>;
+  type: Expressionable<('LinuxDiagnostic')>;
+  typeHandlerVersion: Expressionable<string>;
+  autoUpgradeMinorVersion: Expressionable<boolean>;
+  settings: Expressionable<any>;
+  protectedSettings: Expressionable<any>;
+}
+
+export interface vmAccessForLinux {
+  publisher: Expressionable<('Microsoft.OSTCExtensions')>;
+  type: Expressionable<('VMAccessForLinux')>;
+  typeHandlerVersion: Expressionable<string>;
+  autoUpgradeMinorVersion: Expressionable<boolean>;
+  settings: Expressionable<any>;
+  protectedSettings: Expressionable<any>;
+}
+
+export interface bgInfo {
+  publisher: Expressionable<('Microsoft.Compute')>;
+  type: Expressionable<('bginfo')>;
+  typeHandlerVersion: Expressionable<string>;
+  autoUpgradeMinorVersion: Expressionable<boolean>;
+}
+
+export interface vmAccessAgent {
+  publisher: Expressionable<('Microsoft.Compute')>;
+  type: Expressionable<('VMAccessAgent')>;
+  typeHandlerVersion: Expressionable<string>;
+  autoUpgradeMinorVersion: Expressionable<boolean>;
+  settings: Expressionable<any>;
+  protectedSettings: Expressionable<any>;
+}
+
+export interface dscExtension {
+  publisher: Expressionable<('Microsoft.Powershell')>;
+  type: Expressionable<('DSC')>;
+  typeHandlerVersion: Expressionable<string>;
+  autoUpgradeMinorVersion: Expressionable<boolean>;
+  settings: Expressionable<any>;
+  protectedSettings: Expressionable<any>;
+}
+
+export interface acronisBackupLinux {
+  publisher: Expressionable<('Acronis.Backup')>;
+  type: Expressionable<('AcronisBackupLinux')>;
+  typeHandlerVersion: Expressionable<string>;
+  autoUpgradeMinorVersion: Expressionable<boolean>;
+  settings: Expressionable<any>;
+  protectedSettings: Expressionable<any>;
+}
+
+export interface acronisBackup {
+  publisher: Expressionable<('Acronis.Backup')>;
+  type: Expressionable<('AcronisBackup')>;
+  typeHandlerVersion: Expressionable<string>;
+  autoUpgradeMinorVersion: Expressionable<boolean>;
+  settings: Expressionable<any>;
+  protectedSettings: Expressionable<any>;
+}
+
+export interface linuxChefClient {
+  publisher: Expressionable<('Chef.Bootstrap.WindowsAzure')>;
+  type: Expressionable<('LinuxChefClient')>;
+  typeHandlerVersion: Expressionable<string>;
+  autoUpgradeMinorVersion: Expressionable<boolean>;
+  settings: Expressionable<any>;
+  protectedSettings: Expressionable<any>;
+}
+
+export interface chefClient {
+  publisher: Expressionable<('Chef.Bootstrap.WindowsAzure')>;
+  type: Expressionable<('ChefClient')>;
+  typeHandlerVersion: Expressionable<string>;
+  autoUpgradeMinorVersion: Expressionable<boolean>;
+  settings: Expressionable<any>;
+  protectedSettings: Expressionable<any>;
+}
+
+export interface datadogLinuxAgent {
+  publisher: Expressionable<('Datadog.Agent')>;
+  type: Expressionable<('DatadogLinuxAgent')>;
+  typeHandlerVersion: Expressionable<string>;
+  autoUpgradeMinorVersion: Expressionable<boolean>;
+  settings: Expressionable<any>;
+}
+
+export interface datadogWindowsAgent {
+  publisher: Expressionable<('Datadog.Agent')>;
+  type: Expressionable<('DatadogWindowsAgent')>;
+  typeHandlerVersion: Expressionable<string>;
+  autoUpgradeMinorVersion: Expressionable<boolean>;
+  settings: Expressionable<any>;
+}
+
+export interface dockerExtension {
+  publisher: Expressionable<('Microsoft.Azure.Extensions')>;
+  type: Expressionable<('DockerExtension')>;
+  typeHandlerVersion: Expressionable<string>;
+  autoUpgradeMinorVersion: Expressionable<boolean>;
+  settings: Expressionable<any>;
+  protectedSettings: Expressionable<any>;
+}
+
+export interface dynatraceLinux {
+  publisher: Expressionable<('dynatrace.ruxit')>;
+  type: Expressionable<('ruxitAgentLinux')>;
+  typeHandlerVersion: Expressionable<string>;
+  autoUpgradeMinorVersion: Expressionable<boolean>;
+  settings: Expressionable<any>;
+}
+
+export interface dynatraceWindows {
+  publisher: Expressionable<('dynatrace.ruxit')>;
+  type: Expressionable<('ruxitAgentWindows')>;
+  typeHandlerVersion: Expressionable<string>;
+  autoUpgradeMinorVersion: Expressionable<boolean>;
+  settings: Expressionable<any>;
+}
+
+export interface eset {
+  publisher: Expressionable<('ESET')>;
+  type: Expressionable<('FileSecurity')>;
+  typeHandlerVersion: Expressionable<string>;
+  autoUpgradeMinorVersion: Expressionable<boolean>;
+  settings: Expressionable<any>;
+}
+
+export interface hpeSecurityApplicationDefender {
+  publisher: Expressionable<('HPE.Security.ApplicationDefender')>;
+  type: Expressionable<('DotnetAgent')>;
+  typeHandlerVersion: Expressionable<string>;
+  autoUpgradeMinorVersion: Expressionable<boolean>;
+  protectedSettings: Expressionable<any>;
+}
+
+export interface puppetAgent {
+  publisher: Expressionable<('Puppet')>;
+  type: Expressionable<('PuppetAgent')>;
+  typeHandlerVersion: Expressionable<string>;
+  autoUpgradeMinorVersion: Expressionable<boolean>;
+  protectedSettings: Expressionable<any>;
+}
+
+export interface site24x7LinuxServerExtn {
+  publisher: Expressionable<('Site24x7')>;
+  type: Expressionable<('Site24x7LinuxServerExtn')>;
+  typeHandlerVersion: Expressionable<string>;
+  autoUpgradeMinorVersion: Expressionable<boolean>;
+  settings: Expressionable<any>;
+  protectedSettings: Expressionable<any>;
+}
+
+export interface site24x7WindowsServerExtn {
+  publisher: Expressionable<('Site24x7')>;
+  type: Expressionable<('Site24x7WindowsServerExtn')>;
+  typeHandlerVersion: Expressionable<string>;
+  autoUpgradeMinorVersion: Expressionable<boolean>;
+  settings: Expressionable<any>;
+  protectedSettings: Expressionable<any>;
+}
+
+export interface site24x7ApmInsightExtn {
+  publisher: Expressionable<('Site24x7')>;
+  type: Expressionable<('Site24x7ApmInsightExtn')>;
+  typeHandlerVersion: Expressionable<string>;
+  autoUpgradeMinorVersion: Expressionable<boolean>;
+  settings: Expressionable<any>;
+  protectedSettings: Expressionable<any>;
+}
+
+export interface trendMicroDSALinux {
+  publisher: Expressionable<('TrendMicro.DeepSecurity')>;
+  type: Expressionable<('TrendMicroDSALinux')>;
+  typeHandlerVersion: Expressionable<string>;
+  autoUpgradeMinorVersion: Expressionable<boolean>;
+  settings: Expressionable<any>;
+  protectedSettings: Expressionable<any>;
+}
+
+export interface trendMicroDSA {
+  publisher: Expressionable<('TrendMicro.DeepSecurity')>;
+  type: Expressionable<('TrendMicroDSA')>;
+  typeHandlerVersion: Expressionable<string>;
+  autoUpgradeMinorVersion: Expressionable<boolean>;
+  settings: Expressionable<any>;
+  protectedSettings: Expressionable<any>;
+}
+
+export interface bmcCtmAgentLinux {
+  publisher: Expressionable<('ctm.bmc.com')>;
+  type: Expressionable<('BmcCtmAgentLinux')>;
+  typeHandlerVersion: Expressionable<string>;
+  autoUpgradeMinorVersion: Expressionable<boolean>;
+  settings: Expressionable<any>;
+}
+
+export interface bmcCtmAgentWindows {
+  publisher: Expressionable<('bmc.ctm')>;
+  type: Expressionable<('AgentWinExt')>;
+  typeHandlerVersion: Expressionable<string>;
+  autoUpgradeMinorVersion: Expressionable<boolean>;
+  settings: Expressionable<any>;
+}
+
+export interface OSPatchingForLinux {
+  publisher: Expressionable<('Microsoft.OSTCExtensions')>;
+  type: Expressionable<('OSPatchingForLinux')>;
+  typeHandlerVersion: Expressionable<string>;
+  autoUpgradeMinorVersion: Expressionable<boolean>;
+  settings: Expressionable<any>;
+  protectedSettings: Expressionable<any>;
+}
+
+export interface VMSnapshot {
+  publisher: Expressionable<('Microsoft.Azure.RecoveryServices')>;
+  type: Expressionable<('VMSnapshot')>;
+  typeHandlerVersion: Expressionable<string>;
+  autoUpgradeMinorVersion: Expressionable<boolean>;
+  settings: Expressionable<any>;
+}
+
+export interface VMSnapshotLinux {
+  publisher: Expressionable<('Microsoft.Azure.RecoveryServices')>;
+  type: Expressionable<('VMSnapshotLinux')>;
+  typeHandlerVersion: Expressionable<string>;
+  autoUpgradeMinorVersion: Expressionable<boolean>;
+  settings: Expressionable<any>;
+}
+
+export interface customScript {
+  publisher: Expressionable<('Microsoft.Azure.Extensions')>;
+  type: Expressionable<('CustomScript')>;
+  typeHandlerVersion: Expressionable<string>;
+  autoUpgradeMinorVersion: Expressionable<boolean>;
+  settings: Expressionable<any>;
+  protectedSettings: Expressionable<any>;
+}
+
+export interface networkWatcherAgentWindows {
+  publisher: Expressionable<('Microsoft.Azure.NetworkWatcher')>;
+  type: Expressionable<('NetworkWatcherAgentWindows')>;
+  typeHandlerVersion: Expressionable<string>;
+  autoUpgradeMinorVersion: Expressionable<boolean>;
+}
+
+export interface networkWatcherAgentLinux {
+  publisher: Expressionable<('Microsoft.Azure.NetworkWatcher')>;
+  type: Expressionable<('NetworkWatcherAgentLinux')>;
+  typeHandlerVersion: Expressionable<string>;
+  autoUpgradeMinorVersion: Expressionable<boolean>;
+}
+
 export namespace availabilitySets {
   export function create(name: Expressionable<string>, properties: AvailabilitySetProperties, location: Expressionable<string>): ResourceDefinition<AvailabilitySetProperties> {
     return {
       type: 'Microsoft.Compute/availabilitySets',
-      apiVersion: '2018-10-01',
+      apiVersion: '2017-12-01',
       name: name,
       location,
       properties,
@@ -462,7 +727,7 @@ export namespace images {
   export function create(name: Expressionable<string>, properties: ImageProperties, location: Expressionable<string>): ResourceDefinition<ImageProperties> {
     return {
       type: 'Microsoft.Compute/images',
-      apiVersion: '2018-10-01',
+      apiVersion: '2017-12-01',
       name: name,
       location,
       properties,
@@ -473,34 +738,47 @@ export namespace virtualMachines {
   export function create(name: Expressionable<string>, properties: VirtualMachineProperties, location: Expressionable<string>): ResourceDefinition<VirtualMachineProperties> {
     return {
       type: 'Microsoft.Compute/virtualMachines',
-      apiVersion: '2018-10-01',
+      apiVersion: '2017-12-01',
       name: name,
       location,
       properties,
     };
+  }
+}
+export namespace virtualMachines {
+  export namespace extensions {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: any, location: Expressionable<string>): ResourceDefinition<any> {
+      return {
+        type: 'Microsoft.Compute/virtualMachines/extensions',
+        apiVersion: '2017-12-01',
+        name: concatResourceName(...name),
+        location,
+        properties,
+      };
+    }
+  }
+}
+export namespace virtualMachineScaleSets {
+  export namespace extensions {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: any, location: Expressionable<string>): ResourceDefinition<any> {
+      return {
+        type: 'Microsoft.Compute/virtualMachineScaleSets/extensions',
+        apiVersion: '2017-12-01',
+        name: concatResourceName(...name),
+        location,
+        properties,
+      };
+    }
   }
 }
 export namespace virtualMachineScaleSets {
   export function create(name: Expressionable<string>, properties: VirtualMachineScaleSetProperties, location: Expressionable<string>): ResourceDefinition<VirtualMachineScaleSetProperties> {
     return {
       type: 'Microsoft.Compute/virtualMachineScaleSets',
-      apiVersion: '2018-10-01',
+      apiVersion: '2017-12-01',
       name: name,
       location,
       properties,
     };
-  }
-}
-export namespace virtualMachineScaleSets {
-  export namespace virtualmachines {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: VirtualMachineScaleSetVMProperties, location: Expressionable<string>): ResourceDefinition<VirtualMachineScaleSetVMProperties> {
-      return {
-        type: 'Microsoft.Compute/virtualMachineScaleSets/virtualmachines',
-        apiVersion: '2018-10-01',
-        name: concatResourceName(...name),
-        location,
-        properties,
-      };
-    }
   }
 }

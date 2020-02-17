@@ -7,7 +7,9 @@ export interface PolicyAssignmentProperties {
   policyDefinitionId?: Expressionable<string>;
   scope?: Expressionable<string>;
   notScopes?: Expressionable<string[]>;
+  parameters?: Expressionable<any>;
   description?: Expressionable<string>;
+  metadata?: Expressionable<any>;
 }
 
 export interface PolicyDefinitionProperties {
@@ -15,16 +17,22 @@ export interface PolicyDefinitionProperties {
   mode?: Expressionable<('NotSpecified' | 'Indexed' | 'All')>;
   displayName?: Expressionable<string>;
   description?: Expressionable<string>;
+  policyRule?: Expressionable<any>;
+  metadata?: Expressionable<any>;
+  parameters?: Expressionable<any>;
 }
 
 export interface PolicyDefinitionReference {
   policyDefinitionId?: Expressionable<string>;
+  parameters?: Expressionable<any>;
 }
 
 export interface PolicySetDefinitionProperties {
   policyType?: Expressionable<('NotSpecified' | 'BuiltIn' | 'Custom')>;
   displayName?: Expressionable<string>;
   description?: Expressionable<string>;
+  metadata?: Expressionable<any>;
+  parameters?: Expressionable<any>;
   policyDefinitions: Expressionable<PolicyDefinitionReference[]>;
 }
 
