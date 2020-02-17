@@ -18,12 +18,18 @@ class PrimitiveProperty extends Property {
 }
 
 class EnumProperty extends Property {
-  constructor(values: string[]) {
+  constructor(type:string, values: string[]) {
     super();
+    this.type = type;
     this.values = values;
   }
+  type: string;
   values: string[];
   getType(): string {
+    if (this.type === 'number' || this.type === 'boolean' || this.type === 'integer') {
+      return `(${this.values.join(" | ")})`;
+    }
+
     return `('${this.values.join("' | '")}')`;
   }
 }
@@ -36,6 +42,17 @@ class OneOfProperty extends Property {
   properties: Property[];
   getType(): string {
     return this.properties.map(p => p.getType()).join(" | ");
+  }
+}
+
+class AllOfProperty extends Property {
+  constructor(properties: Property[]) {
+    super();
+    this.properties = properties;
+  }
+  properties: Property[];
+  getType(): string {
+    return this.properties.map(p => p.getType()).join(" & ");
   }
 }
 
@@ -79,21 +96,34 @@ class ObjectProperty extends Property {
   }
 }
 
+function processRef(ref: string): Property {
+  const defsIndex = ref.indexOf('#/definitions/');
+  if (defsIndex === 0) {
+    const refName = ref.slice('#/definitions/'.length);
+
+    return new RefProperty(refName);
+  }
+
+  throw `Unable to process $ref ${ref}`;
+}
+
 function getProperty(prop: any): Property | null {
   if (prop.$ref) {
-    const defsIndex = prop.$ref.indexOf('#/definitions/');
-    if (defsIndex === 0) {
-      const refName = prop.$ref.slice('#/definitions/'.length);
-
-      return new RefProperty(refName);
-    } 
-    
-    throw `Unable to process $ref ${prop.$ref}`;
+    return processRef(prop.$ref);
   }
 
   if (prop.oneOf) {
     const properties = prop.oneOf.map(getProperty);
     return new OneOfProperty(properties);
+  }
+
+  if (prop.allOf) {
+    const properties = prop.allOf.map(getProperty);
+    return new AllOfProperty(properties);
+  }
+
+  if (prop.enum) {
+    return new EnumProperty(prop.type, prop.enum);
   }
 
   if (!prop.type) {
@@ -104,7 +134,7 @@ function getProperty(prop: any): Property | null {
     case 'boolean':
       return new PrimitiveProperty('boolean');
     case 'string':
-      return getStringProperty(prop);
+      return new PrimitiveProperty('string');
     case 'integer':
     case 'number':
       return new PrimitiveProperty('number');
@@ -168,14 +198,6 @@ function getObjectProperty(prop: any) {
   return new ObjectProperty(properties, required, oneOfs, additionals);
 }
 
-function getStringProperty(prop: any): Property {
-  if (prop.enum) {
-    return new EnumProperty(prop.enum);
-  }
-
-  return new PrimitiveProperty('string');  
-}
-
 function getDefinition(jsonDef: any, jsonName: string): ObjectProperty {
   if (!jsonDef.properties) {
     return new ObjectProperty({}, [], [], null);
@@ -189,14 +211,10 @@ function flattenOneOf(prop: any, replaceFunc: (prop: any) => void) {
     return prop;
   }
 
+  const oneOf: any[] = prop.oneOf;
+  prop.oneOf = oneOf.filter(p => p.$ref !== 'https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression');
   if (prop.oneOf.length === 1) {
     prop = prop.oneOf[0];
-  } else if (prop.oneOf.length === 2) {
-    if (prop.oneOf[0].$ref === 'https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression') {
-      prop = prop.oneOf[1];
-    } else if (prop.oneOf[1].$ref === 'https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression') {
-      prop = prop.oneOf[0];
-    }
   }
 
   replaceFunc(prop);

@@ -4,7 +4,7 @@ import { concatResourceName } from 'arm-templator';
 
 export interface ActionGroup {
   groupShortName: Expressionable<string>;
-  enabled: Expressionable<boolean>;
+  enabled: Expressionable<(true | false)>;
   emailReceivers?: Expressionable<EmailReceiver[]>;
   smsReceivers?: Expressionable<SmsReceiver[]>;
   webhookReceivers?: Expressionable<WebhookReceiver[]>;

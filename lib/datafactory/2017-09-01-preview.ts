@@ -748,7 +748,7 @@ export interface DynamicsLinkedServiceTypeProperties {
 export interface DynamicsSink {
   ignoreNullValues?: Expressionable<any>;
   type: Expressionable<('DynamicsSink')>;
-  writeBehavior: Expressionable<any>;
+  writeBehavior: Expressionable<('Upsert')>;
 }
 
 export interface DynamicsSource {

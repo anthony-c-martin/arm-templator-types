@@ -183,7 +183,7 @@ export interface Site_properties {
   serverFarmId?: Expressionable<string>;
   reserved?: Expressionable<boolean>;
   siteConfig?: Expressionable<SiteConfig>;
-  scmSiteAlsoStopped?: Expressionable<boolean>;
+  scmSiteAlsoStopped?: Expressionable<(false)>;
   hostingEnvironmentProfile?: Expressionable<HostingEnvironmentProfile>;
   microService?: Expressionable<('false')>;
   gatewaySiteName?: Expressionable<string>;
@@ -237,7 +237,7 @@ export interface SiteConfig {
   push?: Expressionable<PushSettings>;
   apiDefinition?: Expressionable<ApiDefinitionInfo>;
   autoSwapSlotName?: Expressionable<string>;
-  localMySqlEnabled?: Expressionable<boolean>;
+  localMySqlEnabled?: Expressionable<(false)>;
   ipSecurityRestrictions?: Expressionable<IpSecurityRestriction[]>;
 }
 

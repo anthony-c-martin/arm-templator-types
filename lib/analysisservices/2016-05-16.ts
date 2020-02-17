@@ -8,7 +8,7 @@ export interface Sku {
 
 export interface ServerProperties {
   asAdministrators?: Expressionable<any>;
-  managedMode?: Expressionable<number>;
+  managedMode?: Expressionable<(0 | 1)>;
 }
 
 export interface administrator {

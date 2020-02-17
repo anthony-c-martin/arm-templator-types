@@ -4,7 +4,7 @@ import { concatResourceName } from 'arm-templator';
 
 export interface ActivityLogAlert {
   scopes: Expressionable<string[]>;
-  enabled?: Expressionable<boolean>;
+  enabled?: Expressionable<(true | false)>;
   condition: Expressionable<ActivityLogAlertAllOfCondition>;
   actions: Expressionable<ActivityLogAlertActionList>;
   description?: Expressionable<string>;
@@ -29,7 +29,7 @@ export interface ActivityLogAlertLeafCondition {
 
 export interface ActionGroup {
   groupShortName: Expressionable<string>;
-  enabled: Expressionable<boolean>;
+  enabled: Expressionable<(true | false)>;
   emailReceivers?: Expressionable<EmailReceiver[]>;
   smsReceivers?: Expressionable<SmsReceiver[]>;
   webhookReceivers?: Expressionable<WebhookReceiver[]>;

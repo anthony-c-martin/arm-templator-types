@@ -4,7 +4,7 @@ import { concatResourceName } from 'arm-templator';
 
 export interface SearchServiceProperties {
   replicaCount?: Expressionable<number>;
-  partitionCount?: Expressionable<number>;
+  partitionCount?: Expressionable<(1 | 2 | 3 | 4 | 6 | 12)>;
   hostingMode?: Expressionable<('default' | 'highDensity')>;
 }
 

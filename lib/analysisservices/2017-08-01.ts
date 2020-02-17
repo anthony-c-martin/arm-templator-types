@@ -9,12 +9,12 @@ export interface Sku {
 
 export interface ServerProperties {
   asAdministrators?: Expressionable<any>;
-  managedMode?: Expressionable<number>;
+  managedMode?: Expressionable<(0 | 1)>;
   backupBlobContainerUri?: Expressionable<string>;
   gatewayDetails?: Expressionable<any>;
   querypoolConnectionMode?: Expressionable<('All' | 'Readonly')>;
   ipV4FirewallSettings?: Expressionable<any>;
-  serverMonitorMode?: Expressionable<number>;
+  serverMonitorMode?: Expressionable<(0 | 1)>;
 }
 
 export interface administrator {

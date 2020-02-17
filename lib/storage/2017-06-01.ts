@@ -58,7 +58,7 @@ export interface StorageAccountPropertiesCreateParameters {
   encryption?: Expressionable<Encryption>;
   networkAcls?: Expressionable<NetworkRuleSet>;
   accessTier?: Expressionable<('Hot' | 'Cool')>;
-  supportsHttpsTrafficOnly?: Expressionable<boolean>;
+  supportsHttpsTrafficOnly?: Expressionable<(false)>;
 }
 
 export interface VirtualNetworkRule {

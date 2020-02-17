@@ -30,7 +30,7 @@ export interface Domain_properties {
   contactTech?: Expressionable<Contact>;
   nameServers?: Expressionable<string[]>;
   privacy?: Expressionable<boolean>;
-  autoRenew?: Expressionable<boolean>;
+  autoRenew?: Expressionable<(true)>;
   managedHostNames?: Expressionable<HostName[]>;
   consent?: Expressionable<DomainPurchaseConsent>;
   domainNotRenewableReasons?: Expressionable<('RegistrationStatusNotSupportedForRenewal' | 'ExpirationNotInRenewalTimeRange' | 'SubscriptionNotActive')[]>;
