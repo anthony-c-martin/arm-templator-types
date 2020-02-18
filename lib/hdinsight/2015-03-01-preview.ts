@@ -189,12 +189,17 @@ export interface VirtualNetworkProfile {
 }
 
 export namespace clusters {
-  export function create(name: Expressionable<string>, properties: ClusterCreateProperties, location: Expressionable<string>): ResourceDefinition<ClusterCreateProperties> {
+  interface AdditionalProps {
+    identity?: Expressionable<ClusterIdentity>;
+  }
+  
+  export function create(name: Expressionable<string>, properties: ClusterCreateProperties, location?: Expressionable<string>, identity?: Expressionable<ClusterIdentity>): ResourceDefinition<ClusterCreateProperties> & AdditionalProps {
     return {
       type: 'Microsoft.HDInsight/clusters',
       apiVersion: '2015-03-01-preview',
       name: name,
       location,
+      identity,
       properties,
     };
   }

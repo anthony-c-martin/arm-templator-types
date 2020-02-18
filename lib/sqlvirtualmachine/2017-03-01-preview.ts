@@ -158,12 +158,17 @@ export namespace sqlVirtualMachineGroups {
   }
 }
 export namespace sqlVirtualMachines {
-  export function create(name: Expressionable<string>, properties: SqlVirtualMachineProperties, location: Expressionable<string>): ResourceDefinition<SqlVirtualMachineProperties> {
+  interface AdditionalProps {
+    identity?: Expressionable<ResourceIdentity>;
+  }
+  
+  export function create(name: Expressionable<string>, properties: SqlVirtualMachineProperties, location: Expressionable<string>, identity?: Expressionable<ResourceIdentity>): ResourceDefinition<SqlVirtualMachineProperties> & AdditionalProps {
     return {
       type: 'Microsoft.SqlVirtualMachine/sqlVirtualMachines',
       apiVersion: '2017-03-01-preview',
       name: name,
       location,
+      identity,
       properties,
     };
   }

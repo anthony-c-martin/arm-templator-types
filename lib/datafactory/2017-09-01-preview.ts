@@ -2484,12 +2484,17 @@ export interface ZohoSource {
 }
 
 export namespace factories {
-  export function create(name: Expressionable<string>, properties: FactoryProperties, location: Expressionable<string>): ResourceDefinition<FactoryProperties> {
+  interface AdditionalProps {
+    identity?: Expressionable<FactoryIdentity>;
+  }
+  
+  export function create(name: Expressionable<string>, properties: FactoryProperties, location?: Expressionable<string>, identity?: Expressionable<FactoryIdentity>): ResourceDefinition<FactoryProperties> & AdditionalProps {
     return {
       type: 'Microsoft.DataFactory/factories',
       apiVersion: '2017-09-01-preview',
       name: name,
       location,
+      identity,
       properties,
     };
   }

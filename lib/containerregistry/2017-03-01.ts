@@ -16,12 +16,17 @@ export interface StorageAccountParameters {
 }
 
 export namespace registries {
-  export function create(name: Expressionable<string>, properties: RegistryPropertiesCreateParameters, location: Expressionable<string>): ResourceDefinition<RegistryPropertiesCreateParameters> {
+  interface AdditionalProps {
+    sku: Expressionable<Sku>;
+  }
+  
+  export function create(name: Expressionable<string>, properties: RegistryPropertiesCreateParameters, location: Expressionable<string>, sku: Expressionable<Sku>): ResourceDefinition<RegistryPropertiesCreateParameters> & AdditionalProps {
     return {
       type: 'Microsoft.ContainerRegistry/registries',
       apiVersion: '2017-03-01',
       name: name,
       location,
+      sku,
       properties,
     };
   }

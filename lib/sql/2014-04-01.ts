@@ -366,7 +366,7 @@ export namespace servers {
 export namespace servers {
   export namespace databases {
     export namespace securityAlertPolicies {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: DatabaseSecurityAlertPolicyProperties, location: Expressionable<string>): ResourceDefinition<DatabaseSecurityAlertPolicyProperties> {
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: DatabaseSecurityAlertPolicyProperties, location?: Expressionable<string>): ResourceDefinition<DatabaseSecurityAlertPolicyProperties> {
         return {
           type: 'Microsoft.Sql/servers/databases/securityAlertPolicies',
           apiVersion: '2014-04-01',

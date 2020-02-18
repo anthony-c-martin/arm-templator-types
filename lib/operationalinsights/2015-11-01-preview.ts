@@ -30,7 +30,7 @@ export interface WorkspaceProperties {
 }
 
 export namespace workspaces {
-  export function create(name: Expressionable<string>, properties: WorkspaceProperties, location: Expressionable<string>): ResourceDefinition<WorkspaceProperties> {
+  export function create(name: Expressionable<string>, properties: WorkspaceProperties, location?: Expressionable<string>): ResourceDefinition<WorkspaceProperties> {
     return {
       type: 'Microsoft.OperationalInsights/workspaces',
       apiVersion: '2015-11-01-preview',
@@ -42,11 +42,16 @@ export namespace workspaces {
 }
 export namespace workspaces {
   export namespace dataSources {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: any): ResourceDefinition<any> {
+    interface AdditionalProps {
+      kind: Expressionable<('AzureActivityLog' | 'ChangeTrackingPath' | 'ChangeTrackingDefaultPath' | 'ChangeTrackingDefaultRegistry' | 'ChangeTrackingCustomRegistry' | 'CustomLog' | 'CustomLogCollection' | 'GenericDataSource' | 'IISLogs' | 'LinuxPerformanceObject' | 'LinuxPerformanceCollection' | 'LinuxSyslog' | 'LinuxSyslogCollection' | 'WindowsEvent' | 'WindowsPerformanceCounter')>;
+    }
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: any, kind: Expressionable<('AzureActivityLog' | 'ChangeTrackingPath' | 'ChangeTrackingDefaultPath' | 'ChangeTrackingDefaultRegistry' | 'ChangeTrackingCustomRegistry' | 'CustomLog' | 'CustomLogCollection' | 'GenericDataSource' | 'IISLogs' | 'LinuxPerformanceObject' | 'LinuxPerformanceCollection' | 'LinuxSyslog' | 'LinuxSyslogCollection' | 'WindowsEvent' | 'WindowsPerformanceCounter')>): ResourceDefinition<any> & AdditionalProps {
       return {
         type: 'Microsoft.OperationalInsights/workspaces/dataSources',
         apiVersion: '2015-11-01-preview',
         name: concatResourceName(...name),
+        kind,
         properties,
       };
     }

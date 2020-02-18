@@ -878,12 +878,17 @@ export namespace connections {
   }
 }
 export namespace expressRouteCircuits {
-  export function create(name: Expressionable<string>, properties: ExpressRouteCircuitPropertiesFormat, location: Expressionable<string>): ResourceDefinition<ExpressRouteCircuitPropertiesFormat> {
+  interface AdditionalProps {
+    sku?: Expressionable<ExpressRouteCircuitSku>;
+  }
+  
+  export function create(name: Expressionable<string>, properties: ExpressRouteCircuitPropertiesFormat, location: Expressionable<string>, sku?: Expressionable<ExpressRouteCircuitSku>): ResourceDefinition<ExpressRouteCircuitPropertiesFormat> & AdditionalProps {
     return {
       type: 'Microsoft.Network/expressRouteCircuits',
       apiVersion: '2018-01-01',
       name: name,
       location,
+      sku,
       properties,
     };
   }
@@ -913,12 +918,17 @@ export namespace expressRouteCircuits {
   }
 }
 export namespace loadBalancers {
-  export function create(name: Expressionable<string>, properties: LoadBalancerPropertiesFormat, location: Expressionable<string>): ResourceDefinition<LoadBalancerPropertiesFormat> {
+  interface AdditionalProps {
+    sku?: Expressionable<LoadBalancerSku>;
+  }
+  
+  export function create(name: Expressionable<string>, properties: LoadBalancerPropertiesFormat, location: Expressionable<string>, sku?: Expressionable<LoadBalancerSku>): ResourceDefinition<LoadBalancerPropertiesFormat> & AdditionalProps {
     return {
       type: 'Microsoft.Network/loadBalancers',
       apiVersion: '2018-01-01',
       name: name,
       location,
+      sku,
       properties,
     };
   }
@@ -993,7 +1003,7 @@ export namespace networkWatchers {
 }
 export namespace networkWatchers {
   export namespace connectionMonitors {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ConnectionMonitorParameters, location: Expressionable<string>): ResourceDefinition<ConnectionMonitorParameters> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ConnectionMonitorParameters, location?: Expressionable<string>): ResourceDefinition<ConnectionMonitorParameters> {
       return {
         type: 'Microsoft.Network/networkWatchers/connectionMonitors',
         apiVersion: '2018-01-01',
@@ -1017,12 +1027,19 @@ export namespace networkWatchers {
   }
 }
 export namespace publicIPAddresses {
-  export function create(name: Expressionable<string>, properties: PublicIPAddressPropertiesFormat, location: Expressionable<string>): ResourceDefinition<PublicIPAddressPropertiesFormat> {
+  interface AdditionalProps {
+    sku?: Expressionable<PublicIPAddressSku>;
+    zones?: Expressionable<string[]>;
+  }
+  
+  export function create(name: Expressionable<string>, properties: PublicIPAddressPropertiesFormat, location: Expressionable<string>, sku?: Expressionable<PublicIPAddressSku>, zones?: Expressionable<string[]>): ResourceDefinition<PublicIPAddressPropertiesFormat> & AdditionalProps {
     return {
       type: 'Microsoft.Network/publicIPAddresses',
       apiVersion: '2018-01-01',
       name: name,
       location,
+      sku,
+      zones,
       properties,
     };
   }
@@ -1040,7 +1057,7 @@ export namespace routeFilters {
 }
 export namespace routeFilters {
   export namespace routeFilterRules {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RouteFilterRulePropertiesFormat, location: Expressionable<string>): ResourceDefinition<RouteFilterRulePropertiesFormat> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RouteFilterRulePropertiesFormat, location?: Expressionable<string>): ResourceDefinition<RouteFilterRulePropertiesFormat> {
       return {
         type: 'Microsoft.Network/routeFilters/routeFilterRules',
         apiVersion: '2018-01-01',

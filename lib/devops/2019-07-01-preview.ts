@@ -39,7 +39,7 @@ export interface ProjectReference {
 }
 
 export namespace pipelines {
-  export function create(name: Expressionable<string>, properties: PipelineProperties, location: Expressionable<string>): ResourceDefinition<PipelineProperties> {
+  export function create(name: Expressionable<string>, properties: PipelineProperties, location?: Expressionable<string>): ResourceDefinition<PipelineProperties> {
     return {
       type: 'Microsoft.DevOps/pipelines',
       apiVersion: '2019-07-01-preview',

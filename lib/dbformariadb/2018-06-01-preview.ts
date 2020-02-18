@@ -75,12 +75,17 @@ export interface VirtualNetworkRuleProperties {
 }
 
 export namespace servers {
-  export function create(name: Expressionable<string>, properties: ServerPropertiesForCreate, location: Expressionable<string>): ResourceDefinition<ServerPropertiesForCreate> {
+  interface AdditionalProps {
+    sku?: Expressionable<Sku>;
+  }
+  
+  export function create(name: Expressionable<string>, properties: ServerPropertiesForCreate, location: Expressionable<string>, sku?: Expressionable<Sku>): ResourceDefinition<ServerPropertiesForCreate> & AdditionalProps {
     return {
       type: 'Microsoft.DBforMariaDB/servers',
       apiVersion: '2018-06-01-preview',
       name: name,
       location,
+      sku,
       properties,
     };
   }

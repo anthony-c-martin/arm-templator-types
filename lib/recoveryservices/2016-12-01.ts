@@ -466,7 +466,7 @@ export interface YearlyRetentionSchedule {
 export namespace vaults {
   export namespace backupFabrics {
     export namespace protectionContainers {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ProtectionContainer, location: Expressionable<string>): ResourceDefinition<ProtectionContainer> {
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ProtectionContainer, location?: Expressionable<string>): ResourceDefinition<ProtectionContainer> {
         return {
           type: 'Microsoft.RecoveryServices/vaults/backupFabrics/protectionContainers',
           apiVersion: '2016-12-01',
@@ -482,7 +482,7 @@ export namespace vaults {
   export namespace backupFabrics {
     export namespace protectionContainers {
       export namespace protectedItems {
-        export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ProtectedItem, location: Expressionable<string>): ResourceDefinition<ProtectedItem> {
+        export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ProtectedItem, location?: Expressionable<string>): ResourceDefinition<ProtectedItem> {
           return {
             type: 'Microsoft.RecoveryServices/vaults/backupFabrics/protectionContainers/protectedItems',
             apiVersion: '2016-12-01',
@@ -497,7 +497,7 @@ export namespace vaults {
 }
 export namespace vaults {
   export namespace backupPolicies {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ProtectionPolicy, location: Expressionable<string>): ResourceDefinition<ProtectionPolicy> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ProtectionPolicy, location?: Expressionable<string>): ResourceDefinition<ProtectionPolicy> {
       return {
         type: 'Microsoft.RecoveryServices/vaults/backupPolicies',
         apiVersion: '2016-12-01',
@@ -510,7 +510,7 @@ export namespace vaults {
 }
 export namespace vaults {
   export namespace backupstorageconfig {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: BackupResourceConfig, location: Expressionable<string>): ResourceDefinition<BackupResourceConfig> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: BackupResourceConfig, location?: Expressionable<string>): ResourceDefinition<BackupResourceConfig> {
       return {
         type: 'Microsoft.RecoveryServices/vaults/backupstorageconfig',
         apiVersion: '2016-12-01',

@@ -93,12 +93,17 @@ export interface VirtualNic {
 }
 
 export namespace dedicatedCloudNodes {
-  export function create(name: Expressionable<string>, properties: DedicatedCloudNodeProperties, location: Expressionable<string>): ResourceDefinition<DedicatedCloudNodeProperties> {
+  interface AdditionalProps {
+    sku?: Expressionable<Sku>;
+  }
+  
+  export function create(name: Expressionable<string>, properties: DedicatedCloudNodeProperties, location: Expressionable<string>, sku?: Expressionable<Sku>): ResourceDefinition<DedicatedCloudNodeProperties> & AdditionalProps {
     return {
       type: 'Microsoft.VMwareCloudSimple/dedicatedCloudNodes',
       apiVersion: '2019-04-01',
       name: name,
       location,
+      sku,
       properties,
     };
   }

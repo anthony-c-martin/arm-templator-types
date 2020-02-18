@@ -98,12 +98,17 @@ export interface ManagedClusterWindowsProfile {
 }
 
 export namespace managedClusters {
-  export function create(name: Expressionable<string>, properties: ManagedClusterProperties, location: Expressionable<string>): ResourceDefinition<ManagedClusterProperties> {
+  interface AdditionalProps {
+    identity?: Expressionable<ManagedClusterIdentity>;
+  }
+  
+  export function create(name: Expressionable<string>, properties: ManagedClusterProperties, location: Expressionable<string>, identity?: Expressionable<ManagedClusterIdentity>): ResourceDefinition<ManagedClusterProperties> & AdditionalProps {
     return {
       type: 'Microsoft.ContainerService/managedClusters',
       apiVersion: '2019-04-01',
       name: name,
       location,
+      identity,
       properties,
     };
   }

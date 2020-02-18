@@ -31,23 +31,33 @@ export interface WebTestPropertiesConfiguration {
 }
 
 export namespace components {
-  export function create(name: Expressionable<string>, properties: ApplicationInsightsComponentProperties, location: Expressionable<string>): ResourceDefinition<ApplicationInsightsComponentProperties> {
+  interface AdditionalProps {
+    kind: Expressionable<string>;
+  }
+  
+  export function create(name: Expressionable<string>, properties: ApplicationInsightsComponentProperties, location: Expressionable<string>, kind: Expressionable<string>): ResourceDefinition<ApplicationInsightsComponentProperties> & AdditionalProps {
     return {
       type: 'Microsoft.Insights/components',
       apiVersion: '2015-05-01',
       name: name,
       location,
+      kind,
       properties,
     };
   }
 }
 export namespace webtests {
-  export function create(name: Expressionable<string>, properties: WebTestProperties, location: Expressionable<string>): ResourceDefinition<WebTestProperties> {
+  interface AdditionalProps {
+    kind?: Expressionable<('ping' | 'multistep')>;
+  }
+  
+  export function create(name: Expressionable<string>, properties: WebTestProperties, location: Expressionable<string>, kind?: Expressionable<('ping' | 'multistep')>): ResourceDefinition<WebTestProperties> & AdditionalProps {
     return {
       type: 'Microsoft.Insights/webtests',
       apiVersion: '2015-05-01',
       name: name,
       location,
+      kind,
       properties,
     };
   }

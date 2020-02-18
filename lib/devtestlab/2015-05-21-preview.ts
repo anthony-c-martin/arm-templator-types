@@ -178,7 +178,7 @@ export interface WindowsOsInfo {
 }
 
 export namespace labs {
-  export function create(name: Expressionable<string>, properties: LabProperties, location: Expressionable<string>): ResourceDefinition<LabProperties> {
+  export function create(name: Expressionable<string>, properties: LabProperties, location?: Expressionable<string>): ResourceDefinition<LabProperties> {
     return {
       type: 'Microsoft.DevTestLab/labs',
       apiVersion: '2015-05-21-preview',
@@ -190,7 +190,7 @@ export namespace labs {
 }
 export namespace labs {
   export namespace artifactsources {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ArtifactSourceProperties, location: Expressionable<string>): ResourceDefinition<ArtifactSourceProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ArtifactSourceProperties, location?: Expressionable<string>): ResourceDefinition<ArtifactSourceProperties> {
       return {
         type: 'Microsoft.DevTestLab/labs/artifactsources',
         apiVersion: '2015-05-21-preview',
@@ -203,7 +203,7 @@ export namespace labs {
 }
 export namespace labs {
   export namespace customimages {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: CustomImageProperties, location: Expressionable<string>): ResourceDefinition<CustomImageProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: CustomImageProperties, location?: Expressionable<string>): ResourceDefinition<CustomImageProperties> {
       return {
         type: 'Microsoft.DevTestLab/labs/customimages',
         apiVersion: '2015-05-21-preview',
@@ -216,7 +216,7 @@ export namespace labs {
 }
 export namespace labs {
   export namespace formulas {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: FormulaProperties, location: Expressionable<string>): ResourceDefinition<FormulaProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: FormulaProperties, location?: Expressionable<string>): ResourceDefinition<FormulaProperties> {
       return {
         type: 'Microsoft.DevTestLab/labs/formulas',
         apiVersion: '2015-05-21-preview',
@@ -230,7 +230,7 @@ export namespace labs {
 export namespace labs {
   export namespace policysets {
     export namespace policies {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: PolicyProperties, location: Expressionable<string>): ResourceDefinition<PolicyProperties> {
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: PolicyProperties, location?: Expressionable<string>): ResourceDefinition<PolicyProperties> {
         return {
           type: 'Microsoft.DevTestLab/labs/policysets/policies',
           apiVersion: '2015-05-21-preview',
@@ -244,7 +244,7 @@ export namespace labs {
 }
 export namespace labs {
   export namespace schedules {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ScheduleProperties, location: Expressionable<string>): ResourceDefinition<ScheduleProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ScheduleProperties, location?: Expressionable<string>): ResourceDefinition<ScheduleProperties> {
       return {
         type: 'Microsoft.DevTestLab/labs/schedules',
         apiVersion: '2015-05-21-preview',
@@ -257,7 +257,7 @@ export namespace labs {
 }
 export namespace labs {
   export namespace virtualmachines {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: LabVirtualMachineProperties, location: Expressionable<string>): ResourceDefinition<LabVirtualMachineProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: LabVirtualMachineProperties, location?: Expressionable<string>): ResourceDefinition<LabVirtualMachineProperties> {
       return {
         type: 'Microsoft.DevTestLab/labs/virtualmachines',
         apiVersion: '2015-05-21-preview',
@@ -270,7 +270,7 @@ export namespace labs {
 }
 export namespace labs {
   export namespace virtualnetworks {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: VirtualNetworkProperties, location: Expressionable<string>): ResourceDefinition<VirtualNetworkProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: VirtualNetworkProperties, location?: Expressionable<string>): ResourceDefinition<VirtualNetworkProperties> {
       return {
         type: 'Microsoft.DevTestLab/labs/virtualnetworks',
         apiVersion: '2015-05-21-preview',

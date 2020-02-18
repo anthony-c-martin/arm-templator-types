@@ -123,12 +123,17 @@ export interface Subnet {
 }
 
 export namespace namespaces {
-  export function create(name: Expressionable<string>, properties: SBNamespaceProperties, location: Expressionable<string>): ResourceDefinition<SBNamespaceProperties> {
+  interface AdditionalProps {
+    sku?: Expressionable<SBSku>;
+  }
+  
+  export function create(name: Expressionable<string>, properties: SBNamespaceProperties, location: Expressionable<string>, sku?: Expressionable<SBSku>): ResourceDefinition<SBNamespaceProperties> & AdditionalProps {
     return {
       type: 'Microsoft.ServiceBus/namespaces',
       apiVersion: '2017-04-01',
       name: name,
       location,
+      sku,
       properties,
     };
   }

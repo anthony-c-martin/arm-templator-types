@@ -31,7 +31,7 @@ export interface DscNodeConfigurationCreateOrUpdateParametersProperties {
 
 export namespace automationAccounts {
   export namespace compilationjobs {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: DscCompilationJobCreateProperties, location: Expressionable<string>): ResourceDefinition<DscCompilationJobCreateProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: DscCompilationJobCreateProperties, location?: Expressionable<string>): ResourceDefinition<DscCompilationJobCreateProperties> {
       return {
         type: 'Microsoft.Automation/automationAccounts/compilationjobs',
         apiVersion: '2018-01-15',

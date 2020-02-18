@@ -177,12 +177,17 @@ export interface UserProperties {
 }
 
 export namespace dataBoxEdgeDevices {
-  export function create(name: Expressionable<string>, properties: DataBoxEdgeDeviceProperties, location: Expressionable<string>): ResourceDefinition<DataBoxEdgeDeviceProperties> {
+  interface AdditionalProps {
+    sku?: Expressionable<Sku>;
+  }
+  
+  export function create(name: Expressionable<string>, properties: DataBoxEdgeDeviceProperties, location: Expressionable<string>, sku?: Expressionable<Sku>): ResourceDefinition<DataBoxEdgeDeviceProperties> & AdditionalProps {
     return {
       type: 'Microsoft.DataBoxEdge/dataBoxEdgeDevices',
       apiVersion: '2019-03-01',
       name: name,
       location,
+      sku,
       properties,
     };
   }

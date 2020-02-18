@@ -60,7 +60,7 @@ export interface UserProperties {
 }
 
 export namespace labaccounts {
-  export function create(name: Expressionable<string>, properties: LabAccountProperties, location: Expressionable<string>): ResourceDefinition<LabAccountProperties> {
+  export function create(name: Expressionable<string>, properties: LabAccountProperties, location?: Expressionable<string>): ResourceDefinition<LabAccountProperties> {
     return {
       type: 'Microsoft.LabServices/labaccounts',
       apiVersion: '2018-10-15',
@@ -72,7 +72,7 @@ export namespace labaccounts {
 }
 export namespace labaccounts {
   export namespace galleryimages {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: GalleryImageProperties, location: Expressionable<string>): ResourceDefinition<GalleryImageProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: GalleryImageProperties, location?: Expressionable<string>): ResourceDefinition<GalleryImageProperties> {
       return {
         type: 'Microsoft.LabServices/labaccounts/galleryimages',
         apiVersion: '2018-10-15',
@@ -85,7 +85,7 @@ export namespace labaccounts {
 }
 export namespace labaccounts {
   export namespace labs {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: LabProperties, location: Expressionable<string>): ResourceDefinition<LabProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: LabProperties, location?: Expressionable<string>): ResourceDefinition<LabProperties> {
       return {
         type: 'Microsoft.LabServices/labaccounts/labs',
         apiVersion: '2018-10-15',
@@ -99,7 +99,7 @@ export namespace labaccounts {
 export namespace labaccounts {
   export namespace labs {
     export namespace environmentsettings {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: EnvironmentSettingProperties, location: Expressionable<string>): ResourceDefinition<EnvironmentSettingProperties> {
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: EnvironmentSettingProperties, location?: Expressionable<string>): ResourceDefinition<EnvironmentSettingProperties> {
         return {
           type: 'Microsoft.LabServices/labaccounts/labs/environmentsettings',
           apiVersion: '2018-10-15',
@@ -115,7 +115,7 @@ export namespace labaccounts {
   export namespace labs {
     export namespace environmentsettings {
       export namespace environments {
-        export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: EnvironmentProperties, location: Expressionable<string>): ResourceDefinition<EnvironmentProperties> {
+        export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: EnvironmentProperties, location?: Expressionable<string>): ResourceDefinition<EnvironmentProperties> {
           return {
             type: 'Microsoft.LabServices/labaccounts/labs/environmentsettings/environments',
             apiVersion: '2018-10-15',
@@ -131,7 +131,7 @@ export namespace labaccounts {
 export namespace labaccounts {
   export namespace labs {
     export namespace users {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: UserProperties, location: Expressionable<string>): ResourceDefinition<UserProperties> {
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: UserProperties, location?: Expressionable<string>): ResourceDefinition<UserProperties> {
         return {
           type: 'Microsoft.LabServices/labaccounts/labs/users',
           apiVersion: '2018-10-15',

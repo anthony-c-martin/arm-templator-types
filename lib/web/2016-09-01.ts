@@ -99,11 +99,16 @@ export interface VnetRoute_properties {
 }
 
 export namespace serverfarms {
-  export function create(name: Expressionable<string>, properties: AppServicePlan_properties): ResourceDefinition<AppServicePlan_properties> {
+  interface AdditionalProps {
+    sku?: Expressionable<SkuDescription>;
+  }
+  
+  export function create(name: Expressionable<string>, properties: AppServicePlan_properties, sku?: Expressionable<SkuDescription>): ResourceDefinition<AppServicePlan_properties> & AdditionalProps {
     return {
       type: 'Microsoft.Web/serverfarms',
       apiVersion: '2016-09-01',
       name: name,
+      sku,
       properties,
     };
   }

@@ -173,12 +173,17 @@ export namespace managedInstances {
 }
 export namespace servers {
   export namespace databases {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: DatabaseProperties, location: Expressionable<string>): ResourceDefinition<DatabaseProperties> {
+    interface AdditionalProps {
+      sku?: Expressionable<Sku>;
+    }
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: DatabaseProperties, location: Expressionable<string>, sku?: Expressionable<Sku>): ResourceDefinition<DatabaseProperties> & AdditionalProps {
       return {
         type: 'Microsoft.Sql/servers/databases',
         apiVersion: '2017-10-01-preview',
         name: concatResourceName(...name),
         location,
+        sku,
         properties,
       };
     }
@@ -200,12 +205,17 @@ export namespace servers {
 }
 export namespace servers {
   export namespace elasticPools {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ElasticPoolProperties, location: Expressionable<string>): ResourceDefinition<ElasticPoolProperties> {
+    interface AdditionalProps {
+      sku?: Expressionable<Sku>;
+    }
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ElasticPoolProperties, location: Expressionable<string>, sku?: Expressionable<Sku>): ResourceDefinition<ElasticPoolProperties> & AdditionalProps {
       return {
         type: 'Microsoft.Sql/servers/elasticPools',
         apiVersion: '2017-10-01-preview',
         name: concatResourceName(...name),
         location,
+        sku,
         properties,
       };
     }

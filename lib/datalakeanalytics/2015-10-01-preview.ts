@@ -29,7 +29,7 @@ export interface StorageAccountProperties {
 }
 
 export namespace accounts {
-  export function create(name: Expressionable<string>, properties: DataLakeAnalyticsAccountProperties, location: Expressionable<string>): ResourceDefinition<DataLakeAnalyticsAccountProperties> {
+  export function create(name: Expressionable<string>, properties: DataLakeAnalyticsAccountProperties, location?: Expressionable<string>): ResourceDefinition<DataLakeAnalyticsAccountProperties> {
     return {
       type: 'Microsoft.DataLakeAnalytics/accounts',
       apiVersion: '2015-10-01-preview',

@@ -350,7 +350,7 @@ export interface TransformationProperties {
 }
 
 export namespace streamingjobs {
-  export function create(name: Expressionable<string>, properties: StreamingJobProperties, location: Expressionable<string>): ResourceDefinition<StreamingJobProperties> {
+  export function create(name: Expressionable<string>, properties: StreamingJobProperties, location?: Expressionable<string>): ResourceDefinition<StreamingJobProperties> {
     return {
       type: 'Microsoft.StreamAnalytics/streamingjobs',
       apiVersion: '2016-03-01',

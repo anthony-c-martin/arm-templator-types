@@ -38,12 +38,17 @@ export interface Sku {
 }
 
 export namespace profiles {
-  export function create(name: Expressionable<string>, properties: any, location: Expressionable<string>): ResourceDefinition<any> {
+  interface AdditionalProps {
+    sku: Expressionable<Sku>;
+  }
+  
+  export function create(name: Expressionable<string>, properties: any, location: Expressionable<string>, sku: Expressionable<Sku>): ResourceDefinition<any> & AdditionalProps {
     return {
       type: 'Microsoft.Cdn/profiles',
       apiVersion: '2016-04-02',
       name: name,
       location,
+      sku,
       properties,
     };
   }

@@ -27,7 +27,7 @@ export interface SolutionProperties {
 }
 
 export namespace ManagementConfigurations {
-  export function create(name: Expressionable<string>, properties: ManagementConfigurationProperties, location: Expressionable<string>): ResourceDefinition<ManagementConfigurationProperties> {
+  export function create(name: Expressionable<string>, properties: ManagementConfigurationProperties, location?: Expressionable<string>): ResourceDefinition<ManagementConfigurationProperties> {
     return {
       type: 'Microsoft.OperationsManagement/ManagementConfigurations',
       apiVersion: '2015-11-01-preview',
@@ -38,12 +38,17 @@ export namespace ManagementConfigurations {
   }
 }
 export namespace solutions {
-  export function create(name: Expressionable<string>, properties: SolutionProperties, location: Expressionable<string>): ResourceDefinition<SolutionProperties> {
+  interface AdditionalProps {
+    plan?: Expressionable<SolutionPlan>;
+  }
+  
+  export function create(name: Expressionable<string>, properties: SolutionProperties, location?: Expressionable<string>, plan?: Expressionable<SolutionPlan>): ResourceDefinition<SolutionProperties> & AdditionalProps {
     return {
       type: 'Microsoft.OperationsManagement/solutions',
       apiVersion: '2015-11-01-preview',
       name: name,
       location,
+      plan,
       properties,
     };
   }

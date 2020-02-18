@@ -265,12 +265,19 @@ export interface ValidateMigrationInputSqlServerSqlServerTaskProperties {
 }
 
 export namespace services {
-  export function create(name: Expressionable<string>, properties: DataMigrationServiceProperties, location: Expressionable<string>): ResourceDefinition<DataMigrationServiceProperties> {
+  interface AdditionalProps {
+    kind?: Expressionable<string>;
+    sku?: Expressionable<ServiceSku>;
+  }
+  
+  export function create(name: Expressionable<string>, properties: DataMigrationServiceProperties, location: Expressionable<string>, sku?: Expressionable<ServiceSku>, kind?: Expressionable<string>): ResourceDefinition<DataMigrationServiceProperties> & AdditionalProps {
     return {
       type: 'Microsoft.DataMigration/services',
       apiVersion: '2017-11-15-privatepreview',
       name: name,
       location,
+      sku,
+      kind,
       properties,
     };
   }

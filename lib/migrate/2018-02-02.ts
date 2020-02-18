@@ -27,7 +27,7 @@ export interface ProjectProperties {
 }
 
 export namespace projects {
-  export function create(name: Expressionable<string>, properties: ProjectProperties, location: Expressionable<string>): ResourceDefinition<ProjectProperties> {
+  export function create(name: Expressionable<string>, properties: ProjectProperties, location?: Expressionable<string>): ResourceDefinition<ProjectProperties> {
     return {
       type: 'Microsoft.Migrate/projects',
       apiVersion: '2018-02-02',

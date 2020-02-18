@@ -320,12 +320,17 @@ export interface SqlDWTableProperties {
 }
 
 export namespace accounts {
-  export function create(name: Expressionable<string>, properties: AccountProperties, location: Expressionable<string>): ResourceDefinition<AccountProperties> {
+  interface AdditionalProps {
+    identity: Expressionable<Identity>;
+  }
+  
+  export function create(name: Expressionable<string>, properties: AccountProperties, identity: Expressionable<Identity>, location?: Expressionable<string>): ResourceDefinition<AccountProperties> & AdditionalProps {
     return {
       type: 'Microsoft.DataShare/accounts',
       apiVersion: '2019-11-01',
       name: name,
       location,
+      identity,
       properties,
     };
   }

@@ -35,11 +35,16 @@ export namespace registrationAssignments {
   }
 }
 export namespace registrationDefinitions {
-  export function create(name: Expressionable<string>, properties: RegistrationDefinitionProperties): ResourceDefinition<RegistrationDefinitionProperties> {
+  interface AdditionalProps {
+    plan?: Expressionable<Plan>;
+  }
+  
+  export function create(name: Expressionable<string>, properties: RegistrationDefinitionProperties, plan?: Expressionable<Plan>): ResourceDefinition<RegistrationDefinitionProperties> & AdditionalProps {
     return {
       type: 'Microsoft.ManagedServices/registrationDefinitions',
       apiVersion: '2018-06-01-preview',
       name: name,
+      plan,
       properties,
     };
   }

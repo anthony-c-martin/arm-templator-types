@@ -22,12 +22,17 @@ export interface AddTrustedIdProvider {
 }
 
 export namespace accounts {
-  export function create(name: Expressionable<string>, properties: any, location: Expressionable<string>): ResourceDefinition<any> {
+  interface AdditionalProps {
+    identity?: Expressionable<any>;
+  }
+  
+  export function create(name: Expressionable<string>, properties: any, location: Expressionable<string>, identity?: Expressionable<any>): ResourceDefinition<any> & AdditionalProps {
     return {
       type: 'Microsoft.DataLakeStore/accounts',
       apiVersion: '2016-11-01',
       name: name,
       location,
+      identity,
       properties,
     };
   }

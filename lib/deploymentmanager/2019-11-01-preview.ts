@@ -145,12 +145,17 @@ export namespace artifactSources {
   }
 }
 export namespace rollouts {
-  export function create(name: Expressionable<string>, properties: RolloutRequestProperties, location: Expressionable<string>): ResourceDefinition<RolloutRequestProperties> {
+  interface AdditionalProps {
+    identity: Expressionable<Identity>;
+  }
+  
+  export function create(name: Expressionable<string>, properties: RolloutRequestProperties, location: Expressionable<string>, identity: Expressionable<Identity>): ResourceDefinition<RolloutRequestProperties> & AdditionalProps {
     return {
       type: 'Microsoft.DeploymentManager/rollouts',
       apiVersion: '2019-11-01-preview',
       name: name,
       location,
+      identity,
       properties,
     };
   }

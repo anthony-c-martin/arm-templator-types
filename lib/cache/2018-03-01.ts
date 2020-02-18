@@ -40,12 +40,17 @@ export interface Sku {
 }
 
 export namespace Redis {
-  export function create(name: Expressionable<string>, properties: RedisCreateProperties, location: Expressionable<string>): ResourceDefinition<RedisCreateProperties> {
+  interface AdditionalProps {
+    zones?: Expressionable<string[]>;
+  }
+  
+  export function create(name: Expressionable<string>, properties: RedisCreateProperties, location: Expressionable<string>, zones?: Expressionable<string[]>): ResourceDefinition<RedisCreateProperties> & AdditionalProps {
     return {
       type: 'Microsoft.Cache/Redis',
       apiVersion: '2018-03-01',
       name: name,
       location,
+      zones,
       properties,
     };
   }

@@ -134,7 +134,7 @@ export interface StorageQueueMessage {
 }
 
 export namespace jobCollections {
-  export function create(name: Expressionable<string>, properties: JobCollectionProperties, location: Expressionable<string>): ResourceDefinition<JobCollectionProperties> {
+  export function create(name: Expressionable<string>, properties: JobCollectionProperties, location?: Expressionable<string>): ResourceDefinition<JobCollectionProperties> {
     return {
       type: 'Microsoft.Scheduler/jobCollections',
       apiVersion: '2016-03-01',

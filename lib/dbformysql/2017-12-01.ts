@@ -110,12 +110,17 @@ export interface VirtualNetworkRuleProperties {
 }
 
 export namespace servers {
-  export function create(name: Expressionable<string>, properties: ServerPropertiesForCreate, location: Expressionable<string>): ResourceDefinition<ServerPropertiesForCreate> {
+  interface AdditionalProps {
+    sku?: Expressionable<Sku>;
+  }
+  
+  export function create(name: Expressionable<string>, properties: ServerPropertiesForCreate, location: Expressionable<string>, sku?: Expressionable<Sku>): ResourceDefinition<ServerPropertiesForCreate> & AdditionalProps {
     return {
       type: 'Microsoft.DBforMySQL/servers',
       apiVersion: '2017-12-01',
       name: name,
       location,
+      sku,
       properties,
     };
   }

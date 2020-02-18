@@ -74,12 +74,17 @@ export namespace clusters {
   }
 }
 export namespace namespaces {
-  export function create(name: Expressionable<string>, properties: EHNamespaceProperties, location: Expressionable<string>): ResourceDefinition<EHNamespaceProperties> {
+  interface AdditionalProps {
+    sku?: Expressionable<Sku>;
+  }
+  
+  export function create(name: Expressionable<string>, properties: EHNamespaceProperties, location?: Expressionable<string>, sku?: Expressionable<Sku>): ResourceDefinition<EHNamespaceProperties> & AdditionalProps {
     return {
       type: 'Microsoft.EventHub/namespaces',
       apiVersion: '2018-01-01-preview',
       name: name,
       location,
+      sku,
       properties,
     };
   }

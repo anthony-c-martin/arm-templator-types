@@ -50,12 +50,17 @@ export interface VirtualNetworkConfiguration {
 }
 
 export namespace service {
-  export function create(name: Expressionable<string>, properties: ApiServiceProperties, location: Expressionable<string>): ResourceDefinition<ApiServiceProperties> {
+  interface AdditionalProps {
+    sku: Expressionable<ApiServiceSkuProperties>;
+  }
+  
+  export function create(name: Expressionable<string>, properties: ApiServiceProperties, location: Expressionable<string>, sku: Expressionable<ApiServiceSkuProperties>): ResourceDefinition<ApiServiceProperties> & AdditionalProps {
     return {
       type: 'Microsoft.ApiManagement/service',
       apiVersion: '2016-07-07',
       name: name,
       location,
+      sku,
       properties,
     };
   }

@@ -94,11 +94,16 @@ export namespace managers {
 }
 export namespace managers {
   export namespace accessControlRecords {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: AccessControlRecordProperties): ResourceDefinition<AccessControlRecordProperties> {
+    interface AdditionalProps {
+      kind?: Expressionable<('Series8000')>;
+    }
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: AccessControlRecordProperties, kind?: Expressionable<('Series8000')>): ResourceDefinition<AccessControlRecordProperties> & AdditionalProps {
       return {
         type: 'Microsoft.StorSimple/managers/accessControlRecords',
         apiVersion: '2017-06-01',
         name: concatResourceName(...name),
+        kind,
         properties,
       };
     }
@@ -106,11 +111,16 @@ export namespace managers {
 }
 export namespace managers {
   export namespace bandwidthSettings {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: BandwidthRateSettingProperties): ResourceDefinition<BandwidthRateSettingProperties> {
+    interface AdditionalProps {
+      kind?: Expressionable<('Series8000')>;
+    }
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: BandwidthRateSettingProperties, kind?: Expressionable<('Series8000')>): ResourceDefinition<BandwidthRateSettingProperties> & AdditionalProps {
       return {
         type: 'Microsoft.StorSimple/managers/bandwidthSettings',
         apiVersion: '2017-06-01',
         name: concatResourceName(...name),
+        kind,
         properties,
       };
     }
@@ -119,11 +129,16 @@ export namespace managers {
 export namespace managers {
   export namespace devices {
     export namespace backupPolicies {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: BackupPolicyProperties): ResourceDefinition<BackupPolicyProperties> {
+      interface AdditionalProps {
+        kind?: Expressionable<('Series8000')>;
+      }
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: BackupPolicyProperties, kind?: Expressionable<('Series8000')>): ResourceDefinition<BackupPolicyProperties> & AdditionalProps {
         return {
           type: 'Microsoft.StorSimple/managers/devices/backupPolicies',
           apiVersion: '2017-06-01',
           name: concatResourceName(...name),
+          kind,
           properties,
         };
       }
@@ -134,11 +149,16 @@ export namespace managers {
   export namespace devices {
     export namespace backupPolicies {
       export namespace schedules {
-        export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: BackupScheduleProperties): ResourceDefinition<BackupScheduleProperties> {
+        interface AdditionalProps {
+          kind?: Expressionable<('Series8000')>;
+        }
+        
+        export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: BackupScheduleProperties, kind?: Expressionable<('Series8000')>): ResourceDefinition<BackupScheduleProperties> & AdditionalProps {
           return {
             type: 'Microsoft.StorSimple/managers/devices/backupPolicies/schedules',
             apiVersion: '2017-06-01',
             name: concatResourceName(...name),
+            kind,
             properties,
           };
         }
@@ -149,11 +169,16 @@ export namespace managers {
 export namespace managers {
   export namespace devices {
     export namespace volumeContainers {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: VolumeContainerProperties): ResourceDefinition<VolumeContainerProperties> {
+      interface AdditionalProps {
+        kind?: Expressionable<('Series8000')>;
+      }
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: VolumeContainerProperties, kind?: Expressionable<('Series8000')>): ResourceDefinition<VolumeContainerProperties> & AdditionalProps {
         return {
           type: 'Microsoft.StorSimple/managers/devices/volumeContainers',
           apiVersion: '2017-06-01',
           name: concatResourceName(...name),
+          kind,
           properties,
         };
       }
@@ -164,11 +189,16 @@ export namespace managers {
   export namespace devices {
     export namespace volumeContainers {
       export namespace volumes {
-        export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: VolumeProperties): ResourceDefinition<VolumeProperties> {
+        interface AdditionalProps {
+          kind?: Expressionable<('Series8000')>;
+        }
+        
+        export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: VolumeProperties, kind?: Expressionable<('Series8000')>): ResourceDefinition<VolumeProperties> & AdditionalProps {
           return {
             type: 'Microsoft.StorSimple/managers/devices/volumeContainers/volumes',
             apiVersion: '2017-06-01',
             name: concatResourceName(...name),
+            kind,
             properties,
           };
         }
@@ -178,11 +208,16 @@ export namespace managers {
 }
 export namespace managers {
   export namespace storageAccountCredentials {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: StorageAccountCredentialProperties): ResourceDefinition<StorageAccountCredentialProperties> {
+    interface AdditionalProps {
+      kind?: Expressionable<('Series8000')>;
+    }
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: StorageAccountCredentialProperties, kind?: Expressionable<('Series8000')>): ResourceDefinition<StorageAccountCredentialProperties> & AdditionalProps {
       return {
         type: 'Microsoft.StorSimple/managers/storageAccountCredentials',
         apiVersion: '2017-06-01',
         name: concatResourceName(...name),
+        kind,
         properties,
       };
     }

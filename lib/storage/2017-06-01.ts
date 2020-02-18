@@ -67,12 +67,21 @@ export interface VirtualNetworkRule {
 }
 
 export namespace storageAccounts {
-  export function create(name: Expressionable<string>, properties: StorageAccountPropertiesCreateParameters, location: Expressionable<string>): ResourceDefinition<StorageAccountPropertiesCreateParameters> {
+  interface AdditionalProps {
+    sku: Expressionable<Sku>;
+    kind: Expressionable<('Storage' | 'BlobStorage')>;
+    identity?: Expressionable<Identity>;
+  }
+  
+  export function create(name: Expressionable<string>, properties: StorageAccountPropertiesCreateParameters, location: Expressionable<string>, sku: Expressionable<Sku>, kind: Expressionable<('Storage' | 'BlobStorage')>, identity?: Expressionable<Identity>): ResourceDefinition<StorageAccountPropertiesCreateParameters> & AdditionalProps {
     return {
       type: 'Microsoft.Storage/storageAccounts',
       apiVersion: '2017-06-01',
       name: name,
       location,
+      identity,
+      sku,
+      kind,
       properties,
     };
   }

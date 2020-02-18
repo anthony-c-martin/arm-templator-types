@@ -80,12 +80,19 @@ export interface SubResource {
 }
 
 export namespace peerings {
-  export function create(name: Expressionable<string>, properties: PeeringProperties, location: Expressionable<string>): ResourceDefinition<PeeringProperties> {
+  interface AdditionalProps {
+    kind: Expressionable<('Direct' | 'Exchange')>;
+    sku: Expressionable<PeeringSku>;
+  }
+  
+  export function create(name: Expressionable<string>, properties: PeeringProperties, location: Expressionable<string>, sku: Expressionable<PeeringSku>, kind: Expressionable<('Direct' | 'Exchange')>): ResourceDefinition<PeeringProperties> & AdditionalProps {
     return {
       type: 'Microsoft.Peering/peerings',
       apiVersion: '2019-08-01-preview',
       name: name,
       location,
+      sku,
+      kind,
       properties,
     };
   }

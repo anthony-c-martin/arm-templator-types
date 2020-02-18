@@ -65,12 +65,17 @@ export interface Sku {
 }
 
 export namespace environments {
-  export function create(name: Expressionable<string>, properties: EnvironmentCreationProperties, location: Expressionable<string>): ResourceDefinition<EnvironmentCreationProperties> {
+  interface AdditionalProps {
+    sku: Expressionable<Sku>;
+  }
+  
+  export function create(name: Expressionable<string>, properties: EnvironmentCreationProperties, location: Expressionable<string>, sku: Expressionable<Sku>): ResourceDefinition<EnvironmentCreationProperties> & AdditionalProps {
     return {
       type: 'Microsoft.TimeSeriesInsights/environments',
       apiVersion: '2017-11-15',
       name: name,
       location,
+      sku,
       properties,
     };
   }

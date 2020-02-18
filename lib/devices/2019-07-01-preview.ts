@@ -136,12 +136,17 @@ export interface StorageEndpointProperties {
 }
 
 export namespace IotHubs {
-  export function create(name: Expressionable<string>, properties: IotHubProperties, location: Expressionable<string>): ResourceDefinition<IotHubProperties> {
+  interface AdditionalProps {
+    sku: Expressionable<IotHubSkuInfo>;
+  }
+  
+  export function create(name: Expressionable<string>, properties: IotHubProperties, location: Expressionable<string>, sku: Expressionable<IotHubSkuInfo>): ResourceDefinition<IotHubProperties> & AdditionalProps {
     return {
       type: 'Microsoft.Devices/IotHubs',
       apiVersion: '2019-07-01-preview',
       name: name,
       location,
+      sku,
       properties,
     };
   }

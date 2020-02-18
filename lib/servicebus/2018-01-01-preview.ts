@@ -60,12 +60,17 @@ export interface VirtualNetworkRuleProperties {
 }
 
 export namespace namespaces {
-  export function create(name: Expressionable<string>, properties: SBNamespaceProperties, location: Expressionable<string>): ResourceDefinition<SBNamespaceProperties> {
+  interface AdditionalProps {
+    sku?: Expressionable<SBSku>;
+  }
+  
+  export function create(name: Expressionable<string>, properties: SBNamespaceProperties, location: Expressionable<string>, sku?: Expressionable<SBSku>): ResourceDefinition<SBNamespaceProperties> & AdditionalProps {
     return {
       type: 'Microsoft.ServiceBus/namespaces',
       apiVersion: '2018-01-01-preview',
       name: name,
       location,
+      sku,
       properties,
     };
   }

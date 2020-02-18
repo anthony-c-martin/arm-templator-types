@@ -684,11 +684,16 @@ export interface networkWatcherAgentLinux {
 }
 
 export namespace availabilitySets {
-  export function create(name: Expressionable<string>, properties: AvailabilitySetProperties): ResourceDefinition<AvailabilitySetProperties> {
+  interface AdditionalProps {
+    sku?: Expressionable<Sku>;
+  }
+  
+  export function create(name: Expressionable<string>, properties: AvailabilitySetProperties, sku?: Expressionable<Sku>): ResourceDefinition<AvailabilitySetProperties> & AdditionalProps {
     return {
       type: 'Microsoft.Compute/availabilitySets',
       apiVersion: '2016-04-30-preview',
       name: name,
+      sku,
       properties,
     };
   }
@@ -704,11 +709,16 @@ export namespace images {
   }
 }
 export namespace virtualMachines {
-  export function create(name: Expressionable<string>, properties: VirtualMachineProperties): ResourceDefinition<VirtualMachineProperties> {
+  interface AdditionalProps {
+    plan?: Expressionable<Plan>;
+  }
+  
+  export function create(name: Expressionable<string>, properties: VirtualMachineProperties, plan?: Expressionable<Plan>): ResourceDefinition<VirtualMachineProperties> & AdditionalProps {
     return {
       type: 'Microsoft.Compute/virtualMachines',
       apiVersion: '2016-04-30-preview',
       name: name,
+      plan,
       properties,
     };
   }
@@ -726,11 +736,18 @@ export namespace virtualMachines {
   }
 }
 export namespace virtualMachineScaleSets {
-  export function create(name: Expressionable<string>, properties: VirtualMachineScaleSetProperties): ResourceDefinition<VirtualMachineScaleSetProperties> {
+  interface AdditionalProps {
+    sku: Expressionable<Sku>;
+    plan?: Expressionable<Plan>;
+  }
+  
+  export function create(name: Expressionable<string>, properties: VirtualMachineScaleSetProperties, sku: Expressionable<Sku>, plan?: Expressionable<Plan>): ResourceDefinition<VirtualMachineScaleSetProperties> & AdditionalProps {
     return {
       type: 'Microsoft.Compute/virtualMachineScaleSets',
       apiVersion: '2016-04-30-preview',
       name: name,
+      sku,
+      plan,
       properties,
     };
   }

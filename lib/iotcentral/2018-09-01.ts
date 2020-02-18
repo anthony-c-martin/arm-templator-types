@@ -12,12 +12,17 @@ export interface AppSkuInfo {
 }
 
 export namespace IoTApps {
-  export function create(name: Expressionable<string>, properties: AppProperties, location: Expressionable<string>): ResourceDefinition<AppProperties> {
+  interface AdditionalProps {
+    sku: Expressionable<AppSkuInfo>;
+  }
+  
+  export function create(name: Expressionable<string>, properties: AppProperties, location: Expressionable<string>, sku: Expressionable<AppSkuInfo>): ResourceDefinition<AppProperties> & AdditionalProps {
     return {
       type: 'Microsoft.IoTCentral/IoTApps',
       apiVersion: '2018-09-01',
       name: name,
       location,
+      sku,
       properties,
     };
   }

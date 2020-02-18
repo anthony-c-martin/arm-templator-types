@@ -409,12 +409,19 @@ export interface X509CertificateName {
 }
 
 export namespace service {
-  export function create(name: Expressionable<string>, properties: ApiManagementServiceProperties, location: Expressionable<string>): ResourceDefinition<ApiManagementServiceProperties> {
+  interface AdditionalProps {
+    sku: Expressionable<ApiManagementServiceSkuProperties>;
+    identity?: Expressionable<ApiManagementServiceIdentity>;
+  }
+  
+  export function create(name: Expressionable<string>, properties: ApiManagementServiceProperties, location: Expressionable<string>, sku: Expressionable<ApiManagementServiceSkuProperties>, identity?: Expressionable<ApiManagementServiceIdentity>): ResourceDefinition<ApiManagementServiceProperties> & AdditionalProps {
     return {
       type: 'Microsoft.ApiManagement/service',
       apiVersion: '2018-06-01-preview',
       name: name,
       location,
+      identity,
+      sku,
       properties,
     };
   }

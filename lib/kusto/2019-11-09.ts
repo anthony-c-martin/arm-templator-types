@@ -131,19 +131,28 @@ export interface EventSystemProperties {
 }
 
 export namespace clusters {
-  export function create(name: Expressionable<string>, properties: ClusterProperties, location: Expressionable<string>): ResourceDefinition<ClusterProperties> {
+  interface AdditionalProps {
+    sku: Expressionable<AzureSku>;
+    zones?: Expressionable<string[]>;
+    identity?: Expressionable<Identity>;
+  }
+  
+  export function create(name: Expressionable<string>, properties: ClusterProperties, location: Expressionable<string>, sku: Expressionable<AzureSku>, identity?: Expressionable<Identity>, zones?: Expressionable<string[]>): ResourceDefinition<ClusterProperties> & AdditionalProps {
     return {
       type: 'Microsoft.Kusto/clusters',
       apiVersion: '2019-11-09',
       name: name,
       location,
+      identity,
+      sku,
+      zones,
       properties,
     };
   }
 }
 export namespace clusters {
   export namespace databases {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ReadWriteDatabaseProperties, location: Expressionable<string>): ResourceDefinition<ReadWriteDatabaseProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ReadWriteDatabaseProperties, location?: Expressionable<string>): ResourceDefinition<ReadWriteDatabaseProperties> {
       return {
         type: 'Microsoft.Kusto/clusters/databases',
         apiVersion: '2019-11-09',
@@ -170,7 +179,7 @@ export namespace clusters {
 }
 export namespace clusters {
   export namespace AttachedDatabaseConfigurations {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: AttachedDatabaseConfigurationsProperties, location: Expressionable<string>): ResourceDefinition<AttachedDatabaseConfigurationsProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: AttachedDatabaseConfigurationsProperties, location?: Expressionable<string>): ResourceDefinition<AttachedDatabaseConfigurationsProperties> {
       return {
         type: 'Microsoft.Kusto/clusters/AttachedDatabaseConfigurations',
         apiVersion: '2019-11-09',

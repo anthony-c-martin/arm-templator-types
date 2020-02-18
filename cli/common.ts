@@ -1,6 +1,7 @@
 import path = require('path');
 import fs from 'fs';
 import os from 'os';
+import { orderBy, groupBy, includes, partition, filter, pickBy } from 'lodash';
 
 abstract class Property {
   abstract getType(): string;
@@ -262,15 +263,15 @@ function writeHeaders(output: string[]) {
   appendOutput(output, ``);
 }
 
-function writeDefinition(output: string[], definition: ObjectProperty, name: string) {
-  appendOutput(output, `export interface ${name} {`);
+function writeDefinition(output: string[], indent: number, external: boolean, definition: ObjectProperty, name: string) {
+  appendOutput(output, `${external ? 'export ' : ''}interface ${name} {`, indent);
   for (const key of Object.keys(definition.properties)) {
     const required = definition.required.indexOf(key) > -1;
     let escapedKey = key.match(/\W/) ? `'${key}'` : key;
-    appendOutput(output, `  ${escapedKey}${required ? '' : '?'}: Expressionable<${definition.properties[key].getType()}>;`);
+    appendOutput(output, `  ${escapedKey}${required ? '' : '?'}: Expressionable<${definition.properties[key].getType()}>;`, indent);
   }
-  appendOutput(output, `}`);
-  appendOutput(output, ``);
+  appendOutput(output, `}`, indent);
+  appendOutput(output, ``, indent);
 }
 
 function writeBuilderFunction(output: string[], schema: any, definition: ObjectProperty, name: string) {
@@ -325,13 +326,28 @@ function writeBuilderFunction(output: string[], schema: any, definition: ObjectP
 
   const propertiesType = resourceProperties.length > 0 ? resourceProperties.map(r => r.refName).join(' | ') : 'any';
 
-  const knownProps = ['location'].filter(p => !!definition.properties[p]);
+  const knownProps = filter(['location', 'identity', 'sku', 'zones', 'kind', 'plan'], p => p in definition.properties);
+
   let argsString = '';
+  let unionTypeString = '';
   if (knownProps.length > 0) {
-    argsString = ', ' + knownProps.map(p => `${p}: Expressionable<${definition.properties[p].getType()}>`).join(', ');
+    const [required, optional] = partition(knownProps, k => includes(definition.required, k));
+    const properties = pickBy(definition.properties, (_, p) => includes(knownProps, p));
+  
+    for (const knownProp of [...required, ...optional]) {
+      const isRequired = includes(required, knownProp);
+      const propType = definition.properties[knownProp].getType();
+      argsString += `, ${knownProp}${isRequired ? '' : '?'}: Expressionable<${propType}>`;
+    }
+
+    delete properties['location'];
+    if (Object.keys(properties).length > 0) {
+      writeDefinition(output, indent, false, new ObjectProperty(properties, required, [], null), 'AdditionalProps');
+      unionTypeString = '& AdditionalProps ';
+    }
   }
 
-  appendOutput(output, `export function create(name: ${nameType}, properties: ${propertiesType}${argsString}): ResourceDefinition<${propertiesType}> {`, indent);
+  appendOutput(output, `export function create(name: ${nameType}, properties: ${propertiesType}${argsString}): ResourceDefinition<${propertiesType}> ${unionTypeString}{`, indent);
   appendOutput(output, `  return {`, indent);
   appendOutput(output, `    type: '${typeName}',`, indent);
   appendOutput(output, `    apiVersion: '${apiVersionName}',`, indent);
@@ -374,7 +390,7 @@ export function processSchemaFile(basePath: string, schemaUri: string) {
       }
       
       const definition = getDefinition(schema.definitions[name], name);
-      writeDefinition(output, definition, name);
+      writeDefinition(output, 0, true, definition, name);
     }
   }
   

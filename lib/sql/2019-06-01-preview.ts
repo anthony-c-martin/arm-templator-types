@@ -86,24 +86,34 @@ export namespace managedInstances {
   }
 }
 export namespace servers {
-  export function create(name: Expressionable<string>, properties: ServerProperties, location: Expressionable<string>): ResourceDefinition<ServerProperties> {
+  interface AdditionalProps {
+    identity?: Expressionable<ResourceIdentity>;
+  }
+  
+  export function create(name: Expressionable<string>, properties: ServerProperties, location: Expressionable<string>, identity?: Expressionable<ResourceIdentity>): ResourceDefinition<ServerProperties> & AdditionalProps {
     return {
       type: 'Microsoft.Sql/servers',
       apiVersion: '2019-06-01-preview',
       name: name,
       location,
+      identity,
       properties,
     };
   }
 }
 export namespace servers {
   export namespace databases {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: DatabaseProperties, location: Expressionable<string>): ResourceDefinition<DatabaseProperties> {
+    interface AdditionalProps {
+      sku?: Expressionable<Sku>;
+    }
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: DatabaseProperties, location: Expressionable<string>, sku?: Expressionable<Sku>): ResourceDefinition<DatabaseProperties> & AdditionalProps {
       return {
         type: 'Microsoft.Sql/servers/databases',
         apiVersion: '2019-06-01-preview',
         name: concatResourceName(...name),
         location,
+        sku,
         properties,
       };
     }

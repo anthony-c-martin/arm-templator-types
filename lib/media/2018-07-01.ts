@@ -631,7 +631,7 @@ export interface VideoOverlay {
 }
 
 export namespace mediaServices {
-  export function create(name: Expressionable<string>, properties: MediaServiceProperties, location: Expressionable<string>): ResourceDefinition<MediaServiceProperties> {
+  export function create(name: Expressionable<string>, properties: MediaServiceProperties, location?: Expressionable<string>): ResourceDefinition<MediaServiceProperties> {
     return {
       type: 'Microsoft.Media/mediaServices',
       apiVersion: '2018-07-01',
@@ -693,7 +693,7 @@ export namespace mediaServices {
 }
 export namespace mediaServices {
   export namespace liveEvents {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: LiveEventProperties, location: Expressionable<string>): ResourceDefinition<LiveEventProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: LiveEventProperties, location?: Expressionable<string>): ResourceDefinition<LiveEventProperties> {
       return {
         type: 'Microsoft.Media/mediaServices/liveEvents',
         apiVersion: '2018-07-01',
@@ -720,7 +720,7 @@ export namespace mediaServices {
 }
 export namespace mediaServices {
   export namespace streamingEndpoints {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: StreamingEndpointProperties, location: Expressionable<string>): ResourceDefinition<StreamingEndpointProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: StreamingEndpointProperties, location?: Expressionable<string>): ResourceDefinition<StreamingEndpointProperties> {
       return {
         type: 'Microsoft.Media/mediaServices/streamingEndpoints',
         apiVersion: '2018-07-01',

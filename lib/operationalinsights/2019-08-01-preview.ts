@@ -30,12 +30,17 @@ export interface Identity {
 }
 
 export namespace clusters {
-  export function create(name: Expressionable<string>, properties: ClusterProperties, location: Expressionable<string>): ResourceDefinition<ClusterProperties> {
+  interface AdditionalProps {
+    identity?: Expressionable<Identity>;
+  }
+  
+  export function create(name: Expressionable<string>, properties: ClusterProperties, location?: Expressionable<string>, identity?: Expressionable<Identity>): ResourceDefinition<ClusterProperties> & AdditionalProps {
     return {
       type: 'Microsoft.OperationalInsights/clusters',
       apiVersion: '2019-08-01-preview',
       name: name,
       location,
+      identity,
       properties,
     };
   }

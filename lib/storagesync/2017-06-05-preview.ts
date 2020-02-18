@@ -59,7 +59,7 @@ export interface SyncGroupProperties {
 }
 
 export namespace storageSyncServices {
-  export function create(name: Expressionable<string>, properties: StorageSyncServiceProperties, location: Expressionable<string>): ResourceDefinition<StorageSyncServiceProperties> {
+  export function create(name: Expressionable<string>, properties: StorageSyncServiceProperties, location?: Expressionable<string>): ResourceDefinition<StorageSyncServiceProperties> {
     return {
       type: 'Microsoft.StorageSync/storageSyncServices',
       apiVersion: '2017-06-05-preview',

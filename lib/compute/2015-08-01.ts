@@ -497,11 +497,16 @@ export namespace virtualMachines {
   }
 }
 export namespace virtualMachineScaleSets {
-  export function create(name: Expressionable<string>, properties: any): ResourceDefinition<any> {
+  interface AdditionalProps {
+    sku: Expressionable<sku>;
+  }
+  
+  export function create(name: Expressionable<string>, properties: any, sku: Expressionable<sku>): ResourceDefinition<any> & AdditionalProps {
     return {
       type: 'Microsoft.Compute/virtualMachineScaleSets',
       apiVersion: '2015-05-01-preview',
       name: name,
+      sku,
       properties,
     };
   }

@@ -308,12 +308,17 @@ export namespace servers {
 }
 export namespace servers {
   export namespace databases {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: DatabasePropertiesModel, location: Expressionable<string>): ResourceDefinition<DatabasePropertiesModel> {
+    interface AdditionalProps {
+      sku?: Expressionable<Sku>;
+    }
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: DatabasePropertiesModel, location: Expressionable<string>, sku?: Expressionable<Sku>): ResourceDefinition<DatabasePropertiesModel> & AdditionalProps {
       return {
         type: 'Microsoft.Sql/servers/databases',
         apiVersion: '2017-03-01-preview',
         name: concatResourceName(...name),
         location,
+        sku,
         properties,
       };
     }
@@ -439,12 +444,17 @@ export namespace servers {
 }
 export namespace servers {
   export namespace jobAgents {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: JobAgentProperties, location: Expressionable<string>): ResourceDefinition<JobAgentProperties> {
+    interface AdditionalProps {
+      sku?: Expressionable<Sku>;
+    }
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: JobAgentProperties, location: Expressionable<string>, sku?: Expressionable<Sku>): ResourceDefinition<JobAgentProperties> & AdditionalProps {
       return {
         type: 'Microsoft.Sql/servers/jobAgents',
         apiVersion: '2017-03-01-preview',
         name: concatResourceName(...name),
         location,
+        sku,
         properties,
       };
     }

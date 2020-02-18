@@ -26,12 +26,17 @@ export interface WebhookPropertiesCreateParameters {
 }
 
 export namespace registries {
-  export function create(name: Expressionable<string>, properties: RegistryProperties, location: Expressionable<string>): ResourceDefinition<RegistryProperties> {
+  interface AdditionalProps {
+    sku: Expressionable<Sku>;
+  }
+  
+  export function create(name: Expressionable<string>, properties: RegistryProperties, location: Expressionable<string>, sku: Expressionable<Sku>): ResourceDefinition<RegistryProperties> & AdditionalProps {
     return {
       type: 'Microsoft.ContainerRegistry/registries',
       apiVersion: '2017-06-01-preview',
       name: name,
       location,
+      sku,
       properties,
     };
   }

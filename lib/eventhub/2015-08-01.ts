@@ -31,19 +31,24 @@ export interface Sku {
 }
 
 export namespace namespaces {
-  export function create(name: Expressionable<string>, properties: NamespaceProperties, location: Expressionable<string>): ResourceDefinition<NamespaceProperties> {
+  interface AdditionalProps {
+    sku?: Expressionable<Sku>;
+  }
+  
+  export function create(name: Expressionable<string>, properties: NamespaceProperties, location: Expressionable<string>, sku?: Expressionable<Sku>): ResourceDefinition<NamespaceProperties> & AdditionalProps {
     return {
       type: 'Microsoft.EventHub/namespaces',
       apiVersion: '2015-08-01',
       name: name,
       location,
+      sku,
       properties,
     };
   }
 }
 export namespace namespaces {
   export namespace AuthorizationRules {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: SharedAccessAuthorizationRuleProperties, location: Expressionable<string>): ResourceDefinition<SharedAccessAuthorizationRuleProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: SharedAccessAuthorizationRuleProperties, location?: Expressionable<string>): ResourceDefinition<SharedAccessAuthorizationRuleProperties> {
       return {
         type: 'Microsoft.EventHub/namespaces/AuthorizationRules',
         apiVersion: '2015-08-01',
@@ -70,7 +75,7 @@ export namespace namespaces {
 export namespace namespaces {
   export namespace eventhubs {
     export namespace authorizationRules {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: SharedAccessAuthorizationRuleProperties, location: Expressionable<string>): ResourceDefinition<SharedAccessAuthorizationRuleProperties> {
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: SharedAccessAuthorizationRuleProperties, location?: Expressionable<string>): ResourceDefinition<SharedAccessAuthorizationRuleProperties> {
         return {
           type: 'Microsoft.EventHub/namespaces/eventhubs/authorizationRules',
           apiVersion: '2015-08-01',

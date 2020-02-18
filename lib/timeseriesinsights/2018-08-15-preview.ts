@@ -90,12 +90,17 @@ export interface WarmStoreConfigurationProperties {
 }
 
 export namespace environments {
-  export function create(name: Expressionable<string>, properties: StandardEnvironmentCreationProperties | LongTermEnvironmentCreationProperties, location: Expressionable<string>): ResourceDefinition<StandardEnvironmentCreationProperties | LongTermEnvironmentCreationProperties> {
+  interface AdditionalProps {
+    sku: Expressionable<Sku>;
+  }
+  
+  export function create(name: Expressionable<string>, properties: StandardEnvironmentCreationProperties | LongTermEnvironmentCreationProperties, location: Expressionable<string>, sku: Expressionable<Sku>): ResourceDefinition<StandardEnvironmentCreationProperties | LongTermEnvironmentCreationProperties> & AdditionalProps {
     return {
       type: 'Microsoft.TimeSeriesInsights/environments',
       apiVersion: '2018-08-15-preview',
       name: name,
       location,
+      sku,
       properties,
     };
   }

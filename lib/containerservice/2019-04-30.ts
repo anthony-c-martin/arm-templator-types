@@ -65,12 +65,17 @@ export interface PurchasePlan {
 }
 
 export namespace openShiftManagedClusters {
-  export function create(name: Expressionable<string>, properties: OpenShiftManagedClusterProperties, location: Expressionable<string>): ResourceDefinition<OpenShiftManagedClusterProperties> {
+  interface AdditionalProps {
+    plan?: Expressionable<PurchasePlan>;
+  }
+  
+  export function create(name: Expressionable<string>, properties: OpenShiftManagedClusterProperties, location: Expressionable<string>, plan?: Expressionable<PurchasePlan>): ResourceDefinition<OpenShiftManagedClusterProperties> & AdditionalProps {
     return {
       type: 'Microsoft.ContainerService/openShiftManagedClusters',
       apiVersion: '2019-04-30',
       name: name,
       location,
+      plan,
       properties,
     };
   }

@@ -100,7 +100,7 @@ export interface UserSourceInfo {
 }
 
 export namespace Spring {
-  export function create(name: Expressionable<string>, properties: ClusterResourceProperties, location: Expressionable<string>): ResourceDefinition<ClusterResourceProperties> {
+  export function create(name: Expressionable<string>, properties: ClusterResourceProperties, location?: Expressionable<string>): ResourceDefinition<ClusterResourceProperties> {
     return {
       type: 'Microsoft.AppPlatform/Spring',
       apiVersion: '2019-05-01-preview',

@@ -28,7 +28,7 @@ export interface ConnectionGatewayProperties {
 }
 
 export namespace connections {
-  export function create(name: Expressionable<string>, properties: ConnectionProperties, location: Expressionable<string>): ResourceDefinition<ConnectionProperties> {
+  export function create(name: Expressionable<string>, properties: ConnectionProperties, location?: Expressionable<string>): ResourceDefinition<ConnectionProperties> {
     return {
       type: 'Microsoft.Web/connections',
       apiVersion: '2016-06-01',
@@ -39,7 +39,7 @@ export namespace connections {
   }
 }
 export namespace connectionGateways {
-  export function create(name: Expressionable<string>, properties: ConnectionGatewayProperties, location: Expressionable<string>): ResourceDefinition<ConnectionGatewayProperties> {
+  export function create(name: Expressionable<string>, properties: ConnectionGatewayProperties, location?: Expressionable<string>): ResourceDefinition<ConnectionGatewayProperties> {
     return {
       type: 'Microsoft.Web/connectionGateways',
       apiVersion: '2016-06-01',
@@ -50,7 +50,7 @@ export namespace connectionGateways {
   }
 }
 export namespace customApis {
-  export function create(name: Expressionable<string>, properties: CustomApiProperties, location: Expressionable<string>): ResourceDefinition<CustomApiProperties> {
+  export function create(name: Expressionable<string>, properties: CustomApiProperties, location?: Expressionable<string>): ResourceDefinition<CustomApiProperties> {
     return {
       type: 'Microsoft.Web/customApis',
       apiVersion: '2016-06-01',

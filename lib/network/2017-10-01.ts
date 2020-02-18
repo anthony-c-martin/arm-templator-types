@@ -886,7 +886,7 @@ export interface ZoneProperties {
 }
 
 export namespace applicationGateways {
-  export function create(name: Expressionable<string>, properties: ApplicationGatewayPropertiesFormat, location: Expressionable<string>): ResourceDefinition<ApplicationGatewayPropertiesFormat> {
+  export function create(name: Expressionable<string>, properties: ApplicationGatewayPropertiesFormat, location?: Expressionable<string>): ResourceDefinition<ApplicationGatewayPropertiesFormat> {
     return {
       type: 'Microsoft.Network/applicationGateways',
       apiVersion: '2017-10-01',
@@ -897,7 +897,7 @@ export namespace applicationGateways {
   }
 }
 export namespace applicationSecurityGroups {
-  export function create(name: Expressionable<string>, properties: ApplicationSecurityGroupPropertiesFormat, location: Expressionable<string>): ResourceDefinition<ApplicationSecurityGroupPropertiesFormat> {
+  export function create(name: Expressionable<string>, properties: ApplicationSecurityGroupPropertiesFormat, location?: Expressionable<string>): ResourceDefinition<ApplicationSecurityGroupPropertiesFormat> {
     return {
       type: 'Microsoft.Network/applicationSecurityGroups',
       apiVersion: '2017-10-01',
@@ -908,7 +908,7 @@ export namespace applicationSecurityGroups {
   }
 }
 export namespace connections {
-  export function create(name: Expressionable<string>, properties: VirtualNetworkGatewayConnectionPropertiesFormat, location: Expressionable<string>): ResourceDefinition<VirtualNetworkGatewayConnectionPropertiesFormat> {
+  export function create(name: Expressionable<string>, properties: VirtualNetworkGatewayConnectionPropertiesFormat, location?: Expressionable<string>): ResourceDefinition<VirtualNetworkGatewayConnectionPropertiesFormat> {
     return {
       type: 'Microsoft.Network/connections',
       apiVersion: '2017-10-01',
@@ -919,12 +919,17 @@ export namespace connections {
   }
 }
 export namespace expressRouteCircuits {
-  export function create(name: Expressionable<string>, properties: ExpressRouteCircuitPropertiesFormat, location: Expressionable<string>): ResourceDefinition<ExpressRouteCircuitPropertiesFormat> {
+  interface AdditionalProps {
+    sku?: Expressionable<ExpressRouteCircuitSku>;
+  }
+  
+  export function create(name: Expressionable<string>, properties: ExpressRouteCircuitPropertiesFormat, location?: Expressionable<string>, sku?: Expressionable<ExpressRouteCircuitSku>): ResourceDefinition<ExpressRouteCircuitPropertiesFormat> & AdditionalProps {
     return {
       type: 'Microsoft.Network/expressRouteCircuits',
       apiVersion: '2017-10-01',
       name: name,
       location,
+      sku,
       properties,
     };
   }
@@ -954,12 +959,17 @@ export namespace expressRouteCircuits {
   }
 }
 export namespace loadBalancers {
-  export function create(name: Expressionable<string>, properties: LoadBalancerPropertiesFormat, location: Expressionable<string>): ResourceDefinition<LoadBalancerPropertiesFormat> {
+  interface AdditionalProps {
+    sku?: Expressionable<LoadBalancerSku>;
+  }
+  
+  export function create(name: Expressionable<string>, properties: LoadBalancerPropertiesFormat, location?: Expressionable<string>, sku?: Expressionable<LoadBalancerSku>): ResourceDefinition<LoadBalancerPropertiesFormat> & AdditionalProps {
     return {
       type: 'Microsoft.Network/loadBalancers',
       apiVersion: '2017-10-01',
       name: name,
       location,
+      sku,
       properties,
     };
   }
@@ -977,7 +987,7 @@ export namespace loadBalancers {
   }
 }
 export namespace localNetworkGateways {
-  export function create(name: Expressionable<string>, properties: LocalNetworkGatewayPropertiesFormat, location: Expressionable<string>): ResourceDefinition<LocalNetworkGatewayPropertiesFormat> {
+  export function create(name: Expressionable<string>, properties: LocalNetworkGatewayPropertiesFormat, location?: Expressionable<string>): ResourceDefinition<LocalNetworkGatewayPropertiesFormat> {
     return {
       type: 'Microsoft.Network/localNetworkGateways',
       apiVersion: '2017-10-01',
@@ -988,7 +998,7 @@ export namespace localNetworkGateways {
   }
 }
 export namespace networkInterfaces {
-  export function create(name: Expressionable<string>, properties: NetworkInterfacePropertiesFormat, location: Expressionable<string>): ResourceDefinition<NetworkInterfacePropertiesFormat> {
+  export function create(name: Expressionable<string>, properties: NetworkInterfacePropertiesFormat, location?: Expressionable<string>): ResourceDefinition<NetworkInterfacePropertiesFormat> {
     return {
       type: 'Microsoft.Network/networkInterfaces',
       apiVersion: '2017-10-01',
@@ -999,7 +1009,7 @@ export namespace networkInterfaces {
   }
 }
 export namespace networkSecurityGroups {
-  export function create(name: Expressionable<string>, properties: NetworkSecurityGroupPropertiesFormat, location: Expressionable<string>): ResourceDefinition<NetworkSecurityGroupPropertiesFormat> {
+  export function create(name: Expressionable<string>, properties: NetworkSecurityGroupPropertiesFormat, location?: Expressionable<string>): ResourceDefinition<NetworkSecurityGroupPropertiesFormat> {
     return {
       type: 'Microsoft.Network/networkSecurityGroups',
       apiVersion: '2017-10-01',
@@ -1022,7 +1032,7 @@ export namespace networkSecurityGroups {
   }
 }
 export namespace networkWatchers {
-  export function create(name: Expressionable<string>, properties: NetworkWatcherPropertiesFormat, location: Expressionable<string>): ResourceDefinition<NetworkWatcherPropertiesFormat> {
+  export function create(name: Expressionable<string>, properties: NetworkWatcherPropertiesFormat, location?: Expressionable<string>): ResourceDefinition<NetworkWatcherPropertiesFormat> {
     return {
       type: 'Microsoft.Network/networkWatchers',
       apiVersion: '2017-10-01',
@@ -1045,18 +1055,25 @@ export namespace networkWatchers {
   }
 }
 export namespace publicIPAddresses {
-  export function create(name: Expressionable<string>, properties: PublicIPAddressPropertiesFormat, location: Expressionable<string>): ResourceDefinition<PublicIPAddressPropertiesFormat> {
+  interface AdditionalProps {
+    sku?: Expressionable<PublicIPAddressSku>;
+    zones?: Expressionable<string[]>;
+  }
+  
+  export function create(name: Expressionable<string>, properties: PublicIPAddressPropertiesFormat, location?: Expressionable<string>, sku?: Expressionable<PublicIPAddressSku>, zones?: Expressionable<string[]>): ResourceDefinition<PublicIPAddressPropertiesFormat> & AdditionalProps {
     return {
       type: 'Microsoft.Network/publicIPAddresses',
       apiVersion: '2017-10-01',
       name: name,
       location,
+      sku,
+      zones,
       properties,
     };
   }
 }
 export namespace routeFilters {
-  export function create(name: Expressionable<string>, properties: RouteFilterPropertiesFormat, location: Expressionable<string>): ResourceDefinition<RouteFilterPropertiesFormat> {
+  export function create(name: Expressionable<string>, properties: RouteFilterPropertiesFormat, location?: Expressionable<string>): ResourceDefinition<RouteFilterPropertiesFormat> {
     return {
       type: 'Microsoft.Network/routeFilters',
       apiVersion: '2017-10-01',
@@ -1068,7 +1085,7 @@ export namespace routeFilters {
 }
 export namespace routeFilters {
   export namespace routeFilterRules {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RouteFilterRulePropertiesFormat, location: Expressionable<string>): ResourceDefinition<RouteFilterRulePropertiesFormat> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RouteFilterRulePropertiesFormat, location?: Expressionable<string>): ResourceDefinition<RouteFilterRulePropertiesFormat> {
       return {
         type: 'Microsoft.Network/routeFilters/routeFilterRules',
         apiVersion: '2017-10-01',
@@ -1080,7 +1097,7 @@ export namespace routeFilters {
   }
 }
 export namespace routeTables {
-  export function create(name: Expressionable<string>, properties: RouteTablePropertiesFormat, location: Expressionable<string>): ResourceDefinition<RouteTablePropertiesFormat> {
+  export function create(name: Expressionable<string>, properties: RouteTablePropertiesFormat, location?: Expressionable<string>): ResourceDefinition<RouteTablePropertiesFormat> {
     return {
       type: 'Microsoft.Network/routeTables',
       apiVersion: '2017-10-01',
@@ -1103,7 +1120,7 @@ export namespace routeTables {
   }
 }
 export namespace virtualNetworkGateways {
-  export function create(name: Expressionable<string>, properties: VirtualNetworkGatewayPropertiesFormat, location: Expressionable<string>): ResourceDefinition<VirtualNetworkGatewayPropertiesFormat> {
+  export function create(name: Expressionable<string>, properties: VirtualNetworkGatewayPropertiesFormat, location?: Expressionable<string>): ResourceDefinition<VirtualNetworkGatewayPropertiesFormat> {
     return {
       type: 'Microsoft.Network/virtualNetworkGateways',
       apiVersion: '2017-10-01',
@@ -1114,7 +1131,7 @@ export namespace virtualNetworkGateways {
   }
 }
 export namespace virtualNetworks {
-  export function create(name: Expressionable<string>, properties: VirtualNetworkPropertiesFormat, location: Expressionable<string>): ResourceDefinition<VirtualNetworkPropertiesFormat> {
+  export function create(name: Expressionable<string>, properties: VirtualNetworkPropertiesFormat, location?: Expressionable<string>): ResourceDefinition<VirtualNetworkPropertiesFormat> {
     return {
       type: 'Microsoft.Network/virtualNetworks',
       apiVersion: '2017-10-01',

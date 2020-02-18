@@ -31,7 +31,7 @@ export interface ProtectionIntent {
 export namespace vaults {
   export namespace backupFabrics {
     export namespace backupProtectionIntent {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ProtectionIntent, location: Expressionable<string>): ResourceDefinition<ProtectionIntent> {
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ProtectionIntent, location?: Expressionable<string>): ResourceDefinition<ProtectionIntent> {
         return {
           type: 'Microsoft.RecoveryServices/vaults/backupFabrics/backupProtectionIntent',
           apiVersion: '2017-07-01',

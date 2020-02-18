@@ -54,12 +54,17 @@ export interface TrustedExternalTenant {
 }
 
 export namespace clusters {
-  export function create(name: Expressionable<string>, properties: ClusterProperties, location: Expressionable<string>): ResourceDefinition<ClusterProperties> {
+  interface AdditionalProps {
+    sku: Expressionable<Sku>;
+  }
+  
+  export function create(name: Expressionable<string>, properties: ClusterProperties, location: Expressionable<string>, sku: Expressionable<Sku>): ResourceDefinition<ClusterProperties> & AdditionalProps {
     return {
       type: 'Microsoft.Kusto/clusters',
       apiVersion: '2019-01-21',
       name: name,
       location,
+      sku,
       properties,
     };
   }

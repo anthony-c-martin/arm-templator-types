@@ -616,12 +616,17 @@ export namespace connections {
   }
 }
 export namespace expressRouteCircuits {
-  export function create(name: Expressionable<string>, properties: ExpressRouteCircuitPropertiesFormat, location: Expressionable<string>): ResourceDefinition<ExpressRouteCircuitPropertiesFormat> {
+  interface AdditionalProps {
+    sku?: Expressionable<ExpressRouteCircuitSku>;
+  }
+  
+  export function create(name: Expressionable<string>, properties: ExpressRouteCircuitPropertiesFormat, location: Expressionable<string>, sku?: Expressionable<ExpressRouteCircuitSku>): ResourceDefinition<ExpressRouteCircuitPropertiesFormat> & AdditionalProps {
     return {
       type: 'Microsoft.Network/expressRouteCircuits',
       apiVersion: '2015-06-15',
       name: name,
       location,
+      sku,
       properties,
     };
   }

@@ -35,7 +35,7 @@ export interface TemplateLink {
 }
 
 export namespace deployments {
-  export function create(name: Expressionable<string>, properties: DeploymentProperties, location: Expressionable<string>): ResourceDefinition<DeploymentProperties> {
+  export function create(name: Expressionable<string>, properties: DeploymentProperties, location?: Expressionable<string>): ResourceDefinition<DeploymentProperties> {
     return {
       type: 'Microsoft.Resources/deployments',
       apiVersion: '2019-10-01',

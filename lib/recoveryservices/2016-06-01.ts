@@ -22,12 +22,17 @@ export interface VaultExtendedInfo {
 }
 
 export namespace vaults {
-  export function create(name: Expressionable<string>, properties: RecoveryServicesPropertiesCreateParameters, location: Expressionable<string>): ResourceDefinition<RecoveryServicesPropertiesCreateParameters> {
+  interface AdditionalProps {
+    sku: Expressionable<Sku>;
+  }
+  
+  export function create(name: Expressionable<string>, properties: RecoveryServicesPropertiesCreateParameters, location: Expressionable<string>, sku: Expressionable<Sku>): ResourceDefinition<RecoveryServicesPropertiesCreateParameters> & AdditionalProps {
     return {
       type: 'Microsoft.RecoveryServices/vaults',
       apiVersion: '2018-01-10',
       name: name,
       location,
+      sku,
       properties,
     };
   }

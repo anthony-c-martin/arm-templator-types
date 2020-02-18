@@ -251,7 +251,7 @@ export namespace clusters {
 }
 export namespace clusters {
   export namespace applications {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ApplicationResourceProperties, location: Expressionable<string>): ResourceDefinition<ApplicationResourceProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ApplicationResourceProperties, location?: Expressionable<string>): ResourceDefinition<ApplicationResourceProperties> {
       return {
         type: 'Microsoft.ServiceFabric/clusters/applications',
         apiVersion: '2019-03-01',
@@ -265,7 +265,7 @@ export namespace clusters {
 export namespace clusters {
   export namespace applications {
     export namespace services {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ServiceResourceProperties, location: Expressionable<string>): ResourceDefinition<ServiceResourceProperties> {
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ServiceResourceProperties, location?: Expressionable<string>): ResourceDefinition<ServiceResourceProperties> {
         return {
           type: 'Microsoft.ServiceFabric/clusters/applications/services',
           apiVersion: '2019-03-01',
@@ -279,7 +279,7 @@ export namespace clusters {
 }
 export namespace clusters {
   export namespace applicationTypes {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ApplicationTypeResourceProperties, location: Expressionable<string>): ResourceDefinition<ApplicationTypeResourceProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ApplicationTypeResourceProperties, location?: Expressionable<string>): ResourceDefinition<ApplicationTypeResourceProperties> {
       return {
         type: 'Microsoft.ServiceFabric/clusters/applicationTypes',
         apiVersion: '2019-03-01',
@@ -293,7 +293,7 @@ export namespace clusters {
 export namespace clusters {
   export namespace applicationTypes {
     export namespace versions {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ApplicationTypeVersionResourceProperties, location: Expressionable<string>): ResourceDefinition<ApplicationTypeVersionResourceProperties> {
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ApplicationTypeVersionResourceProperties, location?: Expressionable<string>): ResourceDefinition<ApplicationTypeVersionResourceProperties> {
         return {
           type: 'Microsoft.ServiceFabric/clusters/applicationTypes/versions',
           apiVersion: '2019-03-01',

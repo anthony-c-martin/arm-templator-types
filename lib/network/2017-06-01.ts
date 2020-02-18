@@ -811,12 +811,17 @@ export namespace connections {
   }
 }
 export namespace expressRouteCircuits {
-  export function create(name: Expressionable<string>, properties: ExpressRouteCircuitPropertiesFormat, location: Expressionable<string>): ResourceDefinition<ExpressRouteCircuitPropertiesFormat> {
+  interface AdditionalProps {
+    sku?: Expressionable<ExpressRouteCircuitSku>;
+  }
+  
+  export function create(name: Expressionable<string>, properties: ExpressRouteCircuitPropertiesFormat, location: Expressionable<string>, sku?: Expressionable<ExpressRouteCircuitSku>): ResourceDefinition<ExpressRouteCircuitPropertiesFormat> & AdditionalProps {
     return {
       type: 'Microsoft.Network/expressRouteCircuits',
       apiVersion: '2017-06-01',
       name: name,
       location,
+      sku,
       properties,
     };
   }
@@ -948,7 +953,7 @@ export namespace routeFilters {
 }
 export namespace routeFilters {
   export namespace routeFilterRules {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RouteFilterRulePropertiesFormat, location: Expressionable<string>): ResourceDefinition<RouteFilterRulePropertiesFormat> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RouteFilterRulePropertiesFormat, location?: Expressionable<string>): ResourceDefinition<RouteFilterRulePropertiesFormat> {
       return {
         type: 'Microsoft.Network/routeFilters/routeFilterRules',
         apiVersion: '2017-06-01',

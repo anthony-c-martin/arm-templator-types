@@ -57,12 +57,19 @@ export interface PolicySku {
 }
 
 export namespace policyAssignments {
-  export function create(name: Expressionable<string>, properties: PolicyAssignmentProperties, location: Expressionable<string>): ResourceDefinition<PolicyAssignmentProperties> {
+  interface AdditionalProps {
+    sku?: Expressionable<PolicySku>;
+    identity?: Expressionable<Identity>;
+  }
+  
+  export function create(name: Expressionable<string>, properties: PolicyAssignmentProperties, location?: Expressionable<string>, identity?: Expressionable<Identity>, sku?: Expressionable<PolicySku>): ResourceDefinition<PolicyAssignmentProperties> & AdditionalProps {
     return {
       type: 'Microsoft.Authorization/policyAssignments',
       apiVersion: '2019-09-01',
       name: name,
       location,
+      identity,
+      sku,
       properties,
     };
   }

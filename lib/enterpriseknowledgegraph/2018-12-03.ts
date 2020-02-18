@@ -12,12 +12,17 @@ export interface Sku {
 }
 
 export namespace services {
-  export function create(name: Expressionable<string>, properties: EnterpriseKnowledgeGraphProperties, location: Expressionable<string>): ResourceDefinition<EnterpriseKnowledgeGraphProperties> {
+  interface AdditionalProps {
+    sku?: Expressionable<Sku>;
+  }
+  
+  export function create(name: Expressionable<string>, properties: EnterpriseKnowledgeGraphProperties, location?: Expressionable<string>, sku?: Expressionable<Sku>): ResourceDefinition<EnterpriseKnowledgeGraphProperties> & AdditionalProps {
     return {
       type: 'Microsoft.EnterpriseKnowledgeGraph/services',
       apiVersion: '2018-12-03',
       name: name,
       location,
+      sku,
       properties,
     };
   }

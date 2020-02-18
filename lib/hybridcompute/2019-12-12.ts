@@ -57,12 +57,17 @@ export interface MachinePropertiesOsProfile {
 }
 
 export namespace machines {
-  export function create(name: Expressionable<string>, properties: MachinePropertiesModel, location: Expressionable<string>): ResourceDefinition<MachinePropertiesModel> {
+  interface AdditionalProps {
+    identity?: Expressionable<MachineIdentity>;
+  }
+  
+  export function create(name: Expressionable<string>, properties: MachinePropertiesModel, location: Expressionable<string>, identity?: Expressionable<MachineIdentity>): ResourceDefinition<MachinePropertiesModel> & AdditionalProps {
     return {
       type: 'Microsoft.HybridCompute/machines',
       apiVersion: '2019-12-12',
       name: name,
       location,
+      identity,
       properties,
     };
   }

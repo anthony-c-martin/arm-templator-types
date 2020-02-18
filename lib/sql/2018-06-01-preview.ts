@@ -109,23 +109,35 @@ export interface VulnerabilityAssessmentRecurringScansProperties {
 }
 
 export namespace instancePools {
-  export function create(name: Expressionable<string>, properties: InstancePoolProperties, location: Expressionable<string>): ResourceDefinition<InstancePoolProperties> {
+  interface AdditionalProps {
+    sku?: Expressionable<Sku>;
+  }
+  
+  export function create(name: Expressionable<string>, properties: InstancePoolProperties, location: Expressionable<string>, sku?: Expressionable<Sku>): ResourceDefinition<InstancePoolProperties> & AdditionalProps {
     return {
       type: 'Microsoft.Sql/instancePools',
       apiVersion: '2018-06-01-preview',
       name: name,
       location,
+      sku,
       properties,
     };
   }
 }
 export namespace managedInstances {
-  export function create(name: Expressionable<string>, properties: ManagedInstanceProperties, location: Expressionable<string>): ResourceDefinition<ManagedInstanceProperties> {
+  interface AdditionalProps {
+    identity?: Expressionable<ResourceIdentity>;
+    sku?: Expressionable<Sku>;
+  }
+  
+  export function create(name: Expressionable<string>, properties: ManagedInstanceProperties, location: Expressionable<string>, identity?: Expressionable<ResourceIdentity>, sku?: Expressionable<Sku>): ResourceDefinition<ManagedInstanceProperties> & AdditionalProps {
     return {
       type: 'Microsoft.Sql/managedInstances',
       apiVersion: '2018-06-01-preview',
       name: name,
       location,
+      identity,
+      sku,
       properties,
     };
   }

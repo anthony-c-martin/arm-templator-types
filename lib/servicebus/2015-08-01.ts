@@ -68,19 +68,24 @@ export interface TopicProperties {
 }
 
 export namespace namespaces {
-  export function create(name: Expressionable<string>, properties: NamespaceProperties, location: Expressionable<string>): ResourceDefinition<NamespaceProperties> {
+  interface AdditionalProps {
+    sku?: Expressionable<Sku>;
+  }
+  
+  export function create(name: Expressionable<string>, properties: NamespaceProperties, location: Expressionable<string>, sku?: Expressionable<Sku>): ResourceDefinition<NamespaceProperties> & AdditionalProps {
     return {
       type: 'Microsoft.ServiceBus/namespaces',
       apiVersion: '2015-08-01',
       name: name,
       location,
+      sku,
       properties,
     };
   }
 }
 export namespace namespaces {
   export namespace AuthorizationRules {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: SharedAccessAuthorizationRuleProperties, location: Expressionable<string>): ResourceDefinition<SharedAccessAuthorizationRuleProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: SharedAccessAuthorizationRuleProperties, location?: Expressionable<string>): ResourceDefinition<SharedAccessAuthorizationRuleProperties> {
       return {
         type: 'Microsoft.ServiceBus/namespaces/AuthorizationRules',
         apiVersion: '2015-08-01',
@@ -107,7 +112,7 @@ export namespace namespaces {
 export namespace namespaces {
   export namespace queues {
     export namespace authorizationRules {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: SharedAccessAuthorizationRuleProperties, location: Expressionable<string>): ResourceDefinition<SharedAccessAuthorizationRuleProperties> {
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: SharedAccessAuthorizationRuleProperties, location?: Expressionable<string>): ResourceDefinition<SharedAccessAuthorizationRuleProperties> {
         return {
           type: 'Microsoft.ServiceBus/namespaces/queues/authorizationRules',
           apiVersion: '2015-08-01',
@@ -135,7 +140,7 @@ export namespace namespaces {
 export namespace namespaces {
   export namespace topics {
     export namespace authorizationRules {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: SharedAccessAuthorizationRuleProperties, location: Expressionable<string>): ResourceDefinition<SharedAccessAuthorizationRuleProperties> {
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: SharedAccessAuthorizationRuleProperties, location?: Expressionable<string>): ResourceDefinition<SharedAccessAuthorizationRuleProperties> {
         return {
           type: 'Microsoft.ServiceBus/namespaces/topics/authorizationRules',
           apiVersion: '2015-08-01',

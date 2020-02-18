@@ -30,12 +30,19 @@ export interface StorageAccountPropertiesCreateParameters {
 }
 
 export namespace storageAccounts {
-  export function create(name: Expressionable<string>, properties: StorageAccountPropertiesCreateParameters, location: Expressionable<string>): ResourceDefinition<StorageAccountPropertiesCreateParameters> {
+  interface AdditionalProps {
+    sku: Expressionable<Sku>;
+    kind: Expressionable<('Storage' | 'BlobStorage')>;
+  }
+  
+  export function create(name: Expressionable<string>, properties: StorageAccountPropertiesCreateParameters, location: Expressionable<string>, sku: Expressionable<Sku>, kind: Expressionable<('Storage' | 'BlobStorage')>): ResourceDefinition<StorageAccountPropertiesCreateParameters> & AdditionalProps {
     return {
       type: 'Microsoft.Storage/storageAccounts',
       apiVersion: '2016-01-01',
       name: name,
       location,
+      sku,
+      kind,
       properties,
     };
   }

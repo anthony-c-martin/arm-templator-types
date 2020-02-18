@@ -12,12 +12,17 @@ export interface Sku {
 }
 
 export namespace searchServices {
-  export function create(name: Expressionable<string>, properties: SearchServiceProperties, location: Expressionable<string>): ResourceDefinition<SearchServiceProperties> {
+  interface AdditionalProps {
+    sku: Expressionable<Sku>;
+  }
+  
+  export function create(name: Expressionable<string>, properties: SearchServiceProperties, location: Expressionable<string>, sku: Expressionable<Sku>): ResourceDefinition<SearchServiceProperties> & AdditionalProps {
     return {
       type: 'Microsoft.Search/searchServices',
       apiVersion: '2015-08-19',
       name: name,
       location,
+      sku,
       properties,
     };
   }

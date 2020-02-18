@@ -17,12 +17,17 @@ export interface StorageContainerProperties {
 }
 
 export namespace Graph {
-  export function create(name: Expressionable<string>, properties: IoTSpacesProperties, location: Expressionable<string>): ResourceDefinition<IoTSpacesProperties> {
+  interface AdditionalProps {
+    sku: Expressionable<IoTSpacesSkuInfo>;
+  }
+  
+  export function create(name: Expressionable<string>, properties: IoTSpacesProperties, location: Expressionable<string>, sku: Expressionable<IoTSpacesSkuInfo>): ResourceDefinition<IoTSpacesProperties> & AdditionalProps {
     return {
       type: 'Microsoft.IoTSpaces/Graph',
       apiVersion: '2017-10-01-preview',
       name: name,
       location,
+      sku,
       properties,
     };
   }

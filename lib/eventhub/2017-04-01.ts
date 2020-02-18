@@ -74,12 +74,17 @@ export interface Subnet {
 }
 
 export namespace namespaces {
-  export function create(name: Expressionable<string>, properties: EHNamespaceProperties, location: Expressionable<string>): ResourceDefinition<EHNamespaceProperties> {
+  interface AdditionalProps {
+    sku?: Expressionable<Sku>;
+  }
+  
+  export function create(name: Expressionable<string>, properties: EHNamespaceProperties, location?: Expressionable<string>, sku?: Expressionable<Sku>): ResourceDefinition<EHNamespaceProperties> & AdditionalProps {
     return {
       type: 'Microsoft.EventHub/namespaces',
       apiVersion: '2017-04-01',
       name: name,
       location,
+      sku,
       properties,
     };
   }

@@ -20,12 +20,17 @@ export interface SignalRFeature {
 }
 
 export namespace SignalR {
-  export function create(name: Expressionable<string>, properties: SignalRCreateOrUpdateProperties, location: Expressionable<string>): ResourceDefinition<SignalRCreateOrUpdateProperties> {
+  interface AdditionalProps {
+    sku?: Expressionable<ResourceSku>;
+  }
+  
+  export function create(name: Expressionable<string>, properties: SignalRCreateOrUpdateProperties, location: Expressionable<string>, sku?: Expressionable<ResourceSku>): ResourceDefinition<SignalRCreateOrUpdateProperties> & AdditionalProps {
     return {
       type: 'Microsoft.SignalRService/SignalR',
       apiVersion: '2018-10-01',
       name: name,
       location,
+      sku,
       properties,
     };
   }

@@ -26,12 +26,17 @@ export interface WcfRelayProperties {
 }
 
 export namespace namespaces {
-  export function create(name: Expressionable<string>, properties: RelayNamespaceProperties, location: Expressionable<string>): ResourceDefinition<RelayNamespaceProperties> {
+  interface AdditionalProps {
+    sku?: Expressionable<Sku>;
+  }
+  
+  export function create(name: Expressionable<string>, properties: RelayNamespaceProperties, location: Expressionable<string>, sku?: Expressionable<Sku>): ResourceDefinition<RelayNamespaceProperties> & AdditionalProps {
     return {
       type: 'Microsoft.Relay/namespaces',
       apiVersion: '2017-04-01',
       name: name,
       location,
+      sku,
       properties,
     };
   }

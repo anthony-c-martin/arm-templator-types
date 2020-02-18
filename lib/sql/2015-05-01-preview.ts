@@ -137,23 +137,35 @@ export interface VirtualNetworkRuleProperties {
 }
 
 export namespace managedInstances {
-  export function create(name: Expressionable<string>, properties: ManagedInstanceProperties, location: Expressionable<string>): ResourceDefinition<ManagedInstanceProperties> {
+  interface AdditionalProps {
+    identity?: Expressionable<ResourceIdentity>;
+    sku?: Expressionable<Sku>;
+  }
+  
+  export function create(name: Expressionable<string>, properties: ManagedInstanceProperties, location: Expressionable<string>, identity?: Expressionable<ResourceIdentity>, sku?: Expressionable<Sku>): ResourceDefinition<ManagedInstanceProperties> & AdditionalProps {
     return {
       type: 'Microsoft.Sql/managedInstances',
       apiVersion: '2015-05-01-preview',
       name: name,
       location,
+      identity,
+      sku,
       properties,
     };
   }
 }
 export namespace servers {
-  export function create(name: Expressionable<string>, properties: ServerProperties, location: Expressionable<string>): ResourceDefinition<ServerProperties> {
+  interface AdditionalProps {
+    identity?: Expressionable<ResourceIdentity>;
+  }
+  
+  export function create(name: Expressionable<string>, properties: ServerProperties, location: Expressionable<string>, identity?: Expressionable<ResourceIdentity>): ResourceDefinition<ServerProperties> & AdditionalProps {
     return {
       type: 'Microsoft.Sql/servers',
       apiVersion: '2015-05-01-preview',
       name: name,
       location,
+      identity,
       properties,
     };
   }
@@ -240,11 +252,16 @@ export namespace servers {
 }
 export namespace servers {
   export namespace keys {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ServerKeyProperties): ResourceDefinition<ServerKeyProperties> {
+    interface AdditionalProps {
+      kind?: Expressionable<string>;
+    }
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ServerKeyProperties, kind?: Expressionable<string>): ResourceDefinition<ServerKeyProperties> & AdditionalProps {
       return {
         type: 'Microsoft.Sql/servers/keys',
         apiVersion: '2015-05-01-preview',
         name: concatResourceName(...name),
+        kind,
         properties,
       };
     }

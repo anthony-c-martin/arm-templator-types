@@ -15,11 +15,16 @@ export interface appsettings {
 }
 
 export namespace serverfarms {
-  export function create(name: Expressionable<string>, properties: any): ResourceDefinition<any> {
+  interface AdditionalProps {
+    sku?: Expressionable<any>;
+  }
+  
+  export function create(name: Expressionable<string>, properties: any, sku?: Expressionable<any>): ResourceDefinition<any> & AdditionalProps {
     return {
       type: 'Microsoft.Web/serverfarms',
       apiVersion: '2015-08-01',
       name: name,
+      sku,
       properties,
     };
   }

@@ -91,12 +91,19 @@ export interface VirtualNetworkConfiguration {
 }
 
 export namespace clusters {
-  export function create(name: Expressionable<string>, properties: ClusterProperties, location: Expressionable<string>): ResourceDefinition<ClusterProperties> {
+  interface AdditionalProps {
+    sku: Expressionable<Sku>;
+    zones?: Expressionable<Zones>;
+  }
+  
+  export function create(name: Expressionable<string>, properties: ClusterProperties, location: Expressionable<string>, sku: Expressionable<Sku>, zones?: Expressionable<Zones>): ResourceDefinition<ClusterProperties> & AdditionalProps {
     return {
       type: 'Microsoft.Kusto/clusters',
       apiVersion: '2019-05-15',
       name: name,
       location,
+      sku,
+      zones,
       properties,
     };
   }

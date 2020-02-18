@@ -146,7 +146,7 @@ export interface VolumeResourceProperties {
 }
 
 export namespace applications {
-  export function create(name: Expressionable<string>, properties: ApplicationResourceProperties, location: Expressionable<string>): ResourceDefinition<ApplicationResourceProperties> {
+  export function create(name: Expressionable<string>, properties: ApplicationResourceProperties, location?: Expressionable<string>): ResourceDefinition<ApplicationResourceProperties> {
     return {
       type: 'Microsoft.ServiceFabricMesh/applications',
       apiVersion: '2018-07-01-preview',
@@ -157,7 +157,7 @@ export namespace applications {
   }
 }
 export namespace networks {
-  export function create(name: Expressionable<string>, properties: NetworkResourceProperties, location: Expressionable<string>): ResourceDefinition<NetworkResourceProperties> {
+  export function create(name: Expressionable<string>, properties: NetworkResourceProperties, location?: Expressionable<string>): ResourceDefinition<NetworkResourceProperties> {
     return {
       type: 'Microsoft.ServiceFabricMesh/networks',
       apiVersion: '2018-07-01-preview',
@@ -168,7 +168,7 @@ export namespace networks {
   }
 }
 export namespace volumes {
-  export function create(name: Expressionable<string>, properties: VolumeResourceProperties, location: Expressionable<string>): ResourceDefinition<VolumeResourceProperties> {
+  export function create(name: Expressionable<string>, properties: VolumeResourceProperties, location?: Expressionable<string>): ResourceDefinition<VolumeResourceProperties> {
     return {
       type: 'Microsoft.ServiceFabricMesh/volumes',
       apiVersion: '2018-07-01-preview',

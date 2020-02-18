@@ -201,12 +201,17 @@ export interface UserIdentityProperties {
 
 export namespace registries {
   export namespace taskRuns {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: TaskRunProperties, location: Expressionable<string>): ResourceDefinition<TaskRunProperties> {
+    interface AdditionalProps {
+      identity?: Expressionable<IdentityProperties>;
+    }
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: TaskRunProperties, location: Expressionable<string>, identity?: Expressionable<IdentityProperties>): ResourceDefinition<TaskRunProperties> & AdditionalProps {
       return {
         type: 'Microsoft.ContainerRegistry/registries/taskRuns',
         apiVersion: '2019-06-01-preview',
         name: concatResourceName(...name),
         location,
+        identity,
         properties,
       };
     }
@@ -214,12 +219,17 @@ export namespace registries {
 }
 export namespace registries {
   export namespace tasks {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: TaskProperties, location: Expressionable<string>): ResourceDefinition<TaskProperties> {
+    interface AdditionalProps {
+      identity?: Expressionable<IdentityProperties>;
+    }
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: TaskProperties, location: Expressionable<string>, identity?: Expressionable<IdentityProperties>): ResourceDefinition<TaskProperties> & AdditionalProps {
       return {
         type: 'Microsoft.ContainerRegistry/registries/tasks',
         apiVersion: '2019-06-01-preview',
         name: concatResourceName(...name),
         location,
+        identity,
         properties,
       };
     }

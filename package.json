@@ -1,6 +1,6 @@
 {
   "name": "arm-templator-types",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "ARM Typescript template generator types",
   "main": "dist",
   "typings": "dist",
@@ -32,10 +32,12 @@
   "devDependencies": {
     "@types/async": "^3.0.3",
     "@types/chai": "^4.2.7",
+    "@types/lodash": "^4.14.149",
     "@types/mocha": "^5.2.7",
     "@types/node": "^13.1.8",
     "@types/yargs": "^15.0.3",
     "chai": "^4.2.0",
+    "lodash": "^4.17.15",
     "mocha": "^7.0.0",
     "rimraf": "^3.0.1",
     "ts-node": "^8.6.2",

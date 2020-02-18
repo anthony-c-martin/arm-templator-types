@@ -90,23 +90,35 @@ export interface SubResource {
 }
 
 export namespace peerings {
-  export function create(name: Expressionable<string>, properties: PeeringProperties, location: Expressionable<string>): ResourceDefinition<PeeringProperties> {
+  interface AdditionalProps {
+    kind: Expressionable<('Direct' | 'Exchange')>;
+    sku: Expressionable<PeeringSku>;
+  }
+  
+  export function create(name: Expressionable<string>, properties: PeeringProperties, location: Expressionable<string>, sku: Expressionable<PeeringSku>, kind: Expressionable<('Direct' | 'Exchange')>): ResourceDefinition<PeeringProperties> & AdditionalProps {
     return {
       type: 'Microsoft.Peering/peerings',
       apiVersion: '2020-01-01-preview',
       name: name,
       location,
+      sku,
+      kind,
       properties,
     };
   }
 }
 export namespace peeringServices {
-  export function create(name: Expressionable<string>, properties: PeeringServiceProperties, location: Expressionable<string>): ResourceDefinition<PeeringServiceProperties> {
+  interface AdditionalProps {
+    sku?: Expressionable<PeeringServiceSku>;
+  }
+  
+  export function create(name: Expressionable<string>, properties: PeeringServiceProperties, location: Expressionable<string>, sku?: Expressionable<PeeringServiceSku>): ResourceDefinition<PeeringServiceProperties> & AdditionalProps {
     return {
       type: 'Microsoft.Peering/peeringServices',
       apiVersion: '2020-01-01-preview',
       name: name,
       location,
+      sku,
       properties,
     };
   }
