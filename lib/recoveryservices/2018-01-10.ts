@@ -1,4 +1,3 @@
-// Generated using 'npm run generate /Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-01-10/Microsoft.RecoveryServices.json'
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 import { concatResourceName } from 'arm-templator';
 
@@ -266,12 +265,11 @@ export interface VMwareV2FabricCreationInput {
 
 export namespace vaults {
   export namespace replicationAlertSettings {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ConfigureAlertRequestProperties, location: Expressionable<string>): ResourceDefinition<ConfigureAlertRequestProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ConfigureAlertRequestProperties): ResourceDefinition<ConfigureAlertRequestProperties> {
       return {
         type: 'Microsoft.RecoveryServices/vaults/replicationAlertSettings',
         apiVersion: '2018-01-10',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -279,12 +277,11 @@ export namespace vaults {
 }
 export namespace vaults {
   export namespace replicationFabrics {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: FabricCreationInputProperties, location: Expressionable<string>): ResourceDefinition<FabricCreationInputProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: FabricCreationInputProperties): ResourceDefinition<FabricCreationInputProperties> {
       return {
         type: 'Microsoft.RecoveryServices/vaults/replicationFabrics',
         apiVersion: '2018-01-10',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -294,12 +291,11 @@ export namespace vaults {
   export namespace replicationFabrics {
     export namespace replicationNetworks {
       export namespace replicationNetworkMappings {
-        export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: CreateNetworkMappingInputProperties, location: Expressionable<string>): ResourceDefinition<CreateNetworkMappingInputProperties> {
+        export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: CreateNetworkMappingInputProperties): ResourceDefinition<CreateNetworkMappingInputProperties> {
           return {
             type: 'Microsoft.RecoveryServices/vaults/replicationFabrics/replicationNetworks/replicationNetworkMappings',
             apiVersion: '2018-01-10',
             name: concatResourceName(...name),
-            location,
             properties,
           };
         }
@@ -310,12 +306,11 @@ export namespace vaults {
 export namespace vaults {
   export namespace replicationFabrics {
     export namespace replicationProtectionContainers {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: CreateProtectionContainerInputProperties, location: Expressionable<string>): ResourceDefinition<CreateProtectionContainerInputProperties> {
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: CreateProtectionContainerInputProperties): ResourceDefinition<CreateProtectionContainerInputProperties> {
         return {
           type: 'Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers',
           apiVersion: '2018-01-10',
           name: concatResourceName(...name),
-          location,
           properties,
         };
       }
@@ -326,12 +321,11 @@ export namespace vaults {
   export namespace replicationFabrics {
     export namespace replicationProtectionContainers {
       export namespace replicationMigrationItems {
-        export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: EnableMigrationInputProperties, location: Expressionable<string>): ResourceDefinition<EnableMigrationInputProperties> {
+        export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: EnableMigrationInputProperties): ResourceDefinition<EnableMigrationInputProperties> {
           return {
             type: 'Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationMigrationItems',
             apiVersion: '2018-01-10',
             name: concatResourceName(...name),
-            location,
             properties,
           };
         }
@@ -343,12 +337,11 @@ export namespace vaults {
   export namespace replicationFabrics {
     export namespace replicationProtectionContainers {
       export namespace replicationProtectedItems {
-        export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: EnableProtectionInputProperties, location: Expressionable<string>): ResourceDefinition<EnableProtectionInputProperties> {
+        export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: EnableProtectionInputProperties): ResourceDefinition<EnableProtectionInputProperties> {
           return {
             type: 'Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems',
             apiVersion: '2018-01-10',
             name: concatResourceName(...name),
-            location,
             properties,
           };
         }
@@ -360,12 +353,11 @@ export namespace vaults {
   export namespace replicationFabrics {
     export namespace replicationProtectionContainers {
       export namespace replicationProtectionContainerMappings {
-        export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: CreateProtectionContainerMappingInputProperties, location: Expressionable<string>): ResourceDefinition<CreateProtectionContainerMappingInputProperties> {
+        export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: CreateProtectionContainerMappingInputProperties): ResourceDefinition<CreateProtectionContainerMappingInputProperties> {
           return {
             type: 'Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectionContainerMappings',
             apiVersion: '2018-01-10',
             name: concatResourceName(...name),
-            location,
             properties,
           };
         }
@@ -376,12 +368,11 @@ export namespace vaults {
 export namespace vaults {
   export namespace replicationFabrics {
     export namespace replicationRecoveryServicesProviders {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: AddRecoveryServicesProviderInputProperties, location: Expressionable<string>): ResourceDefinition<AddRecoveryServicesProviderInputProperties> {
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: AddRecoveryServicesProviderInputProperties): ResourceDefinition<AddRecoveryServicesProviderInputProperties> {
         return {
           type: 'Microsoft.RecoveryServices/vaults/replicationFabrics/replicationRecoveryServicesProviders',
           apiVersion: '2018-01-10',
           name: concatResourceName(...name),
-          location,
           properties,
         };
       }
@@ -392,12 +383,11 @@ export namespace vaults {
   export namespace replicationFabrics {
     export namespace replicationStorageClassifications {
       export namespace replicationStorageClassificationMappings {
-        export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: StorageMappingInputProperties, location: Expressionable<string>): ResourceDefinition<StorageMappingInputProperties> {
+        export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: StorageMappingInputProperties): ResourceDefinition<StorageMappingInputProperties> {
           return {
             type: 'Microsoft.RecoveryServices/vaults/replicationFabrics/replicationStorageClassifications/replicationStorageClassificationMappings',
             apiVersion: '2018-01-10',
             name: concatResourceName(...name),
-            location,
             properties,
           };
         }
@@ -408,12 +398,11 @@ export namespace vaults {
 export namespace vaults {
   export namespace replicationFabrics {
     export namespace replicationvCenters {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: AddVCenterRequestProperties, location: Expressionable<string>): ResourceDefinition<AddVCenterRequestProperties> {
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: AddVCenterRequestProperties): ResourceDefinition<AddVCenterRequestProperties> {
         return {
           type: 'Microsoft.RecoveryServices/vaults/replicationFabrics/replicationvCenters',
           apiVersion: '2018-01-10',
           name: concatResourceName(...name),
-          location,
           properties,
         };
       }
@@ -422,12 +411,11 @@ export namespace vaults {
 }
 export namespace vaults {
   export namespace replicationPolicies {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: CreatePolicyInputProperties, location: Expressionable<string>): ResourceDefinition<CreatePolicyInputProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: CreatePolicyInputProperties): ResourceDefinition<CreatePolicyInputProperties> {
       return {
         type: 'Microsoft.RecoveryServices/vaults/replicationPolicies',
         apiVersion: '2018-01-10',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -435,12 +423,11 @@ export namespace vaults {
 }
 export namespace vaults {
   export namespace replicationRecoveryPlans {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: CreateRecoveryPlanInputProperties, location: Expressionable<string>): ResourceDefinition<CreateRecoveryPlanInputProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: CreateRecoveryPlanInputProperties): ResourceDefinition<CreateRecoveryPlanInputProperties> {
       return {
         type: 'Microsoft.RecoveryServices/vaults/replicationRecoveryPlans',
         apiVersion: '2018-01-10',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }

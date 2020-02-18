@@ -1,4 +1,3 @@
-// Generated using 'npm run generate /Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2015-03-20/Microsoft.OperationalInsights.json'
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 import { concatResourceName } from 'arm-templator';
 
@@ -28,12 +27,11 @@ export interface Tag {
 
 export namespace workspaces {
   export namespace savedSearches {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: SavedSearchProperties, location: Expressionable<string>): ResourceDefinition<SavedSearchProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: SavedSearchProperties): ResourceDefinition<SavedSearchProperties> {
       return {
         type: 'Microsoft.OperationalInsights/workspaces/savedSearches',
         apiVersion: '2015-03-20',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -41,12 +39,11 @@ export namespace workspaces {
 }
 export namespace workspaces {
   export namespace storageInsightConfigs {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: StorageInsightProperties, location: Expressionable<string>): ResourceDefinition<StorageInsightProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: StorageInsightProperties): ResourceDefinition<StorageInsightProperties> {
       return {
         type: 'Microsoft.OperationalInsights/workspaces/storageInsightConfigs',
         apiVersion: '2015-03-20',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }

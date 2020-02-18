@@ -1,4 +1,3 @@
-// Generated using 'npm run generate /Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-11-09/Microsoft.Kusto.json'
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 import { concatResourceName } from 'arm-templator';
 
@@ -158,12 +157,11 @@ export namespace clusters {
 export namespace clusters {
   export namespace databases {
     export namespace dataConnections {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: any, location: Expressionable<string>): ResourceDefinition<any> {
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: any): ResourceDefinition<any> {
         return {
           type: 'Microsoft.Kusto/clusters/databases/dataConnections',
           apiVersion: '2019-11-09',
           name: concatResourceName(...name),
-          location,
           properties,
         };
       }
@@ -185,12 +183,11 @@ export namespace clusters {
 }
 export namespace clusters {
   export namespace principalAssignments {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ClusterPrincipalAssignment, location: Expressionable<string>): ResourceDefinition<ClusterPrincipalAssignment> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ClusterPrincipalAssignment): ResourceDefinition<ClusterPrincipalAssignment> {
       return {
         type: 'Microsoft.Kusto/clusters/principalAssignments',
         apiVersion: '2019-11-09',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -199,12 +196,11 @@ export namespace clusters {
 export namespace clusters {
   export namespace databases {
     export namespace principalAssignments {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: DatabasePrincipalAssignment, location: Expressionable<string>): ResourceDefinition<DatabasePrincipalAssignment> {
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: DatabasePrincipalAssignment): ResourceDefinition<DatabasePrincipalAssignment> {
         return {
           type: 'Microsoft.Kusto/clusters/databases/principalAssignments',
           apiVersion: '2019-11-09',
           name: concatResourceName(...name),
-          location,
           properties,
         };
       }

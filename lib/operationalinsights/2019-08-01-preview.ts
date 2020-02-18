@@ -1,4 +1,3 @@
-// Generated using 'npm run generate /Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-08-01-preview/Microsoft.OperationalInsights.json'
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 import { concatResourceName } from 'arm-templator';
 
@@ -43,12 +42,11 @@ export namespace clusters {
 }
 export namespace workspaces {
   export namespace dataExports {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: DataExportProperties, location: Expressionable<string>): ResourceDefinition<DataExportProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: DataExportProperties): ResourceDefinition<DataExportProperties> {
       return {
         type: 'Microsoft.OperationalInsights/workspaces/dataExports',
         apiVersion: '2019-08-01-preview',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }

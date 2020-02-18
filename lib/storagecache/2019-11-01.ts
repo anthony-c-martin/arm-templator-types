@@ -1,4 +1,3 @@
-// Generated using 'npm run generate /Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-11-01/Microsoft.StorageCache.json'
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 import { concatResourceName } from 'arm-templator';
 
@@ -57,12 +56,11 @@ export namespace caches {
 }
 export namespace caches {
   export namespace storageTargets {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: StorageTargetProperties, location: Expressionable<string>): ResourceDefinition<StorageTargetProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: StorageTargetProperties): ResourceDefinition<StorageTargetProperties> {
       return {
         type: 'Microsoft.StorageCache/caches/storageTargets',
         apiVersion: '2019-11-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }

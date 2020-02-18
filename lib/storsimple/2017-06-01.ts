@@ -1,4 +1,3 @@
-// Generated using 'npm run generate /Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-06-01/Microsoft.StorSimple.json'
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 import { concatResourceName } from 'arm-templator';
 
@@ -95,12 +94,11 @@ export namespace managers {
 }
 export namespace managers {
   export namespace accessControlRecords {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: AccessControlRecordProperties, location: Expressionable<string>): ResourceDefinition<AccessControlRecordProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: AccessControlRecordProperties): ResourceDefinition<AccessControlRecordProperties> {
       return {
         type: 'Microsoft.StorSimple/managers/accessControlRecords',
         apiVersion: '2017-06-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -108,12 +106,11 @@ export namespace managers {
 }
 export namespace managers {
   export namespace bandwidthSettings {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: BandwidthRateSettingProperties, location: Expressionable<string>): ResourceDefinition<BandwidthRateSettingProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: BandwidthRateSettingProperties): ResourceDefinition<BandwidthRateSettingProperties> {
       return {
         type: 'Microsoft.StorSimple/managers/bandwidthSettings',
         apiVersion: '2017-06-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -122,12 +119,11 @@ export namespace managers {
 export namespace managers {
   export namespace devices {
     export namespace backupPolicies {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: BackupPolicyProperties, location: Expressionable<string>): ResourceDefinition<BackupPolicyProperties> {
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: BackupPolicyProperties): ResourceDefinition<BackupPolicyProperties> {
         return {
           type: 'Microsoft.StorSimple/managers/devices/backupPolicies',
           apiVersion: '2017-06-01',
           name: concatResourceName(...name),
-          location,
           properties,
         };
       }
@@ -138,12 +134,11 @@ export namespace managers {
   export namespace devices {
     export namespace backupPolicies {
       export namespace schedules {
-        export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: BackupScheduleProperties, location: Expressionable<string>): ResourceDefinition<BackupScheduleProperties> {
+        export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: BackupScheduleProperties): ResourceDefinition<BackupScheduleProperties> {
           return {
             type: 'Microsoft.StorSimple/managers/devices/backupPolicies/schedules',
             apiVersion: '2017-06-01',
             name: concatResourceName(...name),
-            location,
             properties,
           };
         }
@@ -154,12 +149,11 @@ export namespace managers {
 export namespace managers {
   export namespace devices {
     export namespace volumeContainers {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: VolumeContainerProperties, location: Expressionable<string>): ResourceDefinition<VolumeContainerProperties> {
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: VolumeContainerProperties): ResourceDefinition<VolumeContainerProperties> {
         return {
           type: 'Microsoft.StorSimple/managers/devices/volumeContainers',
           apiVersion: '2017-06-01',
           name: concatResourceName(...name),
-          location,
           properties,
         };
       }
@@ -170,12 +164,11 @@ export namespace managers {
   export namespace devices {
     export namespace volumeContainers {
       export namespace volumes {
-        export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: VolumeProperties, location: Expressionable<string>): ResourceDefinition<VolumeProperties> {
+        export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: VolumeProperties): ResourceDefinition<VolumeProperties> {
           return {
             type: 'Microsoft.StorSimple/managers/devices/volumeContainers/volumes',
             apiVersion: '2017-06-01',
             name: concatResourceName(...name),
-            location,
             properties,
           };
         }
@@ -185,12 +178,11 @@ export namespace managers {
 }
 export namespace managers {
   export namespace storageAccountCredentials {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: StorageAccountCredentialProperties, location: Expressionable<string>): ResourceDefinition<StorageAccountCredentialProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: StorageAccountCredentialProperties): ResourceDefinition<StorageAccountCredentialProperties> {
       return {
         type: 'Microsoft.StorSimple/managers/storageAccountCredentials',
         apiVersion: '2017-06-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }

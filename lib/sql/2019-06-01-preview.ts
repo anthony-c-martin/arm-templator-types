@@ -1,4 +1,3 @@
-// Generated using 'npm run generate /Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-06-01-preview/Microsoft.Sql.json'
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 import { concatResourceName } from 'arm-templator';
 
@@ -113,12 +112,11 @@ export namespace servers {
 export namespace servers {
   export namespace databases {
     export namespace workloadGroups {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: WorkloadGroupProperties, location: Expressionable<string>): ResourceDefinition<WorkloadGroupProperties> {
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: WorkloadGroupProperties): ResourceDefinition<WorkloadGroupProperties> {
         return {
           type: 'Microsoft.Sql/servers/databases/workloadGroups',
           apiVersion: '2019-06-01-preview',
           name: concatResourceName(...name),
-          location,
           properties,
         };
       }
@@ -129,12 +127,11 @@ export namespace servers {
   export namespace databases {
     export namespace workloadGroups {
       export namespace workloadClassifiers {
-        export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: WorkloadClassifierProperties, location: Expressionable<string>): ResourceDefinition<WorkloadClassifierProperties> {
+        export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: WorkloadClassifierProperties): ResourceDefinition<WorkloadClassifierProperties> {
           return {
             type: 'Microsoft.Sql/servers/databases/workloadGroups/workloadClassifiers',
             apiVersion: '2019-06-01-preview',
             name: concatResourceName(...name),
-            location,
             properties,
           };
         }

@@ -1,4 +1,3 @@
-// Generated using 'npm run generate /Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2016-10-01/Microsoft.KeyVault.json'
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 import { concatResourceName } from 'arm-templator';
 
@@ -61,12 +60,11 @@ export namespace vaults {
 }
 export namespace vaults {
   export namespace accessPolicies {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: VaultAccessPolicyProperties, location: Expressionable<string>): ResourceDefinition<VaultAccessPolicyProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: VaultAccessPolicyProperties): ResourceDefinition<VaultAccessPolicyProperties> {
       return {
         type: 'Microsoft.KeyVault/vaults/accessPolicies',
         apiVersion: '2016-10-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -74,12 +72,11 @@ export namespace vaults {
 }
 export namespace vaults {
   export namespace secrets {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: SecretProperties, location: Expressionable<string>): ResourceDefinition<SecretProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: SecretProperties): ResourceDefinition<SecretProperties> {
       return {
         type: 'Microsoft.KeyVault/vaults/secrets',
         apiVersion: '2016-10-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }

@@ -1,4 +1,3 @@
-// Generated using 'npm run generate /Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-03-01-preview/Microsoft.Sql.json'
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 import { concatResourceName } from 'arm-templator';
 
@@ -218,12 +217,11 @@ export interface VulnerabilityAssessmentRecurringScansProperties {
 
 export namespace managedInstances {
   export namespace administrators {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ManagedInstanceAdministratorProperties, location: Expressionable<string>): ResourceDefinition<ManagedInstanceAdministratorProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ManagedInstanceAdministratorProperties): ResourceDefinition<ManagedInstanceAdministratorProperties> {
       return {
         type: 'Microsoft.Sql/managedInstances/administrators',
         apiVersion: '2017-03-01-preview',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -245,12 +243,11 @@ export namespace managedInstances {
 export namespace managedInstances {
   export namespace databases {
     export namespace backupShortTermRetentionPolicies {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ManagedBackupShortTermRetentionPolicyProperties, location: Expressionable<string>): ResourceDefinition<ManagedBackupShortTermRetentionPolicyProperties> {
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ManagedBackupShortTermRetentionPolicyProperties): ResourceDefinition<ManagedBackupShortTermRetentionPolicyProperties> {
         return {
           type: 'Microsoft.Sql/managedInstances/databases/backupShortTermRetentionPolicies',
           apiVersion: '2017-03-01-preview',
           name: concatResourceName(...name),
-          location,
           properties,
         };
       }
@@ -260,12 +257,11 @@ export namespace managedInstances {
 export namespace managedInstances {
   export namespace databases {
     export namespace securityAlertPolicies {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: SecurityAlertPolicyProperties, location: Expressionable<string>): ResourceDefinition<SecurityAlertPolicyProperties> {
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: SecurityAlertPolicyProperties): ResourceDefinition<SecurityAlertPolicyProperties> {
         return {
           type: 'Microsoft.Sql/managedInstances/databases/securityAlertPolicies',
           apiVersion: '2017-03-01-preview',
           name: concatResourceName(...name),
-          location,
           properties,
         };
       }
@@ -275,12 +271,11 @@ export namespace managedInstances {
 export namespace managedInstances {
   export namespace restorableDroppedDatabases {
     export namespace backupShortTermRetentionPolicies {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ManagedBackupShortTermRetentionPolicyProperties, location: Expressionable<string>): ResourceDefinition<ManagedBackupShortTermRetentionPolicyProperties> {
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ManagedBackupShortTermRetentionPolicyProperties): ResourceDefinition<ManagedBackupShortTermRetentionPolicyProperties> {
         return {
           type: 'Microsoft.Sql/managedInstances/restorableDroppedDatabases/backupShortTermRetentionPolicies',
           apiVersion: '2017-03-01-preview',
           name: concatResourceName(...name),
-          location,
           properties,
         };
       }
@@ -289,12 +284,11 @@ export namespace managedInstances {
 }
 export namespace managedInstances {
   export namespace securityAlertPolicies {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: SecurityAlertPolicyProperties, location: Expressionable<string>): ResourceDefinition<SecurityAlertPolicyProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: SecurityAlertPolicyProperties): ResourceDefinition<SecurityAlertPolicyProperties> {
       return {
         type: 'Microsoft.Sql/managedInstances/securityAlertPolicies',
         apiVersion: '2017-03-01-preview',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -302,12 +296,11 @@ export namespace managedInstances {
 }
 export namespace servers {
   export namespace auditingSettings {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ServerBlobAuditingPolicyProperties, location: Expressionable<string>): ResourceDefinition<ServerBlobAuditingPolicyProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ServerBlobAuditingPolicyProperties): ResourceDefinition<ServerBlobAuditingPolicyProperties> {
       return {
         type: 'Microsoft.Sql/servers/auditingSettings',
         apiVersion: '2017-03-01-preview',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -329,12 +322,11 @@ export namespace servers {
 export namespace servers {
   export namespace databases {
     export namespace auditingSettings {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: DatabaseBlobAuditingPolicyProperties, location: Expressionable<string>): ResourceDefinition<DatabaseBlobAuditingPolicyProperties> {
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: DatabaseBlobAuditingPolicyProperties): ResourceDefinition<DatabaseBlobAuditingPolicyProperties> {
         return {
           type: 'Microsoft.Sql/servers/databases/auditingSettings',
           apiVersion: '2017-03-01-preview',
           name: concatResourceName(...name),
-          location,
           properties,
         };
       }
@@ -344,12 +336,11 @@ export namespace servers {
 export namespace servers {
   export namespace databases {
     export namespace backupLongTermRetentionPolicies {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: LongTermRetentionPolicyProperties, location: Expressionable<string>): ResourceDefinition<LongTermRetentionPolicyProperties> {
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: LongTermRetentionPolicyProperties): ResourceDefinition<LongTermRetentionPolicyProperties> {
         return {
           type: 'Microsoft.Sql/servers/databases/backupLongTermRetentionPolicies',
           apiVersion: '2017-03-01-preview',
           name: concatResourceName(...name),
-          location,
           properties,
         };
       }
@@ -359,12 +350,11 @@ export namespace servers {
 export namespace servers {
   export namespace databases {
     export namespace extendedAuditingSettings {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ExtendedDatabaseBlobAuditingPolicyProperties, location: Expressionable<string>): ResourceDefinition<ExtendedDatabaseBlobAuditingPolicyProperties> {
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ExtendedDatabaseBlobAuditingPolicyProperties): ResourceDefinition<ExtendedDatabaseBlobAuditingPolicyProperties> {
         return {
           type: 'Microsoft.Sql/servers/databases/extendedAuditingSettings',
           apiVersion: '2017-03-01-preview',
           name: concatResourceName(...name),
-          location,
           properties,
         };
       }
@@ -377,12 +367,11 @@ export namespace servers {
       export namespace tables {
         export namespace columns {
           export namespace sensitivityLabels {
-            export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: SensitivityLabelProperties, location: Expressionable<string>): ResourceDefinition<SensitivityLabelProperties> {
+            export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: SensitivityLabelProperties): ResourceDefinition<SensitivityLabelProperties> {
               return {
                 type: 'Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels',
                 apiVersion: '2017-03-01-preview',
                 name: concatResourceName(...name),
-                location,
                 properties,
               };
             }
@@ -395,12 +384,11 @@ export namespace servers {
 export namespace servers {
   export namespace databases {
     export namespace vulnerabilityAssessments {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: DatabaseVulnerabilityAssessmentProperties, location: Expressionable<string>): ResourceDefinition<DatabaseVulnerabilityAssessmentProperties> {
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: DatabaseVulnerabilityAssessmentProperties): ResourceDefinition<DatabaseVulnerabilityAssessmentProperties> {
         return {
           type: 'Microsoft.Sql/servers/databases/vulnerabilityAssessments',
           apiVersion: '2017-03-01-preview',
           name: concatResourceName(...name),
-          location,
           properties,
         };
       }
@@ -412,12 +400,11 @@ export namespace servers {
     export namespace vulnerabilityAssessments {
       export namespace rules {
         export namespace baselines {
-          export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: DatabaseVulnerabilityAssessmentRuleBaselineProperties, location: Expressionable<string>): ResourceDefinition<DatabaseVulnerabilityAssessmentRuleBaselineProperties> {
+          export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: DatabaseVulnerabilityAssessmentRuleBaselineProperties): ResourceDefinition<DatabaseVulnerabilityAssessmentRuleBaselineProperties> {
             return {
               type: 'Microsoft.Sql/servers/databases/vulnerabilityAssessments/rules/baselines',
               apiVersion: '2017-03-01-preview',
               name: concatResourceName(...name),
-              location,
               properties,
             };
           }
@@ -428,12 +415,11 @@ export namespace servers {
 }
 export namespace servers {
   export namespace dnsAliases {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: any, location: Expressionable<string>): ResourceDefinition<any> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: any): ResourceDefinition<any> {
       return {
         type: 'Microsoft.Sql/servers/dnsAliases',
         apiVersion: '2017-03-01-preview',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -441,12 +427,11 @@ export namespace servers {
 }
 export namespace servers {
   export namespace extendedAuditingSettings {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ExtendedServerBlobAuditingPolicyProperties, location: Expressionable<string>): ResourceDefinition<ExtendedServerBlobAuditingPolicyProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ExtendedServerBlobAuditingPolicyProperties): ResourceDefinition<ExtendedServerBlobAuditingPolicyProperties> {
       return {
         type: 'Microsoft.Sql/servers/extendedAuditingSettings',
         apiVersion: '2017-03-01-preview',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -468,12 +453,11 @@ export namespace servers {
 export namespace servers {
   export namespace jobAgents {
     export namespace credentials {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: JobCredentialProperties, location: Expressionable<string>): ResourceDefinition<JobCredentialProperties> {
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: JobCredentialProperties): ResourceDefinition<JobCredentialProperties> {
         return {
           type: 'Microsoft.Sql/servers/jobAgents/credentials',
           apiVersion: '2017-03-01-preview',
           name: concatResourceName(...name),
-          location,
           properties,
         };
       }
@@ -483,12 +467,11 @@ export namespace servers {
 export namespace servers {
   export namespace jobAgents {
     export namespace jobs {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: JobProperties, location: Expressionable<string>): ResourceDefinition<JobProperties> {
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: JobProperties): ResourceDefinition<JobProperties> {
         return {
           type: 'Microsoft.Sql/servers/jobAgents/jobs',
           apiVersion: '2017-03-01-preview',
           name: concatResourceName(...name),
-          location,
           properties,
         };
       }
@@ -499,12 +482,11 @@ export namespace servers {
   export namespace jobAgents {
     export namespace jobs {
       export namespace executions {
-        export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: any, location: Expressionable<string>): ResourceDefinition<any> {
+        export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: any): ResourceDefinition<any> {
           return {
             type: 'Microsoft.Sql/servers/jobAgents/jobs/executions',
             apiVersion: '2017-03-01-preview',
             name: concatResourceName(...name),
-            location,
             properties,
           };
         }
@@ -516,12 +498,11 @@ export namespace servers {
   export namespace jobAgents {
     export namespace jobs {
       export namespace steps {
-        export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: JobStepProperties, location: Expressionable<string>): ResourceDefinition<JobStepProperties> {
+        export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: JobStepProperties): ResourceDefinition<JobStepProperties> {
           return {
             type: 'Microsoft.Sql/servers/jobAgents/jobs/steps',
             apiVersion: '2017-03-01-preview',
             name: concatResourceName(...name),
-            location,
             properties,
           };
         }
@@ -532,12 +513,11 @@ export namespace servers {
 export namespace servers {
   export namespace jobAgents {
     export namespace targetGroups {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: JobTargetGroupProperties, location: Expressionable<string>): ResourceDefinition<JobTargetGroupProperties> {
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: JobTargetGroupProperties): ResourceDefinition<JobTargetGroupProperties> {
         return {
           type: 'Microsoft.Sql/servers/jobAgents/targetGroups',
           apiVersion: '2017-03-01-preview',
           name: concatResourceName(...name),
-          location,
           properties,
         };
       }
@@ -546,12 +526,11 @@ export namespace servers {
 }
 export namespace servers {
   export namespace securityAlertPolicies {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: SecurityAlertPolicyProperties, location: Expressionable<string>): ResourceDefinition<SecurityAlertPolicyProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: SecurityAlertPolicyProperties): ResourceDefinition<SecurityAlertPolicyProperties> {
       return {
         type: 'Microsoft.Sql/servers/securityAlertPolicies',
         apiVersion: '2017-03-01-preview',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }

@@ -1,4 +1,3 @@
-// Generated using 'npm run generate /Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2016-09-01/Microsoft.Web.json'
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 import { concatResourceName } from 'arm-templator';
 
@@ -100,12 +99,11 @@ export interface VnetRoute_properties {
 }
 
 export namespace serverfarms {
-  export function create(name: Expressionable<string>, properties: AppServicePlan_properties, location: Expressionable<string>): ResourceDefinition<AppServicePlan_properties> {
+  export function create(name: Expressionable<string>, properties: AppServicePlan_properties): ResourceDefinition<AppServicePlan_properties> {
     return {
       type: 'Microsoft.Web/serverfarms',
       apiVersion: '2016-09-01',
       name: name,
-      location,
       properties,
     };
   }
@@ -113,12 +111,11 @@ export namespace serverfarms {
 export namespace serverfarms {
   export namespace virtualNetworkConnections {
     export namespace gateways {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: VnetGateway_properties, location: Expressionable<string>): ResourceDefinition<VnetGateway_properties> {
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: VnetGateway_properties): ResourceDefinition<VnetGateway_properties> {
         return {
           type: 'Microsoft.Web/serverfarms/virtualNetworkConnections/gateways',
           apiVersion: '2016-09-01',
           name: concatResourceName(...name),
-          location,
           properties,
         };
       }
@@ -128,12 +125,11 @@ export namespace serverfarms {
 export namespace serverfarms {
   export namespace virtualNetworkConnections {
     export namespace routes {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: VnetRoute_properties, location: Expressionable<string>): ResourceDefinition<VnetRoute_properties> {
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: VnetRoute_properties): ResourceDefinition<VnetRoute_properties> {
         return {
           type: 'Microsoft.Web/serverfarms/virtualNetworkConnections/routes',
           apiVersion: '2016-09-01',
           name: concatResourceName(...name),
-          location,
           properties,
         };
       }
@@ -141,24 +137,22 @@ export namespace serverfarms {
   }
 }
 export namespace hostingEnvironments {
-  export function create(name: Expressionable<string>, properties: AppServiceEnvironment_properties, location: Expressionable<string>): ResourceDefinition<AppServiceEnvironment_properties> {
+  export function create(name: Expressionable<string>, properties: AppServiceEnvironment_properties): ResourceDefinition<AppServiceEnvironment_properties> {
     return {
       type: 'Microsoft.Web/hostingEnvironments',
       apiVersion: '2016-09-01',
       name: name,
-      location,
       properties,
     };
   }
 }
 export namespace hostingEnvironments {
   export namespace workerPools {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: any, location: Expressionable<string>): ResourceDefinition<any> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: any): ResourceDefinition<any> {
       return {
         type: 'Microsoft.Web/hostingEnvironments/workerPools',
         apiVersion: '2016-09-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -166,12 +160,11 @@ export namespace hostingEnvironments {
 }
 export namespace hostingEnvironments {
   export namespace multiRolePools {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: any, location: Expressionable<string>): ResourceDefinition<any> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: any): ResourceDefinition<any> {
       return {
         type: 'Microsoft.Web/hostingEnvironments/multiRolePools',
         apiVersion: '2016-09-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }

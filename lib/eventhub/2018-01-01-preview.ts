@@ -1,4 +1,3 @@
-// Generated using 'npm run generate /Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-01-01-preview/Microsoft.EventHub.json'
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 import { concatResourceName } from 'arm-templator';
 
@@ -65,12 +64,11 @@ export interface VirtualNetworkRuleProperties {
 }
 
 export namespace clusters {
-  export function create(name: Expressionable<string>, properties: any, location: Expressionable<string>): ResourceDefinition<any> {
+  export function create(name: Expressionable<string>, properties: any): ResourceDefinition<any> {
     return {
       type: 'Microsoft.EventHub/clusters',
       apiVersion: '2018-01-01-preview',
       name: name,
-      location,
       properties,
     };
   }
@@ -88,12 +86,11 @@ export namespace namespaces {
 }
 export namespace namespaces {
   export namespace ipfilterrules {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: IpFilterRuleProperties, location: Expressionable<string>): ResourceDefinition<IpFilterRuleProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: IpFilterRuleProperties): ResourceDefinition<IpFilterRuleProperties> {
       return {
         type: 'Microsoft.EventHub/namespaces/ipfilterrules',
         apiVersion: '2018-01-01-preview',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -101,12 +98,11 @@ export namespace namespaces {
 }
 export namespace namespaces {
   export namespace networkRuleSets {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: NetworkRuleSetProperties, location: Expressionable<string>): ResourceDefinition<NetworkRuleSetProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: NetworkRuleSetProperties): ResourceDefinition<NetworkRuleSetProperties> {
       return {
         type: 'Microsoft.EventHub/namespaces/networkRuleSets',
         apiVersion: '2018-01-01-preview',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -114,12 +110,11 @@ export namespace namespaces {
 }
 export namespace namespaces {
   export namespace virtualnetworkrules {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: VirtualNetworkRuleProperties, location: Expressionable<string>): ResourceDefinition<VirtualNetworkRuleProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: VirtualNetworkRuleProperties): ResourceDefinition<VirtualNetworkRuleProperties> {
       return {
         type: 'Microsoft.EventHub/namespaces/virtualnetworkrules',
         apiVersion: '2018-01-01-preview',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }

@@ -1,4 +1,3 @@
-// Generated using 'npm run generate /Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-03-01/Microsoft.Network.json'
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 import { concatResourceName } from 'arm-templator';
 
@@ -180,7 +179,7 @@ export interface SubResource {
 }
 
 export namespace trafficManagerProfiles {
-  export function create(name: Expressionable<string>, properties: any, location: Expressionable<string>): ResourceDefinition<any> {
+  export function create(name: Expressionable<string>, properties: any, location: Expressionable<('global')>): ResourceDefinition<any> {
     return {
       type: 'Microsoft.Network/trafficManagerProfiles',
       apiVersion: '2017-03-01',
@@ -191,67 +190,61 @@ export namespace trafficManagerProfiles {
   }
 }
 export namespace publicIPAddresses {
-  export function create(name: Expressionable<string>, properties: any, location: Expressionable<string>): ResourceDefinition<any> {
+  export function create(name: Expressionable<string>, properties: any): ResourceDefinition<any> {
     return {
       type: 'Microsoft.Network/publicIPAddresses',
       apiVersion: '2017-03-01',
       name: name,
-      location,
       properties,
     };
   }
 }
 export namespace networkInterfaces {
-  export function create(name: Expressionable<string>, properties: any, location: Expressionable<string>): ResourceDefinition<any> {
+  export function create(name: Expressionable<string>, properties: any): ResourceDefinition<any> {
     return {
       type: 'Microsoft.Network/networkInterfaces',
       apiVersion: '2017-03-01',
       name: name,
-      location,
       properties,
     };
   }
 }
 export namespace virtualNetworks {
-  export function create(name: Expressionable<string>, properties: any, location: Expressionable<string>): ResourceDefinition<any> {
+  export function create(name: Expressionable<string>, properties: any): ResourceDefinition<any> {
     return {
       type: 'Microsoft.Network/virtualNetworks',
       apiVersion: '2017-03-01',
       name: name,
-      location,
       properties,
     };
   }
 }
 export namespace loadBalancers {
-  export function create(name: Expressionable<string>, properties: any, location: Expressionable<string>): ResourceDefinition<any> {
+  export function create(name: Expressionable<string>, properties: any): ResourceDefinition<any> {
     return {
       type: 'Microsoft.Network/loadBalancers',
       apiVersion: '2017-03-01',
       name: name,
-      location,
       properties,
     };
   }
 }
 export namespace networkSecurityGroups {
-  export function create(name: Expressionable<string>, properties: any, location: Expressionable<string>): ResourceDefinition<any> {
+  export function create(name: Expressionable<string>, properties: any): ResourceDefinition<any> {
     return {
       type: 'Microsoft.Network/networkSecurityGroups',
       apiVersion: '2017-03-01',
       name: name,
-      location,
       properties,
     };
   }
 }
 export namespace routeTables {
-  export function create(name: Expressionable<string>, properties: any, location: Expressionable<string>): ResourceDefinition<any> {
+  export function create(name: Expressionable<string>, properties: any): ResourceDefinition<any> {
     return {
       type: 'Microsoft.Network/routeTables',
       apiVersion: '2017-03-01',
       name: name,
-      location,
       properties,
     };
   }

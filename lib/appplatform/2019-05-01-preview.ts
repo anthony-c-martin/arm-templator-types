@@ -1,4 +1,3 @@
-// Generated using 'npm run generate /Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-05-01-preview/Microsoft.AppPlatform.json'
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 import { concatResourceName } from 'arm-templator';
 
@@ -113,12 +112,11 @@ export namespace Spring {
 }
 export namespace Spring {
   export namespace apps {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: AppResourceProperties, location: Expressionable<string>): ResourceDefinition<AppResourceProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: AppResourceProperties): ResourceDefinition<AppResourceProperties> {
       return {
         type: 'Microsoft.AppPlatform/Spring/apps',
         apiVersion: '2019-05-01-preview',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -127,12 +125,11 @@ export namespace Spring {
 export namespace Spring {
   export namespace apps {
     export namespace bindings {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: BindingResourceProperties, location: Expressionable<string>): ResourceDefinition<BindingResourceProperties> {
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: BindingResourceProperties): ResourceDefinition<BindingResourceProperties> {
         return {
           type: 'Microsoft.AppPlatform/Spring/apps/bindings',
           apiVersion: '2019-05-01-preview',
           name: concatResourceName(...name),
-          location,
           properties,
         };
       }
@@ -142,12 +139,11 @@ export namespace Spring {
 export namespace Spring {
   export namespace apps {
     export namespace deployments {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: DeploymentResourceProperties, location: Expressionable<string>): ResourceDefinition<DeploymentResourceProperties> {
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: DeploymentResourceProperties): ResourceDefinition<DeploymentResourceProperties> {
         return {
           type: 'Microsoft.AppPlatform/Spring/apps/deployments',
           apiVersion: '2019-05-01-preview',
           name: concatResourceName(...name),
-          location,
           properties,
         };
       }

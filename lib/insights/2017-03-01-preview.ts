@@ -1,4 +1,3 @@
-// Generated using 'npm run generate /Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-03-01-preview/Microsoft.Insights.json'
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 import { concatResourceName } from 'arm-templator';
 
@@ -52,23 +51,21 @@ export interface WebhookReceiver {
 }
 
 export namespace actionGroups {
-  export function create(name: Expressionable<string>, properties: ActionGroup, location: Expressionable<string>): ResourceDefinition<ActionGroup> {
+  export function create(name: Expressionable<string>, properties: ActionGroup): ResourceDefinition<ActionGroup> {
     return {
       type: 'Microsoft.Insights/actionGroups',
       apiVersion: '2017-03-01-preview',
       name: name,
-      location,
       properties,
     };
   }
 }
 export namespace activityLogAlerts {
-  export function create(name: Expressionable<string>, properties: ActivityLogAlert, location: Expressionable<string>): ResourceDefinition<ActivityLogAlert> {
+  export function create(name: Expressionable<string>, properties: ActivityLogAlert): ResourceDefinition<ActivityLogAlert> {
     return {
       type: 'Microsoft.Insights/activityLogAlerts',
       apiVersion: '2017-03-01-preview',
       name: name,
-      location,
       properties,
     };
   }

@@ -1,4 +1,3 @@
-// Generated using 'npm run generate /Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-05-01/Microsoft.BatchAI.json'
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 import { concatResourceName } from 'arm-templator';
 
@@ -286,12 +285,11 @@ export namespace workspaces {
 }
 export namespace workspaces {
   export namespace clusters {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ClusterBaseProperties, location: Expressionable<string>): ResourceDefinition<ClusterBaseProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ClusterBaseProperties): ResourceDefinition<ClusterBaseProperties> {
       return {
         type: 'Microsoft.BatchAI/workspaces/clusters',
         apiVersion: '2018-05-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -299,12 +297,11 @@ export namespace workspaces {
 }
 export namespace workspaces {
   export namespace experiments {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: any, location: Expressionable<string>): ResourceDefinition<any> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: any): ResourceDefinition<any> {
       return {
         type: 'Microsoft.BatchAI/workspaces/experiments',
         apiVersion: '2018-05-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -313,12 +310,11 @@ export namespace workspaces {
 export namespace workspaces {
   export namespace experiments {
     export namespace jobs {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: JobBaseProperties, location: Expressionable<string>): ResourceDefinition<JobBaseProperties> {
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: JobBaseProperties): ResourceDefinition<JobBaseProperties> {
         return {
           type: 'Microsoft.BatchAI/workspaces/experiments/jobs',
           apiVersion: '2018-05-01',
           name: concatResourceName(...name),
-          location,
           properties,
         };
       }
@@ -327,12 +323,11 @@ export namespace workspaces {
 }
 export namespace workspaces {
   export namespace fileServers {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: FileServerBaseProperties, location: Expressionable<string>): ResourceDefinition<FileServerBaseProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: FileServerBaseProperties): ResourceDefinition<FileServerBaseProperties> {
       return {
         type: 'Microsoft.BatchAI/workspaces/fileServers',
         apiVersion: '2018-05-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }

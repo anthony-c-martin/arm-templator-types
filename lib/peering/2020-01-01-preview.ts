@@ -1,4 +1,3 @@
-// Generated using 'npm run generate /Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2020-01-01-preview/Microsoft.Peering.json'
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 import { concatResourceName } from 'arm-templator';
 
@@ -114,12 +113,11 @@ export namespace peeringServices {
 }
 export namespace peeringServices {
   export namespace prefixes {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: PeeringServicePrefixProperties, location: Expressionable<string>): ResourceDefinition<PeeringServicePrefixProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: PeeringServicePrefixProperties): ResourceDefinition<PeeringServicePrefixProperties> {
       return {
         type: 'Microsoft.Peering/peeringServices/prefixes',
         apiVersion: '2020-01-01-preview',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -127,12 +125,11 @@ export namespace peeringServices {
 }
 export namespace peerings {
   export namespace registeredAsns {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: PeeringRegisteredAsnProperties, location: Expressionable<string>): ResourceDefinition<PeeringRegisteredAsnProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: PeeringRegisteredAsnProperties): ResourceDefinition<PeeringRegisteredAsnProperties> {
       return {
         type: 'Microsoft.Peering/peerings/registeredAsns',
         apiVersion: '2020-01-01-preview',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -140,12 +137,11 @@ export namespace peerings {
 }
 export namespace peerings {
   export namespace registeredPrefixes {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: PeeringRegisteredPrefixProperties, location: Expressionable<string>): ResourceDefinition<PeeringRegisteredPrefixProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: PeeringRegisteredPrefixProperties): ResourceDefinition<PeeringRegisteredPrefixProperties> {
       return {
         type: 'Microsoft.Peering/peerings/registeredPrefixes',
         apiVersion: '2020-01-01-preview',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }

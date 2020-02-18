@@ -1,4 +1,3 @@
-// Generated using 'npm run generate /Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-07-01/Microsoft.Compute.Extensions.json'
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 import { concatResourceName } from 'arm-templator';
 
@@ -301,7 +300,7 @@ export namespace virtualMachines {
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: any, location: Expressionable<string>): ResourceDefinition<any> {
       return {
         type: 'Microsoft.Compute/virtualMachines/extensions',
-        apiVersion: '2019-07-01',
+        apiVersion: '2018-10-01',
         name: concatResourceName(...name),
         location,
         properties,
@@ -311,12 +310,11 @@ export namespace virtualMachines {
 }
 export namespace virtualMachineScaleSets {
   export namespace extensions {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: any, location: Expressionable<string>): ResourceDefinition<any> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: any): ResourceDefinition<any> {
       return {
         type: 'Microsoft.Compute/virtualMachineScaleSets/extensions',
-        apiVersion: '2019-07-01',
+        apiVersion: '2018-10-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }

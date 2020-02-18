@@ -1,4 +1,3 @@
-// Generated using 'npm run generate /Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-08-01/Microsoft.Network.json'
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 import { concatResourceName } from 'arm-templator';
 
@@ -1545,12 +1544,11 @@ export namespace frontDoors {
 }
 export namespace frontDoors {
   export namespace backendPools {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: BackendPoolProperties, location: Expressionable<string>): ResourceDefinition<BackendPoolProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: BackendPoolProperties): ResourceDefinition<BackendPoolProperties> {
       return {
         type: 'Microsoft.Network/frontDoors/backendPools',
         apiVersion: '2018-08-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -1558,12 +1556,11 @@ export namespace frontDoors {
 }
 export namespace frontDoors {
   export namespace healthProbeSettings {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: HealthProbeSettingsProperties, location: Expressionable<string>): ResourceDefinition<HealthProbeSettingsProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: HealthProbeSettingsProperties): ResourceDefinition<HealthProbeSettingsProperties> {
       return {
         type: 'Microsoft.Network/frontDoors/healthProbeSettings',
         apiVersion: '2018-08-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -1571,12 +1568,11 @@ export namespace frontDoors {
 }
 export namespace frontDoors {
   export namespace loadBalancingSettings {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: LoadBalancingSettingsProperties, location: Expressionable<string>): ResourceDefinition<LoadBalancingSettingsProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: LoadBalancingSettingsProperties): ResourceDefinition<LoadBalancingSettingsProperties> {
       return {
         type: 'Microsoft.Network/frontDoors/loadBalancingSettings',
         apiVersion: '2018-08-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -1584,12 +1580,11 @@ export namespace frontDoors {
 }
 export namespace frontDoors {
   export namespace routingRules {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RoutingRuleProperties, location: Expressionable<string>): ResourceDefinition<RoutingRuleProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RoutingRuleProperties): ResourceDefinition<RoutingRuleProperties> {
       return {
         type: 'Microsoft.Network/frontDoors/routingRules',
         apiVersion: '2018-08-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -1674,12 +1669,11 @@ export namespace expressRouteCircuits {
 }
 export namespace expressRouteCircuits {
   export namespace authorizations {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: AuthorizationPropertiesFormat, location: Expressionable<string>): ResourceDefinition<AuthorizationPropertiesFormat> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: AuthorizationPropertiesFormat): ResourceDefinition<AuthorizationPropertiesFormat> {
       return {
         type: 'Microsoft.Network/expressRouteCircuits/authorizations',
         apiVersion: '2018-08-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -1687,12 +1681,11 @@ export namespace expressRouteCircuits {
 }
 export namespace expressRouteCircuits {
   export namespace peerings {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ExpressRouteCircuitPeeringPropertiesFormat, location: Expressionable<string>): ResourceDefinition<ExpressRouteCircuitPeeringPropertiesFormat> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ExpressRouteCircuitPeeringPropertiesFormat): ResourceDefinition<ExpressRouteCircuitPeeringPropertiesFormat> {
       return {
         type: 'Microsoft.Network/expressRouteCircuits/peerings',
         apiVersion: '2018-08-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -1701,12 +1694,11 @@ export namespace expressRouteCircuits {
 export namespace expressRouteCircuits {
   export namespace peerings {
     export namespace connections {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ExpressRouteCircuitConnectionPropertiesFormat, location: Expressionable<string>): ResourceDefinition<ExpressRouteCircuitConnectionPropertiesFormat> {
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ExpressRouteCircuitConnectionPropertiesFormat): ResourceDefinition<ExpressRouteCircuitConnectionPropertiesFormat> {
         return {
           type: 'Microsoft.Network/expressRouteCircuits/peerings/connections',
           apiVersion: '2018-08-01',
           name: concatResourceName(...name),
-          location,
           properties,
         };
       }
@@ -1726,12 +1718,11 @@ export namespace expressRouteCrossConnections {
 }
 export namespace expressRouteCrossConnections {
   export namespace peerings {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ExpressRouteCrossConnectionPeeringProperties, location: Expressionable<string>): ResourceDefinition<ExpressRouteCrossConnectionPeeringProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ExpressRouteCrossConnectionPeeringProperties): ResourceDefinition<ExpressRouteCrossConnectionPeeringProperties> {
       return {
         type: 'Microsoft.Network/expressRouteCrossConnections/peerings',
         apiVersion: '2018-08-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -1750,12 +1741,11 @@ export namespace expressRouteGateways {
 }
 export namespace expressRouteGateways {
   export namespace expressRouteConnections {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ExpressRouteConnectionProperties, location: Expressionable<string>): ResourceDefinition<ExpressRouteConnectionProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ExpressRouteConnectionProperties): ResourceDefinition<ExpressRouteConnectionProperties> {
       return {
         type: 'Microsoft.Network/expressRouteGateways/expressRouteConnections',
         apiVersion: '2018-08-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -1796,12 +1786,11 @@ export namespace loadBalancers {
 }
 export namespace loadBalancers {
   export namespace inboundNatRules {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: InboundNatRulePropertiesFormat, location: Expressionable<string>): ResourceDefinition<InboundNatRulePropertiesFormat> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: InboundNatRulePropertiesFormat): ResourceDefinition<InboundNatRulePropertiesFormat> {
       return {
         type: 'Microsoft.Network/loadBalancers/inboundNatRules',
         apiVersion: '2018-08-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -1831,12 +1820,11 @@ export namespace networkInterfaces {
 }
 export namespace networkInterfaces {
   export namespace tapConfigurations {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: NetworkInterfaceTapConfigurationPropertiesFormat, location: Expressionable<string>): ResourceDefinition<NetworkInterfaceTapConfigurationPropertiesFormat> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: NetworkInterfaceTapConfigurationPropertiesFormat): ResourceDefinition<NetworkInterfaceTapConfigurationPropertiesFormat> {
       return {
         type: 'Microsoft.Network/networkInterfaces/tapConfigurations',
         apiVersion: '2018-08-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -1866,12 +1854,11 @@ export namespace networkSecurityGroups {
 }
 export namespace networkSecurityGroups {
   export namespace securityRules {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: SecurityRulePropertiesFormat, location: Expressionable<string>): ResourceDefinition<SecurityRulePropertiesFormat> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: SecurityRulePropertiesFormat): ResourceDefinition<SecurityRulePropertiesFormat> {
       return {
         type: 'Microsoft.Network/networkSecurityGroups/securityRules',
         apiVersion: '2018-08-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -1903,12 +1890,11 @@ export namespace networkWatchers {
 }
 export namespace networkWatchers {
   export namespace packetCaptures {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: PacketCaptureParameters, location: Expressionable<string>): ResourceDefinition<PacketCaptureParameters> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: PacketCaptureParameters): ResourceDefinition<PacketCaptureParameters> {
       return {
         type: 'Microsoft.Network/networkWatchers/packetCaptures',
         apiVersion: '2018-08-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -1984,12 +1970,11 @@ export namespace routeTables {
 }
 export namespace routeTables {
   export namespace routes {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RoutePropertiesFormat, location: Expressionable<string>): ResourceDefinition<RoutePropertiesFormat> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RoutePropertiesFormat): ResourceDefinition<RoutePropertiesFormat> {
       return {
         type: 'Microsoft.Network/routeTables/routes',
         apiVersion: '2018-08-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -2008,12 +1993,11 @@ export namespace serviceEndpointPolicies {
 }
 export namespace serviceEndpointPolicies {
   export namespace serviceEndpointPolicyDefinitions {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ServiceEndpointPolicyDefinitionPropertiesFormat, location: Expressionable<string>): ResourceDefinition<ServiceEndpointPolicyDefinitionPropertiesFormat> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ServiceEndpointPolicyDefinitionPropertiesFormat): ResourceDefinition<ServiceEndpointPolicyDefinitionPropertiesFormat> {
       return {
         type: 'Microsoft.Network/serviceEndpointPolicies/serviceEndpointPolicyDefinitions',
         apiVersion: '2018-08-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -2054,12 +2038,11 @@ export namespace virtualNetworks {
 }
 export namespace virtualNetworks {
   export namespace subnets {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: SubnetPropertiesFormat, location: Expressionable<string>): ResourceDefinition<SubnetPropertiesFormat> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: SubnetPropertiesFormat): ResourceDefinition<SubnetPropertiesFormat> {
       return {
         type: 'Microsoft.Network/virtualNetworks/subnets',
         apiVersion: '2018-08-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -2067,12 +2050,11 @@ export namespace virtualNetworks {
 }
 export namespace virtualNetworks {
   export namespace virtualNetworkPeerings {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: VirtualNetworkPeeringPropertiesFormat, location: Expressionable<string>): ResourceDefinition<VirtualNetworkPeeringPropertiesFormat> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: VirtualNetworkPeeringPropertiesFormat): ResourceDefinition<VirtualNetworkPeeringPropertiesFormat> {
       return {
         type: 'Microsoft.Network/virtualNetworks/virtualNetworkPeerings',
         apiVersion: '2018-08-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -2102,12 +2084,11 @@ export namespace virtualWans {
 }
 export namespace virtualWans {
   export namespace p2sVpnServerConfigurations {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: P2SVpnServerConfigurationProperties, location: Expressionable<string>): ResourceDefinition<P2SVpnServerConfigurationProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: P2SVpnServerConfigurationProperties): ResourceDefinition<P2SVpnServerConfigurationProperties> {
       return {
         type: 'Microsoft.Network/virtualWans/p2sVpnServerConfigurations',
         apiVersion: '2018-08-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -2126,12 +2107,11 @@ export namespace vpnGateways {
 }
 export namespace vpnGateways {
   export namespace vpnConnections {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: VpnConnectionProperties, location: Expressionable<string>): ResourceDefinition<VpnConnectionProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: VpnConnectionProperties): ResourceDefinition<VpnConnectionProperties> {
       return {
         type: 'Microsoft.Network/vpnGateways/vpnConnections',
         apiVersion: '2018-08-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }

@@ -1,4 +1,3 @@
-// Generated using 'npm run generate /Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-06-01/Microsoft.EventGrid.json'
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 import { concatResourceName } from 'arm-templator';
 
@@ -157,12 +156,11 @@ export namespace topics {
   }
 }
 export namespace eventSubscriptions {
-  export function create(name: Expressionable<string>, properties: EventSubscriptionProperties, location: Expressionable<string>): ResourceDefinition<EventSubscriptionProperties> {
+  export function create(name: Expressionable<string>, properties: EventSubscriptionProperties): ResourceDefinition<EventSubscriptionProperties> {
     return {
       type: 'Microsoft.EventGrid/eventSubscriptions',
       apiVersion: '2019-06-01',
       name: name,
-      location,
       properties,
     };
   }
@@ -180,12 +178,11 @@ export namespace domains {
 }
 export namespace domains {
   export namespace topics {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: any, location: Expressionable<string>): ResourceDefinition<any> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: any): ResourceDefinition<any> {
       return {
         type: 'Microsoft.EventGrid/domains/topics',
         apiVersion: '2019-06-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }

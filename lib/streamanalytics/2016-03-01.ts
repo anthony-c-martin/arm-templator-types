@@ -1,4 +1,3 @@
-// Generated using 'npm run generate /Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2016-03-01/Microsoft.StreamAnalytics.json'
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 import { concatResourceName } from 'arm-templator';
 
@@ -363,12 +362,11 @@ export namespace streamingjobs {
 }
 export namespace streamingjobs {
   export namespace functions {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: FunctionProperties, location: Expressionable<string>): ResourceDefinition<FunctionProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: FunctionProperties): ResourceDefinition<FunctionProperties> {
       return {
         type: 'Microsoft.StreamAnalytics/streamingjobs/functions',
         apiVersion: '2016-03-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -376,12 +374,11 @@ export namespace streamingjobs {
 }
 export namespace streamingjobs {
   export namespace inputs {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: InputProperties, location: Expressionable<string>): ResourceDefinition<InputProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: InputProperties): ResourceDefinition<InputProperties> {
       return {
         type: 'Microsoft.StreamAnalytics/streamingjobs/inputs',
         apiVersion: '2016-03-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -389,12 +386,11 @@ export namespace streamingjobs {
 }
 export namespace streamingjobs {
   export namespace outputs {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: OutputProperties, location: Expressionable<string>): ResourceDefinition<OutputProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: OutputProperties): ResourceDefinition<OutputProperties> {
       return {
         type: 'Microsoft.StreamAnalytics/streamingjobs/outputs',
         apiVersion: '2016-03-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -402,12 +398,11 @@ export namespace streamingjobs {
 }
 export namespace streamingjobs {
   export namespace transformations {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: TransformationProperties, location: Expressionable<string>): ResourceDefinition<TransformationProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: TransformationProperties): ResourceDefinition<TransformationProperties> {
       return {
         type: 'Microsoft.StreamAnalytics/streamingjobs/transformations',
         apiVersion: '2016-03-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }

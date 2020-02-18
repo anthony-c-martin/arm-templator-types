@@ -1,4 +1,3 @@
-// Generated using 'npm run generate /Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-04-01/Microsoft.Devices.json'
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 import { concatResourceName } from 'arm-templator';
 
@@ -142,12 +141,11 @@ export namespace IotHubs {
 }
 export namespace IotHubs {
   export namespace certificates {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: any, location: Expressionable<string>): ResourceDefinition<any> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: any): ResourceDefinition<any> {
       return {
         type: 'Microsoft.Devices/IotHubs/certificates',
         apiVersion: '2018-04-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -156,12 +154,11 @@ export namespace IotHubs {
 export namespace IotHubs {
   export namespace eventHubEndpoints {
     export namespace ConsumerGroups {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: any, location: Expressionable<string>): ResourceDefinition<any> {
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: any): ResourceDefinition<any> {
         return {
           type: 'Microsoft.Devices/IotHubs/eventHubEndpoints/ConsumerGroups',
           apiVersion: '2018-04-01',
           name: concatResourceName(...name),
-          location,
           properties,
         };
       }

@@ -1,4 +1,3 @@
-// Generated using 'npm run generate /Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2015-02-01-preview/Microsoft.Logic.json'
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 import { concatResourceName } from 'arm-templator';
 
@@ -21,12 +20,11 @@ export interface WorkflowProperties {
 }
 
 export namespace workflows {
-  export function create(name: Expressionable<string>, properties: WorkflowProperties, location: Expressionable<string>): ResourceDefinition<WorkflowProperties> {
+  export function create(name: Expressionable<string>, properties: WorkflowProperties): ResourceDefinition<WorkflowProperties> {
     return {
       type: 'Microsoft.Logic/workflows',
       apiVersion: '2015-02-01-preview',
       name: name,
-      location,
       properties,
     };
   }

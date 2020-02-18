@@ -1,4 +1,3 @@
-// Generated using 'npm run generate /Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-12-01/Microsoft.DBforMySQL.json'
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 import { concatResourceName } from 'arm-templator';
 
@@ -123,12 +122,11 @@ export namespace servers {
 }
 export namespace servers {
   export namespace Administrators {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ServerAdministratorProperties, location: Expressionable<string>): ResourceDefinition<ServerAdministratorProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ServerAdministratorProperties): ResourceDefinition<ServerAdministratorProperties> {
       return {
         type: 'Microsoft.DBforMySQL/servers/Administrators',
         apiVersion: '2017-12-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -136,12 +134,11 @@ export namespace servers {
 }
 export namespace servers {
   export namespace configurations {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ConfigurationProperties, location: Expressionable<string>): ResourceDefinition<ConfigurationProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ConfigurationProperties): ResourceDefinition<ConfigurationProperties> {
       return {
         type: 'Microsoft.DBforMySQL/servers/configurations',
         apiVersion: '2017-12-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -149,12 +146,11 @@ export namespace servers {
 }
 export namespace servers {
   export namespace databases {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: DatabaseProperties, location: Expressionable<string>): ResourceDefinition<DatabaseProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: DatabaseProperties): ResourceDefinition<DatabaseProperties> {
       return {
         type: 'Microsoft.DBforMySQL/servers/databases',
         apiVersion: '2017-12-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -162,12 +158,11 @@ export namespace servers {
 }
 export namespace servers {
   export namespace firewallRules {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: FirewallRuleProperties, location: Expressionable<string>): ResourceDefinition<FirewallRuleProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: FirewallRuleProperties): ResourceDefinition<FirewallRuleProperties> {
       return {
         type: 'Microsoft.DBforMySQL/servers/firewallRules',
         apiVersion: '2017-12-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -175,12 +170,11 @@ export namespace servers {
 }
 export namespace servers {
   export namespace securityAlertPolicies {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: SecurityAlertPolicyProperties, location: Expressionable<string>): ResourceDefinition<SecurityAlertPolicyProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: SecurityAlertPolicyProperties): ResourceDefinition<SecurityAlertPolicyProperties> {
       return {
         type: 'Microsoft.DBforMySQL/servers/securityAlertPolicies',
         apiVersion: '2017-12-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -188,12 +182,11 @@ export namespace servers {
 }
 export namespace servers {
   export namespace virtualNetworkRules {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: VirtualNetworkRuleProperties, location: Expressionable<string>): ResourceDefinition<VirtualNetworkRuleProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: VirtualNetworkRuleProperties): ResourceDefinition<VirtualNetworkRuleProperties> {
       return {
         type: 'Microsoft.DBforMySQL/servers/virtualNetworkRules',
         apiVersion: '2017-12-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }

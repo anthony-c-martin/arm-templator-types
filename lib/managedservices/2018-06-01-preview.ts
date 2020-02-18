@@ -1,4 +1,3 @@
-// Generated using 'npm run generate /Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-06-01-preview/Microsoft.ManagedServices.json'
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 import { concatResourceName } from 'arm-templator';
 
@@ -26,23 +25,21 @@ export interface RegistrationDefinitionProperties {
 }
 
 export namespace registrationAssignments {
-  export function create(name: Expressionable<string>, properties: RegistrationAssignmentProperties, location: Expressionable<string>): ResourceDefinition<RegistrationAssignmentProperties> {
+  export function create(name: Expressionable<string>, properties: RegistrationAssignmentProperties): ResourceDefinition<RegistrationAssignmentProperties> {
     return {
       type: 'Microsoft.ManagedServices/registrationAssignments',
       apiVersion: '2018-06-01-preview',
       name: name,
-      location,
       properties,
     };
   }
 }
 export namespace registrationDefinitions {
-  export function create(name: Expressionable<string>, properties: RegistrationDefinitionProperties, location: Expressionable<string>): ResourceDefinition<RegistrationDefinitionProperties> {
+  export function create(name: Expressionable<string>, properties: RegistrationDefinitionProperties): ResourceDefinition<RegistrationDefinitionProperties> {
     return {
       type: 'Microsoft.ManagedServices/registrationDefinitions',
       apiVersion: '2018-06-01-preview',
       name: name,
-      location,
       properties,
     };
   }

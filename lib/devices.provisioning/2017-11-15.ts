@@ -1,4 +1,3 @@
-// Generated using 'npm run generate /Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-11-15/Microsoft.Devices.Provisioning.json'
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 import { concatResourceName } from 'arm-templator';
 
@@ -42,12 +41,11 @@ export namespace provisioningServices {
 }
 export namespace provisioningServices {
   export namespace certificates {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: any, location: Expressionable<string>): ResourceDefinition<any> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: any): ResourceDefinition<any> {
       return {
         type: 'Microsoft.Devices/provisioningServices/certificates',
         apiVersion: '2017-11-15',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }

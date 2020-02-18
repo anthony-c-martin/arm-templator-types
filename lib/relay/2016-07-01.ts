@@ -1,4 +1,3 @@
-// Generated using 'npm run generate /Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2016-07-01/Microsoft.Relay.json'
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 import { concatResourceName } from 'arm-templator';
 
@@ -39,12 +38,11 @@ export namespace namespaces {
 }
 export namespace namespaces {
   export namespace AuthorizationRules {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: AuthorizationRuleProperties, location: Expressionable<string>): ResourceDefinition<AuthorizationRuleProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: AuthorizationRuleProperties): ResourceDefinition<AuthorizationRuleProperties> {
       return {
         type: 'Microsoft.Relay/namespaces/AuthorizationRules',
         apiVersion: '2016-07-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -52,12 +50,11 @@ export namespace namespaces {
 }
 export namespace namespaces {
   export namespace HybridConnections {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: HybridConnectionProperties, location: Expressionable<string>): ResourceDefinition<HybridConnectionProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: HybridConnectionProperties): ResourceDefinition<HybridConnectionProperties> {
       return {
         type: 'Microsoft.Relay/namespaces/HybridConnections',
         apiVersion: '2016-07-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -66,12 +63,11 @@ export namespace namespaces {
 export namespace namespaces {
   export namespace HybridConnections {
     export namespace authorizationRules {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: AuthorizationRuleProperties, location: Expressionable<string>): ResourceDefinition<AuthorizationRuleProperties> {
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: AuthorizationRuleProperties): ResourceDefinition<AuthorizationRuleProperties> {
         return {
           type: 'Microsoft.Relay/namespaces/HybridConnections/authorizationRules',
           apiVersion: '2016-07-01',
           name: concatResourceName(...name),
-          location,
           properties,
         };
       }
@@ -80,12 +76,11 @@ export namespace namespaces {
 }
 export namespace namespaces {
   export namespace WcfRelays {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: WcfRelayProperties, location: Expressionable<string>): ResourceDefinition<WcfRelayProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: WcfRelayProperties): ResourceDefinition<WcfRelayProperties> {
       return {
         type: 'Microsoft.Relay/namespaces/WcfRelays',
         apiVersion: '2016-07-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -94,12 +89,11 @@ export namespace namespaces {
 export namespace namespaces {
   export namespace WcfRelays {
     export namespace authorizationRules {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: AuthorizationRuleProperties, location: Expressionable<string>): ResourceDefinition<AuthorizationRuleProperties> {
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: AuthorizationRuleProperties): ResourceDefinition<AuthorizationRuleProperties> {
         return {
           type: 'Microsoft.Relay/namespaces/WcfRelays/authorizationRules',
           apiVersion: '2016-07-01',
           name: concatResourceName(...name),
-          location,
           properties,
         };
       }

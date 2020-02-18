@@ -1,4 +1,3 @@
-// Generated using 'npm run generate /Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2015-10-01-preview/Microsoft.DataLakeAnalytics.json'
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 import { concatResourceName } from 'arm-templator';
 
@@ -42,12 +41,11 @@ export namespace accounts {
 }
 export namespace accounts {
   export namespace DataLakeStoreAccounts {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: DataLakeStoreAccountInfoProperties, location: Expressionable<string>): ResourceDefinition<DataLakeStoreAccountInfoProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: DataLakeStoreAccountInfoProperties): ResourceDefinition<DataLakeStoreAccountInfoProperties> {
       return {
         type: 'Microsoft.DataLakeAnalytics/accounts/DataLakeStoreAccounts',
         apiVersion: '2015-10-01-preview',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -55,12 +53,11 @@ export namespace accounts {
 }
 export namespace accounts {
   export namespace StorageAccounts {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: StorageAccountProperties, location: Expressionable<string>): ResourceDefinition<StorageAccountProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: StorageAccountProperties): ResourceDefinition<StorageAccountProperties> {
       return {
         type: 'Microsoft.DataLakeAnalytics/accounts/StorageAccounts',
         apiVersion: '2015-10-01-preview',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }

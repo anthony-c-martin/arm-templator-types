@@ -1,4 +1,3 @@
-// Generated using 'npm run generate /Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-01-15/Microsoft.Automation.json'
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 import { concatResourceName } from 'arm-templator';
 
@@ -45,12 +44,11 @@ export namespace automationAccounts {
 }
 export namespace automationAccounts {
   export namespace nodeConfigurations {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: DscNodeConfigurationCreateOrUpdateParametersProperties, location: Expressionable<string>): ResourceDefinition<DscNodeConfigurationCreateOrUpdateParametersProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: DscNodeConfigurationCreateOrUpdateParametersProperties): ResourceDefinition<DscNodeConfigurationCreateOrUpdateParametersProperties> {
       return {
         type: 'Microsoft.Automation/automationAccounts/nodeConfigurations',
         apiVersion: '2018-01-15',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }

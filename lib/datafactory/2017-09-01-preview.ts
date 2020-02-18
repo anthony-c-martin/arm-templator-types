@@ -1,4 +1,3 @@
-// Generated using 'npm run generate /Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-09-01-preview/Microsoft.DataFactory.json'
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 import { concatResourceName } from 'arm-templator';
 
@@ -2497,12 +2496,11 @@ export namespace factories {
 }
 export namespace factories {
   export namespace datasets {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: Dataset, location: Expressionable<string>): ResourceDefinition<Dataset> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: Dataset): ResourceDefinition<Dataset> {
       return {
         type: 'Microsoft.DataFactory/factories/datasets',
         apiVersion: '2017-09-01-preview',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -2510,12 +2508,11 @@ export namespace factories {
 }
 export namespace factories {
   export namespace integrationRuntimes {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: IntegrationRuntime, location: Expressionable<string>): ResourceDefinition<IntegrationRuntime> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: IntegrationRuntime): ResourceDefinition<IntegrationRuntime> {
       return {
         type: 'Microsoft.DataFactory/factories/integrationRuntimes',
         apiVersion: '2017-09-01-preview',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -2523,12 +2520,11 @@ export namespace factories {
 }
 export namespace factories {
   export namespace linkedservices {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: LinkedService, location: Expressionable<string>): ResourceDefinition<LinkedService> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: LinkedService): ResourceDefinition<LinkedService> {
       return {
         type: 'Microsoft.DataFactory/factories/linkedservices',
         apiVersion: '2017-09-01-preview',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -2536,12 +2532,11 @@ export namespace factories {
 }
 export namespace factories {
   export namespace pipelines {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: Pipeline, location: Expressionable<string>): ResourceDefinition<Pipeline> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: Pipeline): ResourceDefinition<Pipeline> {
       return {
         type: 'Microsoft.DataFactory/factories/pipelines',
         apiVersion: '2017-09-01-preview',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -2549,12 +2544,11 @@ export namespace factories {
 }
 export namespace factories {
   export namespace triggers {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: Trigger, location: Expressionable<string>): ResourceDefinition<Trigger> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: Trigger): ResourceDefinition<Trigger> {
       return {
         type: 'Microsoft.DataFactory/factories/triggers',
         apiVersion: '2017-09-01-preview',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }

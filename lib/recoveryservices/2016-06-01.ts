@@ -1,4 +1,3 @@
-// Generated using 'npm run generate /Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2016-06-01/Microsoft.RecoveryServices.json'
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 import { concatResourceName } from 'arm-templator';
 
@@ -35,12 +34,11 @@ export namespace vaults {
 }
 export namespace vaults {
   export namespace certificates {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RawCertificateData, location: Expressionable<string>): ResourceDefinition<RawCertificateData> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RawCertificateData): ResourceDefinition<RawCertificateData> {
       return {
         type: 'Microsoft.RecoveryServices/vaults/certificates',
         apiVersion: '2016-06-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -48,12 +46,11 @@ export namespace vaults {
 }
 export namespace vaults {
   export namespace extendedInformation {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: VaultExtendedInfo, location: Expressionable<string>): ResourceDefinition<VaultExtendedInfo> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: VaultExtendedInfo): ResourceDefinition<VaultExtendedInfo> {
       return {
         type: 'Microsoft.RecoveryServices/vaults/extendedInformation',
         apiVersion: '2016-06-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }

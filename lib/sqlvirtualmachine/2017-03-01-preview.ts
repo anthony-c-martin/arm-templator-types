@@ -1,4 +1,3 @@
-// Generated using 'npm run generate /Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-03-01-preview/Microsoft.SqlVirtualMachine.json'
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 import { concatResourceName } from 'arm-templator';
 
@@ -148,12 +147,11 @@ export namespace sqlVirtualMachineGroups {
 }
 export namespace sqlVirtualMachineGroups {
   export namespace availabilityGroupListeners {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: AvailabilityGroupListenerProperties, location: Expressionable<string>): ResourceDefinition<AvailabilityGroupListenerProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: AvailabilityGroupListenerProperties): ResourceDefinition<AvailabilityGroupListenerProperties> {
       return {
         type: 'Microsoft.SqlVirtualMachine/sqlVirtualMachineGroups/availabilityGroupListeners',
         apiVersion: '2017-03-01-preview',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }

@@ -1,4 +1,3 @@
-// Generated using 'npm run generate /Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2016-03-01/Microsoft.Scheduler.json'
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 import { concatResourceName } from 'arm-templator';
 
@@ -147,12 +146,11 @@ export namespace jobCollections {
 }
 export namespace jobCollections {
   export namespace jobs {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: JobProperties, location: Expressionable<string>): ResourceDefinition<JobProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: JobProperties): ResourceDefinition<JobProperties> {
       return {
         type: 'Microsoft.Scheduler/jobCollections/jobs',
         apiVersion: '2016-03-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }

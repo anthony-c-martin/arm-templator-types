@@ -1,4 +1,3 @@
-// Generated using 'npm run generate /Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-06-01/Microsoft.ContainerService.json'
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 import { concatResourceName } from 'arm-templator';
 
@@ -119,12 +118,11 @@ export namespace managedClusters {
 }
 export namespace managedClusters {
   export namespace agentPools {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ManagedClusterAgentPoolProfileProperties, location: Expressionable<string>): ResourceDefinition<ManagedClusterAgentPoolProfileProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ManagedClusterAgentPoolProfileProperties): ResourceDefinition<ManagedClusterAgentPoolProfileProperties> {
       return {
         type: 'Microsoft.ContainerService/managedClusters/agentPools',
         apiVersion: '2019-06-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }

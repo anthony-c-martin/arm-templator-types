@@ -1,4 +1,3 @@
-// Generated using 'npm run generate /Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-07-01/Microsoft.Media.json'
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 import { concatResourceName } from 'arm-templator';
 
@@ -644,12 +643,11 @@ export namespace mediaServices {
 }
 export namespace mediaServices {
   export namespace accountFilters {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: MediaFilterProperties, location: Expressionable<string>): ResourceDefinition<MediaFilterProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: MediaFilterProperties): ResourceDefinition<MediaFilterProperties> {
       return {
         type: 'Microsoft.Media/mediaServices/accountFilters',
         apiVersion: '2018-07-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -657,12 +655,11 @@ export namespace mediaServices {
 }
 export namespace mediaServices {
   export namespace assets {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: AssetProperties, location: Expressionable<string>): ResourceDefinition<AssetProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: AssetProperties): ResourceDefinition<AssetProperties> {
       return {
         type: 'Microsoft.Media/mediaServices/assets',
         apiVersion: '2018-07-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -671,12 +668,11 @@ export namespace mediaServices {
 export namespace mediaServices {
   export namespace assets {
     export namespace assetFilters {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: MediaFilterProperties, location: Expressionable<string>): ResourceDefinition<MediaFilterProperties> {
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: MediaFilterProperties): ResourceDefinition<MediaFilterProperties> {
         return {
           type: 'Microsoft.Media/mediaServices/assets/assetFilters',
           apiVersion: '2018-07-01',
           name: concatResourceName(...name),
-          location,
           properties,
         };
       }
@@ -685,12 +681,11 @@ export namespace mediaServices {
 }
 export namespace mediaServices {
   export namespace contentKeyPolicies {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ContentKeyPolicyProperties, location: Expressionable<string>): ResourceDefinition<ContentKeyPolicyProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ContentKeyPolicyProperties): ResourceDefinition<ContentKeyPolicyProperties> {
       return {
         type: 'Microsoft.Media/mediaServices/contentKeyPolicies',
         apiVersion: '2018-07-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -712,12 +707,11 @@ export namespace mediaServices {
 export namespace mediaServices {
   export namespace liveEvents {
     export namespace liveOutputs {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: LiveOutputProperties, location: Expressionable<string>): ResourceDefinition<LiveOutputProperties> {
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: LiveOutputProperties): ResourceDefinition<LiveOutputProperties> {
         return {
           type: 'Microsoft.Media/mediaServices/liveEvents/liveOutputs',
           apiVersion: '2018-07-01',
           name: concatResourceName(...name),
-          location,
           properties,
         };
       }
@@ -739,12 +733,11 @@ export namespace mediaServices {
 }
 export namespace mediaServices {
   export namespace streamingLocators {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: StreamingLocatorProperties, location: Expressionable<string>): ResourceDefinition<StreamingLocatorProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: StreamingLocatorProperties): ResourceDefinition<StreamingLocatorProperties> {
       return {
         type: 'Microsoft.Media/mediaServices/streamingLocators',
         apiVersion: '2018-07-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -752,12 +745,11 @@ export namespace mediaServices {
 }
 export namespace mediaServices {
   export namespace streamingPolicies {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: StreamingPolicyProperties, location: Expressionable<string>): ResourceDefinition<StreamingPolicyProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: StreamingPolicyProperties): ResourceDefinition<StreamingPolicyProperties> {
       return {
         type: 'Microsoft.Media/mediaServices/streamingPolicies',
         apiVersion: '2018-07-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -765,12 +757,11 @@ export namespace mediaServices {
 }
 export namespace mediaServices {
   export namespace transforms {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: TransformProperties, location: Expressionable<string>): ResourceDefinition<TransformProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: TransformProperties): ResourceDefinition<TransformProperties> {
       return {
         type: 'Microsoft.Media/mediaServices/transforms',
         apiVersion: '2018-07-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -779,12 +770,11 @@ export namespace mediaServices {
 export namespace mediaServices {
   export namespace transforms {
     export namespace jobs {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: JobProperties, location: Expressionable<string>): ResourceDefinition<JobProperties> {
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: JobProperties): ResourceDefinition<JobProperties> {
         return {
           type: 'Microsoft.Media/mediaServices/transforms/jobs',
           apiVersion: '2018-07-01',
           name: concatResourceName(...name),
-          location,
           properties,
         };
       }

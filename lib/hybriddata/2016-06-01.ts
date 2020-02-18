@@ -1,4 +1,3 @@
-// Generated using 'npm run generate /Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2016-06-01/Microsoft.HybridData.json'
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 import { concatResourceName } from 'arm-templator';
 
@@ -52,12 +51,11 @@ export namespace dataManagers {
 export namespace dataManagers {
   export namespace dataServices {
     export namespace jobDefinitions {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: JobDefinitionProperties, location: Expressionable<string>): ResourceDefinition<JobDefinitionProperties> {
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: JobDefinitionProperties): ResourceDefinition<JobDefinitionProperties> {
         return {
           type: 'Microsoft.HybridData/dataManagers/dataServices/jobDefinitions',
           apiVersion: '2016-06-01',
           name: concatResourceName(...name),
-          location,
           properties,
         };
       }
@@ -66,12 +64,11 @@ export namespace dataManagers {
 }
 export namespace dataManagers {
   export namespace dataStores {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: DataStoreProperties, location: Expressionable<string>): ResourceDefinition<DataStoreProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: DataStoreProperties): ResourceDefinition<DataStoreProperties> {
       return {
         type: 'Microsoft.HybridData/dataManagers/dataStores',
         apiVersion: '2016-06-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }

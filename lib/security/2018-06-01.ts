@@ -1,4 +1,3 @@
-// Generated using 'npm run generate /Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-06-01/Microsoft.Security.json'
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 import { concatResourceName } from 'arm-templator';
 
@@ -127,78 +126,71 @@ export interface InformationProtectionKeyword {
 }
 
 export namespace pricings {
-  export function create(name: Expressionable<string>, properties: PricingProperties, location: Expressionable<string>): ResourceDefinition<PricingProperties> {
+  export function create(name: Expressionable<string>, properties: PricingProperties): ResourceDefinition<PricingProperties> {
     return {
       type: 'Microsoft.Security/pricings',
       apiVersion: '2018-06-01',
       name: name,
-      location,
       properties,
     };
   }
 }
 export namespace securityContacts {
-  export function create(name: Expressionable<string>, properties: SecurityContactProperties, location: Expressionable<string>): ResourceDefinition<SecurityContactProperties> {
+  export function create(name: Expressionable<string>, properties: SecurityContactProperties): ResourceDefinition<SecurityContactProperties> {
     return {
       type: 'Microsoft.Security/securityContacts',
       apiVersion: '2018-06-01',
       name: name,
-      location,
       properties,
     };
   }
 }
 export namespace workspaceSettings {
-  export function create(name: Expressionable<string>, properties: WorkspaceSettingProperties, location: Expressionable<string>): ResourceDefinition<WorkspaceSettingProperties> {
+  export function create(name: Expressionable<string>, properties: WorkspaceSettingProperties): ResourceDefinition<WorkspaceSettingProperties> {
     return {
       type: 'Microsoft.Security/workspaceSettings',
       apiVersion: '2018-06-01',
       name: name,
-      location,
       properties,
     };
   }
 }
 export namespace autoProvisioningSettings {
-  export function create(name: Expressionable<string>, properties: AutoProvisioningSettingProperties, location: Expressionable<string>): ResourceDefinition<AutoProvisioningSettingProperties> {
+  export function create(name: Expressionable<string>, properties: AutoProvisioningSettingProperties): ResourceDefinition<AutoProvisioningSettingProperties> {
     return {
       type: 'Microsoft.Security/autoProvisioningSettings',
       apiVersion: '2018-06-01',
       name: name,
-      location,
       properties,
     };
   }
 }
 export namespace advancedThreatProtectionSettings {
-  export function create(name: Expressionable<string>, properties: AdvancedThreatProtectionProperties, location: Expressionable<string>): ResourceDefinition<AdvancedThreatProtectionProperties> {
+  export function create(name: Expressionable<string>, properties: AdvancedThreatProtectionProperties): ResourceDefinition<AdvancedThreatProtectionProperties> {
     return {
       type: 'Microsoft.Security/advancedThreatProtectionSettings',
       apiVersion: '2018-06-01',
       name: name,
-      location,
       properties,
     };
   }
 }
 export namespace settings {
-  export function create(name: Expressionable<string>, properties: SettingResource, location: Expressionable<string>): ResourceDefinition<SettingResource> {
+  export function create(name: Expressionable<string>, properties: SettingResource): ResourceDefinition<SettingResource> {
     return {
       type: 'Microsoft.Security/settings',
       apiVersion: '2018-06-01',
       name: name,
-      location,
       properties,
     };
   }
 }
 export namespace informationProtectionPolicies {
-  export function create(name: Expressionable<string>, properties: InformationProtectionPolicyProperties, location: Expressionable<string>): ResourceDefinition<InformationProtectionPolicyProperties> {
+  export function create(name: Expressionable<string>, properties: InformationProtectionPolicyProperties): ResourceDefinition<InformationProtectionPolicyProperties> {
     return {
       type: 'Microsoft.Security/informationProtectionPolicies',
       apiVersion: '2018-06-01',
       name: name,
-      location,
       properties,
     };
   }

@@ -1,4 +1,3 @@
-// Generated using 'npm run generate /Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2016-05-15/Microsoft.DevTestLab.json'
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 import { concatResourceName } from 'arm-templator';
 
@@ -514,12 +513,11 @@ export namespace labs {
 }
 export namespace labs {
   export namespace schedules {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ScheduleProperties, location: Expressionable<string>): ResourceDefinition<ScheduleProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ScheduleProperties): ResourceDefinition<ScheduleProperties> {
       return {
         type: 'Microsoft.DevTestLab/labs/schedules',
         apiVersion: '2016-05-15',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -612,12 +610,11 @@ export namespace labs {
 export namespace labs {
   export namespace virtualmachines {
     export namespace schedules {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ScheduleProperties, location: Expressionable<string>): ResourceDefinition<ScheduleProperties> {
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ScheduleProperties): ResourceDefinition<ScheduleProperties> {
         return {
           type: 'Microsoft.DevTestLab/labs/virtualmachines/schedules',
           apiVersion: '2016-05-15',
           name: concatResourceName(...name),
-          location,
           properties,
         };
       }
@@ -638,12 +635,11 @@ export namespace labs {
   }
 }
 export namespace schedules {
-  export function create(name: Expressionable<string>, properties: ScheduleProperties, location: Expressionable<string>): ResourceDefinition<ScheduleProperties> {
+  export function create(name: Expressionable<string>, properties: ScheduleProperties): ResourceDefinition<ScheduleProperties> {
     return {
       type: 'Microsoft.DevTestLab/schedules',
       apiVersion: '2016-05-15',
       name: name,
-      location,
       properties,
     };
   }

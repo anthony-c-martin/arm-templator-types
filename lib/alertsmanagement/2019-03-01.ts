@@ -1,4 +1,3 @@
-// Generated using 'npm run generate /Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-03-01/Microsoft.AlertsManagement.json'
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 import { concatResourceName } from 'arm-templator';
 
@@ -33,12 +32,11 @@ export interface ThrottlingInformation {
 }
 
 export namespace smartDetectorAlertRules {
-  export function create(name: Expressionable<string>, properties: AlertRuleProperties, location: Expressionable<string>): ResourceDefinition<AlertRuleProperties> {
+  export function create(name: Expressionable<string>, properties: AlertRuleProperties): ResourceDefinition<AlertRuleProperties> {
     return {
       type: 'microsoft.alertsManagement/smartDetectorAlertRules',
       apiVersion: '2019-03-01',
       name: name,
-      location,
       properties,
     };
   }

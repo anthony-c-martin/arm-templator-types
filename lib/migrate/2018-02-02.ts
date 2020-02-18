@@ -1,4 +1,3 @@
-// Generated using 'npm run generate /Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-02-02/Microsoft.Migrate.json'
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 import { concatResourceName } from 'arm-templator';
 
@@ -40,12 +39,11 @@ export namespace projects {
 }
 export namespace projects {
   export namespace groups {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: GroupProperties, location: Expressionable<string>): ResourceDefinition<GroupProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: GroupProperties): ResourceDefinition<GroupProperties> {
       return {
         type: 'Microsoft.Migrate/projects/groups',
         apiVersion: '2018-02-02',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -54,12 +52,11 @@ export namespace projects {
 export namespace projects {
   export namespace groups {
     export namespace assessments {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: AssessmentProperties, location: Expressionable<string>): ResourceDefinition<AssessmentProperties> {
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: AssessmentProperties): ResourceDefinition<AssessmentProperties> {
         return {
           type: 'Microsoft.Migrate/projects/groups/assessments',
           apiVersion: '2018-02-02',
           name: concatResourceName(...name),
-          location,
           properties,
         };
       }

@@ -1,4 +1,3 @@
-// Generated using 'npm run generate /Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2015-05-01-preview/Microsoft.Sql.json'
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 import { concatResourceName } from 'arm-templator';
 
@@ -162,12 +161,11 @@ export namespace servers {
 export namespace servers {
   export namespace databases {
     export namespace auditingSettings {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: DatabaseBlobAuditingPolicyProperties, location: Expressionable<string>): ResourceDefinition<DatabaseBlobAuditingPolicyProperties> {
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: DatabaseBlobAuditingPolicyProperties): ResourceDefinition<DatabaseBlobAuditingPolicyProperties> {
         return {
           type: 'Microsoft.Sql/servers/databases/auditingSettings',
           apiVersion: '2015-05-01-preview',
           name: concatResourceName(...name),
-          location,
           properties,
         };
       }
@@ -177,12 +175,11 @@ export namespace servers {
 export namespace servers {
   export namespace databases {
     export namespace syncGroups {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: SyncGroupProperties, location: Expressionable<string>): ResourceDefinition<SyncGroupProperties> {
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: SyncGroupProperties): ResourceDefinition<SyncGroupProperties> {
         return {
           type: 'Microsoft.Sql/servers/databases/syncGroups',
           apiVersion: '2015-05-01-preview',
           name: concatResourceName(...name),
-          location,
           properties,
         };
       }
@@ -193,12 +190,11 @@ export namespace servers {
   export namespace databases {
     export namespace syncGroups {
       export namespace syncMembers {
-        export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: SyncMemberProperties, location: Expressionable<string>): ResourceDefinition<SyncMemberProperties> {
+        export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: SyncMemberProperties): ResourceDefinition<SyncMemberProperties> {
           return {
             type: 'Microsoft.Sql/servers/databases/syncGroups/syncMembers',
             apiVersion: '2015-05-01-preview',
             name: concatResourceName(...name),
-            location,
             properties,
           };
         }
@@ -208,12 +204,11 @@ export namespace servers {
 }
 export namespace servers {
   export namespace encryptionProtector {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: EncryptionProtectorProperties, location: Expressionable<string>): ResourceDefinition<EncryptionProtectorProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: EncryptionProtectorProperties): ResourceDefinition<EncryptionProtectorProperties> {
       return {
         type: 'Microsoft.Sql/servers/encryptionProtector',
         apiVersion: '2015-05-01-preview',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -221,12 +216,11 @@ export namespace servers {
 }
 export namespace servers {
   export namespace failoverGroups {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: FailoverGroupProperties, location: Expressionable<string>): ResourceDefinition<FailoverGroupProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: FailoverGroupProperties): ResourceDefinition<FailoverGroupProperties> {
       return {
         type: 'Microsoft.Sql/servers/failoverGroups',
         apiVersion: '2015-05-01-preview',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -234,12 +228,11 @@ export namespace servers {
 }
 export namespace servers {
   export namespace firewallRules {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ServerFirewallRuleProperties, location: Expressionable<string>): ResourceDefinition<ServerFirewallRuleProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ServerFirewallRuleProperties): ResourceDefinition<ServerFirewallRuleProperties> {
       return {
         type: 'Microsoft.Sql/servers/firewallRules',
         apiVersion: '2015-05-01-preview',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -247,12 +240,11 @@ export namespace servers {
 }
 export namespace servers {
   export namespace keys {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ServerKeyProperties, location: Expressionable<string>): ResourceDefinition<ServerKeyProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ServerKeyProperties): ResourceDefinition<ServerKeyProperties> {
       return {
         type: 'Microsoft.Sql/servers/keys',
         apiVersion: '2015-05-01-preview',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -260,12 +252,11 @@ export namespace servers {
 }
 export namespace servers {
   export namespace syncAgents {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: SyncAgentProperties, location: Expressionable<string>): ResourceDefinition<SyncAgentProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: SyncAgentProperties): ResourceDefinition<SyncAgentProperties> {
       return {
         type: 'Microsoft.Sql/servers/syncAgents',
         apiVersion: '2015-05-01-preview',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -273,12 +264,11 @@ export namespace servers {
 }
 export namespace servers {
   export namespace virtualNetworkRules {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: VirtualNetworkRuleProperties, location: Expressionable<string>): ResourceDefinition<VirtualNetworkRuleProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: VirtualNetworkRuleProperties): ResourceDefinition<VirtualNetworkRuleProperties> {
       return {
         type: 'Microsoft.Sql/servers/virtualNetworkRules',
         apiVersion: '2015-05-01-preview',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }

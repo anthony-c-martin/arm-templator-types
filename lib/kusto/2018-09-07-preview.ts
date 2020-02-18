@@ -1,4 +1,3 @@
-// Generated using 'npm run generate /Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-09-07-preview/Microsoft.Kusto.json'
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 import { concatResourceName } from 'arm-templator';
 
@@ -71,12 +70,11 @@ export namespace clusters {
 }
 export namespace clusters {
   export namespace databases {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: DatabaseProperties, location: Expressionable<string>): ResourceDefinition<DatabaseProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: DatabaseProperties): ResourceDefinition<DatabaseProperties> {
       return {
         type: 'Microsoft.Kusto/clusters/databases',
         apiVersion: '2018-09-07-preview',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -85,12 +83,11 @@ export namespace clusters {
 export namespace clusters {
   export namespace databases {
     export namespace dataconnections {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: any, location: Expressionable<string>): ResourceDefinition<any> {
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: any): ResourceDefinition<any> {
         return {
           type: 'Microsoft.Kusto/clusters/databases/dataconnections',
           apiVersion: '2018-09-07-preview',
           name: concatResourceName(...name),
-          location,
           properties,
         };
       }

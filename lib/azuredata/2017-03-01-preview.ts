@@ -1,4 +1,3 @@
-// Generated using 'npm run generate /Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-03-01-preview/Microsoft.AzureData.json'
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 import { concatResourceName } from 'arm-templator';
 
@@ -29,12 +28,11 @@ export namespace sqlServerRegistrations {
 }
 export namespace sqlServerRegistrations {
   export namespace sqlServers {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: SqlServerProperties, location: Expressionable<string>): ResourceDefinition<SqlServerProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: SqlServerProperties): ResourceDefinition<SqlServerProperties> {
       return {
         type: 'Microsoft.AzureData/sqlServerRegistrations/sqlServers',
         apiVersion: '2017-03-01-preview',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }

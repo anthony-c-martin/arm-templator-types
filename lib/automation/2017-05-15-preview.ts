@@ -1,4 +1,3 @@
-// Generated using 'npm run generate /Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-05-15-preview/Microsoft.Automation.json'
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 import { concatResourceName } from 'arm-templator';
 
@@ -129,12 +128,11 @@ export interface WindowsProperties {
 
 export namespace automationAccounts {
   export namespace jobs {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: JobCreateProperties, location: Expressionable<string>): ResourceDefinition<JobCreateProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: JobCreateProperties): ResourceDefinition<JobCreateProperties> {
       return {
         type: 'Microsoft.Automation/automationAccounts/jobs',
         apiVersion: '2017-05-15-preview',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -142,12 +140,11 @@ export namespace automationAccounts {
 }
 export namespace automationAccounts {
   export namespace softwareUpdateConfigurations {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: SoftwareUpdateConfigurationProperties, location: Expressionable<string>): ResourceDefinition<SoftwareUpdateConfigurationProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: SoftwareUpdateConfigurationProperties): ResourceDefinition<SoftwareUpdateConfigurationProperties> {
       return {
         type: 'Microsoft.Automation/automationAccounts/softwareUpdateConfigurations',
         apiVersion: '2017-05-15-preview',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -155,12 +152,11 @@ export namespace automationAccounts {
 }
 export namespace automationAccounts {
   export namespace sourceControls {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: SourceControlCreateOrUpdateProperties, location: Expressionable<string>): ResourceDefinition<SourceControlCreateOrUpdateProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: SourceControlCreateOrUpdateProperties): ResourceDefinition<SourceControlCreateOrUpdateProperties> {
       return {
         type: 'Microsoft.Automation/automationAccounts/sourceControls',
         apiVersion: '2017-05-15-preview',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -169,12 +165,11 @@ export namespace automationAccounts {
 export namespace automationAccounts {
   export namespace sourceControls {
     export namespace sourceControlSyncJobs {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: SourceControlSyncJobCreateProperties, location: Expressionable<string>): ResourceDefinition<SourceControlSyncJobCreateProperties> {
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: SourceControlSyncJobCreateProperties): ResourceDefinition<SourceControlSyncJobCreateProperties> {
         return {
           type: 'Microsoft.Automation/automationAccounts/sourceControls/sourceControlSyncJobs',
           apiVersion: '2017-05-15-preview',
           name: concatResourceName(...name),
-          location,
           properties,
         };
       }

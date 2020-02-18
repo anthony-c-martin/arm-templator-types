@@ -1,4 +1,3 @@
-// Generated using 'npm run generate /Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-03-01/Microsoft.Authorization.json'
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 import { concatResourceName } from 'arm-templator';
 
@@ -42,34 +41,31 @@ export interface PolicySku {
 }
 
 export namespace policyAssignments {
-  export function create(name: Expressionable<string>, properties: PolicyAssignmentProperties, location: Expressionable<string>): ResourceDefinition<PolicyAssignmentProperties> {
+  export function create(name: Expressionable<string>, properties: PolicyAssignmentProperties): ResourceDefinition<PolicyAssignmentProperties> {
     return {
       type: 'Microsoft.Authorization/policyAssignments',
       apiVersion: '2018-03-01',
       name: name,
-      location,
       properties,
     };
   }
 }
 export namespace policyDefinitions {
-  export function create(name: Expressionable<string>, properties: PolicyDefinitionProperties, location: Expressionable<string>): ResourceDefinition<PolicyDefinitionProperties> {
+  export function create(name: Expressionable<string>, properties: PolicyDefinitionProperties): ResourceDefinition<PolicyDefinitionProperties> {
     return {
       type: 'Microsoft.Authorization/policyDefinitions',
       apiVersion: '2018-03-01',
       name: name,
-      location,
       properties,
     };
   }
 }
 export namespace policySetDefinitions {
-  export function create(name: Expressionable<string>, properties: PolicySetDefinitionProperties, location: Expressionable<string>): ResourceDefinition<PolicySetDefinitionProperties> {
+  export function create(name: Expressionable<string>, properties: PolicySetDefinitionProperties): ResourceDefinition<PolicySetDefinitionProperties> {
     return {
       type: 'Microsoft.Authorization/policySetDefinitions',
       apiVersion: '2018-03-01',
       name: name,
-      location,
       properties,
     };
   }

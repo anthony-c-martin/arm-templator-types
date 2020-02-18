@@ -1,4 +1,3 @@
-// Generated using 'npm run generate /Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-06-05-preview/Microsoft.StorageSync.json'
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 import { concatResourceName } from 'arm-templator';
 
@@ -72,12 +71,11 @@ export namespace storageSyncServices {
 }
 export namespace storageSyncServices {
   export namespace registeredServers {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RegisteredServerProperties, location: Expressionable<string>): ResourceDefinition<RegisteredServerProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RegisteredServerProperties): ResourceDefinition<RegisteredServerProperties> {
       return {
         type: 'Microsoft.StorageSync/storageSyncServices/registeredServers',
         apiVersion: '2017-06-05-preview',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -85,12 +83,11 @@ export namespace storageSyncServices {
 }
 export namespace storageSyncServices {
   export namespace syncGroups {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: SyncGroupProperties, location: Expressionable<string>): ResourceDefinition<SyncGroupProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: SyncGroupProperties): ResourceDefinition<SyncGroupProperties> {
       return {
         type: 'Microsoft.StorageSync/storageSyncServices/syncGroups',
         apiVersion: '2017-06-05-preview',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -99,12 +96,11 @@ export namespace storageSyncServices {
 export namespace storageSyncServices {
   export namespace syncGroups {
     export namespace cloudEndpoints {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: CloudEndpointProperties, location: Expressionable<string>): ResourceDefinition<CloudEndpointProperties> {
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: CloudEndpointProperties): ResourceDefinition<CloudEndpointProperties> {
         return {
           type: 'Microsoft.StorageSync/storageSyncServices/syncGroups/cloudEndpoints',
           apiVersion: '2017-06-05-preview',
           name: concatResourceName(...name),
-          location,
           properties,
         };
       }
@@ -114,12 +110,11 @@ export namespace storageSyncServices {
 export namespace storageSyncServices {
   export namespace syncGroups {
     export namespace serverEndpoints {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ServerEndpointProperties, location: Expressionable<string>): ResourceDefinition<ServerEndpointProperties> {
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ServerEndpointProperties): ResourceDefinition<ServerEndpointProperties> {
         return {
           type: 'Microsoft.StorageSync/storageSyncServices/syncGroups/serverEndpoints',
           apiVersion: '2017-06-05-preview',
           name: concatResourceName(...name),
-          location,
           properties,
         };
       }

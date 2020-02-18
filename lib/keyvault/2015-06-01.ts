@@ -1,4 +1,3 @@
-// Generated using 'npm run generate /Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2015-06-01/Microsoft.KeyVault.json'
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 import { concatResourceName } from 'arm-templator';
 
@@ -20,33 +19,30 @@ export interface sku {
 
 export namespace vaults {
   export namespace secrets {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: any, location: Expressionable<string>): ResourceDefinition<any> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: any): ResourceDefinition<any> {
       return {
         type: 'Microsoft.KeyVault/vaults/secrets',
         apiVersion: '2014-12-19-preview',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
   }
 }
-export function create(name: [], properties: any, location: Expressionable<string>): ResourceDefinition<any> {
+export function create(name: [], properties: any): ResourceDefinition<any> {
   return {
     type: 'secrets',
     apiVersion: '2014-12-19-preview',
     name: concatResourceName(...name),
-    location,
     properties,
   };
 }
 export namespace vaults {
-  export function create(name: Expressionable<string>, properties: any, location: Expressionable<string>): ResourceDefinition<any> {
+  export function create(name: Expressionable<string>, properties: any): ResourceDefinition<any> {
     return {
       type: 'Microsoft.KeyVault/vaults',
       apiVersion: '2014-12-19-preview',
       name: name,
-      location,
       properties,
     };
   }

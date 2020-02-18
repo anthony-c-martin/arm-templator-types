@@ -1,4 +1,3 @@
-// Generated using 'npm run generate /Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-03-01/Microsoft.Insights.json'
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 import { concatResourceName } from 'arm-templator';
 
@@ -89,12 +88,11 @@ export interface Action {
 }
 
 export namespace actionGroups {
-  export function create(name: Expressionable<string>, properties: ActionGroup, location: Expressionable<string>): ResourceDefinition<ActionGroup> {
+  export function create(name: Expressionable<string>, properties: ActionGroup): ResourceDefinition<ActionGroup> {
     return {
       type: 'Microsoft.Insights/actionGroups',
       apiVersion: '2019-03-01',
       name: name,
-      location,
       properties,
     };
   }

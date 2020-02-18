@@ -1,4 +1,3 @@
-// Generated using 'npm run generate /Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-08-01/Microsoft.Network.json'
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 import { concatResourceName } from 'arm-templator';
 
@@ -836,12 +835,11 @@ export namespace expressRouteCircuits {
 }
 export namespace expressRouteCircuits {
   export namespace authorizations {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: AuthorizationPropertiesFormat, location: Expressionable<string>): ResourceDefinition<AuthorizationPropertiesFormat> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: AuthorizationPropertiesFormat): ResourceDefinition<AuthorizationPropertiesFormat> {
       return {
         type: 'Microsoft.Network/expressRouteCircuits/authorizations',
         apiVersion: '2017-08-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -849,12 +847,11 @@ export namespace expressRouteCircuits {
 }
 export namespace expressRouteCircuits {
   export namespace peerings {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ExpressRouteCircuitPeeringPropertiesFormat, location: Expressionable<string>): ResourceDefinition<ExpressRouteCircuitPeeringPropertiesFormat> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ExpressRouteCircuitPeeringPropertiesFormat): ResourceDefinition<ExpressRouteCircuitPeeringPropertiesFormat> {
       return {
         type: 'Microsoft.Network/expressRouteCircuits/peerings',
         apiVersion: '2017-08-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -873,12 +870,11 @@ export namespace loadBalancers {
 }
 export namespace loadBalancers {
   export namespace inboundNatRules {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: InboundNatRulePropertiesFormat, location: Expressionable<string>): ResourceDefinition<InboundNatRulePropertiesFormat> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: InboundNatRulePropertiesFormat): ResourceDefinition<InboundNatRulePropertiesFormat> {
       return {
         type: 'Microsoft.Network/loadBalancers/inboundNatRules',
         apiVersion: '2017-08-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -919,12 +915,11 @@ export namespace networkSecurityGroups {
 }
 export namespace networkSecurityGroups {
   export namespace securityRules {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: SecurityRulePropertiesFormat, location: Expressionable<string>): ResourceDefinition<SecurityRulePropertiesFormat> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: SecurityRulePropertiesFormat): ResourceDefinition<SecurityRulePropertiesFormat> {
       return {
         type: 'Microsoft.Network/networkSecurityGroups/securityRules',
         apiVersion: '2017-08-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -943,12 +938,11 @@ export namespace networkWatchers {
 }
 export namespace networkWatchers {
   export namespace packetCaptures {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: PacketCaptureParameters, location: Expressionable<string>): ResourceDefinition<PacketCaptureParameters> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: PacketCaptureParameters): ResourceDefinition<PacketCaptureParameters> {
       return {
         type: 'Microsoft.Network/networkWatchers/packetCaptures',
         apiVersion: '2017-08-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -1002,12 +996,11 @@ export namespace routeTables {
 }
 export namespace routeTables {
   export namespace routes {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RoutePropertiesFormat, location: Expressionable<string>): ResourceDefinition<RoutePropertiesFormat> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RoutePropertiesFormat): ResourceDefinition<RoutePropertiesFormat> {
       return {
         type: 'Microsoft.Network/routeTables/routes',
         apiVersion: '2017-08-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -1037,12 +1030,11 @@ export namespace virtualNetworks {
 }
 export namespace virtualNetworks {
   export namespace subnets {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: SubnetPropertiesFormat, location: Expressionable<string>): ResourceDefinition<SubnetPropertiesFormat> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: SubnetPropertiesFormat): ResourceDefinition<SubnetPropertiesFormat> {
       return {
         type: 'Microsoft.Network/virtualNetworks/subnets',
         apiVersion: '2017-08-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -1050,12 +1042,11 @@ export namespace virtualNetworks {
 }
 export namespace virtualNetworks {
   export namespace virtualNetworkPeerings {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: VirtualNetworkPeeringPropertiesFormat, location: Expressionable<string>): ResourceDefinition<VirtualNetworkPeeringPropertiesFormat> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: VirtualNetworkPeeringPropertiesFormat): ResourceDefinition<VirtualNetworkPeeringPropertiesFormat> {
       return {
         type: 'Microsoft.Network/virtualNetworks/virtualNetworkPeerings',
         apiVersion: '2017-08-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }

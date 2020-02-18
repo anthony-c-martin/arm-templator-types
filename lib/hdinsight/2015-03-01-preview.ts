@@ -1,4 +1,3 @@
-// Generated using 'npm run generate /Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2015-03-01-preview/Microsoft.HDInsight.json'
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 import { concatResourceName } from 'arm-templator';
 
@@ -202,12 +201,11 @@ export namespace clusters {
 }
 export namespace clusters {
   export namespace applications {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ApplicationProperties, location: Expressionable<string>): ResourceDefinition<ApplicationProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ApplicationProperties): ResourceDefinition<ApplicationProperties> {
       return {
         type: 'Microsoft.HDInsight/clusters/applications',
         apiVersion: '2015-03-01-preview',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -215,12 +213,11 @@ export namespace clusters {
 }
 export namespace clusters {
   export namespace extensions {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: any, location: Expressionable<string>): ResourceDefinition<any> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: any): ResourceDefinition<any> {
       return {
         type: 'Microsoft.HDInsight/clusters/extensions',
         apiVersion: '2015-03-01-preview',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }

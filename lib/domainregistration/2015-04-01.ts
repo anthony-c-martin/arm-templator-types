@@ -1,4 +1,3 @@
-// Generated using 'npm run generate /Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2015-04-01/Microsoft.DomainRegistration.json'
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 import { concatResourceName } from 'arm-templator';
 
@@ -56,24 +55,22 @@ export interface HostName {
 }
 
 export namespace domains {
-  export function create(name: Expressionable<string>, properties: Domain_properties, location: Expressionable<string>): ResourceDefinition<Domain_properties> {
+  export function create(name: Expressionable<string>, properties: Domain_properties): ResourceDefinition<Domain_properties> {
     return {
       type: 'Microsoft.DomainRegistration/domains',
       apiVersion: '2015-04-01',
       name: name,
-      location,
       properties,
     };
   }
 }
 export namespace domains {
   export namespace domainOwnershipIdentifiers {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: DomainOwnershipIdentifier_properties, location: Expressionable<string>): ResourceDefinition<DomainOwnershipIdentifier_properties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: DomainOwnershipIdentifier_properties): ResourceDefinition<DomainOwnershipIdentifier_properties> {
       return {
         type: 'Microsoft.DomainRegistration/domains/domainOwnershipIdentifiers',
         apiVersion: '2015-04-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }

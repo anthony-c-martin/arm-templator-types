@@ -1,4 +1,3 @@
-// Generated using 'npm run generate /Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-08-01-preview/Microsoft.DocumentDB.json'
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 import { concatResourceName } from 'arm-templator';
 
@@ -18,12 +17,11 @@ export interface PrivateLinkServiceConnectionStateProperty {
 
 export namespace databaseAccounts {
   export namespace privateEndpointConnections {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: PrivateEndpointConnectionProperties, location: Expressionable<string>): ResourceDefinition<PrivateEndpointConnectionProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: PrivateEndpointConnectionProperties): ResourceDefinition<PrivateEndpointConnectionProperties> {
       return {
         type: 'Microsoft.DocumentDB/databaseAccounts/privateEndpointConnections',
         apiVersion: '2019-08-01-preview',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }

@@ -1,4 +1,3 @@
-// Generated using 'npm run generate /Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2016-11-01/Microsoft.DataLakeAnalytics.json'
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 import { concatResourceName } from 'arm-templator';
 
@@ -72,12 +71,11 @@ export namespace accounts {
 }
 export namespace accounts {
   export namespace computePolicies {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: CreateOrUpdateComputePolicyProperties, location: Expressionable<string>): ResourceDefinition<CreateOrUpdateComputePolicyProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: CreateOrUpdateComputePolicyProperties): ResourceDefinition<CreateOrUpdateComputePolicyProperties> {
       return {
         type: 'Microsoft.DataLakeAnalytics/accounts/computePolicies',
         apiVersion: '2016-11-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -85,12 +83,11 @@ export namespace accounts {
 }
 export namespace accounts {
   export namespace dataLakeStoreAccounts {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: AddDataLakeStoreProperties, location: Expressionable<string>): ResourceDefinition<AddDataLakeStoreProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: AddDataLakeStoreProperties): ResourceDefinition<AddDataLakeStoreProperties> {
       return {
         type: 'Microsoft.DataLakeAnalytics/accounts/dataLakeStoreAccounts',
         apiVersion: '2016-11-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -98,12 +95,11 @@ export namespace accounts {
 }
 export namespace accounts {
   export namespace firewallRules {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: CreateOrUpdateFirewallRuleProperties, location: Expressionable<string>): ResourceDefinition<CreateOrUpdateFirewallRuleProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: CreateOrUpdateFirewallRuleProperties): ResourceDefinition<CreateOrUpdateFirewallRuleProperties> {
       return {
         type: 'Microsoft.DataLakeAnalytics/accounts/firewallRules',
         apiVersion: '2016-11-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -111,12 +107,11 @@ export namespace accounts {
 }
 export namespace accounts {
   export namespace storageAccounts {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: AddStorageAccountProperties, location: Expressionable<string>): ResourceDefinition<AddStorageAccountProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: AddStorageAccountProperties): ResourceDefinition<AddStorageAccountProperties> {
       return {
         type: 'Microsoft.DataLakeAnalytics/accounts/storageAccounts',
         apiVersion: '2016-11-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }

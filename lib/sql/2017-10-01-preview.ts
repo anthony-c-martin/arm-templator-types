@@ -1,4 +1,3 @@
-// Generated using 'npm run generate /Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-10-01-preview/Microsoft.Sql.json'
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 import { concatResourceName } from 'arm-templator';
 
@@ -106,12 +105,11 @@ export interface VulnerabilityAssessmentRecurringScansProperties {
 
 export namespace locations {
   export namespace instanceFailoverGroups {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: InstanceFailoverGroupProperties, location: Expressionable<string>): ResourceDefinition<InstanceFailoverGroupProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: InstanceFailoverGroupProperties): ResourceDefinition<InstanceFailoverGroupProperties> {
       return {
         type: 'Microsoft.Sql/locations/instanceFailoverGroups',
         apiVersion: '2017-10-01-preview',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -120,12 +118,11 @@ export namespace locations {
 export namespace managedInstances {
   export namespace databases {
     export namespace vulnerabilityAssessments {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: DatabaseVulnerabilityAssessmentProperties, location: Expressionable<string>): ResourceDefinition<DatabaseVulnerabilityAssessmentProperties> {
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: DatabaseVulnerabilityAssessmentProperties): ResourceDefinition<DatabaseVulnerabilityAssessmentProperties> {
         return {
           type: 'Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments',
           apiVersion: '2017-10-01-preview',
           name: concatResourceName(...name),
-          location,
           properties,
         };
       }
@@ -137,12 +134,11 @@ export namespace managedInstances {
     export namespace vulnerabilityAssessments {
       export namespace rules {
         export namespace baselines {
-          export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: DatabaseVulnerabilityAssessmentRuleBaselineProperties, location: Expressionable<string>): ResourceDefinition<DatabaseVulnerabilityAssessmentRuleBaselineProperties> {
+          export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: DatabaseVulnerabilityAssessmentRuleBaselineProperties): ResourceDefinition<DatabaseVulnerabilityAssessmentRuleBaselineProperties> {
             return {
               type: 'Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/rules/baselines',
               apiVersion: '2017-10-01-preview',
               name: concatResourceName(...name),
-              location,
               properties,
             };
           }
@@ -153,12 +149,11 @@ export namespace managedInstances {
 }
 export namespace managedInstances {
   export namespace encryptionProtector {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ManagedInstanceEncryptionProtectorProperties, location: Expressionable<string>): ResourceDefinition<ManagedInstanceEncryptionProtectorProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ManagedInstanceEncryptionProtectorProperties): ResourceDefinition<ManagedInstanceEncryptionProtectorProperties> {
       return {
         type: 'Microsoft.Sql/managedInstances/encryptionProtector',
         apiVersion: '2017-10-01-preview',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -166,12 +161,11 @@ export namespace managedInstances {
 }
 export namespace managedInstances {
   export namespace keys {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ManagedInstanceKeyProperties, location: Expressionable<string>): ResourceDefinition<ManagedInstanceKeyProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ManagedInstanceKeyProperties): ResourceDefinition<ManagedInstanceKeyProperties> {
       return {
         type: 'Microsoft.Sql/managedInstances/keys',
         apiVersion: '2017-10-01-preview',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -193,12 +187,11 @@ export namespace servers {
 export namespace servers {
   export namespace databases {
     export namespace backupShortTermRetentionPolicies {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: BackupShortTermRetentionPolicyProperties, location: Expressionable<string>): ResourceDefinition<BackupShortTermRetentionPolicyProperties> {
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: BackupShortTermRetentionPolicyProperties): ResourceDefinition<BackupShortTermRetentionPolicyProperties> {
         return {
           type: 'Microsoft.Sql/servers/databases/backupShortTermRetentionPolicies',
           apiVersion: '2017-10-01-preview',
           name: concatResourceName(...name),
-          location,
           properties,
         };
       }

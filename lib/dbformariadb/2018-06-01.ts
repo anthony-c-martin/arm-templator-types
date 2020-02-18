@@ -1,4 +1,3 @@
-// Generated using 'npm run generate /Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-06-01/Microsoft.DBforMariaDB.json'
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 import { concatResourceName } from 'arm-templator';
 
@@ -102,12 +101,11 @@ export namespace servers {
 }
 export namespace servers {
   export namespace configurations {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ConfigurationProperties, location: Expressionable<string>): ResourceDefinition<ConfigurationProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ConfigurationProperties): ResourceDefinition<ConfigurationProperties> {
       return {
         type: 'Microsoft.DBforMariaDB/servers/configurations',
         apiVersion: '2018-06-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -115,12 +113,11 @@ export namespace servers {
 }
 export namespace servers {
   export namespace databases {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: DatabaseProperties, location: Expressionable<string>): ResourceDefinition<DatabaseProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: DatabaseProperties): ResourceDefinition<DatabaseProperties> {
       return {
         type: 'Microsoft.DBforMariaDB/servers/databases',
         apiVersion: '2018-06-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -128,12 +125,11 @@ export namespace servers {
 }
 export namespace servers {
   export namespace firewallRules {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: FirewallRuleProperties, location: Expressionable<string>): ResourceDefinition<FirewallRuleProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: FirewallRuleProperties): ResourceDefinition<FirewallRuleProperties> {
       return {
         type: 'Microsoft.DBforMariaDB/servers/firewallRules',
         apiVersion: '2018-06-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -141,12 +137,11 @@ export namespace servers {
 }
 export namespace servers {
   export namespace privateEndpointConnections {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: PrivateEndpointConnectionProperties, location: Expressionable<string>): ResourceDefinition<PrivateEndpointConnectionProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: PrivateEndpointConnectionProperties): ResourceDefinition<PrivateEndpointConnectionProperties> {
       return {
         type: 'Microsoft.DBforMariaDB/servers/privateEndpointConnections',
         apiVersion: '2018-06-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -154,12 +149,11 @@ export namespace servers {
 }
 export namespace servers {
   export namespace securityAlertPolicies {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: SecurityAlertPolicyProperties, location: Expressionable<string>): ResourceDefinition<SecurityAlertPolicyProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: SecurityAlertPolicyProperties): ResourceDefinition<SecurityAlertPolicyProperties> {
       return {
         type: 'Microsoft.DBforMariaDB/servers/securityAlertPolicies',
         apiVersion: '2018-06-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -167,12 +161,11 @@ export namespace servers {
 }
 export namespace servers {
   export namespace virtualNetworkRules {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: VirtualNetworkRuleProperties, location: Expressionable<string>): ResourceDefinition<VirtualNetworkRuleProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: VirtualNetworkRuleProperties): ResourceDefinition<VirtualNetworkRuleProperties> {
       return {
         type: 'Microsoft.DBforMariaDB/servers/virtualNetworkRules',
         apiVersion: '2018-06-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }

@@ -1,4 +1,3 @@
-// Generated using 'npm run generate /Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-04-01/Microsoft.Batch.json'
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 import { concatResourceName } from 'arm-templator';
 
@@ -234,12 +233,11 @@ export namespace batchAccounts {
 }
 export namespace batchAccounts {
   export namespace applications {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ApplicationProperties, location: Expressionable<string>): ResourceDefinition<ApplicationProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ApplicationProperties): ResourceDefinition<ApplicationProperties> {
       return {
         type: 'Microsoft.Batch/batchAccounts/applications',
         apiVersion: '2019-04-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -248,12 +246,11 @@ export namespace batchAccounts {
 export namespace batchAccounts {
   export namespace applications {
     export namespace versions {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ApplicationPackageProperties, location: Expressionable<string>): ResourceDefinition<ApplicationPackageProperties> {
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ApplicationPackageProperties): ResourceDefinition<ApplicationPackageProperties> {
         return {
           type: 'Microsoft.Batch/batchAccounts/applications/versions',
           apiVersion: '2019-04-01',
           name: concatResourceName(...name),
-          location,
           properties,
         };
       }
@@ -262,12 +259,11 @@ export namespace batchAccounts {
 }
 export namespace batchAccounts {
   export namespace certificates {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: CertificateCreateOrUpdateProperties, location: Expressionable<string>): ResourceDefinition<CertificateCreateOrUpdateProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: CertificateCreateOrUpdateProperties): ResourceDefinition<CertificateCreateOrUpdateProperties> {
       return {
         type: 'Microsoft.Batch/batchAccounts/certificates',
         apiVersion: '2019-04-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -275,12 +271,11 @@ export namespace batchAccounts {
 }
 export namespace batchAccounts {
   export namespace pools {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: PoolProperties, location: Expressionable<string>): ResourceDefinition<PoolProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: PoolProperties): ResourceDefinition<PoolProperties> {
       return {
         type: 'Microsoft.Batch/batchAccounts/pools',
         apiVersion: '2019-04-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }

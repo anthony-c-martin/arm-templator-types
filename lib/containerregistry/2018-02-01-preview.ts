@@ -1,4 +1,3 @@
-// Generated using 'npm run generate /Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-02-01-preview/Microsoft.ContainerRegistry.json'
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 import { concatResourceName } from 'arm-templator';
 
@@ -68,12 +67,11 @@ export namespace registries {
 export namespace registries {
   export namespace buildTasks {
     export namespace steps {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: BuildStepProperties, location: Expressionable<string>): ResourceDefinition<BuildStepProperties> {
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: BuildStepProperties): ResourceDefinition<BuildStepProperties> {
         return {
           type: 'Microsoft.ContainerRegistry/registries/buildTasks/steps',
           apiVersion: '2018-02-01-preview',
           name: concatResourceName(...name),
-          location,
           properties,
         };
       }

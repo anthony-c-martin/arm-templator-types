@@ -1,4 +1,3 @@
-// Generated using 'npm run generate /Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-11-15-privatepreview/Microsoft.DataMigration.json'
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 import { concatResourceName } from 'arm-templator';
 
@@ -292,12 +291,11 @@ export namespace services {
 export namespace services {
   export namespace projects {
     export namespace tasks {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ProjectTaskProperties, location: Expressionable<string>): ResourceDefinition<ProjectTaskProperties> {
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ProjectTaskProperties): ResourceDefinition<ProjectTaskProperties> {
         return {
           type: 'Microsoft.DataMigration/services/projects/tasks',
           apiVersion: '2017-11-15-privatepreview',
           name: concatResourceName(...name),
-          location,
           properties,
         };
       }

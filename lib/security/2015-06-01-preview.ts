@@ -1,4 +1,3 @@
-// Generated using 'npm run generate /Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2015-06-01-preview/Microsoft.Security.json'
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 import { concatResourceName } from 'arm-templator';
 
@@ -68,12 +67,11 @@ export interface PortNumber {
 
 export namespace locations {
   export namespace jitNetworkAccessPolicies {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: JitNetworkAccessPolicyProperties, location: Expressionable<string>): ResourceDefinition<JitNetworkAccessPolicyProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: JitNetworkAccessPolicyProperties): ResourceDefinition<JitNetworkAccessPolicyProperties> {
       return {
         type: 'Microsoft.Security/locations/jitNetworkAccessPolicies',
         apiVersion: '2015-06-01-preview',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }

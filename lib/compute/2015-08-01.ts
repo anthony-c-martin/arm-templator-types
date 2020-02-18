@@ -1,6 +1,186 @@
-// Generated using 'npm run generate /Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-10-01/Microsoft.Compute.Extensions.json'
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 import { concatResourceName } from 'arm-templator';
+
+export interface extensionsChild {
+  type: Expressionable<('extensions')>;
+  apiVersion: Expressionable<('2015-05-01-preview' | '2015-06-15' | '2016-03-30')>;
+  properties: Expressionable<any>;
+}
+
+export interface id {
+  id: Expressionable<string>;
+}
+
+export interface networkInterfaces {
+  id: Expressionable<string>;
+  properties?: Expressionable<any>;
+}
+
+export interface hardwareProfile {
+  vmSize: Expressionable<string>;
+}
+
+export interface imageReference {
+  publisher: Expressionable<string>;
+  offer: Expressionable<string>;
+  sku: Expressionable<string>;
+  version: Expressionable<string>;
+}
+
+export interface vhd {
+  uri: Expressionable<string>;
+}
+
+export interface osDisk {
+  name: Expressionable<string>;
+  vhd: Expressionable<vhd>;
+  image?: Expressionable<vhd>;
+  caching?: Expressionable<string>;
+  createOption: Expressionable<('FromImage' | 'Empty' | 'Attach')>;
+}
+
+export interface vhdUri {
+  uri: Expressionable<string>;
+}
+
+export interface dataDisk {
+  name: Expressionable<string>;
+  diskSizeGB?: Expressionable<string>;
+  lun: Expressionable<number>;
+  vhd: Expressionable<vhdUri>;
+  caching?: Expressionable<string>;
+  createOption: Expressionable<('FromImage' | 'Empty' | 'Attach')>;
+}
+
+export interface storageProfile {
+  imageReference?: Expressionable<imageReference>;
+  osDisk: Expressionable<osDisk>;
+  dataDisks?: Expressionable<dataDisk[]>;
+}
+
+export interface winRMListener {
+  protocol: Expressionable<('Http' | 'Https')>;
+  certificateUrl: Expressionable<string>;
+}
+
+export interface winRM {
+  listeners: Expressionable<winRMListener[]>;
+}
+
+export interface additionalUnattendContent {
+  pass: Expressionable<string>;
+  component: Expressionable<string>;
+  settingName: Expressionable<string>;
+  content: Expressionable<string>;
+}
+
+export interface windowsConfiguration {
+  provisionVMAgent?: Expressionable<boolean>;
+  winRM?: Expressionable<winRM>;
+  additionalUnattendContent?: Expressionable<additionalUnattendContent[]>;
+  enableAutomaticUpdates?: Expressionable<boolean>;
+  timeZone?: Expressionable<string>;
+}
+
+export interface publicKey {
+  path?: Expressionable<string>;
+  keyData?: Expressionable<string>;
+}
+
+export interface ssh {
+  publicKeys?: Expressionable<publicKey[]>;
+}
+
+export interface linuxConfiguration {
+  disablePasswordAuthentication?: Expressionable<boolean>;
+  ssh?: Expressionable<ssh>;
+}
+
+export interface vaultCertificateUrl {
+  certificateUrl: Expressionable<string>;
+}
+
+export interface secret {
+  sourceVault: Expressionable<id>;
+  vaultCertificates: Expressionable<vaultCertificateUrl[]>;
+}
+
+export interface osProfile {
+  computerName: Expressionable<string>;
+  adminUsername: Expressionable<string>;
+  adminPassword: Expressionable<string>;
+  customData?: Expressionable<string>;
+  windowsConfiguration?: Expressionable<windowsConfiguration>;
+  linuxConfiguration?: Expressionable<linuxConfiguration>;
+  secrets?: Expressionable<secret[]>;
+}
+
+export interface networkProfile {
+  networkInterfaces: Expressionable<networkInterfaces[]>;
+}
+
+export interface sku {
+  name: Expressionable<string>;
+  tier?: Expressionable<string>;
+  capacity: Expressionable<number>;
+}
+
+export interface upgradePolicy {
+  mode: Expressionable<string>;
+}
+
+export interface virtualMachineScaleSetOsProfile {
+  computerNamePrefix: Expressionable<string>;
+  adminUsername: Expressionable<string>;
+  adminPassword: Expressionable<string>;
+  customData?: Expressionable<string>;
+  windowsConfiguration?: Expressionable<windowsConfiguration>;
+  linuxConfiguration?: Expressionable<linuxConfiguration>;
+  secrets?: Expressionable<secret[]>;
+}
+
+export interface virtualMachineScaleSetOSDisk {
+  osType?: Expressionable<string>;
+  name: Expressionable<string>;
+  vhdContainers?: Expressionable<string[]>;
+  caching?: Expressionable<string>;
+  createOption: Expressionable<('FromImage' | 'Empty' | 'Attach')>;
+}
+
+export interface virtualMachineScaleSetStorageProfile {
+  imageReference?: Expressionable<imageReference>;
+  osDisk: Expressionable<virtualMachineScaleSetOSDisk>;
+}
+
+export interface virtualMachineScaleSetExtension {
+  name?: Expressionable<string>;
+  properties?: Expressionable<any>;
+}
+
+export interface virtualMachineScaleSetExtensionProfile {
+  extensions?: Expressionable<virtualMachineScaleSetExtension[]>;
+}
+
+export interface ipConfiguration {
+  name: Expressionable<string>;
+  properties?: Expressionable<any>;
+}
+
+export interface networkInterfaceConfiguration {
+  name: Expressionable<string>;
+  properties: Expressionable<any>;
+}
+
+export interface virtualMachineScaleSetNetworkProfile {
+  networkInterfaceConfigurations: Expressionable<networkInterfaceConfiguration[]>;
+}
+
+export interface virtualMachineProfile {
+  osProfile: Expressionable<virtualMachineScaleSetOsProfile>;
+  storageProfile: Expressionable<virtualMachineScaleSetStorageProfile>;
+  extensionProfile?: Expressionable<virtualMachineScaleSetExtensionProfile>;
+  networkProfile: Expressionable<virtualMachineScaleSetNetworkProfile>;
+}
 
 export interface genericExtension {
   publisher: Expressionable<string>;
@@ -296,27 +476,43 @@ export interface networkWatcherAgentLinux {
   autoUpgradeMinorVersion: Expressionable<boolean>;
 }
 
+export namespace availabilitySets {
+  export function create(name: Expressionable<string>, properties: any): ResourceDefinition<any> {
+    return {
+      type: 'Microsoft.Compute/availabilitySets',
+      apiVersion: '2015-05-01-preview',
+      name: name,
+      properties,
+    };
+  }
+}
 export namespace virtualMachines {
-  export namespace extensions {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: any, location: Expressionable<string>): ResourceDefinition<any> {
-      return {
-        type: 'Microsoft.Compute/virtualMachines/extensions',
-        apiVersion: '2018-10-01',
-        name: concatResourceName(...name),
-        location,
-        properties,
-      };
-    }
+  export function create(name: Expressionable<string>, properties: any): ResourceDefinition<any> {
+    return {
+      type: 'Microsoft.Compute/virtualMachines',
+      apiVersion: '2015-05-01-preview',
+      name: name,
+      properties,
+    };
   }
 }
 export namespace virtualMachineScaleSets {
+  export function create(name: Expressionable<string>, properties: any): ResourceDefinition<any> {
+    return {
+      type: 'Microsoft.Compute/virtualMachineScaleSets',
+      apiVersion: '2015-05-01-preview',
+      name: name,
+      properties,
+    };
+  }
+}
+export namespace virtualMachines {
   export namespace extensions {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: any, location: Expressionable<string>): ResourceDefinition<any> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: any): ResourceDefinition<any> {
       return {
-        type: 'Microsoft.Compute/virtualMachineScaleSets/extensions',
-        apiVersion: '2018-10-01',
+        type: 'Microsoft.Compute/virtualMachines/extensions',
+        apiVersion: '2015-05-01-preview',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }

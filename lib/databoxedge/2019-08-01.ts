@@ -1,4 +1,3 @@
-// Generated using 'npm run generate /Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-08-01/Microsoft.DataBoxEdge.json'
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 import { concatResourceName } from 'arm-templator';
 
@@ -204,12 +203,11 @@ export namespace dataBoxEdgeDevices {
 }
 export namespace dataBoxEdgeDevices {
   export namespace bandwidthSchedules {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: BandwidthScheduleProperties, location: Expressionable<string>): ResourceDefinition<BandwidthScheduleProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: BandwidthScheduleProperties): ResourceDefinition<BandwidthScheduleProperties> {
       return {
         type: 'Microsoft.DataBoxEdge/dataBoxEdgeDevices/bandwidthSchedules',
         apiVersion: '2019-08-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -217,12 +215,11 @@ export namespace dataBoxEdgeDevices {
 }
 export namespace dataBoxEdgeDevices {
   export namespace orders {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: OrderProperties, location: Expressionable<string>): ResourceDefinition<OrderProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: OrderProperties): ResourceDefinition<OrderProperties> {
       return {
         type: 'Microsoft.DataBoxEdge/dataBoxEdgeDevices/orders',
         apiVersion: '2019-08-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -230,12 +227,11 @@ export namespace dataBoxEdgeDevices {
 }
 export namespace dataBoxEdgeDevices {
   export namespace roles {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: IoTRoleProperties, location: Expressionable<string>): ResourceDefinition<IoTRoleProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: IoTRoleProperties): ResourceDefinition<IoTRoleProperties> {
       return {
         type: 'Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles',
         apiVersion: '2019-08-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -243,12 +239,11 @@ export namespace dataBoxEdgeDevices {
 }
 export namespace dataBoxEdgeDevices {
   export namespace shares {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ShareProperties, location: Expressionable<string>): ResourceDefinition<ShareProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ShareProperties): ResourceDefinition<ShareProperties> {
       return {
         type: 'Microsoft.DataBoxEdge/dataBoxEdgeDevices/shares',
         apiVersion: '2019-08-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -256,12 +251,11 @@ export namespace dataBoxEdgeDevices {
 }
 export namespace dataBoxEdgeDevices {
   export namespace storageAccountCredentials {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: StorageAccountCredentialProperties, location: Expressionable<string>): ResourceDefinition<StorageAccountCredentialProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: StorageAccountCredentialProperties): ResourceDefinition<StorageAccountCredentialProperties> {
       return {
         type: 'Microsoft.DataBoxEdge/dataBoxEdgeDevices/storageAccountCredentials',
         apiVersion: '2019-08-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -269,12 +263,11 @@ export namespace dataBoxEdgeDevices {
 }
 export namespace dataBoxEdgeDevices {
   export namespace storageAccounts {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: StorageAccountProperties, location: Expressionable<string>): ResourceDefinition<StorageAccountProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: StorageAccountProperties): ResourceDefinition<StorageAccountProperties> {
       return {
         type: 'Microsoft.DataBoxEdge/dataBoxEdgeDevices/storageAccounts',
         apiVersion: '2019-08-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -283,12 +276,11 @@ export namespace dataBoxEdgeDevices {
 export namespace dataBoxEdgeDevices {
   export namespace storageAccounts {
     export namespace containers {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ContainerProperties, location: Expressionable<string>): ResourceDefinition<ContainerProperties> {
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ContainerProperties): ResourceDefinition<ContainerProperties> {
         return {
           type: 'Microsoft.DataBoxEdge/dataBoxEdgeDevices/storageAccounts/containers',
           apiVersion: '2019-08-01',
           name: concatResourceName(...name),
-          location,
           properties,
         };
       }
@@ -297,12 +289,11 @@ export namespace dataBoxEdgeDevices {
 }
 export namespace dataBoxEdgeDevices {
   export namespace triggers {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: FileTriggerProperties | PeriodicTimerProperties, location: Expressionable<string>): ResourceDefinition<FileTriggerProperties | PeriodicTimerProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: FileTriggerProperties | PeriodicTimerProperties): ResourceDefinition<FileTriggerProperties | PeriodicTimerProperties> {
       return {
         type: 'Microsoft.DataBoxEdge/dataBoxEdgeDevices/triggers',
         apiVersion: '2019-08-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -310,12 +301,11 @@ export namespace dataBoxEdgeDevices {
 }
 export namespace dataBoxEdgeDevices {
   export namespace users {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: UserProperties, location: Expressionable<string>): ResourceDefinition<UserProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: UserProperties): ResourceDefinition<UserProperties> {
       return {
         type: 'Microsoft.DataBoxEdge/dataBoxEdgeDevices/users',
         apiVersion: '2019-08-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }

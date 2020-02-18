@@ -1,4 +1,3 @@
-// Generated using 'npm run generate /Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2016-04-02/Microsoft.Cdn.json'
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 import { concatResourceName } from 'arm-templator';
 
@@ -65,12 +64,11 @@ export namespace profiles {
 export namespace profiles {
   export namespace endpoints {
     export namespace customDomains {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: CustomDomainPropertiesParameters, location: Expressionable<string>): ResourceDefinition<CustomDomainPropertiesParameters> {
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: CustomDomainPropertiesParameters): ResourceDefinition<CustomDomainPropertiesParameters> {
         return {
           type: 'Microsoft.Cdn/profiles/endpoints/customDomains',
           apiVersion: '2016-04-02',
           name: concatResourceName(...name),
-          location,
           properties,
         };
       }
@@ -80,12 +78,11 @@ export namespace profiles {
 export namespace profiles {
   export namespace endpoints {
     export namespace origins {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: OriginPropertiesParameters, location: Expressionable<string>): ResourceDefinition<OriginPropertiesParameters> {
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: OriginPropertiesParameters): ResourceDefinition<OriginPropertiesParameters> {
         return {
           type: 'Microsoft.Cdn/profiles/endpoints/origins',
           apiVersion: '2016-04-02',
           name: concatResourceName(...name),
-          location,
           properties,
         };
       }

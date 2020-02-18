@@ -1,4 +1,3 @@
-// Generated using 'npm run generate /Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-04-01/Microsoft.Storage.json'
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 import { concatResourceName } from 'arm-templator';
 
@@ -114,12 +113,11 @@ export namespace storageAccounts {
 }
 export namespace storageAccounts {
   export namespace blobServices {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: BlobServicePropertiesProperties, location: Expressionable<string>): ResourceDefinition<BlobServicePropertiesProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: BlobServicePropertiesProperties): ResourceDefinition<BlobServicePropertiesProperties> {
       return {
         type: 'Microsoft.Storage/storageAccounts/blobServices',
         apiVersion: '2019-04-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -128,12 +126,11 @@ export namespace storageAccounts {
 export namespace storageAccounts {
   export namespace blobServices {
     export namespace containers {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ContainerProperties, location: Expressionable<string>): ResourceDefinition<ContainerProperties> {
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ContainerProperties): ResourceDefinition<ContainerProperties> {
         return {
           type: 'Microsoft.Storage/storageAccounts/blobServices/containers',
           apiVersion: '2019-04-01',
           name: concatResourceName(...name),
-          location,
           properties,
         };
       }
@@ -144,12 +141,11 @@ export namespace storageAccounts {
   export namespace blobServices {
     export namespace containers {
       export namespace immutabilityPolicies {
-        export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ImmutabilityPolicyProperty, location: Expressionable<string>): ResourceDefinition<ImmutabilityPolicyProperty> {
+        export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ImmutabilityPolicyProperty): ResourceDefinition<ImmutabilityPolicyProperty> {
           return {
             type: 'Microsoft.Storage/storageAccounts/blobServices/containers/immutabilityPolicies',
             apiVersion: '2019-04-01',
             name: concatResourceName(...name),
-            location,
             properties,
           };
         }
@@ -159,12 +155,11 @@ export namespace storageAccounts {
 }
 export namespace storageAccounts {
   export namespace managementPolicies {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: any, location: Expressionable<string>): ResourceDefinition<any> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: any): ResourceDefinition<any> {
       return {
         type: 'Microsoft.Storage/storageAccounts/managementPolicies',
         apiVersion: '2019-04-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }

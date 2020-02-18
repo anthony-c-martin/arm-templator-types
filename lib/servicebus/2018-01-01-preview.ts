@@ -1,4 +1,3 @@
-// Generated using 'npm run generate /Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-01-01-preview/Microsoft.ServiceBus.json'
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 import { concatResourceName } from 'arm-templator';
 
@@ -73,12 +72,11 @@ export namespace namespaces {
 }
 export namespace namespaces {
   export namespace ipfilterrules {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: IpFilterRuleProperties, location: Expressionable<string>): ResourceDefinition<IpFilterRuleProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: IpFilterRuleProperties): ResourceDefinition<IpFilterRuleProperties> {
       return {
         type: 'Microsoft.ServiceBus/namespaces/ipfilterrules',
         apiVersion: '2018-01-01-preview',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -86,12 +84,11 @@ export namespace namespaces {
 }
 export namespace namespaces {
   export namespace networkrulesets {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: NetworkRuleSetProperties, location: Expressionable<string>): ResourceDefinition<NetworkRuleSetProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: NetworkRuleSetProperties): ResourceDefinition<NetworkRuleSetProperties> {
       return {
         type: 'Microsoft.ServiceBus/namespaces/networkrulesets',
         apiVersion: '2018-01-01-preview',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -99,12 +96,11 @@ export namespace namespaces {
 }
 export namespace namespaces {
   export namespace virtualnetworkrules {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: VirtualNetworkRuleProperties, location: Expressionable<string>): ResourceDefinition<VirtualNetworkRuleProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: VirtualNetworkRuleProperties): ResourceDefinition<VirtualNetworkRuleProperties> {
       return {
         type: 'Microsoft.ServiceBus/namespaces/virtualnetworkrules',
         apiVersion: '2018-01-01-preview',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }

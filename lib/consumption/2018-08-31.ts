@@ -1,4 +1,3 @@
-// Generated using 'npm run generate /Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-08-31/Microsoft.Consumption.json'
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 import { concatResourceName } from 'arm-templator';
 
@@ -33,12 +32,11 @@ export interface Notification {
 }
 
 export namespace budgets {
-  export function create(name: Expressionable<string>, properties: BudgetProperties, location: Expressionable<string>): ResourceDefinition<BudgetProperties> {
+  export function create(name: Expressionable<string>, properties: BudgetProperties): ResourceDefinition<BudgetProperties> {
     return {
       type: 'Microsoft.Consumption/budgets',
       apiVersion: '2018-08-31',
       name: name,
-      location,
       properties,
     };
   }

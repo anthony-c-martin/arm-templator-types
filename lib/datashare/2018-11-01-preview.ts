@@ -1,4 +1,3 @@
-// Generated using 'npm run generate /Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-11-01-preview/Microsoft.DataShare.json'
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 import { concatResourceName } from 'arm-templator';
 
@@ -332,12 +331,11 @@ export namespace accounts {
 }
 export namespace accounts {
   export namespace shares {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ShareProperties, location: Expressionable<string>): ResourceDefinition<ShareProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ShareProperties): ResourceDefinition<ShareProperties> {
       return {
         type: 'Microsoft.DataShare/accounts/shares',
         apiVersion: '2018-11-01-preview',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -345,12 +343,11 @@ export namespace accounts {
 }
 export namespace accounts {
   export namespace shareSubscriptions {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ShareSubscriptionProperties, location: Expressionable<string>): ResourceDefinition<ShareSubscriptionProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ShareSubscriptionProperties): ResourceDefinition<ShareSubscriptionProperties> {
       return {
         type: 'Microsoft.DataShare/accounts/shareSubscriptions',
         apiVersion: '2018-11-01-preview',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -359,12 +356,11 @@ export namespace accounts {
 export namespace accounts {
   export namespace shareSubscriptions {
     export namespace dataSetMappings {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: BlobMappingProperties | BlobFolderMappingProperties | BlobContainerMappingProperties | ADLSGen2FileDataSetMappingProperties | ADLSGen2FolderDataSetMappingProperties | ADLSGen2FileSystemDataSetMappingProperties | KustoClusterDataSetMappingProperties | KustoDatabaseDataSetMappingProperties | SqlDWTableDataSetMappingProperties | SqlDBTableDataSetMappingProperties, location: Expressionable<string>): ResourceDefinition<BlobMappingProperties | BlobFolderMappingProperties | BlobContainerMappingProperties | ADLSGen2FileDataSetMappingProperties | ADLSGen2FolderDataSetMappingProperties | ADLSGen2FileSystemDataSetMappingProperties | KustoClusterDataSetMappingProperties | KustoDatabaseDataSetMappingProperties | SqlDWTableDataSetMappingProperties | SqlDBTableDataSetMappingProperties> {
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: BlobMappingProperties | BlobFolderMappingProperties | BlobContainerMappingProperties | ADLSGen2FileDataSetMappingProperties | ADLSGen2FolderDataSetMappingProperties | ADLSGen2FileSystemDataSetMappingProperties | KustoClusterDataSetMappingProperties | KustoDatabaseDataSetMappingProperties | SqlDWTableDataSetMappingProperties | SqlDBTableDataSetMappingProperties): ResourceDefinition<BlobMappingProperties | BlobFolderMappingProperties | BlobContainerMappingProperties | ADLSGen2FileDataSetMappingProperties | ADLSGen2FolderDataSetMappingProperties | ADLSGen2FileSystemDataSetMappingProperties | KustoClusterDataSetMappingProperties | KustoDatabaseDataSetMappingProperties | SqlDWTableDataSetMappingProperties | SqlDBTableDataSetMappingProperties> {
         return {
           type: 'Microsoft.DataShare/accounts/shareSubscriptions/dataSetMappings',
           apiVersion: '2018-11-01-preview',
           name: concatResourceName(...name),
-          location,
           properties,
         };
       }
@@ -374,12 +370,11 @@ export namespace accounts {
 export namespace accounts {
   export namespace shareSubscriptions {
     export namespace triggers {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ScheduledTriggerProperties, location: Expressionable<string>): ResourceDefinition<ScheduledTriggerProperties> {
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ScheduledTriggerProperties): ResourceDefinition<ScheduledTriggerProperties> {
         return {
           type: 'Microsoft.DataShare/accounts/shareSubscriptions/triggers',
           apiVersion: '2018-11-01-preview',
           name: concatResourceName(...name),
-          location,
           properties,
         };
       }
@@ -389,12 +384,11 @@ export namespace accounts {
 export namespace accounts {
   export namespace shares {
     export namespace dataSets {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: BlobProperties | BlobFolderProperties | BlobContainerProperties | ADLSGen2FileProperties | ADLSGen2FolderProperties | ADLSGen2FileSystemProperties | ADLSGen1FolderProperties | ADLSGen1FileProperties | KustoClusterDataSetProperties | KustoDatabaseDataSetProperties | SqlDWTableProperties | SqlDBTableProperties, location: Expressionable<string>): ResourceDefinition<BlobProperties | BlobFolderProperties | BlobContainerProperties | ADLSGen2FileProperties | ADLSGen2FolderProperties | ADLSGen2FileSystemProperties | ADLSGen1FolderProperties | ADLSGen1FileProperties | KustoClusterDataSetProperties | KustoDatabaseDataSetProperties | SqlDWTableProperties | SqlDBTableProperties> {
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: BlobProperties | BlobFolderProperties | BlobContainerProperties | ADLSGen2FileProperties | ADLSGen2FolderProperties | ADLSGen2FileSystemProperties | ADLSGen1FolderProperties | ADLSGen1FileProperties | KustoClusterDataSetProperties | KustoDatabaseDataSetProperties | SqlDWTableProperties | SqlDBTableProperties): ResourceDefinition<BlobProperties | BlobFolderProperties | BlobContainerProperties | ADLSGen2FileProperties | ADLSGen2FolderProperties | ADLSGen2FileSystemProperties | ADLSGen1FolderProperties | ADLSGen1FileProperties | KustoClusterDataSetProperties | KustoDatabaseDataSetProperties | SqlDWTableProperties | SqlDBTableProperties> {
         return {
           type: 'Microsoft.DataShare/accounts/shares/dataSets',
           apiVersion: '2018-11-01-preview',
           name: concatResourceName(...name),
-          location,
           properties,
         };
       }
@@ -404,12 +398,11 @@ export namespace accounts {
 export namespace accounts {
   export namespace shares {
     export namespace invitations {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: InvitationProperties, location: Expressionable<string>): ResourceDefinition<InvitationProperties> {
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: InvitationProperties): ResourceDefinition<InvitationProperties> {
         return {
           type: 'Microsoft.DataShare/accounts/shares/invitations',
           apiVersion: '2018-11-01-preview',
           name: concatResourceName(...name),
-          location,
           properties,
         };
       }
@@ -419,12 +412,11 @@ export namespace accounts {
 export namespace accounts {
   export namespace shares {
     export namespace synchronizationSettings {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ScheduledSynchronizationSettingProperties, location: Expressionable<string>): ResourceDefinition<ScheduledSynchronizationSettingProperties> {
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ScheduledSynchronizationSettingProperties): ResourceDefinition<ScheduledSynchronizationSettingProperties> {
         return {
           type: 'Microsoft.DataShare/accounts/shares/synchronizationSettings',
           apiVersion: '2018-11-01-preview',
           name: concatResourceName(...name),
-          location,
           properties,
         };
       }

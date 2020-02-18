@@ -1,4 +1,3 @@
-// Generated using 'npm run generate /Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2015-08-01/Microsoft.CertificateRegistration.json'
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 import { concatResourceName } from 'arm-templator';
 
@@ -57,24 +56,22 @@ export interface CertificateOrderCertificate_properties {
 }
 
 export namespace certificateOrders {
-  export function create(name: Expressionable<string>, properties: CertificateOrder_properties, location: Expressionable<string>): ResourceDefinition<CertificateOrder_properties> {
+  export function create(name: Expressionable<string>, properties: CertificateOrder_properties): ResourceDefinition<CertificateOrder_properties> {
     return {
       type: 'Microsoft.CertificateRegistration/certificateOrders',
       apiVersion: '2015-08-01',
       name: name,
-      location,
       properties,
     };
   }
 }
 export namespace certificateOrders {
   export namespace certificates {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: CertificateOrderCertificate_properties, location: Expressionable<string>): ResourceDefinition<CertificateOrderCertificate_properties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: CertificateOrderCertificate_properties): ResourceDefinition<CertificateOrderCertificate_properties> {
       return {
         type: 'Microsoft.CertificateRegistration/certificateOrders/certificates',
         apiVersion: '2015-08-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }

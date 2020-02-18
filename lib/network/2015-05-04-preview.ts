@@ -1,4 +1,3 @@
-// Generated using 'npm run generate /Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2015-05-04-preview/Microsoft.Network.json'
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 import { concatResourceName } from 'arm-templator';
 
@@ -67,24 +66,22 @@ export interface ZoneProperties {
 }
 
 export namespace dnszones {
-  export function create(name: Expressionable<string>, properties: ZoneProperties, location: Expressionable<string>): ResourceDefinition<ZoneProperties> {
+  export function create(name: Expressionable<string>, properties: ZoneProperties): ResourceDefinition<ZoneProperties> {
     return {
       type: 'Microsoft.Network/dnszones',
       apiVersion: '2015-05-04-preview',
       name: name,
-      location,
       properties,
     };
   }
 }
 export namespace dnszones {
   export namespace A {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties, location: Expressionable<string>): ResourceDefinition<RecordSetProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties): ResourceDefinition<RecordSetProperties> {
       return {
         type: 'Microsoft.Network/dnszones/A',
         apiVersion: '2015-05-04-preview',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -92,12 +89,11 @@ export namespace dnszones {
 }
 export namespace dnszones {
   export namespace AAAA {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties, location: Expressionable<string>): ResourceDefinition<RecordSetProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties): ResourceDefinition<RecordSetProperties> {
       return {
         type: 'Microsoft.Network/dnszones/AAAA',
         apiVersion: '2015-05-04-preview',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -105,12 +101,11 @@ export namespace dnszones {
 }
 export namespace dnszones {
   export namespace CNAME {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties, location: Expressionable<string>): ResourceDefinition<RecordSetProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties): ResourceDefinition<RecordSetProperties> {
       return {
         type: 'Microsoft.Network/dnszones/CNAME',
         apiVersion: '2015-05-04-preview',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -118,12 +113,11 @@ export namespace dnszones {
 }
 export namespace dnszones {
   export namespace MX {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties, location: Expressionable<string>): ResourceDefinition<RecordSetProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties): ResourceDefinition<RecordSetProperties> {
       return {
         type: 'Microsoft.Network/dnszones/MX',
         apiVersion: '2015-05-04-preview',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -131,12 +125,11 @@ export namespace dnszones {
 }
 export namespace dnszones {
   export namespace NS {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties, location: Expressionable<string>): ResourceDefinition<RecordSetProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties): ResourceDefinition<RecordSetProperties> {
       return {
         type: 'Microsoft.Network/dnszones/NS',
         apiVersion: '2015-05-04-preview',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -144,12 +137,11 @@ export namespace dnszones {
 }
 export namespace dnszones {
   export namespace PTR {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties, location: Expressionable<string>): ResourceDefinition<RecordSetProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties): ResourceDefinition<RecordSetProperties> {
       return {
         type: 'Microsoft.Network/dnszones/PTR',
         apiVersion: '2015-05-04-preview',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -157,12 +149,11 @@ export namespace dnszones {
 }
 export namespace dnszones {
   export namespace SOA {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties, location: Expressionable<string>): ResourceDefinition<RecordSetProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties): ResourceDefinition<RecordSetProperties> {
       return {
         type: 'Microsoft.Network/dnszones/SOA',
         apiVersion: '2015-05-04-preview',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -170,12 +161,11 @@ export namespace dnszones {
 }
 export namespace dnszones {
   export namespace SRV {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties, location: Expressionable<string>): ResourceDefinition<RecordSetProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties): ResourceDefinition<RecordSetProperties> {
       return {
         type: 'Microsoft.Network/dnszones/SRV',
         apiVersion: '2015-05-04-preview',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -183,12 +173,11 @@ export namespace dnszones {
 }
 export namespace dnszones {
   export namespace TXT {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties, location: Expressionable<string>): ResourceDefinition<RecordSetProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties): ResourceDefinition<RecordSetProperties> {
       return {
         type: 'Microsoft.Network/dnszones/TXT',
         apiVersion: '2015-05-04-preview',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }

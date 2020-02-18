@@ -1,4 +1,3 @@
-// Generated using 'npm run generate /Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2018-09-01/Microsoft.Network.json'
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 import { concatResourceName } from 'arm-templator';
 
@@ -81,12 +80,11 @@ export namespace privateDnsZones {
 }
 export namespace privateDnsZones {
   export namespace virtualNetworkLinks {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: VirtualNetworkLinkProperties, location: Expressionable<string>): ResourceDefinition<VirtualNetworkLinkProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: VirtualNetworkLinkProperties): ResourceDefinition<VirtualNetworkLinkProperties> {
       return {
         type: 'Microsoft.Network/privateDnsZones/virtualNetworkLinks',
         apiVersion: '2018-09-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -94,12 +92,11 @@ export namespace privateDnsZones {
 }
 export namespace privateDnsZones {
   export namespace A {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties, location: Expressionable<string>): ResourceDefinition<RecordSetProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties): ResourceDefinition<RecordSetProperties> {
       return {
         type: 'Microsoft.Network/privateDnsZones/A',
         apiVersion: '2018-09-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -107,12 +104,11 @@ export namespace privateDnsZones {
 }
 export namespace privateDnsZones {
   export namespace AAAA {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties, location: Expressionable<string>): ResourceDefinition<RecordSetProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties): ResourceDefinition<RecordSetProperties> {
       return {
         type: 'Microsoft.Network/privateDnsZones/AAAA',
         apiVersion: '2018-09-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -120,12 +116,11 @@ export namespace privateDnsZones {
 }
 export namespace privateDnsZones {
   export namespace CNAME {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties, location: Expressionable<string>): ResourceDefinition<RecordSetProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties): ResourceDefinition<RecordSetProperties> {
       return {
         type: 'Microsoft.Network/privateDnsZones/CNAME',
         apiVersion: '2018-09-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -133,12 +128,11 @@ export namespace privateDnsZones {
 }
 export namespace privateDnsZones {
   export namespace MX {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties, location: Expressionable<string>): ResourceDefinition<RecordSetProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties): ResourceDefinition<RecordSetProperties> {
       return {
         type: 'Microsoft.Network/privateDnsZones/MX',
         apiVersion: '2018-09-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -146,12 +140,11 @@ export namespace privateDnsZones {
 }
 export namespace privateDnsZones {
   export namespace PTR {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties, location: Expressionable<string>): ResourceDefinition<RecordSetProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties): ResourceDefinition<RecordSetProperties> {
       return {
         type: 'Microsoft.Network/privateDnsZones/PTR',
         apiVersion: '2018-09-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -159,12 +152,11 @@ export namespace privateDnsZones {
 }
 export namespace privateDnsZones {
   export namespace SOA {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties, location: Expressionable<string>): ResourceDefinition<RecordSetProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties): ResourceDefinition<RecordSetProperties> {
       return {
         type: 'Microsoft.Network/privateDnsZones/SOA',
         apiVersion: '2018-09-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -172,12 +164,11 @@ export namespace privateDnsZones {
 }
 export namespace privateDnsZones {
   export namespace SRV {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties, location: Expressionable<string>): ResourceDefinition<RecordSetProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties): ResourceDefinition<RecordSetProperties> {
       return {
         type: 'Microsoft.Network/privateDnsZones/SRV',
         apiVersion: '2018-09-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -185,12 +176,11 @@ export namespace privateDnsZones {
 }
 export namespace privateDnsZones {
   export namespace TXT {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties, location: Expressionable<string>): ResourceDefinition<RecordSetProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties): ResourceDefinition<RecordSetProperties> {
       return {
         type: 'Microsoft.Network/privateDnsZones/TXT',
         apiVersion: '2018-09-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }

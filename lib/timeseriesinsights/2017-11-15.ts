@@ -1,4 +1,3 @@
-// Generated using 'npm run generate /Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2017-11-15/Microsoft.TimeSeriesInsights.json'
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 import { concatResourceName } from 'arm-templator';
 
@@ -78,12 +77,11 @@ export namespace environments {
 }
 export namespace environments {
   export namespace accessPolicies {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: AccessPolicyResourceProperties, location: Expressionable<string>): ResourceDefinition<AccessPolicyResourceProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: AccessPolicyResourceProperties): ResourceDefinition<AccessPolicyResourceProperties> {
       return {
         type: 'Microsoft.TimeSeriesInsights/environments/accessPolicies',
         apiVersion: '2017-11-15',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }

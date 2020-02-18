@@ -1,4 +1,3 @@
-// Generated using 'npm run generate /Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2019-07-01/Microsoft.Cache.json'
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 import { concatResourceName } from 'arm-templator';
 
@@ -54,12 +53,11 @@ export namespace Redis {
 }
 export namespace Redis {
   export namespace firewallRules {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RedisFirewallRuleProperties, location: Expressionable<string>): ResourceDefinition<RedisFirewallRuleProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RedisFirewallRuleProperties): ResourceDefinition<RedisFirewallRuleProperties> {
       return {
         type: 'Microsoft.Cache/Redis/firewallRules',
         apiVersion: '2019-07-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -67,12 +65,11 @@ export namespace Redis {
 }
 export namespace Redis {
   export namespace linkedServers {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RedisLinkedServerCreateProperties, location: Expressionable<string>): ResourceDefinition<RedisLinkedServerCreateProperties> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RedisLinkedServerCreateProperties): ResourceDefinition<RedisLinkedServerCreateProperties> {
       return {
         type: 'Microsoft.Cache/Redis/linkedServers',
         apiVersion: '2019-07-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
@@ -80,12 +77,11 @@ export namespace Redis {
 }
 export namespace Redis {
   export namespace patchSchedules {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ScheduleEntries, location: Expressionable<string>): ResourceDefinition<ScheduleEntries> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ScheduleEntries): ResourceDefinition<ScheduleEntries> {
       return {
         type: 'Microsoft.Cache/Redis/patchSchedules',
         apiVersion: '2019-07-01',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }

@@ -1,4 +1,3 @@
-// Generated using 'npm run generate /Users/antm88/Desktop/azure-resource-manager-schemas/schemas/2016-04-30-preview/Microsoft.Compute.json'
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 import { concatResourceName } from 'arm-templator';
 
@@ -685,80 +684,73 @@ export interface networkWatcherAgentLinux {
 }
 
 export namespace availabilitySets {
-  export function create(name: Expressionable<string>, properties: AvailabilitySetProperties, location: Expressionable<string>): ResourceDefinition<AvailabilitySetProperties> {
+  export function create(name: Expressionable<string>, properties: AvailabilitySetProperties): ResourceDefinition<AvailabilitySetProperties> {
     return {
       type: 'Microsoft.Compute/availabilitySets',
       apiVersion: '2016-04-30-preview',
       name: name,
-      location,
       properties,
     };
   }
 }
 export namespace images {
-  export function create(name: Expressionable<string>, properties: ImageProperties, location: Expressionable<string>): ResourceDefinition<ImageProperties> {
+  export function create(name: Expressionable<string>, properties: ImageProperties): ResourceDefinition<ImageProperties> {
     return {
       type: 'Microsoft.Compute/images',
       apiVersion: '2016-04-30-preview',
       name: name,
-      location,
       properties,
     };
   }
 }
 export namespace virtualMachines {
-  export function create(name: Expressionable<string>, properties: VirtualMachineProperties, location: Expressionable<string>): ResourceDefinition<VirtualMachineProperties> {
+  export function create(name: Expressionable<string>, properties: VirtualMachineProperties): ResourceDefinition<VirtualMachineProperties> {
     return {
       type: 'Microsoft.Compute/virtualMachines',
       apiVersion: '2016-04-30-preview',
       name: name,
-      location,
       properties,
     };
   }
 }
 export namespace virtualMachines {
   export namespace extensions {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: any, location: Expressionable<string>): ResourceDefinition<any> {
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: any): ResourceDefinition<any> {
       return {
         type: 'Microsoft.Compute/virtualMachines/extensions',
         apiVersion: '2016-04-30-preview',
         name: concatResourceName(...name),
-        location,
         properties,
       };
     }
   }
 }
 export namespace virtualMachineScaleSets {
-  export function create(name: Expressionable<string>, properties: VirtualMachineScaleSetProperties, location: Expressionable<string>): ResourceDefinition<VirtualMachineScaleSetProperties> {
+  export function create(name: Expressionable<string>, properties: VirtualMachineScaleSetProperties): ResourceDefinition<VirtualMachineScaleSetProperties> {
     return {
       type: 'Microsoft.Compute/virtualMachineScaleSets',
       apiVersion: '2016-04-30-preview',
       name: name,
-      location,
       properties,
     };
   }
 }
 export namespace disks {
-  export function create(name: Expressionable<string>, properties: DiskProperties, location: Expressionable<string>): ResourceDefinition<DiskProperties> {
+  export function create(name: Expressionable<string>, properties: DiskProperties): ResourceDefinition<DiskProperties> {
     return {
       type: 'Microsoft.Compute/disks',
       apiVersion: '2016-04-30-preview',
       name: name,
-      location,
       properties,
     };
   }
 }
 export namespace snapshots {
-  export function create(name: Expressionable<string>, properties: DiskProperties, location: Expressionable<string>): ResourceDefinition<DiskProperties> {
+  export function create(name: Expressionable<string>, properties: DiskProperties): ResourceDefinition<DiskProperties> {
     return {
       type: 'Microsoft.Compute/snapshots',
       apiVersion: '2016-04-30-preview',
       name: name,
-      location,
       properties,
     };
   }
