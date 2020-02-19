@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface ArtifactDeploymentStatusProperties {
   artifactsApplied?: Expressionable<number>;
@@ -182,7 +181,7 @@ export namespace labs {
     return {
       type: 'Microsoft.DevTestLab/labs',
       apiVersion: '2015-05-21-preview',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -194,7 +193,7 @@ export namespace labs {
       return {
         type: 'Microsoft.DevTestLab/labs/artifactsources',
         apiVersion: '2015-05-21-preview',
-        name: concatResourceName(...name),
+        name: name,
         location,
         properties,
       };
@@ -207,7 +206,7 @@ export namespace labs {
       return {
         type: 'Microsoft.DevTestLab/labs/customimages',
         apiVersion: '2015-05-21-preview',
-        name: concatResourceName(...name),
+        name: name,
         location,
         properties,
       };
@@ -220,7 +219,7 @@ export namespace labs {
       return {
         type: 'Microsoft.DevTestLab/labs/formulas',
         apiVersion: '2015-05-21-preview',
-        name: concatResourceName(...name),
+        name: name,
         location,
         properties,
       };
@@ -234,7 +233,7 @@ export namespace labs {
         return {
           type: 'Microsoft.DevTestLab/labs/policysets/policies',
           apiVersion: '2015-05-21-preview',
-          name: concatResourceName(...name),
+          name: name,
           location,
           properties,
         };
@@ -248,7 +247,7 @@ export namespace labs {
       return {
         type: 'Microsoft.DevTestLab/labs/schedules',
         apiVersion: '2015-05-21-preview',
-        name: concatResourceName(...name),
+        name: name,
         location,
         properties,
       };
@@ -261,7 +260,7 @@ export namespace labs {
       return {
         type: 'Microsoft.DevTestLab/labs/virtualmachines',
         apiVersion: '2015-05-21-preview',
-        name: concatResourceName(...name),
+        name: name,
         location,
         properties,
       };
@@ -274,7 +273,7 @@ export namespace labs {
       return {
         type: 'Microsoft.DevTestLab/labs/virtualnetworks',
         apiVersion: '2015-05-21-preview',
-        name: concatResourceName(...name),
+        name: name,
         location,
         properties,
       };

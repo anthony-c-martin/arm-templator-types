@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface DedicatedCloudNodeProperties {
   availabilityZoneId: Expressionable<string>;
@@ -101,7 +100,7 @@ export namespace dedicatedCloudNodes {
     return {
       type: 'Microsoft.VMwareCloudSimple/dedicatedCloudNodes',
       apiVersion: '2019-04-01',
-      name: name,
+      name: [name],
       location,
       sku,
       properties,
@@ -113,7 +112,7 @@ export namespace dedicatedCloudServices {
     return {
       type: 'Microsoft.VMwareCloudSimple/dedicatedCloudServices',
       apiVersion: '2019-04-01',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -124,7 +123,7 @@ export namespace virtualMachines {
     return {
       type: 'Microsoft.VMwareCloudSimple/virtualMachines',
       apiVersion: '2019-04-01',
-      name: name,
+      name: [name],
       location,
       properties,
     };

@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface AddressSpace {
   addressPrefixes: Expressionable<string[]>;
@@ -633,7 +632,7 @@ export namespace applicationGateways {
     return {
       type: 'Microsoft.Network/applicationGateways',
       apiVersion: '2016-03-30',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -644,7 +643,7 @@ export namespace connections {
     return {
       type: 'Microsoft.Network/connections',
       apiVersion: '2016-03-30',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -659,7 +658,7 @@ export namespace expressRouteCircuits {
     return {
       type: 'Microsoft.Network/expressRouteCircuits',
       apiVersion: '2016-03-30',
-      name: name,
+      name: [name],
       location,
       sku,
       properties,
@@ -672,7 +671,7 @@ export namespace expressRouteCircuits {
       return {
         type: 'Microsoft.Network/expressRouteCircuits/authorizations',
         apiVersion: '2016-03-30',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -684,7 +683,7 @@ export namespace expressRouteCircuits {
       return {
         type: 'Microsoft.Network/expressRouteCircuits/peerings',
         apiVersion: '2016-03-30',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -695,7 +694,7 @@ export namespace loadBalancers {
     return {
       type: 'Microsoft.Network/loadBalancers',
       apiVersion: '2016-03-30',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -706,7 +705,7 @@ export namespace localNetworkGateways {
     return {
       type: 'Microsoft.Network/localNetworkGateways',
       apiVersion: '2016-03-30',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -717,7 +716,7 @@ export namespace networkInterfaces {
     return {
       type: 'Microsoft.Network/networkInterfaces',
       apiVersion: '2016-03-30',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -728,7 +727,7 @@ export namespace networkSecurityGroups {
     return {
       type: 'Microsoft.Network/networkSecurityGroups',
       apiVersion: '2016-03-30',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -740,7 +739,7 @@ export namespace networkSecurityGroups {
       return {
         type: 'Microsoft.Network/networkSecurityGroups/securityRules',
         apiVersion: '2016-03-30',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -751,7 +750,7 @@ export namespace publicIPAddresses {
     return {
       type: 'Microsoft.Network/publicIPAddresses',
       apiVersion: '2016-03-30',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -762,7 +761,7 @@ export namespace routeTables {
     return {
       type: 'Microsoft.Network/routeTables',
       apiVersion: '2016-03-30',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -774,7 +773,7 @@ export namespace routeTables {
       return {
         type: 'Microsoft.Network/routeTables/routes',
         apiVersion: '2016-03-30',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -785,7 +784,7 @@ export namespace virtualNetworkGateways {
     return {
       type: 'Microsoft.Network/virtualNetworkGateways',
       apiVersion: '2016-03-30',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -796,7 +795,7 @@ export namespace virtualNetworks {
     return {
       type: 'Microsoft.Network/virtualNetworks',
       apiVersion: '2016-03-30',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -808,7 +807,7 @@ export namespace virtualNetworks {
       return {
         type: 'Microsoft.Network/virtualNetworks/subnets',
         apiVersion: '2016-03-30',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }

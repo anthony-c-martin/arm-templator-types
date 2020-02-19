@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface genericExtension {
   publisher: Expressionable<string>;
@@ -301,7 +300,7 @@ export namespace virtualMachines {
       return {
         type: 'Microsoft.Compute/virtualMachines/extensions',
         apiVersion: '2018-10-01',
-        name: concatResourceName(...name),
+        name: name,
         location,
         properties,
       };
@@ -314,7 +313,7 @@ export namespace virtualMachineScaleSets {
       return {
         type: 'Microsoft.Compute/virtualMachineScaleSets/extensions',
         apiVersion: '2018-10-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }

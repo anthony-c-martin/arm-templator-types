@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface ContactDetails {
   contactName: Expressionable<string>;
@@ -102,7 +101,7 @@ export namespace jobs {
     return {
       type: 'Microsoft.DataBox/jobs',
       apiVersion: '2019-09-01',
-      name: name,
+      name: [name],
       location,
       sku,
       properties,

@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface AccessPolicyEntry {
   tenantId: Expressionable<string>;
@@ -52,7 +51,7 @@ export namespace vaults {
     return {
       type: 'Microsoft.KeyVault/vaults',
       apiVersion: '2016-10-01',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -64,7 +63,7 @@ export namespace vaults {
       return {
         type: 'Microsoft.KeyVault/vaults/accessPolicies',
         apiVersion: '2016-10-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -76,7 +75,7 @@ export namespace vaults {
       return {
         type: 'Microsoft.KeyVault/vaults/secrets',
         apiVersion: '2016-10-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }

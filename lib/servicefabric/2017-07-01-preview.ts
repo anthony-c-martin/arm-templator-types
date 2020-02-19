@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface ApplicationMetricDescription {
   MaximumCapacity?: Expressionable<number>;
@@ -217,7 +216,7 @@ export namespace clusters {
     return {
       type: 'Microsoft.ServiceFabric/clusters',
       apiVersion: '2017-07-01-preview',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -229,7 +228,7 @@ export namespace clusters {
       return {
         type: 'Microsoft.ServiceFabric/clusters/applications',
         apiVersion: '2017-07-01-preview',
-        name: concatResourceName(...name),
+        name: name,
         location,
         properties,
       };
@@ -243,7 +242,7 @@ export namespace clusters {
         return {
           type: 'Microsoft.ServiceFabric/clusters/applications/services',
           apiVersion: '2017-07-01-preview',
-          name: concatResourceName(...name),
+          name: name,
           location,
           properties,
         };
@@ -257,7 +256,7 @@ export namespace clusters {
       return {
         type: 'Microsoft.ServiceFabric/clusters/applicationTypes',
         apiVersion: '2017-07-01-preview',
-        name: concatResourceName(...name),
+        name: name,
         location,
         properties,
       };
@@ -271,7 +270,7 @@ export namespace clusters {
         return {
           type: 'Microsoft.ServiceFabric/clusters/applicationTypes/versions',
           apiVersion: '2017-07-01-preview',
-          name: concatResourceName(...name),
+          name: name,
           location,
           properties,
         };

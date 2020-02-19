@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface WorkspaceProperties {
   description?: Expressionable<string>;
@@ -15,7 +14,7 @@ export namespace workspaces {
     return {
       type: 'Microsoft.MachineLearningServices/workspaces',
       apiVersion: '2018-03-01-preview',
-      name: name,
+      name: [name],
       location,
       properties,
     };

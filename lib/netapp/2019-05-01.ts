@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface AccountProperties {
   activeDirectories?: Expressionable<ActiveDirectory[]>;
@@ -75,7 +74,7 @@ export namespace netAppAccounts {
     return {
       type: 'Microsoft.NetApp/netAppAccounts',
       apiVersion: '2019-05-01',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -87,7 +86,7 @@ export namespace netAppAccounts {
       return {
         type: 'Microsoft.NetApp/netAppAccounts/capacityPools',
         apiVersion: '2019-05-01',
-        name: concatResourceName(...name),
+        name: name,
         location,
         properties,
       };
@@ -101,7 +100,7 @@ export namespace netAppAccounts {
         return {
           type: 'Microsoft.NetApp/netAppAccounts/capacityPools/volumes',
           apiVersion: '2019-05-01',
-          name: concatResourceName(...name),
+          name: name,
           location,
           properties,
         };
@@ -117,7 +116,7 @@ export namespace netAppAccounts {
           return {
             type: 'Microsoft.NetApp/netAppAccounts/capacityPools/volumes/snapshots',
             apiVersion: '2019-05-01',
-            name: concatResourceName(...name),
+            name: name,
             location,
             properties,
           };

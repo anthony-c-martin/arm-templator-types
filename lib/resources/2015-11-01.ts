@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface DeploymentProperties {
   mode?: Expressionable<('Incremental' | 'Complete')>;
@@ -24,7 +23,7 @@ export namespace deployments {
     return {
       type: 'Microsoft.Resources/deployments',
       apiVersion: '2015-11-01',
-      name: name,
+      name: [name],
       properties,
     };
   }

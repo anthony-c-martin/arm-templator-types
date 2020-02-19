@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface ControllerProperties {
   targetContainerHostCredentialsBase64: Expressionable<string>;
@@ -20,7 +19,7 @@ export namespace controllers {
     return {
       type: 'Microsoft.DevSpaces/controllers',
       apiVersion: '2019-04-01',
-      name: name,
+      name: [name],
       location,
       sku,
       properties,

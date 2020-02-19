@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface ApplicationPackageProperties {
 }
@@ -225,7 +224,7 @@ export namespace batchAccounts {
     return {
       type: 'Microsoft.Batch/batchAccounts',
       apiVersion: '2019-04-01',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -237,7 +236,7 @@ export namespace batchAccounts {
       return {
         type: 'Microsoft.Batch/batchAccounts/applications',
         apiVersion: '2019-04-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -250,7 +249,7 @@ export namespace batchAccounts {
         return {
           type: 'Microsoft.Batch/batchAccounts/applications/versions',
           apiVersion: '2019-04-01',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }
@@ -263,7 +262,7 @@ export namespace batchAccounts {
       return {
         type: 'Microsoft.Batch/batchAccounts/certificates',
         apiVersion: '2019-04-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -275,7 +274,7 @@ export namespace batchAccounts {
       return {
         type: 'Microsoft.Batch/batchAccounts/pools',
         apiVersion: '2019-04-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }

@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface ResourceSku {
   name: Expressionable<string>;
@@ -28,7 +27,7 @@ export namespace SignalR {
     return {
       type: 'Microsoft.SignalRService/SignalR',
       apiVersion: '2018-10-01',
-      name: name,
+      name: [name],
       location,
       sku,
       properties,

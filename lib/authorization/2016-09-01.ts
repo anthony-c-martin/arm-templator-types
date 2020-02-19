@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface ManagementLockProperties {
   level: Expressionable<('NotSpecified' | 'CanNotDelete' | 'ReadOnly')>;
@@ -11,7 +10,7 @@ export namespace locks {
     return {
       type: 'Microsoft.Authorization/locks',
       apiVersion: '2016-09-01',
-      name: name,
+      name: [name],
       properties,
     };
   }

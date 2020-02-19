@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface ArtifactSourceProperties {
   artifactRoot?: Expressionable<string>;
@@ -82,7 +81,7 @@ export namespace artifactSources {
     return {
       type: 'Microsoft.DeploymentManager/artifactSources',
       apiVersion: '2018-09-01-preview',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -97,7 +96,7 @@ export namespace rollouts {
     return {
       type: 'Microsoft.DeploymentManager/rollouts',
       apiVersion: '2018-09-01-preview',
-      name: name,
+      name: [name],
       location,
       identity,
       properties,
@@ -109,7 +108,7 @@ export namespace serviceTopologies {
     return {
       type: 'Microsoft.DeploymentManager/serviceTopologies',
       apiVersion: '2018-09-01-preview',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -121,7 +120,7 @@ export namespace serviceTopologies {
       return {
         type: 'Microsoft.DeploymentManager/serviceTopologies/services',
         apiVersion: '2018-09-01-preview',
-        name: concatResourceName(...name),
+        name: name,
         location,
         properties,
       };
@@ -135,7 +134,7 @@ export namespace serviceTopologies {
         return {
           type: 'Microsoft.DeploymentManager/serviceTopologies/services/serviceUnits',
           apiVersion: '2018-09-01-preview',
-          name: concatResourceName(...name),
+          name: name,
           location,
           properties,
         };
@@ -148,7 +147,7 @@ export namespace steps {
     return {
       type: 'Microsoft.DeploymentManager/steps',
       apiVersion: '2018-09-01-preview',
-      name: name,
+      name: [name],
       location,
       properties,
     };

@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface AppServiceEnvironment_properties {
   name?: Expressionable<string>;
@@ -107,7 +106,7 @@ export namespace serverfarms {
     return {
       type: 'Microsoft.Web/serverfarms',
       apiVersion: '2016-09-01',
-      name: name,
+      name: [name],
       sku,
       properties,
     };
@@ -120,7 +119,7 @@ export namespace serverfarms {
         return {
           type: 'Microsoft.Web/serverfarms/virtualNetworkConnections/gateways',
           apiVersion: '2016-09-01',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }
@@ -134,7 +133,7 @@ export namespace serverfarms {
         return {
           type: 'Microsoft.Web/serverfarms/virtualNetworkConnections/routes',
           apiVersion: '2016-09-01',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }
@@ -146,7 +145,7 @@ export namespace hostingEnvironments {
     return {
       type: 'Microsoft.Web/hostingEnvironments',
       apiVersion: '2016-09-01',
-      name: name,
+      name: [name],
       properties,
     };
   }
@@ -157,7 +156,7 @@ export namespace hostingEnvironments {
       return {
         type: 'Microsoft.Web/hostingEnvironments/workerPools',
         apiVersion: '2016-09-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -169,7 +168,7 @@ export namespace hostingEnvironments {
       return {
         type: 'Microsoft.Web/hostingEnvironments/multiRolePools',
         apiVersion: '2016-09-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }

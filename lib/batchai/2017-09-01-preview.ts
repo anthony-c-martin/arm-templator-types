@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface AutoScaleSettings {
   initialNodeCount?: Expressionable<number>;
@@ -235,7 +234,7 @@ export namespace clusters {
     return {
       type: 'Microsoft.BatchAI/clusters',
       apiVersion: '2017-09-01-preview',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -246,7 +245,7 @@ export namespace fileServers {
     return {
       type: 'Microsoft.BatchAI/fileServers',
       apiVersion: '2017-09-01-preview',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -257,7 +256,7 @@ export namespace jobs {
     return {
       type: 'Microsoft.BatchAI/jobs',
       apiVersion: '2017-09-01-preview',
-      name: name,
+      name: [name],
       location,
       properties,
     };

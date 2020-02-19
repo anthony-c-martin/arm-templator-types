@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface ResourceReference {
   id?: Expressionable<string>;
@@ -20,7 +19,7 @@ export namespace workflows {
     return {
       type: 'Microsoft.Logic/workflows',
       apiVersion: '2016-10-01',
-      name: name,
+      name: [name],
       location,
       properties,
     };

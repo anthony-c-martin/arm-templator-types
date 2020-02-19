@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface Sku {
   name: Expressionable<string>;
@@ -57,7 +56,7 @@ export namespace workspaces {
     return {
       type: 'Microsoft.Databricks/workspaces',
       apiVersion: '2018-04-01',
-      name: name,
+      name: [name],
       location,
       sku,
       properties,

@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface Sku {
 }
@@ -100,7 +99,7 @@ export namespace clusters {
     return {
       type: 'Microsoft.Kusto/clusters',
       apiVersion: '2019-05-15',
-      name: name,
+      name: [name],
       location,
       sku,
       zones,
@@ -114,7 +113,7 @@ export namespace clusters {
       return {
         type: 'Microsoft.Kusto/clusters/databases',
         apiVersion: '2019-05-15',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -127,7 +126,7 @@ export namespace clusters {
         return {
           type: 'Microsoft.Kusto/clusters/databases/dataconnections',
           apiVersion: '2019-05-15',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }

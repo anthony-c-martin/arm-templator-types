@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface MultipleActivationKeyProperties {
   agreementNumber?: Expressionable<string>;
@@ -14,7 +13,7 @@ export namespace multipleActivationKeys {
     return {
       type: 'Microsoft.WindowsESU/multipleActivationKeys',
       apiVersion: '2019-09-16-preview',
-      name: name,
+      name: [name],
       location,
       properties,
     };

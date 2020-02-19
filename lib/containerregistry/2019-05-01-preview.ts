@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface ScopeMapProperties {
   actions: Expressionable<string[]>;
@@ -37,7 +36,7 @@ export namespace registries {
       return {
         type: 'Microsoft.ContainerRegistry/registries/scopeMaps',
         apiVersion: '2019-05-01-preview',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -49,7 +48,7 @@ export namespace registries {
       return {
         type: 'Microsoft.ContainerRegistry/registries/tokens',
         apiVersion: '2019-05-01-preview',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }

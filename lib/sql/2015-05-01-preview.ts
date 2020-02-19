@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface DatabaseBlobAuditingPolicyProperties {
   auditActionsAndGroups?: Expressionable<string[]>;
@@ -146,7 +145,7 @@ export namespace managedInstances {
     return {
       type: 'Microsoft.Sql/managedInstances',
       apiVersion: '2015-05-01-preview',
-      name: name,
+      name: [name],
       location,
       identity,
       sku,
@@ -163,7 +162,7 @@ export namespace servers {
     return {
       type: 'Microsoft.Sql/servers',
       apiVersion: '2015-05-01-preview',
-      name: name,
+      name: [name],
       location,
       identity,
       properties,
@@ -177,7 +176,7 @@ export namespace servers {
         return {
           type: 'Microsoft.Sql/servers/databases/auditingSettings',
           apiVersion: '2015-05-01-preview',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }
@@ -191,7 +190,7 @@ export namespace servers {
         return {
           type: 'Microsoft.Sql/servers/databases/syncGroups',
           apiVersion: '2015-05-01-preview',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }
@@ -206,7 +205,7 @@ export namespace servers {
           return {
             type: 'Microsoft.Sql/servers/databases/syncGroups/syncMembers',
             apiVersion: '2015-05-01-preview',
-            name: concatResourceName(...name),
+            name: name,
             properties,
           };
         }
@@ -220,7 +219,7 @@ export namespace servers {
       return {
         type: 'Microsoft.Sql/servers/encryptionProtector',
         apiVersion: '2015-05-01-preview',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -232,7 +231,7 @@ export namespace servers {
       return {
         type: 'Microsoft.Sql/servers/failoverGroups',
         apiVersion: '2015-05-01-preview',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -244,7 +243,7 @@ export namespace servers {
       return {
         type: 'Microsoft.Sql/servers/firewallRules',
         apiVersion: '2015-05-01-preview',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -260,7 +259,7 @@ export namespace servers {
       return {
         type: 'Microsoft.Sql/servers/keys',
         apiVersion: '2015-05-01-preview',
-        name: concatResourceName(...name),
+        name: name,
         kind,
         properties,
       };
@@ -273,7 +272,7 @@ export namespace servers {
       return {
         type: 'Microsoft.Sql/servers/syncAgents',
         apiVersion: '2015-05-01-preview',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -285,7 +284,7 @@ export namespace servers {
       return {
         type: 'Microsoft.Sql/servers/virtualNetworkRules',
         apiVersion: '2015-05-01-preview',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }

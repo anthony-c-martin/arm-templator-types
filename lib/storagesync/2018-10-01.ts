@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface CloudEndpointCreateParametersPropertiesModelModel {
   storageAccountResourceId?: Expressionable<string>;
@@ -35,7 +34,7 @@ export namespace storageSyncServices {
     return {
       type: 'Microsoft.StorageSync/storageSyncServices',
       apiVersion: '2018-10-01',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -47,7 +46,7 @@ export namespace storageSyncServices {
       return {
         type: 'Microsoft.StorageSync/storageSyncServices/registeredServers',
         apiVersion: '2018-10-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -59,7 +58,7 @@ export namespace storageSyncServices {
       return {
         type: 'Microsoft.StorageSync/storageSyncServices/syncGroups',
         apiVersion: '2018-10-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -72,7 +71,7 @@ export namespace storageSyncServices {
         return {
           type: 'Microsoft.StorageSync/storageSyncServices/syncGroups/cloudEndpoints',
           apiVersion: '2018-10-01',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }
@@ -86,7 +85,7 @@ export namespace storageSyncServices {
         return {
           type: 'Microsoft.StorageSync/storageSyncServices/syncGroups/serverEndpoints',
           apiVersion: '2018-10-01',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }

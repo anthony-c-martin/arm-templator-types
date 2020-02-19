@@ -259,7 +259,6 @@ function appendOutput(output: string[], line: string, indent?: number) {
 
 function writeHeaders(output: string[]) {
   appendOutput(output, `import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';`);
-  appendOutput(output, `import { concatResourceName } from 'arm-templator';`);
   appendOutput(output, ``);
 }
 
@@ -351,7 +350,7 @@ function writeBuilderFunction(output: string[], schema: any, definition: ObjectP
   appendOutput(output, `  return {`, indent);
   appendOutput(output, `    type: '${typeName}',`, indent);
   appendOutput(output, `    apiVersion: '${apiVersionName}',`, indent);
-  appendOutput(output, `    name: ${typeSections.length === 1 ? 'name' : 'concatResourceName(...name)'},`, indent);
+  appendOutput(output, `    name: ${typeSections.length === 1 ? '[name]' : 'name'},`, indent);
   for (const knownProp of knownProps) {
     appendOutput(output, `    ${knownProp},`, indent);
   }

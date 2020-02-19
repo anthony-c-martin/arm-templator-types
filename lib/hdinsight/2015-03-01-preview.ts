@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface ApplicationGetEndpoint {
   destinationPort?: Expressionable<number>;
@@ -197,7 +196,7 @@ export namespace clusters {
     return {
       type: 'Microsoft.HDInsight/clusters',
       apiVersion: '2015-03-01-preview',
-      name: name,
+      name: [name],
       location,
       identity,
       properties,
@@ -210,7 +209,7 @@ export namespace clusters {
       return {
         type: 'Microsoft.HDInsight/clusters/applications',
         apiVersion: '2015-03-01-preview',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -222,7 +221,7 @@ export namespace clusters {
       return {
         type: 'Microsoft.HDInsight/clusters/extensions',
         apiVersion: '2015-03-01-preview',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }

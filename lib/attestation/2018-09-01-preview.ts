@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface JSONWebKey {
   alg: Expressionable<string>;
@@ -30,7 +29,7 @@ export namespace attestationProviders {
     return {
       type: 'Microsoft.Attestation/attestationProviders',
       apiVersion: '2018-09-01-preview',
-      name: name,
+      name: [name],
       properties,
     };
   }

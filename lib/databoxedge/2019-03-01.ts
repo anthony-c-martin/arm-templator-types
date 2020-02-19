@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface Address {
   addressLine1: Expressionable<string>;
@@ -185,7 +184,7 @@ export namespace dataBoxEdgeDevices {
     return {
       type: 'Microsoft.DataBoxEdge/dataBoxEdgeDevices',
       apiVersion: '2019-03-01',
-      name: name,
+      name: [name],
       location,
       sku,
       properties,
@@ -198,7 +197,7 @@ export namespace dataBoxEdgeDevices {
       return {
         type: 'Microsoft.DataBoxEdge/dataBoxEdgeDevices/bandwidthSchedules',
         apiVersion: '2019-03-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -210,7 +209,7 @@ export namespace dataBoxEdgeDevices {
       return {
         type: 'Microsoft.DataBoxEdge/dataBoxEdgeDevices/orders',
         apiVersion: '2019-03-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -222,7 +221,7 @@ export namespace dataBoxEdgeDevices {
       return {
         type: 'Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles',
         apiVersion: '2019-03-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -234,7 +233,7 @@ export namespace dataBoxEdgeDevices {
       return {
         type: 'Microsoft.DataBoxEdge/dataBoxEdgeDevices/shares',
         apiVersion: '2019-03-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -246,7 +245,7 @@ export namespace dataBoxEdgeDevices {
       return {
         type: 'Microsoft.DataBoxEdge/dataBoxEdgeDevices/storageAccountCredentials',
         apiVersion: '2019-03-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -258,7 +257,7 @@ export namespace dataBoxEdgeDevices {
       return {
         type: 'Microsoft.DataBoxEdge/dataBoxEdgeDevices/triggers',
         apiVersion: '2019-03-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -270,7 +269,7 @@ export namespace dataBoxEdgeDevices {
       return {
         type: 'Microsoft.DataBoxEdge/dataBoxEdgeDevices/users',
         apiVersion: '2019-03-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }

@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface CustomerSecret {
   algorithm: Expressionable<('None' | 'RSA1_5' | 'RSA_OAEP' | 'PlainText')>;
@@ -46,7 +45,7 @@ export namespace dataManagers {
     return {
       type: 'Microsoft.HybridData/dataManagers',
       apiVersion: '2016-06-01',
-      name: name,
+      name: [name],
       location,
       sku,
       properties,
@@ -60,7 +59,7 @@ export namespace dataManagers {
         return {
           type: 'Microsoft.HybridData/dataManagers/dataServices/jobDefinitions',
           apiVersion: '2016-06-01',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }
@@ -73,7 +72,7 @@ export namespace dataManagers {
       return {
         type: 'Microsoft.HybridData/dataManagers/dataStores',
         apiVersion: '2016-06-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }

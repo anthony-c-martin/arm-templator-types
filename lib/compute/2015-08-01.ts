@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface extensionsChild {
   type: Expressionable<('extensions')>;
@@ -481,7 +480,7 @@ export namespace availabilitySets {
     return {
       type: 'Microsoft.Compute/availabilitySets',
       apiVersion: '2015-05-01-preview',
-      name: name,
+      name: [name],
       properties,
     };
   }
@@ -491,7 +490,7 @@ export namespace virtualMachines {
     return {
       type: 'Microsoft.Compute/virtualMachines',
       apiVersion: '2015-05-01-preview',
-      name: name,
+      name: [name],
       properties,
     };
   }
@@ -505,7 +504,7 @@ export namespace virtualMachineScaleSets {
     return {
       type: 'Microsoft.Compute/virtualMachineScaleSets',
       apiVersion: '2015-05-01-preview',
-      name: name,
+      name: [name],
       sku,
       properties,
     };
@@ -517,7 +516,7 @@ export namespace virtualMachines {
       return {
         type: 'Microsoft.Compute/virtualMachines/extensions',
         apiVersion: '2015-05-01-preview',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }

@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface httpActionRequest {
   uri: Expressionable<string>;
@@ -40,7 +39,7 @@ export namespace jobCollections {
     return {
       type: 'Microsoft.Scheduler/jobCollections',
       apiVersion: '2014-08-01-preview',
-      name: name,
+      name: [name],
       properties,
     };
   }
@@ -51,7 +50,7 @@ export namespace jobCollections {
       return {
         type: 'Microsoft.Scheduler/jobCollections/jobs',
         apiVersion: '2014-08-01-preview',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }

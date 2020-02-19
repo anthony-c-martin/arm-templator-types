@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface Resource {
   name?: Expressionable<string>;
@@ -75,7 +74,7 @@ export namespace locations {
       return {
         type: 'Microsoft.Security/locations/jitNetworkAccessPolicies',
         apiVersion: '2015-06-01-preview',
-        name: concatResourceName(...name),
+        name: name,
         kind,
         properties,
       };

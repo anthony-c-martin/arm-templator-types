@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface Resource {
   name?: Expressionable<string>;
@@ -130,7 +129,7 @@ export namespace pricings {
     return {
       type: 'Microsoft.Security/pricings',
       apiVersion: '2017-08-01-preview',
-      name: name,
+      name: [name],
       properties,
     };
   }
@@ -140,7 +139,7 @@ export namespace securityContacts {
     return {
       type: 'Microsoft.Security/securityContacts',
       apiVersion: '2017-08-01-preview',
-      name: name,
+      name: [name],
       properties,
     };
   }
@@ -150,7 +149,7 @@ export namespace workspaceSettings {
     return {
       type: 'Microsoft.Security/workspaceSettings',
       apiVersion: '2017-08-01-preview',
-      name: name,
+      name: [name],
       properties,
     };
   }
@@ -160,7 +159,7 @@ export namespace autoProvisioningSettings {
     return {
       type: 'Microsoft.Security/autoProvisioningSettings',
       apiVersion: '2017-08-01-preview',
-      name: name,
+      name: [name],
       properties,
     };
   }
@@ -170,7 +169,7 @@ export namespace advancedThreatProtectionSettings {
     return {
       type: 'Microsoft.Security/advancedThreatProtectionSettings',
       apiVersion: '2017-08-01-preview',
-      name: name,
+      name: [name],
       properties,
     };
   }
@@ -180,7 +179,7 @@ export namespace settings {
     return {
       type: 'Microsoft.Security/settings',
       apiVersion: '2017-08-01-preview',
-      name: name,
+      name: [name],
       properties,
     };
   }
@@ -190,7 +189,7 @@ export namespace informationProtectionPolicies {
     return {
       type: 'Microsoft.Security/informationProtectionPolicies',
       apiVersion: '2017-08-01-preview',
-      name: name,
+      name: [name],
       properties,
     };
   }

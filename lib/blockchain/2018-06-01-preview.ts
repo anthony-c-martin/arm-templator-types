@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface BlockchainMemberNodesSku {
   capacity?: Expressionable<number>;
@@ -41,7 +40,7 @@ export namespace blockchainMembers {
     return {
       type: 'Microsoft.Blockchain/blockchainMembers',
       apiVersion: '2018-06-01-preview',
-      name: name,
+      name: [name],
       location,
       sku,
       properties,
@@ -54,7 +53,7 @@ export namespace blockchainMembers {
       return {
         type: 'Microsoft.Blockchain/blockchainMembers/transactionNodes',
         apiVersion: '2018-06-01-preview',
-        name: concatResourceName(...name),
+        name: name,
         location,
         properties,
       };

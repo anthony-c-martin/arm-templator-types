@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface BotProperties {
   description?: Expressionable<string>;
@@ -184,7 +183,7 @@ export namespace botServices {
     return {
       type: 'Microsoft.BotService/botServices',
       apiVersion: '2017-12-01',
-      name: name,
+      name: [name],
       location,
       sku,
       kind,
@@ -203,7 +202,7 @@ export namespace botServices {
       return {
         type: 'Microsoft.BotService/botServices/channels',
         apiVersion: '2017-12-01',
-        name: concatResourceName(...name),
+        name: name,
         location,
         sku,
         kind,
@@ -223,7 +222,7 @@ export namespace botServices {
       return {
         type: 'Microsoft.BotService/botServices/Connections',
         apiVersion: '2017-12-01',
-        name: concatResourceName(...name),
+        name: name,
         location,
         sku,
         kind,

@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface DriveStatus {
   driveId?: Expressionable<string>;
@@ -86,7 +85,7 @@ export namespace jobs {
     return {
       type: 'Microsoft.ImportExport/jobs',
       apiVersion: '2016-11-01',
-      name: name,
+      name: [name],
       location,
       properties,
     };

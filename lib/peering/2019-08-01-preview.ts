@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface BgpSession {
   maxPrefixesAdvertisedV4?: Expressionable<number>;
@@ -89,7 +88,7 @@ export namespace peerings {
     return {
       type: 'Microsoft.Peering/peerings',
       apiVersion: '2019-08-01-preview',
-      name: name,
+      name: [name],
       location,
       sku,
       kind,
@@ -102,7 +101,7 @@ export namespace peeringServices {
     return {
       type: 'Microsoft.Peering/peeringServices',
       apiVersion: '2019-08-01-preview',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -114,7 +113,7 @@ export namespace peeringServices {
       return {
         type: 'Microsoft.Peering/peeringServices/prefixes',
         apiVersion: '2019-08-01-preview',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }

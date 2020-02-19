@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface PricingPlanProperties {
   planType?: Expressionable<('Basic')>;
@@ -15,7 +14,7 @@ export namespace components {
       return {
         type: 'Microsoft.Insights/components/pricingPlans',
         apiVersion: '2017-10-01',
-        name: concatResourceName(...name),
+        name: name,
         location,
         properties,
       };

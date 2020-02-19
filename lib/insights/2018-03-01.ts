@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface ActionGroup {
   automationRunbookReceivers?: Expressionable<AutomationRunbookReceiver[]>;
@@ -150,7 +149,7 @@ export namespace actionGroups {
     return {
       type: 'Microsoft.Insights/actionGroups',
       apiVersion: '2018-03-01',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -161,7 +160,7 @@ export namespace metricAlerts {
     return {
       type: 'Microsoft.Insights/metricAlerts',
       apiVersion: '2018-03-01',
-      name: name,
+      name: [name],
       location,
       properties,
     };

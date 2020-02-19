@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface ServiceAccessPolicyEntry {
   objectId: Expressionable<string>;
@@ -39,7 +38,7 @@ export namespace services {
     return {
       type: 'Microsoft.HealthcareApis/services',
       apiVersion: '2018-08-20-preview',
-      name: name,
+      name: [name],
       location,
       kind,
       properties,

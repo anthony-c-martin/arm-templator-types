@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface SavedSearchProperties {
   category: Expressionable<string>;
@@ -31,7 +30,7 @@ export namespace workspaces {
       return {
         type: 'Microsoft.OperationalInsights/workspaces/savedSearches',
         apiVersion: '2015-03-20',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -43,7 +42,7 @@ export namespace workspaces {
       return {
         type: 'Microsoft.OperationalInsights/workspaces/storageInsightConfigs',
         apiVersion: '2015-03-20',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }

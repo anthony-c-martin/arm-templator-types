@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface RedisCreateProperties {
   enableNonSslPort?: Expressionable<boolean>;
@@ -37,7 +36,7 @@ export namespace Redis {
     return {
       type: 'Microsoft.Cache/Redis',
       apiVersion: '2016-04-01',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -49,7 +48,7 @@ export namespace Redis {
       return {
         type: 'Microsoft.Cache/Redis/firewallRules',
         apiVersion: '2016-04-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -61,7 +60,7 @@ export namespace Redis {
       return {
         type: 'Microsoft.Cache/Redis/patchSchedules',
         apiVersion: '2016-04-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }

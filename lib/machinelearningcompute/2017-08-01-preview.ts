@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface AcsClusterProperties {
   agentCount?: Expressionable<number>;
@@ -78,7 +77,7 @@ export namespace operationalizationClusters {
     return {
       type: 'Microsoft.MachineLearningCompute/operationalizationClusters',
       apiVersion: '2017-08-01-preview',
-      name: name,
+      name: [name],
       location,
       properties,
     };

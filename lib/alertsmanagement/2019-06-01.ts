@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface ActionGroupsInformation {
   customEmailSubject?: Expressionable<string>;
@@ -36,7 +35,7 @@ export namespace smartDetectorAlertRules {
     return {
       type: 'microsoft.alertsManagement/smartDetectorAlertRules',
       apiVersion: '2019-06-01',
-      name: name,
+      name: [name],
       location,
       properties,
     };

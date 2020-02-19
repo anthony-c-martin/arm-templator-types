@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface NamespaceProperties {
   createACSNamespace?: Expressionable<boolean>;
@@ -76,7 +75,7 @@ export namespace namespaces {
     return {
       type: 'Microsoft.ServiceBus/namespaces',
       apiVersion: '2015-08-01',
-      name: name,
+      name: [name],
       location,
       sku,
       properties,
@@ -89,7 +88,7 @@ export namespace namespaces {
       return {
         type: 'Microsoft.ServiceBus/namespaces/AuthorizationRules',
         apiVersion: '2015-08-01',
-        name: concatResourceName(...name),
+        name: name,
         location,
         properties,
       };
@@ -102,7 +101,7 @@ export namespace namespaces {
       return {
         type: 'Microsoft.ServiceBus/namespaces/queues',
         apiVersion: '2015-08-01',
-        name: concatResourceName(...name),
+        name: name,
         location,
         properties,
       };
@@ -116,7 +115,7 @@ export namespace namespaces {
         return {
           type: 'Microsoft.ServiceBus/namespaces/queues/authorizationRules',
           apiVersion: '2015-08-01',
-          name: concatResourceName(...name),
+          name: name,
           location,
           properties,
         };
@@ -130,7 +129,7 @@ export namespace namespaces {
       return {
         type: 'Microsoft.ServiceBus/namespaces/topics',
         apiVersion: '2015-08-01',
-        name: concatResourceName(...name),
+        name: name,
         location,
         properties,
       };
@@ -144,7 +143,7 @@ export namespace namespaces {
         return {
           type: 'Microsoft.ServiceBus/namespaces/topics/authorizationRules',
           apiVersion: '2015-08-01',
-          name: concatResourceName(...name),
+          name: name,
           location,
           properties,
         };
@@ -159,7 +158,7 @@ export namespace namespaces {
         return {
           type: 'Microsoft.ServiceBus/namespaces/topics/subscriptions',
           apiVersion: '2015-08-01',
-          name: concatResourceName(...name),
+          name: name,
           location,
           properties,
         };

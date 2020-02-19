@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface ClusterProperties {
   encryptionKeyUri?: Expressionable<string>;
@@ -38,7 +37,7 @@ export namespace clusters {
     return {
       type: 'Microsoft.OperationalInsights/clusters',
       apiVersion: '2019-08-01-preview',
-      name: name,
+      name: [name],
       location,
       identity,
       properties,
@@ -51,7 +50,7 @@ export namespace workspaces {
       return {
         type: 'Microsoft.OperationalInsights/workspaces/dataExports',
         apiVersion: '2019-08-01-preview',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }

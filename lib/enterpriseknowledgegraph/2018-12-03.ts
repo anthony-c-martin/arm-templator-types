@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface EnterpriseKnowledgeGraphProperties {
   description?: Expressionable<string>;
@@ -20,7 +19,7 @@ export namespace services {
     return {
       type: 'Microsoft.EnterpriseKnowledgeGraph/services',
       apiVersion: '2018-12-03',
-      name: name,
+      name: [name],
       location,
       sku,
       properties,

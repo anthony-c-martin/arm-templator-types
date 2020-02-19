@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface AccessPolicyResourceProperties {
   description?: Expressionable<string>;
@@ -98,7 +97,7 @@ export namespace environments {
     return {
       type: 'Microsoft.TimeSeriesInsights/environments',
       apiVersion: '2018-08-15-preview',
-      name: name,
+      name: [name],
       location,
       sku,
       properties,
@@ -111,7 +110,7 @@ export namespace environments {
       return {
         type: 'Microsoft.TimeSeriesInsights/environments/accessPolicies',
         apiVersion: '2018-08-15-preview',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -123,7 +122,7 @@ export namespace environments {
       return {
         type: 'Microsoft.TimeSeriesInsights/environments/eventSources',
         apiVersion: '2018-08-15-preview',
-        name: concatResourceName(...name),
+        name: name,
         location,
         properties,
       };
@@ -136,7 +135,7 @@ export namespace environments {
       return {
         type: 'Microsoft.TimeSeriesInsights/environments/referenceDataSets',
         apiVersion: '2018-08-15-preview',
-        name: concatResourceName(...name),
+        name: name,
         location,
         properties,
       };

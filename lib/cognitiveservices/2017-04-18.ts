@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface CognitiveServicesAccountApiProperties {
   eventHubConnectionString?: Expressionable<string>;
@@ -44,7 +43,7 @@ export namespace accounts {
     return {
       type: 'Microsoft.CognitiveServices/accounts',
       apiVersion: '2017-04-18',
-      name: name,
+      name: [name],
       location,
       sku,
       kind,

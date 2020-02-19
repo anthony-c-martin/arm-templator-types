@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface ArmTemplateParameterProperties {
   name?: Expressionable<string>;
@@ -429,7 +428,7 @@ export namespace labs {
     return {
       type: 'Microsoft.DevTestLab/labs',
       apiVersion: '2018-09-15',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -441,7 +440,7 @@ export namespace labs {
       return {
         type: 'Microsoft.DevTestLab/labs/artifactsources',
         apiVersion: '2018-09-15',
-        name: concatResourceName(...name),
+        name: name,
         location,
         properties,
       };
@@ -454,7 +453,7 @@ export namespace labs {
       return {
         type: 'Microsoft.DevTestLab/labs/costs',
         apiVersion: '2018-09-15',
-        name: concatResourceName(...name),
+        name: name,
         location,
         properties,
       };
@@ -467,7 +466,7 @@ export namespace labs {
       return {
         type: 'Microsoft.DevTestLab/labs/customimages',
         apiVersion: '2018-09-15',
-        name: concatResourceName(...name),
+        name: name,
         location,
         properties,
       };
@@ -480,7 +479,7 @@ export namespace labs {
       return {
         type: 'Microsoft.DevTestLab/labs/formulas',
         apiVersion: '2018-09-15',
-        name: concatResourceName(...name),
+        name: name,
         location,
         properties,
       };
@@ -493,7 +492,7 @@ export namespace labs {
       return {
         type: 'Microsoft.DevTestLab/labs/notificationchannels',
         apiVersion: '2018-09-15',
-        name: concatResourceName(...name),
+        name: name,
         location,
         properties,
       };
@@ -507,7 +506,7 @@ export namespace labs {
         return {
           type: 'Microsoft.DevTestLab/labs/policysets/policies',
           apiVersion: '2018-09-15',
-          name: concatResourceName(...name),
+          name: name,
           location,
           properties,
         };
@@ -521,7 +520,7 @@ export namespace labs {
       return {
         type: 'Microsoft.DevTestLab/labs/schedules',
         apiVersion: '2018-09-15',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -537,7 +536,7 @@ export namespace labs {
       return {
         type: 'Microsoft.DevTestLab/labs/servicerunners',
         apiVersion: '2018-09-15',
-        name: concatResourceName(...name),
+        name: name,
         location,
         identity,
         properties,
@@ -551,7 +550,7 @@ export namespace labs {
       return {
         type: 'Microsoft.DevTestLab/labs/users',
         apiVersion: '2018-09-15',
-        name: concatResourceName(...name),
+        name: name,
         location,
         properties,
       };
@@ -565,7 +564,7 @@ export namespace labs {
         return {
           type: 'Microsoft.DevTestLab/labs/users/disks',
           apiVersion: '2018-09-15',
-          name: concatResourceName(...name),
+          name: name,
           location,
           properties,
         };
@@ -580,7 +579,7 @@ export namespace labs {
         return {
           type: 'Microsoft.DevTestLab/labs/users/environments',
           apiVersion: '2018-09-15',
-          name: concatResourceName(...name),
+          name: name,
           location,
           properties,
         };
@@ -595,7 +594,7 @@ export namespace labs {
         return {
           type: 'Microsoft.DevTestLab/labs/users/secrets',
           apiVersion: '2018-09-15',
-          name: concatResourceName(...name),
+          name: name,
           location,
           properties,
         };
@@ -610,7 +609,7 @@ export namespace labs {
         return {
           type: 'Microsoft.DevTestLab/labs/users/servicefabrics',
           apiVersion: '2018-09-15',
-          name: concatResourceName(...name),
+          name: name,
           location,
           properties,
         };
@@ -626,7 +625,7 @@ export namespace labs {
           return {
             type: 'Microsoft.DevTestLab/labs/users/servicefabrics/schedules',
             apiVersion: '2018-09-15',
-            name: concatResourceName(...name),
+            name: name,
             properties,
           };
         }
@@ -640,7 +639,7 @@ export namespace labs {
       return {
         type: 'Microsoft.DevTestLab/labs/virtualmachines',
         apiVersion: '2018-09-15',
-        name: concatResourceName(...name),
+        name: name,
         location,
         properties,
       };
@@ -654,7 +653,7 @@ export namespace labs {
         return {
           type: 'Microsoft.DevTestLab/labs/virtualmachines/schedules',
           apiVersion: '2018-09-15',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }
@@ -667,7 +666,7 @@ export namespace labs {
       return {
         type: 'Microsoft.DevTestLab/labs/virtualnetworks',
         apiVersion: '2018-09-15',
-        name: concatResourceName(...name),
+        name: name,
         location,
         properties,
       };
@@ -679,7 +678,7 @@ export namespace schedules {
     return {
       type: 'Microsoft.DevTestLab/schedules',
       apiVersion: '2018-09-15',
-      name: name,
+      name: [name],
       properties,
     };
   }

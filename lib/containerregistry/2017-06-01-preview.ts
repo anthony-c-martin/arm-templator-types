@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface RegistryProperties {
   adminUserEnabled?: Expressionable<boolean>;
@@ -34,7 +33,7 @@ export namespace registries {
     return {
       type: 'Microsoft.ContainerRegistry/registries',
       apiVersion: '2017-06-01-preview',
-      name: name,
+      name: [name],
       location,
       sku,
       properties,
@@ -47,7 +46,7 @@ export namespace registries {
       return {
         type: 'Microsoft.ContainerRegistry/registries/replications',
         apiVersion: '2017-06-01-preview',
-        name: concatResourceName(...name),
+        name: name,
         location,
         properties,
       };
@@ -60,7 +59,7 @@ export namespace registries {
       return {
         type: 'Microsoft.ContainerRegistry/registries/webhooks',
         apiVersion: '2017-06-01-preview',
-        name: concatResourceName(...name),
+        name: name,
         location,
         properties,
       };

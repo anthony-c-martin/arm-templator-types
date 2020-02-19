@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface TopicProperties {
 }
@@ -149,7 +148,7 @@ export namespace topics {
     return {
       type: 'Microsoft.EventGrid/topics',
       apiVersion: '2019-06-01',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -160,7 +159,7 @@ export namespace eventSubscriptions {
     return {
       type: 'Microsoft.EventGrid/eventSubscriptions',
       apiVersion: '2019-06-01',
-      name: name,
+      name: [name],
       properties,
     };
   }
@@ -170,7 +169,7 @@ export namespace domains {
     return {
       type: 'Microsoft.EventGrid/domains',
       apiVersion: '2019-06-01',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -182,7 +181,7 @@ export namespace domains {
       return {
         type: 'Microsoft.EventGrid/domains/topics',
         apiVersion: '2019-06-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }

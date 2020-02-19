@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface user {
   upn: Expressionable<string>;
@@ -11,7 +10,7 @@ export namespace catalogs {
     return {
       type: 'Microsoft.DataCatalog/catalogs',
       apiVersion: '2016-03-30',
-      name: name,
+      name: [name],
       properties,
     };
   }

@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface LinkedServiceProperties {
   resourceId: Expressionable<string>;
@@ -34,7 +33,7 @@ export namespace workspaces {
     return {
       type: 'Microsoft.OperationalInsights/workspaces',
       apiVersion: '2015-11-01-preview',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -50,7 +49,7 @@ export namespace workspaces {
       return {
         type: 'Microsoft.OperationalInsights/workspaces/dataSources',
         apiVersion: '2015-11-01-preview',
-        name: concatResourceName(...name),
+        name: name,
         kind,
         properties,
       };
@@ -63,7 +62,7 @@ export namespace workspaces {
       return {
         type: 'Microsoft.OperationalInsights/workspaces/linkedServices',
         apiVersion: '2015-11-01-preview',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -75,7 +74,7 @@ export namespace workspaces {
       return {
         type: 'Microsoft.OperationalInsights/workspaces/privateEndpointConnections',
         apiVersion: '2015-11-01-preview',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }

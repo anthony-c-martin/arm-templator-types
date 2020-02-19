@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface DataLakeAnalyticsAccountProperties {
   dataLakeStoreAccounts?: Expressionable<DataLakeStoreAccountInfo[]>;
@@ -33,7 +32,7 @@ export namespace accounts {
     return {
       type: 'Microsoft.DataLakeAnalytics/accounts',
       apiVersion: '2015-10-01-preview',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -45,7 +44,7 @@ export namespace accounts {
       return {
         type: 'Microsoft.DataLakeAnalytics/accounts/DataLakeStoreAccounts',
         apiVersion: '2015-10-01-preview',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -57,7 +56,7 @@ export namespace accounts {
       return {
         type: 'Microsoft.DataLakeAnalytics/accounts/StorageAccounts',
         apiVersion: '2015-10-01-preview',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }

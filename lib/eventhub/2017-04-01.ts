@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface ArmDisasterRecoveryProperties {
   alternateName?: Expressionable<string>;
@@ -82,7 +81,7 @@ export namespace namespaces {
     return {
       type: 'Microsoft.EventHub/namespaces',
       apiVersion: '2017-04-01',
-      name: name,
+      name: [name],
       location,
       sku,
       properties,
@@ -95,7 +94,7 @@ export namespace namespaces {
       return {
         type: 'Microsoft.EventHub/namespaces/AuthorizationRules',
         apiVersion: '2017-04-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -107,7 +106,7 @@ export namespace namespaces {
       return {
         type: 'Microsoft.EventHub/namespaces/disasterRecoveryConfigs',
         apiVersion: '2017-04-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -119,7 +118,7 @@ export namespace namespaces {
       return {
         type: 'Microsoft.EventHub/namespaces/eventhubs',
         apiVersion: '2017-04-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -132,7 +131,7 @@ export namespace namespaces {
         return {
           type: 'Microsoft.EventHub/namespaces/eventhubs/authorizationRules',
           apiVersion: '2017-04-01',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }
@@ -146,7 +145,7 @@ export namespace namespaces {
         return {
           type: 'Microsoft.EventHub/namespaces/eventhubs/consumergroups',
           apiVersion: '2017-04-01',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }
@@ -159,7 +158,7 @@ export namespace namespaces {
       return {
         type: 'Microsoft.EventHub/namespaces/networkRuleSets',
         apiVersion: '2017-04-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }

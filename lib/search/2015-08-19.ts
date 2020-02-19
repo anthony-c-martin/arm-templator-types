@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface SearchServiceProperties {
   replicaCount?: Expressionable<number>;
@@ -20,7 +19,7 @@ export namespace searchServices {
     return {
       type: 'Microsoft.Search/searchServices',
       apiVersion: '2015-08-19',
-      name: name,
+      name: [name],
       location,
       sku,
       properties,

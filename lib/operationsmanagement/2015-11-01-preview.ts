@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface ArmTemplateParameter {
   name?: Expressionable<string>;
@@ -31,7 +30,7 @@ export namespace ManagementConfigurations {
     return {
       type: 'Microsoft.OperationsManagement/ManagementConfigurations',
       apiVersion: '2015-11-01-preview',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -46,7 +45,7 @@ export namespace solutions {
     return {
       type: 'Microsoft.OperationsManagement/solutions',
       apiVersion: '2015-11-01-preview',
-      name: name,
+      name: [name],
       location,
       plan,
       properties,

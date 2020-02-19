@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface Authorization {
   principalId: Expressionable<string>;
@@ -29,7 +28,7 @@ export namespace registrationAssignments {
     return {
       type: 'Microsoft.ManagedServices/registrationAssignments',
       apiVersion: '2019-06-01',
-      name: name,
+      name: [name],
       properties,
     };
   }
@@ -43,7 +42,7 @@ export namespace registrationDefinitions {
     return {
       type: 'Microsoft.ManagedServices/registrationDefinitions',
       apiVersion: '2019-06-01',
-      name: name,
+      name: [name],
       plan,
       properties,
     };

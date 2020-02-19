@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface ApplicationInsightsComponentProperties {
   Application_Type: Expressionable<('web' | 'other')>;
@@ -39,7 +38,7 @@ export namespace components {
     return {
       type: 'Microsoft.Insights/components',
       apiVersion: '2015-05-01',
-      name: name,
+      name: [name],
       location,
       kind,
       properties,
@@ -55,7 +54,7 @@ export namespace webtests {
     return {
       type: 'Microsoft.Insights/webtests',
       apiVersion: '2015-05-01',
-      name: name,
+      name: [name],
       location,
       kind,
       properties,

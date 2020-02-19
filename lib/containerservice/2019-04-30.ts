@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface NetworkProfile {
   peerVnetId?: Expressionable<string>;
@@ -73,7 +72,7 @@ export namespace openShiftManagedClusters {
     return {
       type: 'Microsoft.ContainerService/openShiftManagedClusters',
       apiVersion: '2019-04-30',
-      name: name,
+      name: [name],
       location,
       plan,
       properties,

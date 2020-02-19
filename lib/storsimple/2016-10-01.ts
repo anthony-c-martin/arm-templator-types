@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface AccessControlRecordProperties {
   initiatorName: Expressionable<string>;
@@ -111,7 +110,7 @@ export namespace managers {
     return {
       type: 'Microsoft.StorSimple/managers',
       apiVersion: '2016-10-01',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -123,7 +122,7 @@ export namespace managers {
       return {
         type: 'Microsoft.StorSimple/managers/accessControlRecords',
         apiVersion: '2016-10-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -135,7 +134,7 @@ export namespace managers {
       return {
         type: 'Microsoft.StorSimple/managers/certificates',
         apiVersion: '2016-10-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -148,7 +147,7 @@ export namespace managers {
         return {
           type: 'Microsoft.StorSimple/managers/devices/alertSettings',
           apiVersion: '2016-10-01',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }
@@ -162,7 +161,7 @@ export namespace managers {
         return {
           type: 'Microsoft.StorSimple/managers/devices/backupScheduleGroups',
           apiVersion: '2016-10-01',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }
@@ -176,7 +175,7 @@ export namespace managers {
         return {
           type: 'Microsoft.StorSimple/managers/devices/chapSettings',
           apiVersion: '2016-10-01',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }
@@ -190,7 +189,7 @@ export namespace managers {
         return {
           type: 'Microsoft.StorSimple/managers/devices/fileservers',
           apiVersion: '2016-10-01',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }
@@ -205,7 +204,7 @@ export namespace managers {
           return {
             type: 'Microsoft.StorSimple/managers/devices/fileservers/shares',
             apiVersion: '2016-10-01',
-            name: concatResourceName(...name),
+            name: name,
             properties,
           };
         }
@@ -220,7 +219,7 @@ export namespace managers {
         return {
           type: 'Microsoft.StorSimple/managers/devices/iscsiservers',
           apiVersion: '2016-10-01',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }
@@ -235,7 +234,7 @@ export namespace managers {
           return {
             type: 'Microsoft.StorSimple/managers/devices/iscsiservers/disks',
             apiVersion: '2016-10-01',
-            name: concatResourceName(...name),
+            name: name,
             properties,
           };
         }
@@ -249,7 +248,7 @@ export namespace managers {
       return {
         type: 'Microsoft.StorSimple/managers/extendedInformation',
         apiVersion: '2016-10-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -261,7 +260,7 @@ export namespace managers {
       return {
         type: 'Microsoft.StorSimple/managers/storageAccountCredentials',
         apiVersion: '2016-10-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -273,7 +272,7 @@ export namespace managers {
       return {
         type: 'Microsoft.StorSimple/managers/storageDomains',
         apiVersion: '2016-10-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }

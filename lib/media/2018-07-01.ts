@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface AacAudio {
   profile?: Expressionable<('AacLc' | 'HeAacV1' | 'HeAacV2')>;
@@ -635,7 +634,7 @@ export namespace mediaServices {
     return {
       type: 'Microsoft.Media/mediaServices',
       apiVersion: '2018-07-01',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -647,7 +646,7 @@ export namespace mediaServices {
       return {
         type: 'Microsoft.Media/mediaServices/accountFilters',
         apiVersion: '2018-07-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -659,7 +658,7 @@ export namespace mediaServices {
       return {
         type: 'Microsoft.Media/mediaServices/assets',
         apiVersion: '2018-07-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -672,7 +671,7 @@ export namespace mediaServices {
         return {
           type: 'Microsoft.Media/mediaServices/assets/assetFilters',
           apiVersion: '2018-07-01',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }
@@ -685,7 +684,7 @@ export namespace mediaServices {
       return {
         type: 'Microsoft.Media/mediaServices/contentKeyPolicies',
         apiVersion: '2018-07-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -697,7 +696,7 @@ export namespace mediaServices {
       return {
         type: 'Microsoft.Media/mediaServices/liveEvents',
         apiVersion: '2018-07-01',
-        name: concatResourceName(...name),
+        name: name,
         location,
         properties,
       };
@@ -711,7 +710,7 @@ export namespace mediaServices {
         return {
           type: 'Microsoft.Media/mediaServices/liveEvents/liveOutputs',
           apiVersion: '2018-07-01',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }
@@ -724,7 +723,7 @@ export namespace mediaServices {
       return {
         type: 'Microsoft.Media/mediaServices/streamingEndpoints',
         apiVersion: '2018-07-01',
-        name: concatResourceName(...name),
+        name: name,
         location,
         properties,
       };
@@ -737,7 +736,7 @@ export namespace mediaServices {
       return {
         type: 'Microsoft.Media/mediaServices/streamingLocators',
         apiVersion: '2018-07-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -749,7 +748,7 @@ export namespace mediaServices {
       return {
         type: 'Microsoft.Media/mediaServices/streamingPolicies',
         apiVersion: '2018-07-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -761,7 +760,7 @@ export namespace mediaServices {
       return {
         type: 'Microsoft.Media/mediaServices/transforms',
         apiVersion: '2018-07-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -774,7 +773,7 @@ export namespace mediaServices {
         return {
           type: 'Microsoft.Media/mediaServices/transforms/jobs',
           apiVersion: '2018-07-01',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }

@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface crayServersProperties {
   ipAddress: Expressionable<string>;
@@ -11,7 +10,7 @@ export namespace crayServers {
     return {
       type: 'Microsoft.BareMetal/crayServers',
       apiVersion: '2018-09-01-preview',
-      name: name,
+      name: [name],
       location,
       properties,
     };

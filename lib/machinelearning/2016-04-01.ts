@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface WorkspaceProperties {
   userStorageAccountId: Expressionable<string>;
@@ -12,7 +11,7 @@ export namespace workspaces {
     return {
       type: 'Microsoft.MachineLearning/workspaces',
       apiVersion: '2016-04-01',
-      name: name,
+      name: [name],
       properties,
     };
   }

@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface SBAuthorizationRuleProperties {
   rights: Expressionable<('Manage' | 'Send' | 'Listen')[]>;
@@ -13,7 +12,7 @@ export namespace namespaces {
     return {
       type: 'Microsoft.NotificationHubs/namespaces',
       apiVersion: '2015-04-01',
-      name: name,
+      name: [name],
       properties,
     };
   }
@@ -24,7 +23,7 @@ export namespace namespaces {
       return {
         type: 'Microsoft.NotificationHubs/namespaces/AuthorizationRules',
         apiVersion: '2015-04-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -36,7 +35,7 @@ export namespace namespaces {
       return {
         type: 'Microsoft.NotificationHubs/namespaces/notificationHubs',
         apiVersion: '2015-04-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -49,7 +48,7 @@ export namespace namespaces {
         return {
           type: 'Microsoft.NotificationHubs/namespaces/NotificationHubs/authorizationRules',
           apiVersion: '2015-04-01',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }

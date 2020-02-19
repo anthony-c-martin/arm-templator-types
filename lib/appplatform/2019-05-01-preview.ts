@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface AppResourceProperties {
   activeDeploymentName?: Expressionable<string>;
@@ -104,7 +103,7 @@ export namespace Spring {
     return {
       type: 'Microsoft.AppPlatform/Spring',
       apiVersion: '2019-05-01-preview',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -116,7 +115,7 @@ export namespace Spring {
       return {
         type: 'Microsoft.AppPlatform/Spring/apps',
         apiVersion: '2019-05-01-preview',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -129,7 +128,7 @@ export namespace Spring {
         return {
           type: 'Microsoft.AppPlatform/Spring/apps/bindings',
           apiVersion: '2019-05-01-preview',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }
@@ -143,7 +142,7 @@ export namespace Spring {
         return {
           type: 'Microsoft.AppPlatform/Spring/apps/deployments',
           apiVersion: '2019-05-01-preview',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }

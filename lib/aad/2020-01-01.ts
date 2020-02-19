@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface DomainSecuritySettings {
   ntlmV1?: Expressionable<('Enabled' | 'Disabled')>;
@@ -39,7 +38,7 @@ export namespace domainServices {
     return {
       type: 'Microsoft.AAD/domainServices',
       apiVersion: '2020-01-01',
-      name: name,
+      name: [name],
       location,
       properties,
     };

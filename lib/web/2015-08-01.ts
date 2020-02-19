@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface web {
   name: Expressionable<('web')>;
@@ -23,7 +22,7 @@ export namespace serverfarms {
     return {
       type: 'Microsoft.Web/serverfarms',
       apiVersion: '2015-08-01',
-      name: name,
+      name: [name],
       sku,
       properties,
     };
@@ -35,7 +34,7 @@ export namespace sites {
       return {
         type: 'Microsoft.Web/sites/config',
         apiVersion: '2015-08-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -47,7 +46,7 @@ export namespace sites {
       return {
         type: 'Microsoft.Web/sites/extensions',
         apiVersion: '2015-08-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -58,7 +57,7 @@ export namespace sites {
     return {
       type: 'Microsoft.Web/sites',
       apiVersion: '2015-08-01',
-      name: name,
+      name: [name],
       properties,
     };
   }
@@ -68,7 +67,7 @@ export namespace certificates {
     return {
       type: 'Microsoft.Web/certificates',
       apiVersion: '2015-08-01',
-      name: name,
+      name: [name],
       properties,
     };
   }

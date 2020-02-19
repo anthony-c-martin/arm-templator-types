@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface Componentsschemasimagetemplateidentitypropertiesuserassignedidentitiesadditionalproperties {
 }
@@ -112,7 +111,7 @@ export namespace imageTemplates {
     return {
       type: 'Microsoft.VirtualMachineImages/imageTemplates',
       apiVersion: '2019-05-01-preview',
-      name: name,
+      name: [name],
       location,
       identity,
       properties,

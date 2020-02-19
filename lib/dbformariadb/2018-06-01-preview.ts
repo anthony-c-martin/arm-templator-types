@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface ConfigurationProperties {
   source?: Expressionable<string>;
@@ -83,7 +82,7 @@ export namespace servers {
     return {
       type: 'Microsoft.DBforMariaDB/servers',
       apiVersion: '2018-06-01-preview',
-      name: name,
+      name: [name],
       location,
       sku,
       properties,
@@ -96,7 +95,7 @@ export namespace servers {
       return {
         type: 'Microsoft.DBforMariaDB/servers/configurations',
         apiVersion: '2018-06-01-preview',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -108,7 +107,7 @@ export namespace servers {
       return {
         type: 'Microsoft.DBforMariaDB/servers/databases',
         apiVersion: '2018-06-01-preview',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -120,7 +119,7 @@ export namespace servers {
       return {
         type: 'Microsoft.DBforMariaDB/servers/firewallRules',
         apiVersion: '2018-06-01-preview',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -132,7 +131,7 @@ export namespace servers {
       return {
         type: 'Microsoft.DBforMariaDB/servers/securityAlertPolicies',
         apiVersion: '2018-06-01-preview',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -144,7 +143,7 @@ export namespace servers {
       return {
         type: 'Microsoft.DBforMariaDB/servers/virtualNetworkRules',
         apiVersion: '2018-06-01-preview',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }

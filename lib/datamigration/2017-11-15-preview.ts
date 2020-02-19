@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface ConnectToSource_SqlServer {
 }
@@ -86,7 +85,7 @@ export namespace services {
     return {
       type: 'Microsoft.DataMigration/services',
       apiVersion: '2017-11-15-preview',
-      name: name,
+      name: [name],
       location,
       sku,
       kind,
@@ -100,7 +99,7 @@ export namespace services {
       return {
         type: 'Microsoft.DataMigration/services/projects',
         apiVersion: '2017-11-15-preview',
-        name: concatResourceName(...name),
+        name: name,
         location,
         properties,
       };
@@ -114,7 +113,7 @@ export namespace services {
         return {
           type: 'Microsoft.DataMigration/services/projects/tasks',
           apiVersion: '2017-11-15-preview',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }

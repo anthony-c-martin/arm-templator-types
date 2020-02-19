@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface ResourceReference {
   id?: Expressionable<string>;
@@ -105,7 +104,7 @@ export namespace workflows {
     return {
       type: 'Microsoft.Logic/workflows',
       apiVersion: '2016-06-01',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -116,7 +115,7 @@ export namespace integrationAccounts {
     return {
       type: 'Microsoft.Logic/integrationAccounts',
       apiVersion: '2016-06-01',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -128,7 +127,7 @@ export namespace integrationAccounts {
       return {
         type: 'Microsoft.Logic/integrationAccounts/agreements',
         apiVersion: '2016-06-01',
-        name: concatResourceName(...name),
+        name: name,
         location,
         properties,
       };
@@ -141,7 +140,7 @@ export namespace integrationAccounts {
       return {
         type: 'Microsoft.Logic/integrationAccounts/certificates',
         apiVersion: '2016-06-01',
-        name: concatResourceName(...name),
+        name: name,
         location,
         properties,
       };
@@ -154,7 +153,7 @@ export namespace integrationAccounts {
       return {
         type: 'Microsoft.Logic/integrationAccounts/maps',
         apiVersion: '2016-06-01',
-        name: concatResourceName(...name),
+        name: name,
         location,
         properties,
       };
@@ -167,7 +166,7 @@ export namespace integrationAccounts {
       return {
         type: 'Microsoft.Logic/integrationAccounts/partners',
         apiVersion: '2016-06-01',
-        name: concatResourceName(...name),
+        name: name,
         location,
         properties,
       };
@@ -180,7 +179,7 @@ export namespace integrationAccounts {
       return {
         type: 'Microsoft.Logic/integrationAccounts/schemas',
         apiVersion: '2016-06-01',
-        name: concatResourceName(...name),
+        name: name,
         location,
         properties,
       };
@@ -193,7 +192,7 @@ export namespace integrationAccounts {
       return {
         type: 'Microsoft.Logic/integrationAccounts/assemblies',
         apiVersion: '2016-06-01',
-        name: concatResourceName(...name),
+        name: name,
         location,
         properties,
       };
@@ -206,7 +205,7 @@ export namespace integrationAccounts {
       return {
         type: 'Microsoft.Logic/integrationAccounts/batchConfigurations',
         apiVersion: '2016-06-01',
-        name: concatResourceName(...name),
+        name: name,
         location,
         properties,
       };

@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface ApiDefinitionInfo {
   url?: Expressionable<string>;
@@ -290,7 +289,7 @@ export namespace sites {
     return {
       type: 'Microsoft.Web/sites',
       apiVersion: '2016-08-01',
-      name: name,
+      name: [name],
       properties,
     };
   }
@@ -301,7 +300,7 @@ export namespace sites {
       return {
         type: 'Microsoft.Web/sites/config',
         apiVersion: '2016-08-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -313,7 +312,7 @@ export namespace sites {
       return {
         type: 'Microsoft.Web/sites/deployments',
         apiVersion: '2016-08-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -325,7 +324,7 @@ export namespace sites {
       return {
         type: 'Microsoft.Web/sites/domainOwnershipIdentifiers',
         apiVersion: '2016-08-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -337,7 +336,7 @@ export namespace sites {
       return {
         type: 'Microsoft.Web/sites/hostNameBindings',
         apiVersion: '2016-08-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -349,7 +348,7 @@ export namespace sites {
       return {
         type: 'Microsoft.Web/sites/hybridconnection',
         apiVersion: '2016-08-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -362,7 +361,7 @@ export namespace sites {
         return {
           type: 'Microsoft.Web/sites/hybridConnectionNamespaces/relays',
           apiVersion: '2016-08-01',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }
@@ -376,7 +375,7 @@ export namespace sites {
         return {
           type: 'Microsoft.Web/sites/instances/deployments',
           apiVersion: '2016-08-01',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }
@@ -389,7 +388,7 @@ export namespace sites {
       return {
         type: 'Microsoft.Web/sites/premieraddons',
         apiVersion: '2016-08-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -401,7 +400,7 @@ export namespace sites {
       return {
         type: 'Microsoft.Web/sites/publiccertificates',
         apiVersion: '2016-08-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -413,7 +412,7 @@ export namespace sites {
       return {
         type: 'Microsoft.Web/sites/sourcecontrols',
         apiVersion: '2016-08-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -425,7 +424,7 @@ export namespace sites {
       return {
         type: 'Microsoft.Web/sites/slots',
         apiVersion: '2016-08-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -438,7 +437,7 @@ export namespace sites {
         return {
           type: 'Microsoft.Web/sites/slots/config',
           apiVersion: '2016-08-01',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }
@@ -452,7 +451,7 @@ export namespace sites {
         return {
           type: 'Microsoft.Web/sites/slots/deployments',
           apiVersion: '2016-08-01',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }
@@ -466,7 +465,7 @@ export namespace sites {
         return {
           type: 'Microsoft.Web/sites/slots/domainOwnershipIdentifiers',
           apiVersion: '2016-08-01',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }
@@ -480,7 +479,7 @@ export namespace sites {
         return {
           type: 'Microsoft.Web/sites/slots/hostNameBindings',
           apiVersion: '2016-08-01',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }
@@ -494,7 +493,7 @@ export namespace sites {
         return {
           type: 'Microsoft.Web/sites/slots/hybridconnection',
           apiVersion: '2016-08-01',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }
@@ -509,7 +508,7 @@ export namespace sites {
           return {
             type: 'Microsoft.Web/sites/slots/hybridConnectionNamespaces/relays',
             apiVersion: '2016-08-01',
-            name: concatResourceName(...name),
+            name: name,
             properties,
           };
         }
@@ -525,7 +524,7 @@ export namespace sites {
           return {
             type: 'Microsoft.Web/sites/slots/instances/deployments',
             apiVersion: '2016-08-01',
-            name: concatResourceName(...name),
+            name: name,
             properties,
           };
         }
@@ -540,7 +539,7 @@ export namespace sites {
         return {
           type: 'Microsoft.Web/sites/slots/premieraddons',
           apiVersion: '2016-08-01',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }
@@ -554,7 +553,7 @@ export namespace sites {
         return {
           type: 'Microsoft.Web/sites/slots/publiccertificates',
           apiVersion: '2016-08-01',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }
@@ -568,7 +567,7 @@ export namespace sites {
         return {
           type: 'Microsoft.Web/sites/slots/virtualNetworkConnections',
           apiVersion: '2016-08-01',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }
@@ -583,7 +582,7 @@ export namespace sites {
           return {
             type: 'Microsoft.Web/sites/slots/virtualNetworkConnections/gateways',
             apiVersion: '2016-08-01',
-            name: concatResourceName(...name),
+            name: name,
             properties,
           };
         }
@@ -598,7 +597,7 @@ export namespace sites {
         return {
           type: 'Microsoft.Web/sites/slots/sourcecontrols',
           apiVersion: '2016-08-01',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }
@@ -611,7 +610,7 @@ export namespace sites {
       return {
         type: 'Microsoft.Web/sites/virtualNetworkConnections',
         apiVersion: '2016-08-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -624,7 +623,7 @@ export namespace sites {
         return {
           type: 'Microsoft.Web/sites/virtualNetworkConnections/gateways',
           apiVersion: '2016-08-01',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }

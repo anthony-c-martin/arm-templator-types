@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface EHNamespaceProperties {
   clusterArmId?: Expressionable<string>;
@@ -68,7 +67,7 @@ export namespace clusters {
     return {
       type: 'Microsoft.EventHub/clusters',
       apiVersion: '2018-01-01-preview',
-      name: name,
+      name: [name],
       properties,
     };
   }
@@ -82,7 +81,7 @@ export namespace namespaces {
     return {
       type: 'Microsoft.EventHub/namespaces',
       apiVersion: '2018-01-01-preview',
-      name: name,
+      name: [name],
       location,
       sku,
       properties,
@@ -95,7 +94,7 @@ export namespace namespaces {
       return {
         type: 'Microsoft.EventHub/namespaces/ipfilterrules',
         apiVersion: '2018-01-01-preview',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -107,7 +106,7 @@ export namespace namespaces {
       return {
         type: 'Microsoft.EventHub/namespaces/networkRuleSets',
         apiVersion: '2018-01-01-preview',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -119,7 +118,7 @@ export namespace namespaces {
       return {
         type: 'Microsoft.EventHub/namespaces/virtualnetworkrules',
         apiVersion: '2018-01-01-preview',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }

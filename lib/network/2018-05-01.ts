@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface AaaaRecord {
   ipv6Address?: Expressionable<string>;
@@ -83,7 +82,7 @@ export namespace dnsZones {
     return {
       type: 'Microsoft.Network/dnsZones',
       apiVersion: '2018-05-01',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -95,7 +94,7 @@ export namespace dnsZones {
       return {
         type: 'Microsoft.Network/dnsZones/A',
         apiVersion: '2018-05-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -107,7 +106,7 @@ export namespace dnsZones {
       return {
         type: 'Microsoft.Network/dnsZones/AAAA',
         apiVersion: '2018-05-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -119,7 +118,7 @@ export namespace dnsZones {
       return {
         type: 'Microsoft.Network/dnsZones/CAA',
         apiVersion: '2018-05-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -131,7 +130,7 @@ export namespace dnsZones {
       return {
         type: 'Microsoft.Network/dnsZones/CNAME',
         apiVersion: '2018-05-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -143,7 +142,7 @@ export namespace dnsZones {
       return {
         type: 'Microsoft.Network/dnsZones/MX',
         apiVersion: '2018-05-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -155,7 +154,7 @@ export namespace dnsZones {
       return {
         type: 'Microsoft.Network/dnsZones/NS',
         apiVersion: '2018-05-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -167,7 +166,7 @@ export namespace dnsZones {
       return {
         type: 'Microsoft.Network/dnsZones/PTR',
         apiVersion: '2018-05-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -179,7 +178,7 @@ export namespace dnsZones {
       return {
         type: 'Microsoft.Network/dnsZones/SOA',
         apiVersion: '2018-05-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -191,7 +190,7 @@ export namespace dnsZones {
       return {
         type: 'Microsoft.Network/dnsZones/SRV',
         apiVersion: '2018-05-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -203,7 +202,7 @@ export namespace dnsZones {
       return {
         type: 'Microsoft.Network/dnsZones/TXT',
         apiVersion: '2018-05-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }

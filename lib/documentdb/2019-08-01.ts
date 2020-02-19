@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface Capability {
   name?: Expressionable<string>;
@@ -270,7 +269,7 @@ export namespace databaseAccounts {
     return {
       type: 'Microsoft.DocumentDB/databaseAccounts',
       apiVersion: '2019-08-01',
-      name: name,
+      name: [name],
       location,
       kind,
       properties,
@@ -283,7 +282,7 @@ export namespace databaseAccounts {
       return {
         type: 'Microsoft.DocumentDB/databaseAccounts/cassandraKeyspaces',
         apiVersion: '2019-08-01',
-        name: concatResourceName(...name),
+        name: name,
         location,
         properties,
       };
@@ -297,7 +296,7 @@ export namespace databaseAccounts {
         return {
           type: 'Microsoft.DocumentDB/databaseAccounts/cassandraKeyspaces/tables',
           apiVersion: '2019-08-01',
-          name: concatResourceName(...name),
+          name: name,
           location,
           properties,
         };
@@ -313,7 +312,7 @@ export namespace databaseAccounts {
           return {
             type: 'Microsoft.DocumentDB/databaseAccounts/cassandraKeyspaces/tables/throughputSettings',
             apiVersion: '2019-08-01',
-            name: concatResourceName(...name),
+            name: name,
             location,
             properties,
           };
@@ -329,7 +328,7 @@ export namespace databaseAccounts {
         return {
           type: 'Microsoft.DocumentDB/databaseAccounts/cassandraKeyspaces/throughputSettings',
           apiVersion: '2019-08-01',
-          name: concatResourceName(...name),
+          name: name,
           location,
           properties,
         };
@@ -343,7 +342,7 @@ export namespace databaseAccounts {
       return {
         type: 'Microsoft.DocumentDB/databaseAccounts/gremlinDatabases',
         apiVersion: '2019-08-01',
-        name: concatResourceName(...name),
+        name: name,
         location,
         properties,
       };
@@ -357,7 +356,7 @@ export namespace databaseAccounts {
         return {
           type: 'Microsoft.DocumentDB/databaseAccounts/gremlinDatabases/graphs',
           apiVersion: '2019-08-01',
-          name: concatResourceName(...name),
+          name: name,
           location,
           properties,
         };
@@ -373,7 +372,7 @@ export namespace databaseAccounts {
           return {
             type: 'Microsoft.DocumentDB/databaseAccounts/gremlinDatabases/graphs/throughputSettings',
             apiVersion: '2019-08-01',
-            name: concatResourceName(...name),
+            name: name,
             location,
             properties,
           };
@@ -389,7 +388,7 @@ export namespace databaseAccounts {
         return {
           type: 'Microsoft.DocumentDB/databaseAccounts/gremlinDatabases/throughputSettings',
           apiVersion: '2019-08-01',
-          name: concatResourceName(...name),
+          name: name,
           location,
           properties,
         };
@@ -403,7 +402,7 @@ export namespace databaseAccounts {
       return {
         type: 'Microsoft.DocumentDB/databaseAccounts/mongodbDatabases',
         apiVersion: '2019-08-01',
-        name: concatResourceName(...name),
+        name: name,
         location,
         properties,
       };
@@ -417,7 +416,7 @@ export namespace databaseAccounts {
         return {
           type: 'Microsoft.DocumentDB/databaseAccounts/mongodbDatabases/collections',
           apiVersion: '2019-08-01',
-          name: concatResourceName(...name),
+          name: name,
           location,
           properties,
         };
@@ -433,7 +432,7 @@ export namespace databaseAccounts {
           return {
             type: 'Microsoft.DocumentDB/databaseAccounts/mongodbDatabases/collections/throughputSettings',
             apiVersion: '2019-08-01',
-            name: concatResourceName(...name),
+            name: name,
             location,
             properties,
           };
@@ -449,7 +448,7 @@ export namespace databaseAccounts {
         return {
           type: 'Microsoft.DocumentDB/databaseAccounts/mongodbDatabases/throughputSettings',
           apiVersion: '2019-08-01',
-          name: concatResourceName(...name),
+          name: name,
           location,
           properties,
         };
@@ -463,7 +462,7 @@ export namespace databaseAccounts {
       return {
         type: 'Microsoft.DocumentDB/databaseAccounts/sqlDatabases',
         apiVersion: '2019-08-01',
-        name: concatResourceName(...name),
+        name: name,
         location,
         properties,
       };
@@ -477,7 +476,7 @@ export namespace databaseAccounts {
         return {
           type: 'Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers',
           apiVersion: '2019-08-01',
-          name: concatResourceName(...name),
+          name: name,
           location,
           properties,
         };
@@ -493,7 +492,7 @@ export namespace databaseAccounts {
           return {
             type: 'Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/storedProcedures',
             apiVersion: '2019-08-01',
-            name: concatResourceName(...name),
+            name: name,
             location,
             properties,
           };
@@ -510,7 +509,7 @@ export namespace databaseAccounts {
           return {
             type: 'Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/throughputSettings',
             apiVersion: '2019-08-01',
-            name: concatResourceName(...name),
+            name: name,
             location,
             properties,
           };
@@ -527,7 +526,7 @@ export namespace databaseAccounts {
           return {
             type: 'Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/triggers',
             apiVersion: '2019-08-01',
-            name: concatResourceName(...name),
+            name: name,
             location,
             properties,
           };
@@ -544,7 +543,7 @@ export namespace databaseAccounts {
           return {
             type: 'Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/userDefinedFunctions',
             apiVersion: '2019-08-01',
-            name: concatResourceName(...name),
+            name: name,
             location,
             properties,
           };
@@ -560,7 +559,7 @@ export namespace databaseAccounts {
         return {
           type: 'Microsoft.DocumentDB/databaseAccounts/sqlDatabases/throughputSettings',
           apiVersion: '2019-08-01',
-          name: concatResourceName(...name),
+          name: name,
           location,
           properties,
         };
@@ -574,7 +573,7 @@ export namespace databaseAccounts {
       return {
         type: 'Microsoft.DocumentDB/databaseAccounts/tables',
         apiVersion: '2019-08-01',
-        name: concatResourceName(...name),
+        name: name,
         location,
         properties,
       };
@@ -588,7 +587,7 @@ export namespace databaseAccounts {
         return {
           type: 'Microsoft.DocumentDB/databaseAccounts/tables/throughputSettings',
           apiVersion: '2019-08-01',
-          name: concatResourceName(...name),
+          name: name,
           location,
           properties,
         };

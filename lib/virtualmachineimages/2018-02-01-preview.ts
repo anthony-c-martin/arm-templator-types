@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface ImageTemplateCustomizer {
   name?: Expressionable<string>;
@@ -55,7 +54,7 @@ export namespace imageTemplates {
     return {
       type: 'Microsoft.VirtualMachineImages/imageTemplates',
       apiVersion: '2018-02-01-preview',
-      name: name,
+      name: [name],
       location,
       properties,
     };

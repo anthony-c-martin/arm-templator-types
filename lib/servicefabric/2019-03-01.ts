@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface ApplicationDeltaHealthPolicy {
   defaultServiceTypeDeltaHealthPolicy?: Expressionable<ServiceTypeDeltaHealthPolicy>;
@@ -243,7 +242,7 @@ export namespace clusters {
     return {
       type: 'Microsoft.ServiceFabric/clusters',
       apiVersion: '2019-03-01',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -255,7 +254,7 @@ export namespace clusters {
       return {
         type: 'Microsoft.ServiceFabric/clusters/applications',
         apiVersion: '2019-03-01',
-        name: concatResourceName(...name),
+        name: name,
         location,
         properties,
       };
@@ -269,7 +268,7 @@ export namespace clusters {
         return {
           type: 'Microsoft.ServiceFabric/clusters/applications/services',
           apiVersion: '2019-03-01',
-          name: concatResourceName(...name),
+          name: name,
           location,
           properties,
         };
@@ -283,7 +282,7 @@ export namespace clusters {
       return {
         type: 'Microsoft.ServiceFabric/clusters/applicationTypes',
         apiVersion: '2019-03-01',
-        name: concatResourceName(...name),
+        name: name,
         location,
         properties,
       };
@@ -297,7 +296,7 @@ export namespace clusters {
         return {
           type: 'Microsoft.ServiceFabric/clusters/applicationTypes/versions',
           apiVersion: '2019-03-01',
-          name: concatResourceName(...name),
+          name: name,
           location,
           properties,
         };

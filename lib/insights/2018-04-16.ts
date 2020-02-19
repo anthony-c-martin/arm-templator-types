@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface Action {
 }
@@ -72,7 +71,7 @@ export namespace scheduledQueryRules {
     return {
       type: 'Microsoft.Insights/scheduledQueryRules',
       apiVersion: '2018-04-16',
-      name: name,
+      name: [name],
       location,
       properties,
     };

@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface AzureCliScript {
   kind: Expressionable<('AzureCLI')>;
@@ -62,7 +61,7 @@ export namespace deploymentScripts {
     return {
       type: 'Microsoft.Resources/deploymentScripts',
       apiVersion: '2019-10-01-preview',
-      name: name,
+      name: [name],
       location,
       identity,
       properties,

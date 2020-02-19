@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface ProactiveDetectionConfigurationRule {
   name: Expressionable<string>;
@@ -13,7 +12,7 @@ export namespace ProactiveDetectionConfigs {
     return {
       type: 'Microsoft.Insights/ProactiveDetectionConfigs',
       apiVersion: '2018-05-01-preview',
-      name: name,
+      name: [name],
       location,
       properties,
     };

@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface LocationData {
   city?: Expressionable<string>;
@@ -65,7 +64,7 @@ export namespace machines {
     return {
       type: 'Microsoft.HybridCompute/machines',
       apiVersion: '2019-12-12',
-      name: name,
+      name: [name],
       location,
       identity,
       properties,
@@ -78,7 +77,7 @@ export namespace machines {
       return {
         type: 'Microsoft.HybridCompute/machines/extensions',
         apiVersion: '2019-12-12',
-        name: concatResourceName(...name),
+        name: name,
         location,
         properties,
       };

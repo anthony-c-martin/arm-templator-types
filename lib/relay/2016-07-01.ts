@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface AuthorizationRuleProperties {
   rights: Expressionable<('Manage' | 'Send' | 'Listen')[]>;
@@ -34,7 +33,7 @@ export namespace namespaces {
     return {
       type: 'Microsoft.Relay/namespaces',
       apiVersion: '2016-07-01',
-      name: name,
+      name: [name],
       location,
       sku,
       properties,
@@ -47,7 +46,7 @@ export namespace namespaces {
       return {
         type: 'Microsoft.Relay/namespaces/AuthorizationRules',
         apiVersion: '2016-07-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -59,7 +58,7 @@ export namespace namespaces {
       return {
         type: 'Microsoft.Relay/namespaces/HybridConnections',
         apiVersion: '2016-07-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -72,7 +71,7 @@ export namespace namespaces {
         return {
           type: 'Microsoft.Relay/namespaces/HybridConnections/authorizationRules',
           apiVersion: '2016-07-01',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }
@@ -85,7 +84,7 @@ export namespace namespaces {
       return {
         type: 'Microsoft.Relay/namespaces/WcfRelays',
         apiVersion: '2016-07-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -98,7 +97,7 @@ export namespace namespaces {
         return {
           type: 'Microsoft.Relay/namespaces/WcfRelays/authorizationRules',
           apiVersion: '2016-07-01',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }

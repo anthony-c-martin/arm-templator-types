@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface Address {
   address1: Expressionable<string>;
@@ -59,7 +58,7 @@ export namespace domains {
     return {
       type: 'Microsoft.DomainRegistration/domains',
       apiVersion: '2015-04-01',
-      name: name,
+      name: [name],
       properties,
     };
   }
@@ -70,7 +69,7 @@ export namespace domains {
       return {
         type: 'Microsoft.DomainRegistration/domains/domainOwnershipIdentifiers',
         apiVersion: '2015-04-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }

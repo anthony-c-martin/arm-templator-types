@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface SubResource {
   id?: Expressionable<string>;
@@ -72,7 +71,7 @@ export namespace privateDnsZones {
     return {
       type: 'Microsoft.Network/privateDnsZones',
       apiVersion: '2018-09-01',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -84,7 +83,7 @@ export namespace privateDnsZones {
       return {
         type: 'Microsoft.Network/privateDnsZones/virtualNetworkLinks',
         apiVersion: '2018-09-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -96,7 +95,7 @@ export namespace privateDnsZones {
       return {
         type: 'Microsoft.Network/privateDnsZones/A',
         apiVersion: '2018-09-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -108,7 +107,7 @@ export namespace privateDnsZones {
       return {
         type: 'Microsoft.Network/privateDnsZones/AAAA',
         apiVersion: '2018-09-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -120,7 +119,7 @@ export namespace privateDnsZones {
       return {
         type: 'Microsoft.Network/privateDnsZones/CNAME',
         apiVersion: '2018-09-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -132,7 +131,7 @@ export namespace privateDnsZones {
       return {
         type: 'Microsoft.Network/privateDnsZones/MX',
         apiVersion: '2018-09-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -144,7 +143,7 @@ export namespace privateDnsZones {
       return {
         type: 'Microsoft.Network/privateDnsZones/PTR',
         apiVersion: '2018-09-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -156,7 +155,7 @@ export namespace privateDnsZones {
       return {
         type: 'Microsoft.Network/privateDnsZones/SOA',
         apiVersion: '2018-09-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -168,7 +167,7 @@ export namespace privateDnsZones {
       return {
         type: 'Microsoft.Network/privateDnsZones/SRV',
         apiVersion: '2018-09-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -180,7 +179,7 @@ export namespace privateDnsZones {
       return {
         type: 'Microsoft.Network/privateDnsZones/TXT',
         apiVersion: '2018-09-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }

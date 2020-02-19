@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface ActivityLogAlert {
   scopes: Expressionable<string[]>;
@@ -55,7 +54,7 @@ export namespace actionGroups {
     return {
       type: 'Microsoft.Insights/actionGroups',
       apiVersion: '2017-03-01-preview',
-      name: name,
+      name: [name],
       properties,
     };
   }
@@ -65,7 +64,7 @@ export namespace activityLogAlerts {
     return {
       type: 'Microsoft.Insights/activityLogAlerts',
       apiVersion: '2017-03-01-preview',
-      name: name,
+      name: [name],
       properties,
     };
   }

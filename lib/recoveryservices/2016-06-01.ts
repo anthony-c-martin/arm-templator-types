@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface Sku {
   name: Expressionable<('RS0')>;
@@ -30,7 +29,7 @@ export namespace vaults {
     return {
       type: 'Microsoft.RecoveryServices/vaults',
       apiVersion: '2018-01-10',
-      name: name,
+      name: [name],
       location,
       sku,
       properties,
@@ -43,7 +42,7 @@ export namespace vaults {
       return {
         type: 'Microsoft.RecoveryServices/vaults/certificates',
         apiVersion: '2016-06-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -55,7 +54,7 @@ export namespace vaults {
       return {
         type: 'Microsoft.RecoveryServices/vaults/extendedInformation',
         apiVersion: '2016-06-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }

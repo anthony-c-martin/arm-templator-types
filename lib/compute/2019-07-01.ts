@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface AdditionalCapabilities {
   ultraSSDEnabled?: Expressionable<boolean>;
@@ -729,7 +728,7 @@ export namespace availabilitySets {
     return {
       type: 'Microsoft.Compute/availabilitySets',
       apiVersion: '2019-07-01',
-      name: name,
+      name: [name],
       location,
       sku,
       properties,
@@ -745,7 +744,7 @@ export namespace diskEncryptionSets {
     return {
       type: 'Microsoft.Compute/diskEncryptionSets',
       apiVersion: '2019-07-01',
-      name: name,
+      name: [name],
       location,
       identity,
       properties,
@@ -762,7 +761,7 @@ export namespace disks {
     return {
       type: 'Microsoft.Compute/disks',
       apiVersion: '2019-07-01',
-      name: name,
+      name: [name],
       location,
       sku,
       zones,
@@ -775,7 +774,7 @@ export namespace galleries {
     return {
       type: 'Microsoft.Compute/galleries',
       apiVersion: '2019-07-01',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -787,7 +786,7 @@ export namespace galleries {
       return {
         type: 'Microsoft.Compute/galleries/applications',
         apiVersion: '2019-07-01',
-        name: concatResourceName(...name),
+        name: name,
         location,
         properties,
       };
@@ -801,7 +800,7 @@ export namespace galleries {
         return {
           type: 'Microsoft.Compute/galleries/applications/versions',
           apiVersion: '2019-07-01',
-          name: concatResourceName(...name),
+          name: name,
           location,
           properties,
         };
@@ -815,7 +814,7 @@ export namespace galleries {
       return {
         type: 'Microsoft.Compute/galleries/images',
         apiVersion: '2019-07-01',
-        name: concatResourceName(...name),
+        name: name,
         location,
         properties,
       };
@@ -829,7 +828,7 @@ export namespace galleries {
         return {
           type: 'Microsoft.Compute/galleries/images/versions',
           apiVersion: '2019-07-01',
-          name: concatResourceName(...name),
+          name: name,
           location,
           properties,
         };
@@ -846,7 +845,7 @@ export namespace hostGroups {
     return {
       type: 'Microsoft.Compute/hostGroups',
       apiVersion: '2019-07-01',
-      name: name,
+      name: [name],
       location,
       zones,
       properties,
@@ -863,7 +862,7 @@ export namespace hostGroups {
       return {
         type: 'Microsoft.Compute/hostGroups/hosts',
         apiVersion: '2019-07-01',
-        name: concatResourceName(...name),
+        name: name,
         location,
         sku,
         properties,
@@ -876,7 +875,7 @@ export namespace images {
     return {
       type: 'Microsoft.Compute/images',
       apiVersion: '2019-07-01',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -887,7 +886,7 @@ export namespace proximityPlacementGroups {
     return {
       type: 'Microsoft.Compute/proximityPlacementGroups',
       apiVersion: '2019-07-01',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -902,7 +901,7 @@ export namespace snapshots {
     return {
       type: 'Microsoft.Compute/snapshots',
       apiVersion: '2019-07-01',
-      name: name,
+      name: [name],
       location,
       sku,
       properties,
@@ -920,7 +919,7 @@ export namespace virtualMachines {
     return {
       type: 'Microsoft.Compute/virtualMachines',
       apiVersion: '2019-07-01',
-      name: name,
+      name: [name],
       location,
       identity,
       zones,
@@ -941,7 +940,7 @@ export namespace virtualMachineScaleSets {
     return {
       type: 'Microsoft.Compute/virtualMachineScaleSets',
       apiVersion: '2019-07-01',
-      name: name,
+      name: [name],
       location,
       identity,
       sku,
@@ -961,7 +960,7 @@ export namespace virtualMachineScaleSets {
       return {
         type: 'Microsoft.Compute/virtualMachineScaleSets/virtualmachines',
         apiVersion: '2019-07-01',
-        name: concatResourceName(...name),
+        name: name,
         location,
         plan,
         properties,
@@ -976,7 +975,7 @@ export namespace virtualMachineScaleSets {
         return {
           type: 'Microsoft.Compute/virtualMachineScaleSets/virtualMachines/extensions',
           apiVersion: '2019-07-01',
-          name: concatResourceName(...name),
+          name: name,
           location,
           properties,
         };

@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface BudgetProperties {
   amount: Expressionable<number>;
@@ -36,7 +35,7 @@ export namespace budgets {
     return {
       type: 'Microsoft.Consumption/budgets',
       apiVersion: '2018-10-01',
-      name: name,
+      name: [name],
       properties,
     };
   }

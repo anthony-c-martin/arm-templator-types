@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface Disallowed {
   diskTypes?: Expressionable<string[]>;
@@ -74,7 +73,7 @@ export namespace galleries {
     return {
       type: 'Microsoft.Compute/galleries',
       apiVersion: '2018-06-01',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -86,7 +85,7 @@ export namespace galleries {
       return {
         type: 'Microsoft.Compute/galleries/images',
         apiVersion: '2018-06-01',
-        name: concatResourceName(...name),
+        name: name,
         location,
         properties,
       };
@@ -100,7 +99,7 @@ export namespace galleries {
         return {
           type: 'Microsoft.Compute/galleries/images/versions',
           apiVersion: '2018-06-01',
-          name: concatResourceName(...name),
+          name: name,
           location,
           properties,
         };

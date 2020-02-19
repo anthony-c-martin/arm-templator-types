@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface AzureFileVolume {
   readOnly?: Expressionable<boolean>;
@@ -98,7 +97,7 @@ export namespace containerGroups {
     return {
       type: 'Microsoft.ContainerInstance/containerGroups',
       apiVersion: '2017-12-01-preview',
-      name: name,
+      name: [name],
       location,
       properties,
     };

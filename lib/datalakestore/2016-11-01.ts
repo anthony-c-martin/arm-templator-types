@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface FirewallRule {
   name: Expressionable<string>;
@@ -30,7 +29,7 @@ export namespace accounts {
     return {
       type: 'Microsoft.DataLakeStore/accounts',
       apiVersion: '2016-11-01',
-      name: name,
+      name: [name],
       location,
       identity,
       properties,
@@ -43,7 +42,7 @@ export namespace accounts {
       return {
         type: 'Microsoft.DataLakeStore/accounts/firewallrules',
         apiVersion: '2016-11-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -55,7 +54,7 @@ export namespace accounts {
       return {
         type: 'Microsoft.DataLakeStore/accounts/trustedidproviders',
         apiVersion: '2016-11-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }

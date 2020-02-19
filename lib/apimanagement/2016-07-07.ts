@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface AdditionalRegion {
   location?: Expressionable<string>;
@@ -58,7 +57,7 @@ export namespace service {
     return {
       type: 'Microsoft.ApiManagement/service',
       apiVersion: '2016-07-07',
-      name: name,
+      name: [name],
       location,
       sku,
       properties,

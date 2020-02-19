@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface AccountProperties {
 }
@@ -327,7 +326,7 @@ export namespace accounts {
     return {
       type: 'Microsoft.DataShare/accounts',
       apiVersion: '2018-11-01-preview',
-      name: name,
+      name: [name],
       location,
       identity,
       properties,
@@ -340,7 +339,7 @@ export namespace accounts {
       return {
         type: 'Microsoft.DataShare/accounts/shares',
         apiVersion: '2018-11-01-preview',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -352,7 +351,7 @@ export namespace accounts {
       return {
         type: 'Microsoft.DataShare/accounts/shareSubscriptions',
         apiVersion: '2018-11-01-preview',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -365,7 +364,7 @@ export namespace accounts {
         return {
           type: 'Microsoft.DataShare/accounts/shareSubscriptions/dataSetMappings',
           apiVersion: '2018-11-01-preview',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }
@@ -379,7 +378,7 @@ export namespace accounts {
         return {
           type: 'Microsoft.DataShare/accounts/shareSubscriptions/triggers',
           apiVersion: '2018-11-01-preview',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }
@@ -393,7 +392,7 @@ export namespace accounts {
         return {
           type: 'Microsoft.DataShare/accounts/shares/dataSets',
           apiVersion: '2018-11-01-preview',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }
@@ -407,7 +406,7 @@ export namespace accounts {
         return {
           type: 'Microsoft.DataShare/accounts/shares/invitations',
           apiVersion: '2018-11-01-preview',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }
@@ -421,7 +420,7 @@ export namespace accounts {
         return {
           type: 'Microsoft.DataShare/accounts/shares/synchronizationSettings',
           apiVersion: '2018-11-01-preview',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }

@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface ApplicationResourceProperties {
   debugParams?: Expressionable<string>;
@@ -150,7 +149,7 @@ export namespace applications {
     return {
       type: 'Microsoft.ServiceFabricMesh/applications',
       apiVersion: '2018-07-01-preview',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -161,7 +160,7 @@ export namespace networks {
     return {
       type: 'Microsoft.ServiceFabricMesh/networks',
       apiVersion: '2018-07-01-preview',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -172,7 +171,7 @@ export namespace volumes {
     return {
       type: 'Microsoft.ServiceFabricMesh/volumes',
       apiVersion: '2018-07-01-preview',
-      name: name,
+      name: [name],
       location,
       properties,
     };

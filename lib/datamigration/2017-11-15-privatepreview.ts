@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface ConnectionInfo {
   userName?: Expressionable<string>;
@@ -274,7 +273,7 @@ export namespace services {
     return {
       type: 'Microsoft.DataMigration/services',
       apiVersion: '2017-11-15-privatepreview',
-      name: name,
+      name: [name],
       location,
       sku,
       kind,
@@ -288,7 +287,7 @@ export namespace services {
       return {
         type: 'Microsoft.DataMigration/services/projects',
         apiVersion: '2017-11-15-privatepreview',
-        name: concatResourceName(...name),
+        name: name,
         location,
         properties,
       };
@@ -302,7 +301,7 @@ export namespace services {
         return {
           type: 'Microsoft.DataMigration/services/projects/tasks',
           apiVersion: '2017-11-15-privatepreview',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }

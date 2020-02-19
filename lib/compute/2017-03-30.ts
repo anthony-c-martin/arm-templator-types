@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface extensionsChild {
   type: Expressionable<('extensions')>;
@@ -733,7 +732,7 @@ export namespace availabilitySets {
     return {
       type: 'Microsoft.Compute/availabilitySets',
       apiVersion: '2017-03-30',
-      name: name,
+      name: [name],
       location,
       sku,
       properties,
@@ -750,7 +749,7 @@ export namespace disks {
     return {
       type: 'Microsoft.Compute/disks',
       apiVersion: '2017-03-30',
-      name: name,
+      name: [name],
       location,
       sku,
       zones,
@@ -763,7 +762,7 @@ export namespace images {
     return {
       type: 'Microsoft.Compute/images',
       apiVersion: '2017-03-30',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -778,7 +777,7 @@ export namespace snapshots {
     return {
       type: 'Microsoft.Compute/snapshots',
       apiVersion: '2017-03-30',
-      name: name,
+      name: [name],
       location,
       sku,
       properties,
@@ -796,7 +795,7 @@ export namespace virtualMachines {
     return {
       type: 'Microsoft.Compute/virtualMachines',
       apiVersion: '2017-03-30',
-      name: name,
+      name: [name],
       location,
       identity,
       zones,
@@ -811,7 +810,7 @@ export namespace virtualMachines {
       return {
         type: 'Microsoft.Compute/virtualMachines/extensions',
         apiVersion: '2017-03-30',
-        name: concatResourceName(...name),
+        name: name,
         location,
         properties,
       };
@@ -830,7 +829,7 @@ export namespace virtualMachineScaleSets {
     return {
       type: 'Microsoft.Compute/virtualMachineScaleSets',
       apiVersion: '2017-03-30',
-      name: name,
+      name: [name],
       location,
       identity,
       sku,

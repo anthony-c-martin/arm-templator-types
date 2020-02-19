@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface PrivateEndpointConnectionProperties {
   privateEndpoint?: Expressionable<PrivateEndpointProperty>;
@@ -21,7 +20,7 @@ export namespace servers {
       return {
         type: 'Microsoft.DBforMySQL/servers/privateEndpointConnections',
         apiVersion: '2018-06-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }

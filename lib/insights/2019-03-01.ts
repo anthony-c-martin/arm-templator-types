@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface ActionGroup {
   groupShortName: Expressionable<string>;
@@ -92,7 +91,7 @@ export namespace actionGroups {
     return {
       type: 'Microsoft.Insights/actionGroups',
       apiVersion: '2019-03-01',
-      name: name,
+      name: [name],
       properties,
     };
   }

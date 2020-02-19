@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface CacheProperties {
   cacheSizeGB?: Expressionable<number>;
@@ -52,7 +51,7 @@ export namespace caches {
     return {
       type: 'Microsoft.StorageCache/caches',
       apiVersion: '2019-08-01-preview',
-      name: name,
+      name: [name],
       location,
       sku,
       properties,
@@ -65,7 +64,7 @@ export namespace caches {
       return {
         type: 'Microsoft.StorageCache/caches/storageTargets',
         apiVersion: '2019-08-01-preview',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }

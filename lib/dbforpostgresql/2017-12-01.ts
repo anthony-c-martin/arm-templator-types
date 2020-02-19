@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface ConfigurationProperties {
   source?: Expressionable<string>;
@@ -83,7 +82,7 @@ export namespace servers {
     return {
       type: 'Microsoft.DBforPostgreSQL/servers',
       apiVersion: '2017-12-01',
-      name: name,
+      name: [name],
       location,
       sku,
       properties,
@@ -96,7 +95,7 @@ export namespace servers {
       return {
         type: 'Microsoft.DBforPostgreSQL/servers/configurations',
         apiVersion: '2017-12-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -108,7 +107,7 @@ export namespace servers {
       return {
         type: 'Microsoft.DBforPostgreSQL/servers/databases',
         apiVersion: '2017-12-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -120,7 +119,7 @@ export namespace servers {
       return {
         type: 'Microsoft.DBforPostgreSQL/servers/firewallRules',
         apiVersion: '2017-12-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -132,7 +131,7 @@ export namespace servers {
       return {
         type: 'Microsoft.DBforPostgreSQL/servers/securityAlertPolicies',
         apiVersion: '2017-12-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -144,7 +143,7 @@ export namespace servers {
       return {
         type: 'Microsoft.DBforPostgreSQL/servers/virtualNetworkRules',
         apiVersion: '2017-12-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }

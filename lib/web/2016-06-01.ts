@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface ResourceReference {
   id?: Expressionable<string>;
@@ -32,7 +31,7 @@ export namespace connections {
     return {
       type: 'Microsoft.Web/connections',
       apiVersion: '2016-06-01',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -43,7 +42,7 @@ export namespace connectionGateways {
     return {
       type: 'Microsoft.Web/connectionGateways',
       apiVersion: '2016-06-01',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -54,7 +53,7 @@ export namespace customApis {
     return {
       type: 'Microsoft.Web/customApis',
       apiVersion: '2016-06-01',
-      name: name,
+      name: [name],
       location,
       properties,
     };

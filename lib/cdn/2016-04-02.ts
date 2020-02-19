@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface CustomDomainPropertiesParameters {
   hostName: Expressionable<string>;
@@ -46,7 +45,7 @@ export namespace profiles {
     return {
       type: 'Microsoft.Cdn/profiles',
       apiVersion: '2016-04-02',
-      name: name,
+      name: [name],
       location,
       sku,
       properties,
@@ -59,7 +58,7 @@ export namespace profiles {
       return {
         type: 'Microsoft.Cdn/profiles/endpoints',
         apiVersion: '2016-04-02',
-        name: concatResourceName(...name),
+        name: name,
         location,
         properties,
       };
@@ -73,7 +72,7 @@ export namespace profiles {
         return {
           type: 'Microsoft.Cdn/profiles/endpoints/customDomains',
           apiVersion: '2016-04-02',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }
@@ -87,7 +86,7 @@ export namespace profiles {
         return {
           type: 'Microsoft.Cdn/profiles/endpoints/origins',
           apiVersion: '2016-04-02',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }

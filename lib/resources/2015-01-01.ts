@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface templateLink {
   uri: Expressionable<string>;
@@ -23,7 +22,7 @@ export namespace deployments {
     return {
       type: 'Microsoft.Resources/deployments',
       apiVersion: '2015-01-01',
-      name: name,
+      name: [name],
       properties,
     };
   }
@@ -33,7 +32,7 @@ export namespace links {
     return {
       type: 'Microsoft.Resources/links',
       apiVersion: '2015-01-01',
-      name: name,
+      name: [name],
       properties,
     };
   }

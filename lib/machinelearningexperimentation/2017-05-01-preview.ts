@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface AccountProperties {
   vsoAccountId?: Expressionable<string>;
@@ -31,7 +30,7 @@ export namespace accounts {
     return {
       type: 'Microsoft.MachineLearningExperimentation/accounts',
       apiVersion: '2017-05-01-preview',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -43,7 +42,7 @@ export namespace accounts {
       return {
         type: 'Microsoft.MachineLearningExperimentation/accounts/workspaces',
         apiVersion: '2017-05-01-preview',
-        name: concatResourceName(...name),
+        name: name,
         location,
         properties,
       };
@@ -57,7 +56,7 @@ export namespace accounts {
         return {
           type: 'Microsoft.MachineLearningExperimentation/accounts/workspaces/projects',
           apiVersion: '2017-05-01-preview',
-          name: concatResourceName(...name),
+          name: name,
           location,
           properties,
         };

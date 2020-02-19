@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface AccessControlRecordProperties {
   initiatorName: Expressionable<string>;
@@ -86,7 +85,7 @@ export namespace managers {
     return {
       type: 'Microsoft.StorSimple/managers',
       apiVersion: '2017-06-01',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -102,7 +101,7 @@ export namespace managers {
       return {
         type: 'Microsoft.StorSimple/managers/accessControlRecords',
         apiVersion: '2017-06-01',
-        name: concatResourceName(...name),
+        name: name,
         kind,
         properties,
       };
@@ -119,7 +118,7 @@ export namespace managers {
       return {
         type: 'Microsoft.StorSimple/managers/bandwidthSettings',
         apiVersion: '2017-06-01',
-        name: concatResourceName(...name),
+        name: name,
         kind,
         properties,
       };
@@ -137,7 +136,7 @@ export namespace managers {
         return {
           type: 'Microsoft.StorSimple/managers/devices/backupPolicies',
           apiVersion: '2017-06-01',
-          name: concatResourceName(...name),
+          name: name,
           kind,
           properties,
         };
@@ -157,7 +156,7 @@ export namespace managers {
           return {
             type: 'Microsoft.StorSimple/managers/devices/backupPolicies/schedules',
             apiVersion: '2017-06-01',
-            name: concatResourceName(...name),
+            name: name,
             kind,
             properties,
           };
@@ -177,7 +176,7 @@ export namespace managers {
         return {
           type: 'Microsoft.StorSimple/managers/devices/volumeContainers',
           apiVersion: '2017-06-01',
-          name: concatResourceName(...name),
+          name: name,
           kind,
           properties,
         };
@@ -197,7 +196,7 @@ export namespace managers {
           return {
             type: 'Microsoft.StorSimple/managers/devices/volumeContainers/volumes',
             apiVersion: '2017-06-01',
-            name: concatResourceName(...name),
+            name: name,
             kind,
             properties,
           };
@@ -216,7 +215,7 @@ export namespace managers {
       return {
         type: 'Microsoft.StorSimple/managers/storageAccountCredentials',
         apiVersion: '2017-06-01',
-        name: concatResourceName(...name),
+        name: name,
         kind,
         properties,
       };

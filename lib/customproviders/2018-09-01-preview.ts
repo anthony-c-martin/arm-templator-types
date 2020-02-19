@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface AssociationProperties {
   targetResourceId?: Expressionable<string>;
@@ -33,7 +32,7 @@ export namespace resourceProviders {
     return {
       type: 'Microsoft.CustomProviders/resourceProviders',
       apiVersion: '2018-09-01-preview',
-      name: name,
+      name: [name],
       location,
       properties,
     };

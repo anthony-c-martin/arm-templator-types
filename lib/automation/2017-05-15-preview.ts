@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface AdvancedSchedule {
   monthDays?: Expressionable<number[]>;
@@ -132,7 +131,7 @@ export namespace automationAccounts {
       return {
         type: 'Microsoft.Automation/automationAccounts/jobs',
         apiVersion: '2017-05-15-preview',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -144,7 +143,7 @@ export namespace automationAccounts {
       return {
         type: 'Microsoft.Automation/automationAccounts/softwareUpdateConfigurations',
         apiVersion: '2017-05-15-preview',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -156,7 +155,7 @@ export namespace automationAccounts {
       return {
         type: 'Microsoft.Automation/automationAccounts/sourceControls',
         apiVersion: '2017-05-15-preview',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -169,7 +168,7 @@ export namespace automationAccounts {
         return {
           type: 'Microsoft.Automation/automationAccounts/sourceControls/sourceControlSyncJobs',
           apiVersion: '2017-05-15-preview',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }

@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface publicIPAddressDnsSettings {
   domainNameLabel: Expressionable<string>;
@@ -183,7 +182,7 @@ export namespace publicIPAddresses {
     return {
       type: 'Microsoft.Network/publicIPAddresses',
       apiVersion: '2016-12-01',
-      name: name,
+      name: [name],
       properties,
     };
   }
@@ -193,7 +192,7 @@ export namespace networkInterfaces {
     return {
       type: 'Microsoft.Network/networkInterfaces',
       apiVersion: '2016-12-01',
-      name: name,
+      name: [name],
       properties,
     };
   }
@@ -203,7 +202,7 @@ export namespace virtualNetworks {
     return {
       type: 'Microsoft.Network/virtualNetworks',
       apiVersion: '2016-12-01',
-      name: name,
+      name: [name],
       properties,
     };
   }
@@ -213,7 +212,7 @@ export namespace loadBalancers {
     return {
       type: 'Microsoft.Network/loadBalancers',
       apiVersion: '2016-12-01',
-      name: name,
+      name: [name],
       properties,
     };
   }
@@ -223,7 +222,7 @@ export namespace networkSecurityGroups {
     return {
       type: 'Microsoft.Network/networkSecurityGroups',
       apiVersion: '2016-12-01',
-      name: name,
+      name: [name],
       properties,
     };
   }
@@ -233,7 +232,7 @@ export namespace routeTables {
     return {
       type: 'Microsoft.Network/routeTables',
       apiVersion: '2016-12-01',
-      name: name,
+      name: [name],
       properties,
     };
   }

@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface HttpAuthentication {
   type?: Expressionable<('NotSpecified' | 'ClientCertificate' | 'ActiveDirectoryOAuth' | 'Basic')>;
@@ -138,7 +137,7 @@ export namespace jobCollections {
     return {
       type: 'Microsoft.Scheduler/jobCollections',
       apiVersion: '2016-03-01',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -150,7 +149,7 @@ export namespace jobCollections {
       return {
         type: 'Microsoft.Scheduler/jobCollections/jobs',
         apiVersion: '2016-03-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }

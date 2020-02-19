@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface DebugSetting {
   detailLevel?: Expressionable<string>;
@@ -35,7 +34,7 @@ export namespace deployments {
     return {
       type: 'Microsoft.Resources/deployments',
       apiVersion: '2019-03-01',
-      name: name,
+      name: [name],
       location,
       properties,
     };

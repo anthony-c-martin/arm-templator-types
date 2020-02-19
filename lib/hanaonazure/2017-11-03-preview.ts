@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface Disk {
   diskSizeGB?: Expressionable<number>;
@@ -55,7 +54,7 @@ export namespace hanaInstances {
     return {
       type: 'Microsoft.HanaOnAzure/hanaInstances',
       apiVersion: '2017-11-03-preview',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -66,7 +65,7 @@ export namespace sapMonitors {
     return {
       type: 'Microsoft.HanaOnAzure/sapMonitors',
       apiVersion: '2017-11-03-preview',
-      name: name,
+      name: [name],
       location,
       properties,
     };

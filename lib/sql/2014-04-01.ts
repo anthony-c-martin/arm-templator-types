@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface AdvisorPropertiesModel {
   autoExecuteValue: Expressionable<('Enabled' | 'Disabled' | 'Default')>;
@@ -158,7 +157,7 @@ export namespace servers {
     return {
       type: 'Microsoft.Sql/servers',
       apiVersion: '2014-04-01',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -170,7 +169,7 @@ export namespace servers {
       return {
         type: 'Microsoft.Sql/servers/administrators',
         apiVersion: '2014-04-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -182,7 +181,7 @@ export namespace servers {
       return {
         type: 'Microsoft.Sql/servers/advisors',
         apiVersion: '2014-04-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -194,7 +193,7 @@ export namespace servers {
       return {
         type: 'Microsoft.Sql/servers/auditingPolicies',
         apiVersion: '2014-04-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -206,7 +205,7 @@ export namespace servers {
       return {
         type: 'Microsoft.Sql/servers/backupLongTermRetentionVaults',
         apiVersion: '2014-04-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -218,7 +217,7 @@ export namespace servers {
       return {
         type: 'Microsoft.Sql/servers/communicationLinks',
         apiVersion: '2014-04-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -230,7 +229,7 @@ export namespace servers {
       return {
         type: 'Microsoft.Sql/servers/connectionPolicies',
         apiVersion: '2014-04-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -242,7 +241,7 @@ export namespace servers {
       return {
         type: 'Microsoft.Sql/servers/databases',
         apiVersion: '2014-04-01',
-        name: concatResourceName(...name),
+        name: name,
         location,
         properties,
       };
@@ -256,7 +255,7 @@ export namespace servers {
         return {
           type: 'Microsoft.Sql/servers/databases/advisors',
           apiVersion: '2014-04-01',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }
@@ -270,7 +269,7 @@ export namespace servers {
         return {
           type: 'Microsoft.Sql/servers/databases/auditingPolicies',
           apiVersion: '2014-04-01',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }
@@ -284,7 +283,7 @@ export namespace servers {
         return {
           type: 'Microsoft.Sql/servers/databases/backupLongTermRetentionPolicies',
           apiVersion: '2014-04-01',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }
@@ -298,7 +297,7 @@ export namespace servers {
         return {
           type: 'Microsoft.Sql/servers/databases/connectionPolicies',
           apiVersion: '2014-04-01',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }
@@ -312,7 +311,7 @@ export namespace servers {
         return {
           type: 'Microsoft.Sql/servers/databases/dataMaskingPolicies',
           apiVersion: '2014-04-01',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }
@@ -327,7 +326,7 @@ export namespace servers {
           return {
             type: 'Microsoft.Sql/servers/databases/dataMaskingPolicies/rules',
             apiVersion: '2014-04-01',
-            name: concatResourceName(...name),
+            name: name,
             properties,
           };
         }
@@ -342,7 +341,7 @@ export namespace servers {
         return {
           type: 'Microsoft.Sql/servers/databases/extensions',
           apiVersion: '2014-04-01',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }
@@ -356,7 +355,7 @@ export namespace servers {
         return {
           type: 'Microsoft.Sql/servers/databases/geoBackupPolicies',
           apiVersion: '2014-04-01',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }
@@ -370,7 +369,7 @@ export namespace servers {
         return {
           type: 'Microsoft.Sql/servers/databases/securityAlertPolicies',
           apiVersion: '2014-04-01',
-          name: concatResourceName(...name),
+          name: name,
           location,
           properties,
         };
@@ -385,7 +384,7 @@ export namespace servers {
         return {
           type: 'Microsoft.Sql/servers/databases/transparentDataEncryption',
           apiVersion: '2014-04-01',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }
@@ -398,7 +397,7 @@ export namespace servers {
       return {
         type: 'Microsoft.Sql/servers/disasterRecoveryConfiguration',
         apiVersion: '2014-04-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -410,7 +409,7 @@ export namespace servers {
       return {
         type: 'Microsoft.Sql/servers/elasticPools',
         apiVersion: '2014-04-01',
-        name: concatResourceName(...name),
+        name: name,
         location,
         properties,
       };
@@ -423,7 +422,7 @@ export namespace servers {
       return {
         type: 'Microsoft.Sql/servers/firewallRules',
         apiVersion: '2014-04-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }

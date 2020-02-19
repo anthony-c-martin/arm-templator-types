@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface ContainerServiceLinuxProfile {
   adminUsername: Expressionable<string>;
@@ -71,7 +70,7 @@ export namespace managedClusters {
     return {
       type: 'Microsoft.ContainerService/managedClusters',
       apiVersion: '2018-08-01-preview',
-      name: name,
+      name: [name],
       location,
       properties,
     };

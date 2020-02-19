@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface CloudToDeviceProperties {
   defaultTtlAsIso8601?: Expressionable<string>;
@@ -123,7 +122,7 @@ export namespace IotHubs {
     return {
       type: 'Microsoft.Devices/IotHubs',
       apiVersion: '2017-01-19',
-      name: name,
+      name: [name],
       location,
       sku,
       properties,
@@ -137,7 +136,7 @@ export namespace IotHubs {
         return {
           type: 'Microsoft.Devices/IotHubs/eventHubEndpoints/ConsumerGroups',
           apiVersion: '2017-01-19',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }

@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface ConsumerGroupProperties {
   userMetadata?: Expressionable<string>;
@@ -39,7 +38,7 @@ export namespace namespaces {
     return {
       type: 'Microsoft.EventHub/namespaces',
       apiVersion: '2014-09-01',
-      name: name,
+      name: [name],
       location,
       sku,
       properties,
@@ -52,7 +51,7 @@ export namespace namespaces {
       return {
         type: 'Microsoft.EventHub/namespaces/AuthorizationRules',
         apiVersion: '2014-09-01',
-        name: concatResourceName(...name),
+        name: name,
         location,
         properties,
       };
@@ -65,7 +64,7 @@ export namespace namespaces {
       return {
         type: 'Microsoft.EventHub/namespaces/eventhubs',
         apiVersion: '2014-09-01',
-        name: concatResourceName(...name),
+        name: name,
         location,
         properties,
       };
@@ -79,7 +78,7 @@ export namespace namespaces {
         return {
           type: 'Microsoft.EventHub/namespaces/eventhubs/authorizationRules',
           apiVersion: '2014-09-01',
-          name: concatResourceName(...name),
+          name: name,
           location,
           properties,
         };
@@ -94,7 +93,7 @@ export namespace namespaces {
         return {
           type: 'Microsoft.EventHub/namespaces/eventhubs/consumergroups',
           apiVersion: '2014-09-01',
-          name: concatResourceName(...name),
+          name: name,
           location,
           properties,
         };

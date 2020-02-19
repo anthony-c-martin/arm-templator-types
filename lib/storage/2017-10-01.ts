@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface CustomDomain {
   name: Expressionable<string>;
@@ -77,7 +76,7 @@ export namespace storageAccounts {
     return {
       type: 'Microsoft.Storage/storageAccounts',
       apiVersion: '2017-10-01',
-      name: name,
+      name: [name],
       location,
       identity,
       sku,

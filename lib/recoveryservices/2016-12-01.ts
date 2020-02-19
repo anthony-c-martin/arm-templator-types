@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface AzureBackupServerContainer {
   containerType: Expressionable<string>;
@@ -470,7 +469,7 @@ export namespace vaults {
         return {
           type: 'Microsoft.RecoveryServices/vaults/backupFabrics/protectionContainers',
           apiVersion: '2016-12-01',
-          name: concatResourceName(...name),
+          name: name,
           location,
           properties,
         };
@@ -486,7 +485,7 @@ export namespace vaults {
           return {
             type: 'Microsoft.RecoveryServices/vaults/backupFabrics/protectionContainers/protectedItems',
             apiVersion: '2016-12-01',
-            name: concatResourceName(...name),
+            name: name,
             location,
             properties,
           };
@@ -501,7 +500,7 @@ export namespace vaults {
       return {
         type: 'Microsoft.RecoveryServices/vaults/backupPolicies',
         apiVersion: '2016-12-01',
-        name: concatResourceName(...name),
+        name: name,
         location,
         properties,
       };
@@ -514,7 +513,7 @@ export namespace vaults {
       return {
         type: 'Microsoft.RecoveryServices/vaults/backupstorageconfig',
         apiVersion: '2016-12-01',
-        name: concatResourceName(...name),
+        name: name,
         location,
         properties,
       };

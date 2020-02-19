@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface Activity {
   additionalProperties?: Expressionable<any>;
@@ -4323,7 +4322,7 @@ export namespace factories {
     return {
       type: 'Microsoft.DataFactory/factories',
       apiVersion: '2018-06-01',
-      name: name,
+      name: [name],
       location,
       identity,
       properties,
@@ -4336,7 +4335,7 @@ export namespace factories {
       return {
         type: 'Microsoft.DataFactory/factories/dataflows',
         apiVersion: '2018-06-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -4348,7 +4347,7 @@ export namespace factories {
       return {
         type: 'Microsoft.DataFactory/factories/datasets',
         apiVersion: '2018-06-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -4360,7 +4359,7 @@ export namespace factories {
       return {
         type: 'Microsoft.DataFactory/factories/integrationRuntimes',
         apiVersion: '2018-06-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -4372,7 +4371,7 @@ export namespace factories {
       return {
         type: 'Microsoft.DataFactory/factories/linkedservices',
         apiVersion: '2018-06-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -4384,7 +4383,7 @@ export namespace factories {
       return {
         type: 'Microsoft.DataFactory/factories/pipelines',
         apiVersion: '2018-06-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -4396,7 +4395,7 @@ export namespace factories {
       return {
         type: 'Microsoft.DataFactory/factories/triggers',
         apiVersion: '2018-06-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }

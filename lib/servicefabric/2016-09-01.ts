@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface AzureActiveDirectory {
   clientApplication?: Expressionable<string>;
@@ -107,7 +106,7 @@ export namespace clusters {
     return {
       type: 'Microsoft.ServiceFabric/clusters',
       apiVersion: '2016-09-01',
-      name: name,
+      name: [name],
       location,
       properties,
     };

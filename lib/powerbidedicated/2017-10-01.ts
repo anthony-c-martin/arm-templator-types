@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface Sku {
   name?: Expressionable<('A1' | 'A2' | 'A3' | 'A4' | 'A5' | 'A6')>;
@@ -21,7 +20,7 @@ export namespace capacities {
     return {
       type: 'Microsoft.PowerBIDedicated/capacities',
       apiVersion: '2017-10-01',
-      name: name,
+      name: [name],
       location,
       sku,
       properties,

@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface ActionRuleProperties {
   conditions?: Expressionable<Conditions>;
@@ -37,7 +36,7 @@ export namespace actionRules {
     return {
       type: 'Microsoft.AlertsManagement/actionRules',
       apiVersion: '2019-05-05-preview',
-      name: name,
+      name: [name],
       location,
       properties,
     };

@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface EnvironmentProperties {
   provisioningState?: Expressionable<string>;
@@ -64,7 +63,7 @@ export namespace labaccounts {
     return {
       type: 'Microsoft.LabServices/labaccounts',
       apiVersion: '2018-10-15',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -76,7 +75,7 @@ export namespace labaccounts {
       return {
         type: 'Microsoft.LabServices/labaccounts/galleryimages',
         apiVersion: '2018-10-15',
-        name: concatResourceName(...name),
+        name: name,
         location,
         properties,
       };
@@ -89,7 +88,7 @@ export namespace labaccounts {
       return {
         type: 'Microsoft.LabServices/labaccounts/labs',
         apiVersion: '2018-10-15',
-        name: concatResourceName(...name),
+        name: name,
         location,
         properties,
       };
@@ -103,7 +102,7 @@ export namespace labaccounts {
         return {
           type: 'Microsoft.LabServices/labaccounts/labs/environmentsettings',
           apiVersion: '2018-10-15',
-          name: concatResourceName(...name),
+          name: name,
           location,
           properties,
         };
@@ -119,7 +118,7 @@ export namespace labaccounts {
           return {
             type: 'Microsoft.LabServices/labaccounts/labs/environmentsettings/environments',
             apiVersion: '2018-10-15',
-            name: concatResourceName(...name),
+            name: name,
             location,
             properties,
           };
@@ -135,7 +134,7 @@ export namespace labaccounts {
         return {
           type: 'Microsoft.LabServices/labaccounts/labs/users',
           apiVersion: '2018-10-15',
-          name: concatResourceName(...name),
+          name: name,
           location,
           properties,
         };

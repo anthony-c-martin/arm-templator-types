@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface AlertRule {
   name: Expressionable<string>;
@@ -54,7 +53,7 @@ export namespace alertrules {
     return {
       type: 'microsoft.insights/alertrules',
       apiVersion: '2016-03-01',
-      name: name,
+      name: [name],
       location,
       properties,
     };

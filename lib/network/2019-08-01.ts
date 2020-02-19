@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface AadAuthenticationParameters {
   aadTenant?: Expressionable<string>;
@@ -1500,7 +1499,7 @@ export namespace applicationGateways {
     return {
       type: 'Microsoft.Network/applicationGateways',
       apiVersion: '2019-08-01',
-      name: name,
+      name: [name],
       location,
       identity,
       zones,
@@ -1513,7 +1512,7 @@ export namespace ApplicationGatewayWebApplicationFirewallPolicies {
     return {
       type: 'Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies',
       apiVersion: '2019-08-01',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -1524,7 +1523,7 @@ export namespace applicationSecurityGroups {
     return {
       type: 'Microsoft.Network/applicationSecurityGroups',
       apiVersion: '2019-08-01',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -1539,7 +1538,7 @@ export namespace azureFirewalls {
     return {
       type: 'Microsoft.Network/azureFirewalls',
       apiVersion: '2019-08-01',
-      name: name,
+      name: [name],
       location,
       zones,
       properties,
@@ -1551,7 +1550,7 @@ export namespace bastionHosts {
     return {
       type: 'Microsoft.Network/bastionHosts',
       apiVersion: '2019-08-01',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -1562,7 +1561,7 @@ export namespace connections {
     return {
       type: 'Microsoft.Network/connections',
       apiVersion: '2019-08-01',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -1573,7 +1572,7 @@ export namespace ddosCustomPolicies {
     return {
       type: 'Microsoft.Network/ddosCustomPolicies',
       apiVersion: '2019-08-01',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -1584,7 +1583,7 @@ export namespace ddosProtectionPlans {
     return {
       type: 'Microsoft.Network/ddosProtectionPlans',
       apiVersion: '2019-08-01',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -1599,7 +1598,7 @@ export namespace expressRouteCircuits {
     return {
       type: 'Microsoft.Network/expressRouteCircuits',
       apiVersion: '2019-08-01',
-      name: name,
+      name: [name],
       location,
       sku,
       properties,
@@ -1612,7 +1611,7 @@ export namespace expressRouteCircuits {
       return {
         type: 'Microsoft.Network/expressRouteCircuits/authorizations',
         apiVersion: '2019-08-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -1624,7 +1623,7 @@ export namespace expressRouteCircuits {
       return {
         type: 'Microsoft.Network/expressRouteCircuits/peerings',
         apiVersion: '2019-08-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -1637,7 +1636,7 @@ export namespace expressRouteCircuits {
         return {
           type: 'Microsoft.Network/expressRouteCircuits/peerings/connections',
           apiVersion: '2019-08-01',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }
@@ -1649,7 +1648,7 @@ export namespace expressRouteCrossConnections {
     return {
       type: 'Microsoft.Network/expressRouteCrossConnections',
       apiVersion: '2019-08-01',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -1661,7 +1660,7 @@ export namespace expressRouteCrossConnections {
       return {
         type: 'Microsoft.Network/expressRouteCrossConnections/peerings',
         apiVersion: '2019-08-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -1672,7 +1671,7 @@ export namespace expressRouteGateways {
     return {
       type: 'Microsoft.Network/expressRouteGateways',
       apiVersion: '2019-08-01',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -1684,7 +1683,7 @@ export namespace expressRouteGateways {
       return {
         type: 'Microsoft.Network/expressRouteGateways/expressRouteConnections',
         apiVersion: '2019-08-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -1699,7 +1698,7 @@ export namespace ExpressRoutePorts {
     return {
       type: 'Microsoft.Network/ExpressRoutePorts',
       apiVersion: '2019-08-01',
-      name: name,
+      name: [name],
       location,
       identity,
       properties,
@@ -1711,7 +1710,7 @@ export namespace firewallPolicies {
     return {
       type: 'Microsoft.Network/firewallPolicies',
       apiVersion: '2019-08-01',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -1723,7 +1722,7 @@ export namespace firewallPolicies {
       return {
         type: 'Microsoft.Network/firewallPolicies/ruleGroups',
         apiVersion: '2019-08-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -1738,7 +1737,7 @@ export namespace loadBalancers {
     return {
       type: 'Microsoft.Network/loadBalancers',
       apiVersion: '2019-08-01',
-      name: name,
+      name: [name],
       location,
       sku,
       properties,
@@ -1751,7 +1750,7 @@ export namespace loadBalancers {
       return {
         type: 'Microsoft.Network/loadBalancers/inboundNatRules',
         apiVersion: '2019-08-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -1762,7 +1761,7 @@ export namespace localNetworkGateways {
     return {
       type: 'Microsoft.Network/localNetworkGateways',
       apiVersion: '2019-08-01',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -1778,7 +1777,7 @@ export namespace natGateways {
     return {
       type: 'Microsoft.Network/natGateways',
       apiVersion: '2019-08-01',
-      name: name,
+      name: [name],
       location,
       sku,
       zones,
@@ -1791,7 +1790,7 @@ export namespace networkInterfaces {
     return {
       type: 'Microsoft.Network/networkInterfaces',
       apiVersion: '2019-08-01',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -1803,7 +1802,7 @@ export namespace networkInterfaces {
       return {
         type: 'Microsoft.Network/networkInterfaces/tapConfigurations',
         apiVersion: '2019-08-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -1814,7 +1813,7 @@ export namespace networkProfiles {
     return {
       type: 'Microsoft.Network/networkProfiles',
       apiVersion: '2019-08-01',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -1825,7 +1824,7 @@ export namespace networkSecurityGroups {
     return {
       type: 'Microsoft.Network/networkSecurityGroups',
       apiVersion: '2019-08-01',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -1837,7 +1836,7 @@ export namespace networkSecurityGroups {
       return {
         type: 'Microsoft.Network/networkSecurityGroups/securityRules',
         apiVersion: '2019-08-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -1848,7 +1847,7 @@ export namespace networkWatchers {
     return {
       type: 'Microsoft.Network/networkWatchers',
       apiVersion: '2019-08-01',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -1860,7 +1859,7 @@ export namespace networkWatchers {
       return {
         type: 'Microsoft.Network/networkWatchers/packetCaptures',
         apiVersion: '2019-08-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -1871,7 +1870,7 @@ export namespace p2svpnGateways {
     return {
       type: 'Microsoft.Network/p2svpnGateways',
       apiVersion: '2019-08-01',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -1882,7 +1881,7 @@ export namespace privateEndpoints {
     return {
       type: 'Microsoft.Network/privateEndpoints',
       apiVersion: '2019-08-01',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -1893,7 +1892,7 @@ export namespace privateLinkServices {
     return {
       type: 'Microsoft.Network/privateLinkServices',
       apiVersion: '2019-08-01',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -1905,7 +1904,7 @@ export namespace privateLinkServices {
       return {
         type: 'Microsoft.Network/privateLinkServices/privateEndpointConnections',
         apiVersion: '2019-08-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -1921,7 +1920,7 @@ export namespace publicIPAddresses {
     return {
       type: 'Microsoft.Network/publicIPAddresses',
       apiVersion: '2019-08-01',
-      name: name,
+      name: [name],
       location,
       sku,
       zones,
@@ -1939,7 +1938,7 @@ export namespace publicIPPrefixes {
     return {
       type: 'Microsoft.Network/publicIPPrefixes',
       apiVersion: '2019-08-01',
-      name: name,
+      name: [name],
       location,
       sku,
       zones,
@@ -1952,7 +1951,7 @@ export namespace routeFilters {
     return {
       type: 'Microsoft.Network/routeFilters',
       apiVersion: '2019-08-01',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -1964,7 +1963,7 @@ export namespace routeFilters {
       return {
         type: 'Microsoft.Network/routeFilters/routeFilterRules',
         apiVersion: '2019-08-01',
-        name: concatResourceName(...name),
+        name: name,
         location,
         properties,
       };
@@ -1976,7 +1975,7 @@ export namespace routeTables {
     return {
       type: 'Microsoft.Network/routeTables',
       apiVersion: '2019-08-01',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -1988,7 +1987,7 @@ export namespace routeTables {
       return {
         type: 'Microsoft.Network/routeTables/routes',
         apiVersion: '2019-08-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -1999,7 +1998,7 @@ export namespace serviceEndpointPolicies {
     return {
       type: 'Microsoft.Network/serviceEndpointPolicies',
       apiVersion: '2019-08-01',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -2011,7 +2010,7 @@ export namespace serviceEndpointPolicies {
       return {
         type: 'Microsoft.Network/serviceEndpointPolicies/serviceEndpointPolicyDefinitions',
         apiVersion: '2019-08-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -2022,7 +2021,7 @@ export namespace virtualHubs {
     return {
       type: 'Microsoft.Network/virtualHubs',
       apiVersion: '2019-08-01',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -2033,7 +2032,7 @@ export namespace virtualNetworkGateways {
     return {
       type: 'Microsoft.Network/virtualNetworkGateways',
       apiVersion: '2019-08-01',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -2044,7 +2043,7 @@ export namespace virtualNetworks {
     return {
       type: 'Microsoft.Network/virtualNetworks',
       apiVersion: '2019-08-01',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -2056,7 +2055,7 @@ export namespace virtualNetworks {
       return {
         type: 'Microsoft.Network/virtualNetworks/subnets',
         apiVersion: '2019-08-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -2068,7 +2067,7 @@ export namespace virtualNetworks {
       return {
         type: 'Microsoft.Network/virtualNetworks/virtualNetworkPeerings',
         apiVersion: '2019-08-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -2079,7 +2078,7 @@ export namespace virtualNetworkTaps {
     return {
       type: 'Microsoft.Network/virtualNetworkTaps',
       apiVersion: '2019-08-01',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -2090,7 +2089,7 @@ export namespace virtualRouters {
     return {
       type: 'Microsoft.Network/virtualRouters',
       apiVersion: '2019-08-01',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -2102,7 +2101,7 @@ export namespace virtualRouters {
       return {
         type: 'Microsoft.Network/virtualRouters/peerings',
         apiVersion: '2019-08-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -2113,7 +2112,7 @@ export namespace virtualWans {
     return {
       type: 'Microsoft.Network/virtualWans',
       apiVersion: '2019-08-01',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -2124,7 +2123,7 @@ export namespace vpnGateways {
     return {
       type: 'Microsoft.Network/vpnGateways',
       apiVersion: '2019-08-01',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -2136,7 +2135,7 @@ export namespace vpnGateways {
       return {
         type: 'Microsoft.Network/vpnGateways/vpnConnections',
         apiVersion: '2019-08-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -2147,7 +2146,7 @@ export namespace vpnServerConfigurations {
     return {
       type: 'Microsoft.Network/vpnServerConfigurations',
       apiVersion: '2019-08-01',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -2158,7 +2157,7 @@ export namespace vpnSites {
     return {
       type: 'Microsoft.Network/vpnSites',
       apiVersion: '2019-08-01',
-      name: name,
+      name: [name],
       location,
       properties,
     };

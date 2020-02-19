@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface Permission {
   actions?: Expressionable<string[]>;
@@ -24,7 +23,7 @@ export namespace roleAssignments {
     return {
       type: 'Microsoft.Authorization/roleAssignments',
       apiVersion: '2017-09-01',
-      name: name,
+      name: [name],
       properties,
     };
   }
@@ -34,7 +33,7 @@ export namespace roleDefinitions {
     return {
       type: 'Microsoft.Authorization/roleDefinitions',
       apiVersion: '2017-09-01',
-      name: name,
+      name: [name],
       properties,
     };
   }

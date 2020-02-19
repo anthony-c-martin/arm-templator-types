@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface DashboardLens {
   metadata?: Expressionable<any>;
@@ -30,7 +29,7 @@ export namespace dashboards {
     return {
       type: 'Microsoft.Portal/dashboards',
       apiVersion: '2019-01-01-preview',
-      name: name,
+      name: [name],
       location,
       properties,
     };

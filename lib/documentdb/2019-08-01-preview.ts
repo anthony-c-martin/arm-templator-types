@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface PrivateEndpointConnectionProperties {
   privateEndpoint?: Expressionable<PrivateEndpointProperty>;
@@ -21,7 +20,7 @@ export namespace databaseAccounts {
       return {
         type: 'Microsoft.DocumentDB/databaseAccounts/privateEndpointConnections',
         apiVersion: '2019-08-01-preview',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }

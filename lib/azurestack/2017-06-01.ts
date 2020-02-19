@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface CustomerSubscriptionProperties {
   tenantId?: Expressionable<string>;
@@ -14,7 +13,7 @@ export namespace registrations {
     return {
       type: 'Microsoft.AzureStack/registrations',
       apiVersion: '2017-06-01',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -26,7 +25,7 @@ export namespace registrations {
       return {
         type: 'Microsoft.AzureStack/registrations/customerSubscriptions',
         apiVersion: '2017-06-01',
-        name: concatResourceName(...name),
+        name: name,
         location,
         properties,
       };

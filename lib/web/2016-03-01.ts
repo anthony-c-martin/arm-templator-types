@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface Certificate_properties {
   hostNames?: Expressionable<string[]>;
@@ -26,7 +25,7 @@ export namespace certificates {
     return {
       type: 'Microsoft.Web/certificates',
       apiVersion: '2016-03-01',
-      name: name,
+      name: [name],
       properties,
     };
   }
@@ -36,7 +35,7 @@ export namespace csrs {
     return {
       type: 'Microsoft.Web/csrs',
       apiVersion: '2016-03-01',
-      name: name,
+      name: [name],
       properties,
     };
   }

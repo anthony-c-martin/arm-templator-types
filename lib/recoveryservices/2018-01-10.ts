@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface A2AContainerCreationInput {
 }
@@ -269,7 +268,7 @@ export namespace vaults {
       return {
         type: 'Microsoft.RecoveryServices/vaults/replicationAlertSettings',
         apiVersion: '2018-01-10',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -281,7 +280,7 @@ export namespace vaults {
       return {
         type: 'Microsoft.RecoveryServices/vaults/replicationFabrics',
         apiVersion: '2018-01-10',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -295,7 +294,7 @@ export namespace vaults {
           return {
             type: 'Microsoft.RecoveryServices/vaults/replicationFabrics/replicationNetworks/replicationNetworkMappings',
             apiVersion: '2018-01-10',
-            name: concatResourceName(...name),
+            name: name,
             properties,
           };
         }
@@ -310,7 +309,7 @@ export namespace vaults {
         return {
           type: 'Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers',
           apiVersion: '2018-01-10',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }
@@ -325,7 +324,7 @@ export namespace vaults {
           return {
             type: 'Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationMigrationItems',
             apiVersion: '2018-01-10',
-            name: concatResourceName(...name),
+            name: name,
             properties,
           };
         }
@@ -341,7 +340,7 @@ export namespace vaults {
           return {
             type: 'Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems',
             apiVersion: '2018-01-10',
-            name: concatResourceName(...name),
+            name: name,
             properties,
           };
         }
@@ -357,7 +356,7 @@ export namespace vaults {
           return {
             type: 'Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectionContainerMappings',
             apiVersion: '2018-01-10',
-            name: concatResourceName(...name),
+            name: name,
             properties,
           };
         }
@@ -372,7 +371,7 @@ export namespace vaults {
         return {
           type: 'Microsoft.RecoveryServices/vaults/replicationFabrics/replicationRecoveryServicesProviders',
           apiVersion: '2018-01-10',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }
@@ -387,7 +386,7 @@ export namespace vaults {
           return {
             type: 'Microsoft.RecoveryServices/vaults/replicationFabrics/replicationStorageClassifications/replicationStorageClassificationMappings',
             apiVersion: '2018-01-10',
-            name: concatResourceName(...name),
+            name: name,
             properties,
           };
         }
@@ -402,7 +401,7 @@ export namespace vaults {
         return {
           type: 'Microsoft.RecoveryServices/vaults/replicationFabrics/replicationvCenters',
           apiVersion: '2018-01-10',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }
@@ -415,7 +414,7 @@ export namespace vaults {
       return {
         type: 'Microsoft.RecoveryServices/vaults/replicationPolicies',
         apiVersion: '2018-01-10',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -427,7 +426,7 @@ export namespace vaults {
       return {
         type: 'Microsoft.RecoveryServices/vaults/replicationRecoveryPlans',
         apiVersion: '2018-01-10',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }

@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface Encryption {
   keySource?: Expressionable<('Microsoft.KeyVault')>;
@@ -68,7 +67,7 @@ export namespace namespaces {
     return {
       type: 'Microsoft.ServiceBus/namespaces',
       apiVersion: '2018-01-01-preview',
-      name: name,
+      name: [name],
       location,
       sku,
       properties,
@@ -81,7 +80,7 @@ export namespace namespaces {
       return {
         type: 'Microsoft.ServiceBus/namespaces/ipfilterrules',
         apiVersion: '2018-01-01-preview',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -93,7 +92,7 @@ export namespace namespaces {
       return {
         type: 'Microsoft.ServiceBus/namespaces/networkrulesets',
         apiVersion: '2018-01-01-preview',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -105,7 +104,7 @@ export namespace namespaces {
       return {
         type: 'Microsoft.ServiceBus/namespaces/virtualnetworkrules',
         apiVersion: '2018-01-01-preview',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }

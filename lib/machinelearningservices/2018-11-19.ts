@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface AKS {
   properties?: Expressionable<AKSProperties>;
@@ -131,7 +130,7 @@ export namespace workspaces {
     return {
       type: 'Microsoft.MachineLearningServices/workspaces',
       apiVersion: '2018-11-19',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -143,7 +142,7 @@ export namespace workspaces {
       return {
         type: 'Microsoft.MachineLearningServices/workspaces/computes',
         apiVersion: '2018-11-19',
-        name: concatResourceName(...name),
+        name: name,
         location,
         properties,
       };

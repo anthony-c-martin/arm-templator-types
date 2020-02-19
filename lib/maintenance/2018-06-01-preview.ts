@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface ConfigurationAssignmentProperties {
   maintenanceConfigurationId?: Expressionable<string>;
@@ -17,7 +16,7 @@ export namespace maintenanceConfigurations {
     return {
       type: 'Microsoft.Maintenance/maintenanceConfigurations',
       apiVersion: '2018-06-01-preview',
-      name: name,
+      name: [name],
       location,
       properties,
     };

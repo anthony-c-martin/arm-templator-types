@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface IoTSpacesProperties {
   storageContainer?: Expressionable<StorageContainerProperties>;
@@ -25,7 +24,7 @@ export namespace Graph {
     return {
       type: 'Microsoft.IoTSpaces/Graph',
       apiVersion: '2017-10-01-preview',
-      name: name,
+      name: [name],
       location,
       sku,
       properties,

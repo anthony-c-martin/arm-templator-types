@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface AdministratorProperties {
   administratorType: Expressionable<('ActiveDirectory')>;
@@ -117,7 +116,7 @@ export namespace instancePools {
     return {
       type: 'Microsoft.Sql/instancePools',
       apiVersion: '2018-06-01-preview',
-      name: name,
+      name: [name],
       location,
       sku,
       properties,
@@ -134,7 +133,7 @@ export namespace managedInstances {
     return {
       type: 'Microsoft.Sql/managedInstances',
       apiVersion: '2018-06-01-preview',
-      name: name,
+      name: [name],
       location,
       identity,
       sku,
@@ -148,7 +147,7 @@ export namespace managedInstances {
       return {
         type: 'Microsoft.Sql/managedInstances/databases',
         apiVersion: '2018-06-01-preview',
-        name: concatResourceName(...name),
+        name: name,
         location,
         properties,
       };
@@ -165,7 +164,7 @@ export namespace managedInstances {
               return {
                 type: 'Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels',
                 apiVersion: '2018-06-01-preview',
-                name: concatResourceName(...name),
+                name: name,
                 properties,
               };
             }
@@ -181,7 +180,7 @@ export namespace managedInstances {
       return {
         type: 'Microsoft.Sql/managedInstances/vulnerabilityAssessments',
         apiVersion: '2018-06-01-preview',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -193,7 +192,7 @@ export namespace servers {
       return {
         type: 'Microsoft.Sql/servers/administrators',
         apiVersion: '2018-06-01-preview',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -206,7 +205,7 @@ export namespace servers {
         return {
           type: 'Microsoft.Sql/servers/databases/securityAlertPolicies',
           apiVersion: '2018-06-01-preview',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }
@@ -219,7 +218,7 @@ export namespace servers {
       return {
         type: 'Microsoft.Sql/servers/privateEndpointConnections',
         apiVersion: '2018-06-01-preview',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -231,7 +230,7 @@ export namespace servers {
       return {
         type: 'Microsoft.Sql/servers/vulnerabilityAssessments',
         apiVersion: '2018-06-01-preview',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }

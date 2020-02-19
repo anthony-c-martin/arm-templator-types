@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface CreationData {
   createOption: Expressionable<('Empty' | 'Attach' | 'FromImage' | 'Import' | 'Copy' | 'Restore')>;
@@ -59,7 +58,7 @@ export namespace disks {
     return {
       type: 'Microsoft.Compute/disks',
       apiVersion: '2018-04-01',
-      name: name,
+      name: [name],
       location,
       sku,
       zones,
@@ -76,7 +75,7 @@ export namespace snapshots {
     return {
       type: 'Microsoft.Compute/snapshots',
       apiVersion: '2018-04-01',
-      name: name,
+      name: [name],
       location,
       sku,
       properties,

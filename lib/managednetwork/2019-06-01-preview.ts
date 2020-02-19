@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface ManagedNetworkGroupProperties {
   managementGroups?: Expressionable<ResourceId[]>;
@@ -39,7 +38,7 @@ export namespace managedNetworks {
     return {
       type: 'Microsoft.ManagedNetwork/managedNetworks',
       apiVersion: '2019-06-01-preview',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -55,7 +54,7 @@ export namespace managedNetworks {
       return {
         type: 'Microsoft.ManagedNetwork/managedNetworks/managedNetworkGroups',
         apiVersion: '2019-06-01-preview',
-        name: concatResourceName(...name),
+        name: name,
         location,
         kind,
         properties,
@@ -69,7 +68,7 @@ export namespace managedNetworks {
       return {
         type: 'Microsoft.ManagedNetwork/managedNetworks/managedNetworkPeeringPolicies',
         apiVersion: '2019-06-01-preview',
-        name: concatResourceName(...name),
+        name: name,
         location,
         properties,
       };

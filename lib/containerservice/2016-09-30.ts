@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface ContainerServiceAgentPoolProfile {
   count: Expressionable<number>;
@@ -68,7 +67,7 @@ export namespace containerServices {
     return {
       type: 'Microsoft.ContainerService/containerServices',
       apiVersion: '2016-09-30',
-      name: name,
+      name: [name],
       location,
       properties,
     };

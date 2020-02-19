@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface ConfigurationProperties {
   source?: Expressionable<string>;
@@ -118,7 +117,7 @@ export namespace servers {
     return {
       type: 'Microsoft.DBforMySQL/servers',
       apiVersion: '2017-12-01',
-      name: name,
+      name: [name],
       location,
       sku,
       properties,
@@ -131,7 +130,7 @@ export namespace servers {
       return {
         type: 'Microsoft.DBforMySQL/servers/Administrators',
         apiVersion: '2017-12-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -143,7 +142,7 @@ export namespace servers {
       return {
         type: 'Microsoft.DBforMySQL/servers/configurations',
         apiVersion: '2017-12-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -155,7 +154,7 @@ export namespace servers {
       return {
         type: 'Microsoft.DBforMySQL/servers/databases',
         apiVersion: '2017-12-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -167,7 +166,7 @@ export namespace servers {
       return {
         type: 'Microsoft.DBforMySQL/servers/firewallRules',
         apiVersion: '2017-12-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -179,7 +178,7 @@ export namespace servers {
       return {
         type: 'Microsoft.DBforMySQL/servers/securityAlertPolicies',
         apiVersion: '2017-12-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -191,7 +190,7 @@ export namespace servers {
       return {
         type: 'Microsoft.DBforMySQL/servers/virtualNetworkRules',
         apiVersion: '2017-12-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }

@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface AppProperties {
   displayName?: Expressionable<string>;
@@ -20,7 +19,7 @@ export namespace IoTApps {
     return {
       type: 'Microsoft.IoTCentral/IoTApps',
       apiVersion: '2018-09-01',
-      name: name,
+      name: [name],
       location,
       sku,
       properties,

@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface EncryptionProperty {
   keyVaultProperties?: Expressionable<KeyVaultProperties>;
@@ -96,7 +95,7 @@ export namespace registries {
     return {
       type: 'Microsoft.ContainerRegistry/registries',
       apiVersion: '2019-12-01-preview',
-      name: name,
+      name: [name],
       location,
       identity,
       sku,
@@ -110,7 +109,7 @@ export namespace registries {
       return {
         type: 'Microsoft.ContainerRegistry/registries/replications',
         apiVersion: '2019-12-01-preview',
-        name: concatResourceName(...name),
+        name: name,
         location,
         properties,
       };
@@ -123,7 +122,7 @@ export namespace registries {
       return {
         type: 'Microsoft.ContainerRegistry/registries/webhooks',
         apiVersion: '2019-12-01-preview',
-        name: concatResourceName(...name),
+        name: name,
         location,
         properties,
       };

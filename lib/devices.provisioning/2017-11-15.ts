@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface IotDpsPropertiesDescription {
   allocationPolicy?: Expressionable<('Hashed' | 'GeoLatency' | 'Static')>;
@@ -37,7 +36,7 @@ export namespace provisioningServices {
     return {
       type: 'Microsoft.Devices/provisioningServices',
       apiVersion: '2017-11-15',
-      name: name,
+      name: [name],
       location,
       sku,
       properties,
@@ -50,7 +49,7 @@ export namespace provisioningServices {
       return {
         type: 'Microsoft.Devices/provisioningServices/certificates',
         apiVersion: '2017-11-15',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }

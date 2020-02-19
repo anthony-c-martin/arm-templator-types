@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface AdditionalCapabilities {
   ultraSSDEnabled?: Expressionable<boolean>;
@@ -519,7 +518,7 @@ export namespace availabilitySets {
     return {
       type: 'Microsoft.Compute/availabilitySets',
       apiVersion: '2019-03-01',
-      name: name,
+      name: [name],
       location,
       sku,
       properties,
@@ -535,7 +534,7 @@ export namespace hostGroups {
     return {
       type: 'Microsoft.Compute/hostGroups',
       apiVersion: '2019-03-01',
-      name: name,
+      name: [name],
       location,
       zones,
       properties,
@@ -552,7 +551,7 @@ export namespace hostGroups {
       return {
         type: 'Microsoft.Compute/hostGroups/hosts',
         apiVersion: '2019-03-01',
-        name: concatResourceName(...name),
+        name: name,
         location,
         sku,
         properties,
@@ -565,7 +564,7 @@ export namespace images {
     return {
       type: 'Microsoft.Compute/images',
       apiVersion: '2019-03-01',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -576,7 +575,7 @@ export namespace proximityPlacementGroups {
     return {
       type: 'Microsoft.Compute/proximityPlacementGroups',
       apiVersion: '2019-03-01',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -593,7 +592,7 @@ export namespace virtualMachines {
     return {
       type: 'Microsoft.Compute/virtualMachines',
       apiVersion: '2019-03-01',
-      name: name,
+      name: [name],
       location,
       identity,
       zones,
@@ -614,7 +613,7 @@ export namespace virtualMachineScaleSets {
     return {
       type: 'Microsoft.Compute/virtualMachineScaleSets',
       apiVersion: '2019-03-01',
-      name: name,
+      name: [name],
       location,
       identity,
       sku,
@@ -634,7 +633,7 @@ export namespace virtualMachineScaleSets {
       return {
         type: 'Microsoft.Compute/virtualMachineScaleSets/virtualmachines',
         apiVersion: '2019-03-01',
-        name: concatResourceName(...name),
+        name: name,
         location,
         plan,
         properties,

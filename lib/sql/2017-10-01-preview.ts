@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface BackupShortTermRetentionPolicyProperties {
   retentionDays?: Expressionable<number>;
@@ -109,7 +108,7 @@ export namespace locations {
       return {
         type: 'Microsoft.Sql/locations/instanceFailoverGroups',
         apiVersion: '2017-10-01-preview',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -122,7 +121,7 @@ export namespace managedInstances {
         return {
           type: 'Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments',
           apiVersion: '2017-10-01-preview',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }
@@ -138,7 +137,7 @@ export namespace managedInstances {
             return {
               type: 'Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/rules/baselines',
               apiVersion: '2017-10-01-preview',
-              name: concatResourceName(...name),
+              name: name,
               properties,
             };
           }
@@ -153,7 +152,7 @@ export namespace managedInstances {
       return {
         type: 'Microsoft.Sql/managedInstances/encryptionProtector',
         apiVersion: '2017-10-01-preview',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -165,7 +164,7 @@ export namespace managedInstances {
       return {
         type: 'Microsoft.Sql/managedInstances/keys',
         apiVersion: '2017-10-01-preview',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -181,7 +180,7 @@ export namespace servers {
       return {
         type: 'Microsoft.Sql/servers/databases',
         apiVersion: '2017-10-01-preview',
-        name: concatResourceName(...name),
+        name: name,
         location,
         sku,
         properties,
@@ -196,7 +195,7 @@ export namespace servers {
         return {
           type: 'Microsoft.Sql/servers/databases/backupShortTermRetentionPolicies',
           apiVersion: '2017-10-01-preview',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }
@@ -213,7 +212,7 @@ export namespace servers {
       return {
         type: 'Microsoft.Sql/servers/elasticPools',
         apiVersion: '2017-10-01-preview',
-        name: concatResourceName(...name),
+        name: name,
         location,
         sku,
         properties,

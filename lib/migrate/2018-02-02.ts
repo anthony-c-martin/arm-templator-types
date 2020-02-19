@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface AssessmentProperties {
   azureLocation: Expressionable<('Unknown' | 'EastAsia' | 'SoutheastAsia' | 'AustraliaEast' | 'AustraliaSoutheast' | 'BrazilSouth' | 'CanadaCentral' | 'CanadaEast' | 'WestEurope' | 'NorthEurope' | 'CentralIndia' | 'SouthIndia' | 'WestIndia' | 'JapanEast' | 'JapanWest' | 'KoreaCentral' | 'KoreaSouth' | 'UkWest' | 'UkSouth' | 'NorthCentralUs' | 'EastUs' | 'WestUs2' | 'SouthCentralUs' | 'CentralUs' | 'EastUs2' | 'WestUs' | 'WestCentralUs' | 'GermanyCentral' | 'GermanyNortheast' | 'ChinaNorth' | 'ChinaEast')>;
@@ -31,7 +30,7 @@ export namespace projects {
     return {
       type: 'Microsoft.Migrate/projects',
       apiVersion: '2018-02-02',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -43,7 +42,7 @@ export namespace projects {
       return {
         type: 'Microsoft.Migrate/projects/groups',
         apiVersion: '2018-02-02',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -56,7 +55,7 @@ export namespace projects {
         return {
           type: 'Microsoft.Migrate/projects/groups/assessments',
           apiVersion: '2018-02-02',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }

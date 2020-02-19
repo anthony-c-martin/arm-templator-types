@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface ContainerProperties {
   publicAccess?: Expressionable<('Container' | 'Blob' | 'None')>;
@@ -90,7 +89,7 @@ export namespace storageAccounts {
     return {
       type: 'Microsoft.Storage/storageAccounts',
       apiVersion: '2018-03-01-preview',
-      name: name,
+      name: [name],
       location,
       identity,
       sku,
@@ -106,7 +105,7 @@ export namespace storageAccounts {
         return {
           type: 'Microsoft.Storage/storageAccounts/blobServices/containers',
           apiVersion: '2018-03-01-preview',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }
@@ -121,7 +120,7 @@ export namespace storageAccounts {
           return {
             type: 'Microsoft.Storage/storageAccounts/blobServices/containers/immutabilityPolicies',
             apiVersion: '2018-03-01-preview',
-            name: concatResourceName(...name),
+            name: name,
             properties,
           };
         }
@@ -135,7 +134,7 @@ export namespace storageAccounts {
       return {
         type: 'Microsoft.Storage/storageAccounts/managementPolicies',
         apiVersion: '2018-03-01-preview',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }

@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface Componentsschemasmanagedclusterpropertiespropertiesidentityprofileadditionalproperties {
   clientId?: Expressionable<string>;
@@ -157,7 +156,7 @@ export namespace managedClusters {
     return {
       type: 'Microsoft.ContainerService/managedClusters',
       apiVersion: '2019-11-01',
-      name: name,
+      name: [name],
       location,
       identity,
       properties,
@@ -170,7 +169,7 @@ export namespace managedClusters {
       return {
         type: 'Microsoft.ContainerService/managedClusters/agentPools',
         apiVersion: '2019-11-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }

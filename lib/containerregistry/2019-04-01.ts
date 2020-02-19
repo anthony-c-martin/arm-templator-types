@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface AgentProperties {
   cpu?: Expressionable<number>;
@@ -144,7 +143,7 @@ export namespace registries {
       return {
         type: 'Microsoft.ContainerRegistry/registries/tasks',
         apiVersion: '2019-04-01',
-        name: concatResourceName(...name),
+        name: name,
         location,
         identity,
         properties,

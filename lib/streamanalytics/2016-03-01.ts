@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface AvroSerialization {
   properties?: Expressionable<any>;
@@ -354,7 +353,7 @@ export namespace streamingjobs {
     return {
       type: 'Microsoft.StreamAnalytics/streamingjobs',
       apiVersion: '2016-03-01',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -366,7 +365,7 @@ export namespace streamingjobs {
       return {
         type: 'Microsoft.StreamAnalytics/streamingjobs/functions',
         apiVersion: '2016-03-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -378,7 +377,7 @@ export namespace streamingjobs {
       return {
         type: 'Microsoft.StreamAnalytics/streamingjobs/inputs',
         apiVersion: '2016-03-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -390,7 +389,7 @@ export namespace streamingjobs {
       return {
         type: 'Microsoft.StreamAnalytics/streamingjobs/outputs',
         apiVersion: '2016-03-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -402,7 +401,7 @@ export namespace streamingjobs {
       return {
         type: 'Microsoft.StreamAnalytics/streamingjobs/transformations',
         apiVersion: '2016-03-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }

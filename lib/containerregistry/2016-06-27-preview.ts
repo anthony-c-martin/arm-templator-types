@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface RegistryProperties {
   adminUserEnabled?: Expressionable<boolean>;
@@ -16,7 +15,7 @@ export namespace registries {
     return {
       type: 'Microsoft.ContainerRegistry/registries',
       apiVersion: '2016-06-27-preview',
-      name: name,
+      name: [name],
       location,
       properties,
     };

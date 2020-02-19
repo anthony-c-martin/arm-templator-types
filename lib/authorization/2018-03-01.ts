@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface PolicyAssignmentProperties {
   displayName?: Expressionable<string>;
@@ -49,7 +48,7 @@ export namespace policyAssignments {
     return {
       type: 'Microsoft.Authorization/policyAssignments',
       apiVersion: '2018-03-01',
-      name: name,
+      name: [name],
       sku,
       properties,
     };
@@ -60,7 +59,7 @@ export namespace policyDefinitions {
     return {
       type: 'Microsoft.Authorization/policyDefinitions',
       apiVersion: '2018-03-01',
-      name: name,
+      name: [name],
       properties,
     };
   }
@@ -70,7 +69,7 @@ export namespace policySetDefinitions {
     return {
       type: 'Microsoft.Authorization/policySetDefinitions',
       apiVersion: '2018-03-01',
-      name: name,
+      name: [name],
       properties,
     };
   }

@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface CertificateDetails {
   id?: Expressionable<string>;
@@ -60,7 +59,7 @@ export namespace certificateOrders {
     return {
       type: 'Microsoft.CertificateRegistration/certificateOrders',
       apiVersion: '2015-08-01',
-      name: name,
+      name: [name],
       properties,
     };
   }
@@ -71,7 +70,7 @@ export namespace certificateOrders {
       return {
         type: 'Microsoft.CertificateRegistration/certificateOrders/certificates',
         apiVersion: '2015-08-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }

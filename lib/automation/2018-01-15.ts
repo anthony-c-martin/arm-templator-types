@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface ContentHash {
   algorithm: Expressionable<string>;
@@ -35,7 +34,7 @@ export namespace automationAccounts {
       return {
         type: 'Microsoft.Automation/automationAccounts/compilationjobs',
         apiVersion: '2018-01-15',
-        name: concatResourceName(...name),
+        name: name,
         location,
         properties,
       };
@@ -48,7 +47,7 @@ export namespace automationAccounts {
       return {
         type: 'Microsoft.Automation/automationAccounts/nodeConfigurations',
         apiVersion: '2018-01-15',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }

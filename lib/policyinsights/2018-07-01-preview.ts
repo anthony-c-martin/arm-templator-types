@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface RemediationDeploymentSummary {
   failedDeployments?: Expressionable<number>;
@@ -23,7 +22,7 @@ export namespace remediations {
     return {
       type: 'Microsoft.PolicyInsights/remediations',
       apiVersion: '2018-07-01-preview',
-      name: name,
+      name: [name],
       properties,
     };
   }

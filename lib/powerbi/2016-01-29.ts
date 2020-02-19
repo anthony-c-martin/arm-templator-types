@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export namespace workspaceCollections {
   interface AdditionalProps {
@@ -10,7 +9,7 @@ export namespace workspaceCollections {
     return {
       type: 'Microsoft.PowerBI/workspaceCollections',
       apiVersion: '2016-01-29',
-      name: name,
+      name: [name],
       sku,
       properties,
     };

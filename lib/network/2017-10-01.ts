@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface AddressSpace {
   addressPrefixes?: Expressionable<string[]>;
@@ -890,7 +889,7 @@ export namespace applicationGateways {
     return {
       type: 'Microsoft.Network/applicationGateways',
       apiVersion: '2017-10-01',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -901,7 +900,7 @@ export namespace applicationSecurityGroups {
     return {
       type: 'Microsoft.Network/applicationSecurityGroups',
       apiVersion: '2017-10-01',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -912,7 +911,7 @@ export namespace connections {
     return {
       type: 'Microsoft.Network/connections',
       apiVersion: '2017-10-01',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -927,7 +926,7 @@ export namespace expressRouteCircuits {
     return {
       type: 'Microsoft.Network/expressRouteCircuits',
       apiVersion: '2017-10-01',
-      name: name,
+      name: [name],
       location,
       sku,
       properties,
@@ -940,7 +939,7 @@ export namespace expressRouteCircuits {
       return {
         type: 'Microsoft.Network/expressRouteCircuits/authorizations',
         apiVersion: '2017-10-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -952,7 +951,7 @@ export namespace expressRouteCircuits {
       return {
         type: 'Microsoft.Network/expressRouteCircuits/peerings',
         apiVersion: '2017-10-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -967,7 +966,7 @@ export namespace loadBalancers {
     return {
       type: 'Microsoft.Network/loadBalancers',
       apiVersion: '2017-10-01',
-      name: name,
+      name: [name],
       location,
       sku,
       properties,
@@ -980,7 +979,7 @@ export namespace loadBalancers {
       return {
         type: 'Microsoft.Network/loadBalancers/inboundNatRules',
         apiVersion: '2017-10-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -991,7 +990,7 @@ export namespace localNetworkGateways {
     return {
       type: 'Microsoft.Network/localNetworkGateways',
       apiVersion: '2017-10-01',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -1002,7 +1001,7 @@ export namespace networkInterfaces {
     return {
       type: 'Microsoft.Network/networkInterfaces',
       apiVersion: '2017-10-01',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -1013,7 +1012,7 @@ export namespace networkSecurityGroups {
     return {
       type: 'Microsoft.Network/networkSecurityGroups',
       apiVersion: '2017-10-01',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -1025,7 +1024,7 @@ export namespace networkSecurityGroups {
       return {
         type: 'Microsoft.Network/networkSecurityGroups/securityRules',
         apiVersion: '2017-10-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -1036,7 +1035,7 @@ export namespace networkWatchers {
     return {
       type: 'Microsoft.Network/networkWatchers',
       apiVersion: '2017-10-01',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -1048,7 +1047,7 @@ export namespace networkWatchers {
       return {
         type: 'Microsoft.Network/networkWatchers/packetCaptures',
         apiVersion: '2017-10-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -1064,7 +1063,7 @@ export namespace publicIPAddresses {
     return {
       type: 'Microsoft.Network/publicIPAddresses',
       apiVersion: '2017-10-01',
-      name: name,
+      name: [name],
       location,
       sku,
       zones,
@@ -1077,7 +1076,7 @@ export namespace routeFilters {
     return {
       type: 'Microsoft.Network/routeFilters',
       apiVersion: '2017-10-01',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -1089,7 +1088,7 @@ export namespace routeFilters {
       return {
         type: 'Microsoft.Network/routeFilters/routeFilterRules',
         apiVersion: '2017-10-01',
-        name: concatResourceName(...name),
+        name: name,
         location,
         properties,
       };
@@ -1101,7 +1100,7 @@ export namespace routeTables {
     return {
       type: 'Microsoft.Network/routeTables',
       apiVersion: '2017-10-01',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -1113,7 +1112,7 @@ export namespace routeTables {
       return {
         type: 'Microsoft.Network/routeTables/routes',
         apiVersion: '2017-10-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -1124,7 +1123,7 @@ export namespace virtualNetworkGateways {
     return {
       type: 'Microsoft.Network/virtualNetworkGateways',
       apiVersion: '2017-10-01',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -1135,7 +1134,7 @@ export namespace virtualNetworks {
     return {
       type: 'Microsoft.Network/virtualNetworks',
       apiVersion: '2017-10-01',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -1147,7 +1146,7 @@ export namespace virtualNetworks {
       return {
         type: 'Microsoft.Network/virtualNetworks/subnets',
         apiVersion: '2017-10-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -1159,7 +1158,7 @@ export namespace virtualNetworks {
       return {
         type: 'Microsoft.Network/virtualNetworks/virtualNetworkPeerings',
         apiVersion: '2017-10-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -1170,7 +1169,7 @@ export namespace dnsZones {
     return {
       type: 'Microsoft.Network/dnsZones',
       apiVersion: '2017-10-01',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -1182,7 +1181,7 @@ export namespace dnsZones {
       return {
         type: 'Microsoft.Network/dnsZones/A',
         apiVersion: '2017-10-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -1194,7 +1193,7 @@ export namespace dnsZones {
       return {
         type: 'Microsoft.Network/dnsZones/AAAA',
         apiVersion: '2017-10-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -1206,7 +1205,7 @@ export namespace dnsZones {
       return {
         type: 'Microsoft.Network/dnsZones/CAA',
         apiVersion: '2017-10-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -1218,7 +1217,7 @@ export namespace dnsZones {
       return {
         type: 'Microsoft.Network/dnsZones/CNAME',
         apiVersion: '2017-10-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -1230,7 +1229,7 @@ export namespace dnsZones {
       return {
         type: 'Microsoft.Network/dnsZones/MX',
         apiVersion: '2017-10-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -1242,7 +1241,7 @@ export namespace dnsZones {
       return {
         type: 'Microsoft.Network/dnsZones/NS',
         apiVersion: '2017-10-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -1254,7 +1253,7 @@ export namespace dnsZones {
       return {
         type: 'Microsoft.Network/dnsZones/PTR',
         apiVersion: '2017-10-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -1266,7 +1265,7 @@ export namespace dnsZones {
       return {
         type: 'Microsoft.Network/dnsZones/SOA',
         apiVersion: '2017-10-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -1278,7 +1277,7 @@ export namespace dnsZones {
       return {
         type: 'Microsoft.Network/dnsZones/SRV',
         apiVersion: '2017-10-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -1290,7 +1289,7 @@ export namespace dnsZones {
       return {
         type: 'Microsoft.Network/dnsZones/TXT',
         apiVersion: '2017-10-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }

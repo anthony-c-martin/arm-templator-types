@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface Authorization {
   authorizationType: Expressionable<('personalAccessToken')>;
@@ -43,7 +42,7 @@ export namespace pipelines {
     return {
       type: 'Microsoft.DevOps/pipelines',
       apiVersion: '2019-07-01-preview',
-      name: name,
+      name: [name],
       location,
       properties,
     };

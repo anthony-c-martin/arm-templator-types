@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface AdditionalLocation {
   location: Expressionable<string>;
@@ -368,7 +367,7 @@ export namespace service {
     return {
       type: 'Microsoft.ApiManagement/service',
       apiVersion: '2018-01-01',
-      name: name,
+      name: [name],
       location,
       identity,
       sku,
@@ -382,7 +381,7 @@ export namespace service {
       return {
         type: 'Microsoft.ApiManagement/service/apis',
         apiVersion: '2018-01-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -395,7 +394,7 @@ export namespace service {
         return {
           type: 'Microsoft.ApiManagement/service/apis/diagnostics',
           apiVersion: '2018-01-01',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }
@@ -410,7 +409,7 @@ export namespace service {
           return {
             type: 'Microsoft.ApiManagement/service/apis/diagnostics/loggers',
             apiVersion: '2018-01-01',
-            name: concatResourceName(...name),
+            name: name,
             properties,
           };
         }
@@ -425,7 +424,7 @@ export namespace service {
         return {
           type: 'Microsoft.ApiManagement/service/apis/issues',
           apiVersion: '2018-01-01',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }
@@ -440,7 +439,7 @@ export namespace service {
           return {
             type: 'Microsoft.ApiManagement/service/apis/issues/attachments',
             apiVersion: '2018-01-01',
-            name: concatResourceName(...name),
+            name: name,
             properties,
           };
         }
@@ -456,7 +455,7 @@ export namespace service {
           return {
             type: 'Microsoft.ApiManagement/service/apis/issues/comments',
             apiVersion: '2018-01-01',
-            name: concatResourceName(...name),
+            name: name,
             properties,
           };
         }
@@ -471,7 +470,7 @@ export namespace service {
         return {
           type: 'Microsoft.ApiManagement/service/apis/operations',
           apiVersion: '2018-01-01',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }
@@ -486,7 +485,7 @@ export namespace service {
           return {
             type: 'Microsoft.ApiManagement/service/apis/operations/policies',
             apiVersion: '2018-01-01',
-            name: concatResourceName(...name),
+            name: name,
             properties,
           };
         }
@@ -502,7 +501,7 @@ export namespace service {
           return {
             type: 'Microsoft.ApiManagement/service/apis/operations/tags',
             apiVersion: '2018-01-01',
-            name: concatResourceName(...name),
+            name: name,
             properties,
           };
         }
@@ -517,7 +516,7 @@ export namespace service {
         return {
           type: 'Microsoft.ApiManagement/service/apis/policies',
           apiVersion: '2018-01-01',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }
@@ -531,7 +530,7 @@ export namespace service {
         return {
           type: 'Microsoft.ApiManagement/service/apis/releases',
           apiVersion: '2018-01-01',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }
@@ -545,7 +544,7 @@ export namespace service {
         return {
           type: 'Microsoft.ApiManagement/service/apis/schemas',
           apiVersion: '2018-01-01',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }
@@ -559,7 +558,7 @@ export namespace service {
         return {
           type: 'Microsoft.ApiManagement/service/apis/tagDescriptions',
           apiVersion: '2018-01-01',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }
@@ -573,7 +572,7 @@ export namespace service {
         return {
           type: 'Microsoft.ApiManagement/service/apis/tags',
           apiVersion: '2018-01-01',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }
@@ -586,7 +585,7 @@ export namespace service {
       return {
         type: 'Microsoft.ApiManagement/service/api-version-sets',
         apiVersion: '2018-01-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -598,7 +597,7 @@ export namespace service {
       return {
         type: 'Microsoft.ApiManagement/service/authorizationServers',
         apiVersion: '2018-01-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -610,7 +609,7 @@ export namespace service {
       return {
         type: 'Microsoft.ApiManagement/service/backends',
         apiVersion: '2018-01-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -622,7 +621,7 @@ export namespace service {
       return {
         type: 'Microsoft.ApiManagement/service/certificates',
         apiVersion: '2018-01-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -634,7 +633,7 @@ export namespace service {
       return {
         type: 'Microsoft.ApiManagement/service/diagnostics',
         apiVersion: '2018-01-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -647,7 +646,7 @@ export namespace service {
         return {
           type: 'Microsoft.ApiManagement/service/diagnostics/loggers',
           apiVersion: '2018-01-01',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }
@@ -660,7 +659,7 @@ export namespace service {
       return {
         type: 'Microsoft.ApiManagement/service/groups',
         apiVersion: '2018-01-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -673,7 +672,7 @@ export namespace service {
         return {
           type: 'Microsoft.ApiManagement/service/groups/users',
           apiVersion: '2018-01-01',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }
@@ -686,7 +685,7 @@ export namespace service {
       return {
         type: 'Microsoft.ApiManagement/service/identityProviders',
         apiVersion: '2018-01-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -698,7 +697,7 @@ export namespace service {
       return {
         type: 'Microsoft.ApiManagement/service/loggers',
         apiVersion: '2018-01-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -710,7 +709,7 @@ export namespace service {
       return {
         type: 'Microsoft.ApiManagement/service/notifications',
         apiVersion: '2018-01-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -723,7 +722,7 @@ export namespace service {
         return {
           type: 'Microsoft.ApiManagement/service/notifications/recipientEmails',
           apiVersion: '2018-01-01',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }
@@ -737,7 +736,7 @@ export namespace service {
         return {
           type: 'Microsoft.ApiManagement/service/notifications/recipientUsers',
           apiVersion: '2018-01-01',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }
@@ -750,7 +749,7 @@ export namespace service {
       return {
         type: 'Microsoft.ApiManagement/service/openidConnectProviders',
         apiVersion: '2018-01-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -762,7 +761,7 @@ export namespace service {
       return {
         type: 'Microsoft.ApiManagement/service/policies',
         apiVersion: '2018-01-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -774,7 +773,7 @@ export namespace service {
       return {
         type: 'Microsoft.ApiManagement/service/products',
         apiVersion: '2018-01-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -787,7 +786,7 @@ export namespace service {
         return {
           type: 'Microsoft.ApiManagement/service/products/apis',
           apiVersion: '2018-01-01',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }
@@ -801,7 +800,7 @@ export namespace service {
         return {
           type: 'Microsoft.ApiManagement/service/products/groups',
           apiVersion: '2018-01-01',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }
@@ -815,7 +814,7 @@ export namespace service {
         return {
           type: 'Microsoft.ApiManagement/service/products/policies',
           apiVersion: '2018-01-01',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }
@@ -829,7 +828,7 @@ export namespace service {
         return {
           type: 'Microsoft.ApiManagement/service/products/tags',
           apiVersion: '2018-01-01',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }
@@ -842,7 +841,7 @@ export namespace service {
       return {
         type: 'Microsoft.ApiManagement/service/properties',
         apiVersion: '2018-01-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -854,7 +853,7 @@ export namespace service {
       return {
         type: 'Microsoft.ApiManagement/service/subscriptions',
         apiVersion: '2018-01-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -866,7 +865,7 @@ export namespace service {
       return {
         type: 'Microsoft.ApiManagement/service/tags',
         apiVersion: '2018-01-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -878,7 +877,7 @@ export namespace service {
       return {
         type: 'Microsoft.ApiManagement/service/templates',
         apiVersion: '2018-01-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -890,7 +889,7 @@ export namespace service {
       return {
         type: 'Microsoft.ApiManagement/service/users',
         apiVersion: '2018-01-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }

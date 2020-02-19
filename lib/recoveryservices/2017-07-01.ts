@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface AzureRecoveryServiceVaultProtectionIntent {
   protectionIntentItemType: Expressionable<string>;
@@ -35,7 +34,7 @@ export namespace vaults {
         return {
           type: 'Microsoft.RecoveryServices/vaults/backupFabrics/backupProtectionIntent',
           apiVersion: '2017-07-01',
-          name: concatResourceName(...name),
+          name: name,
           location,
           properties,
         };

@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface RemediationFilters {
   locations?: Expressionable<string[]>;
@@ -17,7 +16,7 @@ export namespace remediations {
     return {
       type: 'Microsoft.PolicyInsights/remediations',
       apiVersion: '2019-07-01',
-      name: name,
+      name: [name],
       properties,
     };
   }

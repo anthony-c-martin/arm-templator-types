@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface Action {
   compatibilityLevel?: Expressionable<number>;
@@ -131,7 +130,7 @@ export namespace namespaces {
     return {
       type: 'Microsoft.ServiceBus/namespaces',
       apiVersion: '2017-04-01',
-      name: name,
+      name: [name],
       location,
       sku,
       properties,
@@ -144,7 +143,7 @@ export namespace namespaces {
       return {
         type: 'Microsoft.ServiceBus/namespaces/AuthorizationRules',
         apiVersion: '2017-04-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -156,7 +155,7 @@ export namespace namespaces {
       return {
         type: 'Microsoft.ServiceBus/namespaces/disasterRecoveryConfigs',
         apiVersion: '2017-04-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -168,7 +167,7 @@ export namespace namespaces {
       return {
         type: 'Microsoft.ServiceBus/namespaces/migrationConfigurations',
         apiVersion: '2017-04-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -180,7 +179,7 @@ export namespace namespaces {
       return {
         type: 'Microsoft.ServiceBus/namespaces/networkRuleSets',
         apiVersion: '2017-04-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -192,7 +191,7 @@ export namespace namespaces {
       return {
         type: 'Microsoft.ServiceBus/namespaces/queues',
         apiVersion: '2017-04-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -205,7 +204,7 @@ export namespace namespaces {
         return {
           type: 'Microsoft.ServiceBus/namespaces/queues/authorizationRules',
           apiVersion: '2017-04-01',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }
@@ -218,7 +217,7 @@ export namespace namespaces {
       return {
         type: 'Microsoft.ServiceBus/namespaces/topics',
         apiVersion: '2017-04-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -231,7 +230,7 @@ export namespace namespaces {
         return {
           type: 'Microsoft.ServiceBus/namespaces/topics/authorizationRules',
           apiVersion: '2017-04-01',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }
@@ -245,7 +244,7 @@ export namespace namespaces {
         return {
           type: 'Microsoft.ServiceBus/namespaces/topics/subscriptions',
           apiVersion: '2017-04-01',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }
@@ -260,7 +259,7 @@ export namespace namespaces {
           return {
             type: 'Microsoft.ServiceBus/namespaces/topics/subscriptions/rules',
             apiVersion: '2017-04-01',
-            name: concatResourceName(...name),
+            name: name,
             properties,
           };
         }

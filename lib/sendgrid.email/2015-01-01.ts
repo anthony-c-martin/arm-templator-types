@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export namespace accounts {
   interface AdditionalProps {
@@ -10,7 +9,7 @@ export namespace accounts {
     return {
       type: 'Sendgrid.Email/accounts',
       apiVersion: '2015-01-01',
-      name: name,
+      name: [name],
       plan,
       properties,
     };

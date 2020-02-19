@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface AppInsightsReference {
   component: Expressionable<ResourceId>;
@@ -277,7 +276,7 @@ export namespace workspaces {
     return {
       type: 'Microsoft.BatchAI/workspaces',
       apiVersion: '2018-05-01',
-      name: name,
+      name: [name],
       location,
       properties,
     };
@@ -289,7 +288,7 @@ export namespace workspaces {
       return {
         type: 'Microsoft.BatchAI/workspaces/clusters',
         apiVersion: '2018-05-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -301,7 +300,7 @@ export namespace workspaces {
       return {
         type: 'Microsoft.BatchAI/workspaces/experiments',
         apiVersion: '2018-05-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }
@@ -314,7 +313,7 @@ export namespace workspaces {
         return {
           type: 'Microsoft.BatchAI/workspaces/experiments/jobs',
           apiVersion: '2018-05-01',
-          name: concatResourceName(...name),
+          name: name,
           properties,
         };
       }
@@ -327,7 +326,7 @@ export namespace workspaces {
       return {
         type: 'Microsoft.BatchAI/workspaces/fileServers',
         apiVersion: '2018-05-01',
-        name: concatResourceName(...name),
+        name: name,
         properties,
       };
     }

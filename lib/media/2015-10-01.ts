@@ -1,5 +1,4 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
-import { concatResourceName } from 'arm-templator';
 
 export interface storageAccounts {
   storageAccounts?: Expressionable<storageAccount[]>;
@@ -13,7 +12,7 @@ export namespace mediaServices {
     return {
       type: 'Microsoft.Media/mediaServices',
       apiVersion: '2015-10-01',
-      name: name,
+      name: [name],
       properties,
     };
   }
