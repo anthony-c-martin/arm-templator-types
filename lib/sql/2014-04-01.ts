@@ -153,19 +153,28 @@ export interface TransparentDataEncryptionProperties {
 }
 
 export namespace servers {
-  export function create(name: Expressionable<string>, properties: ServerPropertiesModel, location: Expressionable<string>): ResourceDefinition<ServerPropertiesModel> {
+  export interface AddedResourceProps {
+    tags?: Expressionable<any>;
+  }
+  
+  export type ServersResource = ResourceDefinition<ServerPropertiesModel> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: ServerPropertiesModel, location: Expressionable<string>, tags?: Expressionable<any>): ServersResource {
     return {
       type: 'Microsoft.Sql/servers',
       apiVersion: '2014-04-01',
       name: [name],
       location,
+      tags,
       properties,
     };
   }
 }
 export namespace servers {
   export namespace administrators {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ServerAdministratorProperties): ResourceDefinition<ServerAdministratorProperties> {
+    export type AdministratorsResource = ResourceDefinition<ServerAdministratorProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ServerAdministratorProperties): AdministratorsResource {
       return {
         type: 'Microsoft.Sql/servers/administrators',
         apiVersion: '2014-04-01',
@@ -177,7 +186,9 @@ export namespace servers {
 }
 export namespace servers {
   export namespace advisors {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: AdvisorPropertiesModel): ResourceDefinition<AdvisorPropertiesModel> {
+    export type AdvisorsResource = ResourceDefinition<AdvisorPropertiesModel>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: AdvisorPropertiesModel): AdvisorsResource {
       return {
         type: 'Microsoft.Sql/servers/advisors',
         apiVersion: '2014-04-01',
@@ -189,7 +200,9 @@ export namespace servers {
 }
 export namespace servers {
   export namespace auditingPolicies {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ServerTableAuditingPolicyProperties): ResourceDefinition<ServerTableAuditingPolicyProperties> {
+    export type AuditingPoliciesResource = ResourceDefinition<ServerTableAuditingPolicyProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ServerTableAuditingPolicyProperties): AuditingPoliciesResource {
       return {
         type: 'Microsoft.Sql/servers/auditingPolicies',
         apiVersion: '2014-04-01',
@@ -201,7 +214,9 @@ export namespace servers {
 }
 export namespace servers {
   export namespace backupLongTermRetentionVaults {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: BackupLongTermRetentionVaultProperties): ResourceDefinition<BackupLongTermRetentionVaultProperties> {
+    export type BackupLongTermRetentionVaultsResource = ResourceDefinition<BackupLongTermRetentionVaultProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: BackupLongTermRetentionVaultProperties): BackupLongTermRetentionVaultsResource {
       return {
         type: 'Microsoft.Sql/servers/backupLongTermRetentionVaults',
         apiVersion: '2014-04-01',
@@ -213,7 +228,9 @@ export namespace servers {
 }
 export namespace servers {
   export namespace communicationLinks {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ServerCommunicationLinkProperties): ResourceDefinition<ServerCommunicationLinkProperties> {
+    export type CommunicationLinksResource = ResourceDefinition<ServerCommunicationLinkProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ServerCommunicationLinkProperties): CommunicationLinksResource {
       return {
         type: 'Microsoft.Sql/servers/communicationLinks',
         apiVersion: '2014-04-01',
@@ -225,7 +242,9 @@ export namespace servers {
 }
 export namespace servers {
   export namespace connectionPolicies {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ServerConnectionPolicyProperties): ResourceDefinition<ServerConnectionPolicyProperties> {
+    export type ConnectionPoliciesResource = ResourceDefinition<ServerConnectionPolicyProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ServerConnectionPolicyProperties): ConnectionPoliciesResource {
       return {
         type: 'Microsoft.Sql/servers/connectionPolicies',
         apiVersion: '2014-04-01',
@@ -237,12 +256,19 @@ export namespace servers {
 }
 export namespace servers {
   export namespace databases {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: DatabaseProperties, location: Expressionable<string>): ResourceDefinition<DatabaseProperties> {
+    export interface AddedResourceProps {
+      tags?: Expressionable<any>;
+    }
+    
+    export type DatabasesResource = ResourceDefinition<DatabaseProperties> & AddedResourceProps;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: DatabaseProperties, location: Expressionable<string>, tags?: Expressionable<any>): DatabasesResource {
       return {
         type: 'Microsoft.Sql/servers/databases',
         apiVersion: '2014-04-01',
         name: name,
         location,
+        tags,
         properties,
       };
     }
@@ -251,7 +277,9 @@ export namespace servers {
 export namespace servers {
   export namespace databases {
     export namespace advisors {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: AdvisorPropertiesModel): ResourceDefinition<AdvisorPropertiesModel> {
+      export type AdvisorsResource = ResourceDefinition<AdvisorPropertiesModel>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: AdvisorPropertiesModel): AdvisorsResource {
         return {
           type: 'Microsoft.Sql/servers/databases/advisors',
           apiVersion: '2014-04-01',
@@ -265,7 +293,9 @@ export namespace servers {
 export namespace servers {
   export namespace databases {
     export namespace auditingPolicies {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: DatabaseTableAuditingPolicyProperties): ResourceDefinition<DatabaseTableAuditingPolicyProperties> {
+      export type AuditingPoliciesResource = ResourceDefinition<DatabaseTableAuditingPolicyProperties>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: DatabaseTableAuditingPolicyProperties): AuditingPoliciesResource {
         return {
           type: 'Microsoft.Sql/servers/databases/auditingPolicies',
           apiVersion: '2014-04-01',
@@ -279,7 +309,9 @@ export namespace servers {
 export namespace servers {
   export namespace databases {
     export namespace backupLongTermRetentionPolicies {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: BackupLongTermRetentionPolicyProperties): ResourceDefinition<BackupLongTermRetentionPolicyProperties> {
+      export type BackupLongTermRetentionPoliciesResource = ResourceDefinition<BackupLongTermRetentionPolicyProperties>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: BackupLongTermRetentionPolicyProperties): BackupLongTermRetentionPoliciesResource {
         return {
           type: 'Microsoft.Sql/servers/databases/backupLongTermRetentionPolicies',
           apiVersion: '2014-04-01',
@@ -293,7 +325,9 @@ export namespace servers {
 export namespace servers {
   export namespace databases {
     export namespace connectionPolicies {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: DatabaseConnectionPolicyProperties): ResourceDefinition<DatabaseConnectionPolicyProperties> {
+      export type ConnectionPoliciesResource = ResourceDefinition<DatabaseConnectionPolicyProperties>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: DatabaseConnectionPolicyProperties): ConnectionPoliciesResource {
         return {
           type: 'Microsoft.Sql/servers/databases/connectionPolicies',
           apiVersion: '2014-04-01',
@@ -307,7 +341,9 @@ export namespace servers {
 export namespace servers {
   export namespace databases {
     export namespace dataMaskingPolicies {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: DataMaskingPolicyProperties): ResourceDefinition<DataMaskingPolicyProperties> {
+      export type DataMaskingPoliciesResource = ResourceDefinition<DataMaskingPolicyProperties>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: DataMaskingPolicyProperties): DataMaskingPoliciesResource {
         return {
           type: 'Microsoft.Sql/servers/databases/dataMaskingPolicies',
           apiVersion: '2014-04-01',
@@ -322,7 +358,9 @@ export namespace servers {
   export namespace databases {
     export namespace dataMaskingPolicies {
       export namespace rules {
-        export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: DataMaskingRuleProperties): ResourceDefinition<DataMaskingRuleProperties> {
+        export type RulesResource = ResourceDefinition<DataMaskingRuleProperties>;
+        
+        export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: DataMaskingRuleProperties): RulesResource {
           return {
             type: 'Microsoft.Sql/servers/databases/dataMaskingPolicies/rules',
             apiVersion: '2014-04-01',
@@ -337,7 +375,9 @@ export namespace servers {
 export namespace servers {
   export namespace databases {
     export namespace extensions {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ImportExtensionProperties): ResourceDefinition<ImportExtensionProperties> {
+      export type ExtensionsResource = ResourceDefinition<ImportExtensionProperties>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ImportExtensionProperties): ExtensionsResource {
         return {
           type: 'Microsoft.Sql/servers/databases/extensions',
           apiVersion: '2014-04-01',
@@ -351,7 +391,9 @@ export namespace servers {
 export namespace servers {
   export namespace databases {
     export namespace geoBackupPolicies {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: GeoBackupPolicyProperties): ResourceDefinition<GeoBackupPolicyProperties> {
+      export type GeoBackupPoliciesResource = ResourceDefinition<GeoBackupPolicyProperties>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: GeoBackupPolicyProperties): GeoBackupPoliciesResource {
         return {
           type: 'Microsoft.Sql/servers/databases/geoBackupPolicies',
           apiVersion: '2014-04-01',
@@ -365,7 +407,9 @@ export namespace servers {
 export namespace servers {
   export namespace databases {
     export namespace securityAlertPolicies {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: DatabaseSecurityAlertPolicyProperties, location?: Expressionable<string>): ResourceDefinition<DatabaseSecurityAlertPolicyProperties> {
+      export type SecurityAlertPoliciesResource = ResourceDefinition<DatabaseSecurityAlertPolicyProperties>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: DatabaseSecurityAlertPolicyProperties, location?: Expressionable<string>): SecurityAlertPoliciesResource {
         return {
           type: 'Microsoft.Sql/servers/databases/securityAlertPolicies',
           apiVersion: '2014-04-01',
@@ -380,7 +424,9 @@ export namespace servers {
 export namespace servers {
   export namespace databases {
     export namespace transparentDataEncryption {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: TransparentDataEncryptionProperties): ResourceDefinition<TransparentDataEncryptionProperties> {
+      export type TransparentDataEncryptionResource = ResourceDefinition<TransparentDataEncryptionProperties>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: TransparentDataEncryptionProperties): TransparentDataEncryptionResource {
         return {
           type: 'Microsoft.Sql/servers/databases/transparentDataEncryption',
           apiVersion: '2014-04-01',
@@ -393,7 +439,9 @@ export namespace servers {
 }
 export namespace servers {
   export namespace disasterRecoveryConfiguration {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: any): ResourceDefinition<any> {
+    export type DisasterRecoveryConfigurationResource = ResourceDefinition<any>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: any): DisasterRecoveryConfigurationResource {
       return {
         type: 'Microsoft.Sql/servers/disasterRecoveryConfiguration',
         apiVersion: '2014-04-01',
@@ -405,12 +453,19 @@ export namespace servers {
 }
 export namespace servers {
   export namespace elasticPools {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ElasticPoolPropertiesModel, location: Expressionable<string>): ResourceDefinition<ElasticPoolPropertiesModel> {
+    export interface AddedResourceProps {
+      tags?: Expressionable<any>;
+    }
+    
+    export type ElasticPoolsResource = ResourceDefinition<ElasticPoolPropertiesModel> & AddedResourceProps;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ElasticPoolPropertiesModel, location: Expressionable<string>, tags?: Expressionable<any>): ElasticPoolsResource {
       return {
         type: 'Microsoft.Sql/servers/elasticPools',
         apiVersion: '2014-04-01',
         name: name,
         location,
+        tags,
         properties,
       };
     }
@@ -418,7 +473,9 @@ export namespace servers {
 }
 export namespace servers {
   export namespace firewallRules {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: FirewallRuleProperties): ResourceDefinition<FirewallRuleProperties> {
+    export type FirewallRulesResource = ResourceDefinition<FirewallRuleProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: FirewallRuleProperties): FirewallRulesResource {
       return {
         type: 'Microsoft.Sql/servers/firewallRules',
         apiVersion: '2014-04-01',

@@ -65,7 +65,9 @@ export interface ZoneProperties {
 }
 
 export namespace dnszones {
-  export function create(name: Expressionable<string>, properties: ZoneProperties): ResourceDefinition<ZoneProperties> {
+  export type DnszonesResource = ResourceDefinition<ZoneProperties>;
+  
+  export function create(name: Expressionable<string>, properties: ZoneProperties): DnszonesResource {
     return {
       type: 'Microsoft.Network/dnszones',
       apiVersion: '2015-05-04-preview',
@@ -76,7 +78,9 @@ export namespace dnszones {
 }
 export namespace dnszones {
   export namespace A {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties): ResourceDefinition<RecordSetProperties> {
+    export type AResource = ResourceDefinition<RecordSetProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties): AResource {
       return {
         type: 'Microsoft.Network/dnszones/A',
         apiVersion: '2015-05-04-preview',
@@ -88,7 +92,9 @@ export namespace dnszones {
 }
 export namespace dnszones {
   export namespace AAAA {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties): ResourceDefinition<RecordSetProperties> {
+    export type AAAAResource = ResourceDefinition<RecordSetProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties): AAAAResource {
       return {
         type: 'Microsoft.Network/dnszones/AAAA',
         apiVersion: '2015-05-04-preview',
@@ -100,7 +106,9 @@ export namespace dnszones {
 }
 export namespace dnszones {
   export namespace CNAME {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties): ResourceDefinition<RecordSetProperties> {
+    export type CNAMEResource = ResourceDefinition<RecordSetProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties): CNAMEResource {
       return {
         type: 'Microsoft.Network/dnszones/CNAME',
         apiVersion: '2015-05-04-preview',
@@ -112,7 +120,9 @@ export namespace dnszones {
 }
 export namespace dnszones {
   export namespace MX {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties): ResourceDefinition<RecordSetProperties> {
+    export type MXResource = ResourceDefinition<RecordSetProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties): MXResource {
       return {
         type: 'Microsoft.Network/dnszones/MX',
         apiVersion: '2015-05-04-preview',
@@ -124,7 +134,9 @@ export namespace dnszones {
 }
 export namespace dnszones {
   export namespace NS {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties): ResourceDefinition<RecordSetProperties> {
+    export type NSResource = ResourceDefinition<RecordSetProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties): NSResource {
       return {
         type: 'Microsoft.Network/dnszones/NS',
         apiVersion: '2015-05-04-preview',
@@ -136,7 +148,9 @@ export namespace dnszones {
 }
 export namespace dnszones {
   export namespace PTR {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties): ResourceDefinition<RecordSetProperties> {
+    export type PTRResource = ResourceDefinition<RecordSetProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties): PTRResource {
       return {
         type: 'Microsoft.Network/dnszones/PTR',
         apiVersion: '2015-05-04-preview',
@@ -148,7 +162,9 @@ export namespace dnszones {
 }
 export namespace dnszones {
   export namespace SOA {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties): ResourceDefinition<RecordSetProperties> {
+    export type SOAResource = ResourceDefinition<RecordSetProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties): SOAResource {
       return {
         type: 'Microsoft.Network/dnszones/SOA',
         apiVersion: '2015-05-04-preview',
@@ -160,7 +176,9 @@ export namespace dnszones {
 }
 export namespace dnszones {
   export namespace SRV {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties): ResourceDefinition<RecordSetProperties> {
+    export type SRVResource = ResourceDefinition<RecordSetProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties): SRVResource {
       return {
         type: 'Microsoft.Network/dnszones/SRV',
         apiVersion: '2015-05-04-preview',
@@ -172,7 +190,9 @@ export namespace dnszones {
 }
 export namespace dnszones {
   export namespace TXT {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties): ResourceDefinition<RecordSetProperties> {
+    export type TXTResource = ResourceDefinition<RecordSetProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties): TXTResource {
       return {
         type: 'Microsoft.Network/dnszones/TXT',
         apiVersion: '2015-05-04-preview',

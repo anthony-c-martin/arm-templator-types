@@ -34,12 +34,15 @@ export interface VirtualNetworkRule {
 }
 
 export namespace accounts {
-  interface AdditionalProps {
+  export interface AddedResourceProps {
     kind?: Expressionable<string>;
     sku?: Expressionable<Sku>;
+    tags?: Expressionable<any>;
   }
   
-  export function create(name: Expressionable<string>, properties: CognitiveServicesAccountProperties, location?: Expressionable<string>, sku?: Expressionable<Sku>, kind?: Expressionable<string>): ResourceDefinition<CognitiveServicesAccountProperties> & AdditionalProps {
+  export type AccountsResource = ResourceDefinition<CognitiveServicesAccountProperties> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: CognitiveServicesAccountProperties, location?: Expressionable<string>, sku?: Expressionable<Sku>, kind?: Expressionable<string>, tags?: Expressionable<any>): AccountsResource {
     return {
       type: 'Microsoft.CognitiveServices/accounts',
       apiVersion: '2017-04-18',
@@ -47,6 +50,7 @@ export namespace accounts {
       location,
       sku,
       kind,
+      tags,
       properties,
     };
   }

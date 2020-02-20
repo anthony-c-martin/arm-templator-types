@@ -261,29 +261,40 @@ export interface VirtualNetworkRule {
 }
 
 export namespace databaseAccounts {
-  interface AdditionalProps {
+  export interface AddedResourceProps {
     kind?: Expressionable<('GlobalDocumentDB' | 'MongoDB' | 'Parse')>;
+    tags?: Expressionable<any>;
   }
   
-  export function create(name: Expressionable<string>, properties: DatabaseAccountCreateUpdateProperties, location?: Expressionable<string>, kind?: Expressionable<('GlobalDocumentDB' | 'MongoDB' | 'Parse')>): ResourceDefinition<DatabaseAccountCreateUpdateProperties> & AdditionalProps {
+  export type DatabaseAccountsResource = ResourceDefinition<DatabaseAccountCreateUpdateProperties> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: DatabaseAccountCreateUpdateProperties, location?: Expressionable<string>, kind?: Expressionable<('GlobalDocumentDB' | 'MongoDB' | 'Parse')>, tags?: Expressionable<any>): DatabaseAccountsResource {
     return {
       type: 'Microsoft.DocumentDB/databaseAccounts',
       apiVersion: '2019-08-01',
       name: [name],
       location,
       kind,
+      tags,
       properties,
     };
   }
 }
 export namespace databaseAccounts {
   export namespace cassandraKeyspaces {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: CassandraKeyspaceCreateUpdateProperties, location?: Expressionable<string>): ResourceDefinition<CassandraKeyspaceCreateUpdateProperties> {
+    export interface AddedResourceProps {
+      tags?: Expressionable<any>;
+    }
+    
+    export type CassandraKeyspacesResource = ResourceDefinition<CassandraKeyspaceCreateUpdateProperties> & AddedResourceProps;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: CassandraKeyspaceCreateUpdateProperties, location?: Expressionable<string>, tags?: Expressionable<any>): CassandraKeyspacesResource {
       return {
         type: 'Microsoft.DocumentDB/databaseAccounts/cassandraKeyspaces',
         apiVersion: '2019-08-01',
         name: name,
         location,
+        tags,
         properties,
       };
     }
@@ -292,12 +303,19 @@ export namespace databaseAccounts {
 export namespace databaseAccounts {
   export namespace cassandraKeyspaces {
     export namespace tables {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: CassandraTableCreateUpdateProperties, location?: Expressionable<string>): ResourceDefinition<CassandraTableCreateUpdateProperties> {
+      export interface AddedResourceProps {
+        tags?: Expressionable<any>;
+      }
+      
+      export type TablesResource = ResourceDefinition<CassandraTableCreateUpdateProperties> & AddedResourceProps;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: CassandraTableCreateUpdateProperties, location?: Expressionable<string>, tags?: Expressionable<any>): TablesResource {
         return {
           type: 'Microsoft.DocumentDB/databaseAccounts/cassandraKeyspaces/tables',
           apiVersion: '2019-08-01',
           name: name,
           location,
+          tags,
           properties,
         };
       }
@@ -308,12 +326,19 @@ export namespace databaseAccounts {
   export namespace cassandraKeyspaces {
     export namespace tables {
       export namespace throughputSettings {
-        export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ThroughputSettingsUpdateProperties, location?: Expressionable<string>): ResourceDefinition<ThroughputSettingsUpdateProperties> {
+        export interface AddedResourceProps {
+          tags?: Expressionable<any>;
+        }
+        
+        export type ThroughputSettingsResource = ResourceDefinition<ThroughputSettingsUpdateProperties> & AddedResourceProps;
+        
+        export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ThroughputSettingsUpdateProperties, location?: Expressionable<string>, tags?: Expressionable<any>): ThroughputSettingsResource {
           return {
             type: 'Microsoft.DocumentDB/databaseAccounts/cassandraKeyspaces/tables/throughputSettings',
             apiVersion: '2019-08-01',
             name: name,
             location,
+            tags,
             properties,
           };
         }
@@ -324,12 +349,19 @@ export namespace databaseAccounts {
 export namespace databaseAccounts {
   export namespace cassandraKeyspaces {
     export namespace throughputSettings {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ThroughputSettingsUpdateProperties, location?: Expressionable<string>): ResourceDefinition<ThroughputSettingsUpdateProperties> {
+      export interface AddedResourceProps {
+        tags?: Expressionable<any>;
+      }
+      
+      export type ThroughputSettingsResource = ResourceDefinition<ThroughputSettingsUpdateProperties> & AddedResourceProps;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ThroughputSettingsUpdateProperties, location?: Expressionable<string>, tags?: Expressionable<any>): ThroughputSettingsResource {
         return {
           type: 'Microsoft.DocumentDB/databaseAccounts/cassandraKeyspaces/throughputSettings',
           apiVersion: '2019-08-01',
           name: name,
           location,
+          tags,
           properties,
         };
       }
@@ -338,12 +370,19 @@ export namespace databaseAccounts {
 }
 export namespace databaseAccounts {
   export namespace gremlinDatabases {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: GremlinDatabaseCreateUpdateProperties, location?: Expressionable<string>): ResourceDefinition<GremlinDatabaseCreateUpdateProperties> {
+    export interface AddedResourceProps {
+      tags?: Expressionable<any>;
+    }
+    
+    export type GremlinDatabasesResource = ResourceDefinition<GremlinDatabaseCreateUpdateProperties> & AddedResourceProps;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: GremlinDatabaseCreateUpdateProperties, location?: Expressionable<string>, tags?: Expressionable<any>): GremlinDatabasesResource {
       return {
         type: 'Microsoft.DocumentDB/databaseAccounts/gremlinDatabases',
         apiVersion: '2019-08-01',
         name: name,
         location,
+        tags,
         properties,
       };
     }
@@ -352,12 +391,19 @@ export namespace databaseAccounts {
 export namespace databaseAccounts {
   export namespace gremlinDatabases {
     export namespace graphs {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: GremlinGraphCreateUpdateProperties, location?: Expressionable<string>): ResourceDefinition<GremlinGraphCreateUpdateProperties> {
+      export interface AddedResourceProps {
+        tags?: Expressionable<any>;
+      }
+      
+      export type GraphsResource = ResourceDefinition<GremlinGraphCreateUpdateProperties> & AddedResourceProps;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: GremlinGraphCreateUpdateProperties, location?: Expressionable<string>, tags?: Expressionable<any>): GraphsResource {
         return {
           type: 'Microsoft.DocumentDB/databaseAccounts/gremlinDatabases/graphs',
           apiVersion: '2019-08-01',
           name: name,
           location,
+          tags,
           properties,
         };
       }
@@ -368,12 +414,19 @@ export namespace databaseAccounts {
   export namespace gremlinDatabases {
     export namespace graphs {
       export namespace throughputSettings {
-        export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ThroughputSettingsUpdateProperties, location?: Expressionable<string>): ResourceDefinition<ThroughputSettingsUpdateProperties> {
+        export interface AddedResourceProps {
+          tags?: Expressionable<any>;
+        }
+        
+        export type ThroughputSettingsResource = ResourceDefinition<ThroughputSettingsUpdateProperties> & AddedResourceProps;
+        
+        export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ThroughputSettingsUpdateProperties, location?: Expressionable<string>, tags?: Expressionable<any>): ThroughputSettingsResource {
           return {
             type: 'Microsoft.DocumentDB/databaseAccounts/gremlinDatabases/graphs/throughputSettings',
             apiVersion: '2019-08-01',
             name: name,
             location,
+            tags,
             properties,
           };
         }
@@ -384,12 +437,19 @@ export namespace databaseAccounts {
 export namespace databaseAccounts {
   export namespace gremlinDatabases {
     export namespace throughputSettings {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ThroughputSettingsUpdateProperties, location?: Expressionable<string>): ResourceDefinition<ThroughputSettingsUpdateProperties> {
+      export interface AddedResourceProps {
+        tags?: Expressionable<any>;
+      }
+      
+      export type ThroughputSettingsResource = ResourceDefinition<ThroughputSettingsUpdateProperties> & AddedResourceProps;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ThroughputSettingsUpdateProperties, location?: Expressionable<string>, tags?: Expressionable<any>): ThroughputSettingsResource {
         return {
           type: 'Microsoft.DocumentDB/databaseAccounts/gremlinDatabases/throughputSettings',
           apiVersion: '2019-08-01',
           name: name,
           location,
+          tags,
           properties,
         };
       }
@@ -398,12 +458,19 @@ export namespace databaseAccounts {
 }
 export namespace databaseAccounts {
   export namespace mongodbDatabases {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: MongoDBDatabaseCreateUpdateProperties, location?: Expressionable<string>): ResourceDefinition<MongoDBDatabaseCreateUpdateProperties> {
+    export interface AddedResourceProps {
+      tags?: Expressionable<any>;
+    }
+    
+    export type MongodbDatabasesResource = ResourceDefinition<MongoDBDatabaseCreateUpdateProperties> & AddedResourceProps;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: MongoDBDatabaseCreateUpdateProperties, location?: Expressionable<string>, tags?: Expressionable<any>): MongodbDatabasesResource {
       return {
         type: 'Microsoft.DocumentDB/databaseAccounts/mongodbDatabases',
         apiVersion: '2019-08-01',
         name: name,
         location,
+        tags,
         properties,
       };
     }
@@ -412,12 +479,19 @@ export namespace databaseAccounts {
 export namespace databaseAccounts {
   export namespace mongodbDatabases {
     export namespace collections {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: MongoDBCollectionCreateUpdateProperties, location?: Expressionable<string>): ResourceDefinition<MongoDBCollectionCreateUpdateProperties> {
+      export interface AddedResourceProps {
+        tags?: Expressionable<any>;
+      }
+      
+      export type CollectionsResource = ResourceDefinition<MongoDBCollectionCreateUpdateProperties> & AddedResourceProps;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: MongoDBCollectionCreateUpdateProperties, location?: Expressionable<string>, tags?: Expressionable<any>): CollectionsResource {
         return {
           type: 'Microsoft.DocumentDB/databaseAccounts/mongodbDatabases/collections',
           apiVersion: '2019-08-01',
           name: name,
           location,
+          tags,
           properties,
         };
       }
@@ -428,12 +502,19 @@ export namespace databaseAccounts {
   export namespace mongodbDatabases {
     export namespace collections {
       export namespace throughputSettings {
-        export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ThroughputSettingsUpdateProperties, location?: Expressionable<string>): ResourceDefinition<ThroughputSettingsUpdateProperties> {
+        export interface AddedResourceProps {
+          tags?: Expressionable<any>;
+        }
+        
+        export type ThroughputSettingsResource = ResourceDefinition<ThroughputSettingsUpdateProperties> & AddedResourceProps;
+        
+        export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ThroughputSettingsUpdateProperties, location?: Expressionable<string>, tags?: Expressionable<any>): ThroughputSettingsResource {
           return {
             type: 'Microsoft.DocumentDB/databaseAccounts/mongodbDatabases/collections/throughputSettings',
             apiVersion: '2019-08-01',
             name: name,
             location,
+            tags,
             properties,
           };
         }
@@ -444,12 +525,19 @@ export namespace databaseAccounts {
 export namespace databaseAccounts {
   export namespace mongodbDatabases {
     export namespace throughputSettings {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ThroughputSettingsUpdateProperties, location?: Expressionable<string>): ResourceDefinition<ThroughputSettingsUpdateProperties> {
+      export interface AddedResourceProps {
+        tags?: Expressionable<any>;
+      }
+      
+      export type ThroughputSettingsResource = ResourceDefinition<ThroughputSettingsUpdateProperties> & AddedResourceProps;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ThroughputSettingsUpdateProperties, location?: Expressionable<string>, tags?: Expressionable<any>): ThroughputSettingsResource {
         return {
           type: 'Microsoft.DocumentDB/databaseAccounts/mongodbDatabases/throughputSettings',
           apiVersion: '2019-08-01',
           name: name,
           location,
+          tags,
           properties,
         };
       }
@@ -458,12 +546,19 @@ export namespace databaseAccounts {
 }
 export namespace databaseAccounts {
   export namespace sqlDatabases {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: SqlDatabaseCreateUpdateProperties, location?: Expressionable<string>): ResourceDefinition<SqlDatabaseCreateUpdateProperties> {
+    export interface AddedResourceProps {
+      tags?: Expressionable<any>;
+    }
+    
+    export type SqlDatabasesResource = ResourceDefinition<SqlDatabaseCreateUpdateProperties> & AddedResourceProps;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: SqlDatabaseCreateUpdateProperties, location?: Expressionable<string>, tags?: Expressionable<any>): SqlDatabasesResource {
       return {
         type: 'Microsoft.DocumentDB/databaseAccounts/sqlDatabases',
         apiVersion: '2019-08-01',
         name: name,
         location,
+        tags,
         properties,
       };
     }
@@ -472,12 +567,19 @@ export namespace databaseAccounts {
 export namespace databaseAccounts {
   export namespace sqlDatabases {
     export namespace containers {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: SqlContainerCreateUpdateProperties, location?: Expressionable<string>): ResourceDefinition<SqlContainerCreateUpdateProperties> {
+      export interface AddedResourceProps {
+        tags?: Expressionable<any>;
+      }
+      
+      export type ContainersResource = ResourceDefinition<SqlContainerCreateUpdateProperties> & AddedResourceProps;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: SqlContainerCreateUpdateProperties, location?: Expressionable<string>, tags?: Expressionable<any>): ContainersResource {
         return {
           type: 'Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers',
           apiVersion: '2019-08-01',
           name: name,
           location,
+          tags,
           properties,
         };
       }
@@ -488,12 +590,19 @@ export namespace databaseAccounts {
   export namespace sqlDatabases {
     export namespace containers {
       export namespace storedProcedures {
-        export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: SqlStoredProcedureCreateUpdateProperties, location?: Expressionable<string>): ResourceDefinition<SqlStoredProcedureCreateUpdateProperties> {
+        export interface AddedResourceProps {
+          tags?: Expressionable<any>;
+        }
+        
+        export type StoredProceduresResource = ResourceDefinition<SqlStoredProcedureCreateUpdateProperties> & AddedResourceProps;
+        
+        export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: SqlStoredProcedureCreateUpdateProperties, location?: Expressionable<string>, tags?: Expressionable<any>): StoredProceduresResource {
           return {
             type: 'Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/storedProcedures',
             apiVersion: '2019-08-01',
             name: name,
             location,
+            tags,
             properties,
           };
         }
@@ -505,12 +614,19 @@ export namespace databaseAccounts {
   export namespace sqlDatabases {
     export namespace containers {
       export namespace throughputSettings {
-        export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ThroughputSettingsUpdateProperties, location?: Expressionable<string>): ResourceDefinition<ThroughputSettingsUpdateProperties> {
+        export interface AddedResourceProps {
+          tags?: Expressionable<any>;
+        }
+        
+        export type ThroughputSettingsResource = ResourceDefinition<ThroughputSettingsUpdateProperties> & AddedResourceProps;
+        
+        export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ThroughputSettingsUpdateProperties, location?: Expressionable<string>, tags?: Expressionable<any>): ThroughputSettingsResource {
           return {
             type: 'Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/throughputSettings',
             apiVersion: '2019-08-01',
             name: name,
             location,
+            tags,
             properties,
           };
         }
@@ -522,12 +638,19 @@ export namespace databaseAccounts {
   export namespace sqlDatabases {
     export namespace containers {
       export namespace triggers {
-        export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: SqlTriggerCreateUpdateProperties, location?: Expressionable<string>): ResourceDefinition<SqlTriggerCreateUpdateProperties> {
+        export interface AddedResourceProps {
+          tags?: Expressionable<any>;
+        }
+        
+        export type TriggersResource = ResourceDefinition<SqlTriggerCreateUpdateProperties> & AddedResourceProps;
+        
+        export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: SqlTriggerCreateUpdateProperties, location?: Expressionable<string>, tags?: Expressionable<any>): TriggersResource {
           return {
             type: 'Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/triggers',
             apiVersion: '2019-08-01',
             name: name,
             location,
+            tags,
             properties,
           };
         }
@@ -539,12 +662,19 @@ export namespace databaseAccounts {
   export namespace sqlDatabases {
     export namespace containers {
       export namespace userDefinedFunctions {
-        export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: SqlUserDefinedFunctionCreateUpdateProperties, location?: Expressionable<string>): ResourceDefinition<SqlUserDefinedFunctionCreateUpdateProperties> {
+        export interface AddedResourceProps {
+          tags?: Expressionable<any>;
+        }
+        
+        export type UserDefinedFunctionsResource = ResourceDefinition<SqlUserDefinedFunctionCreateUpdateProperties> & AddedResourceProps;
+        
+        export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: SqlUserDefinedFunctionCreateUpdateProperties, location?: Expressionable<string>, tags?: Expressionable<any>): UserDefinedFunctionsResource {
           return {
             type: 'Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/userDefinedFunctions',
             apiVersion: '2019-08-01',
             name: name,
             location,
+            tags,
             properties,
           };
         }
@@ -555,12 +685,19 @@ export namespace databaseAccounts {
 export namespace databaseAccounts {
   export namespace sqlDatabases {
     export namespace throughputSettings {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ThroughputSettingsUpdateProperties, location?: Expressionable<string>): ResourceDefinition<ThroughputSettingsUpdateProperties> {
+      export interface AddedResourceProps {
+        tags?: Expressionable<any>;
+      }
+      
+      export type ThroughputSettingsResource = ResourceDefinition<ThroughputSettingsUpdateProperties> & AddedResourceProps;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ThroughputSettingsUpdateProperties, location?: Expressionable<string>, tags?: Expressionable<any>): ThroughputSettingsResource {
         return {
           type: 'Microsoft.DocumentDB/databaseAccounts/sqlDatabases/throughputSettings',
           apiVersion: '2019-08-01',
           name: name,
           location,
+          tags,
           properties,
         };
       }
@@ -569,12 +706,19 @@ export namespace databaseAccounts {
 }
 export namespace databaseAccounts {
   export namespace tables {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: TableCreateUpdateProperties, location?: Expressionable<string>): ResourceDefinition<TableCreateUpdateProperties> {
+    export interface AddedResourceProps {
+      tags?: Expressionable<any>;
+    }
+    
+    export type TablesResource = ResourceDefinition<TableCreateUpdateProperties> & AddedResourceProps;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: TableCreateUpdateProperties, location?: Expressionable<string>, tags?: Expressionable<any>): TablesResource {
       return {
         type: 'Microsoft.DocumentDB/databaseAccounts/tables',
         apiVersion: '2019-08-01',
         name: name,
         location,
+        tags,
         properties,
       };
     }
@@ -583,12 +727,19 @@ export namespace databaseAccounts {
 export namespace databaseAccounts {
   export namespace tables {
     export namespace throughputSettings {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ThroughputSettingsUpdateProperties, location?: Expressionable<string>): ResourceDefinition<ThroughputSettingsUpdateProperties> {
+      export interface AddedResourceProps {
+        tags?: Expressionable<any>;
+      }
+      
+      export type ThroughputSettingsResource = ResourceDefinition<ThroughputSettingsUpdateProperties> & AddedResourceProps;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ThroughputSettingsUpdateProperties, location?: Expressionable<string>, tags?: Expressionable<any>): ThroughputSettingsResource {
         return {
           type: 'Microsoft.DocumentDB/databaseAccounts/tables/throughputSettings',
           apiVersion: '2019-08-01',
           name: name,
           location,
+          tags,
           properties,
         };
       }

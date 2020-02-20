@@ -1,7 +1,9 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 
 export namespace serverfarms {
-  export function create(name: Expressionable<string>, properties: any): ResourceDefinition<any> {
+  export type ServerfarmsResource = ResourceDefinition<any>;
+  
+  export function create(name: Expressionable<string>, properties: any): ServerfarmsResource {
     return {
       type: 'Microsoft.Web/serverfarms',
       apiVersion: '2014-06-01',
@@ -12,7 +14,9 @@ export namespace serverfarms {
 }
 export namespace sites {
   export namespace config {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: any): ResourceDefinition<any> {
+    export type ConfigResource = ResourceDefinition<any>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: any): ConfigResource {
       return {
         type: 'Microsoft.Web/sites/config',
         apiVersion: '2014-06-01',
@@ -24,7 +28,9 @@ export namespace sites {
 }
 export namespace sites {
   export namespace extensions {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: any): ResourceDefinition<any> {
+    export type ExtensionsResource = ResourceDefinition<any>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: any): ExtensionsResource {
       return {
         type: 'Microsoft.Web/sites/extensions',
         apiVersion: '2014-06-01',
@@ -35,7 +41,9 @@ export namespace sites {
   }
 }
 export namespace sites {
-  export function create(name: Expressionable<string>, properties: any): ResourceDefinition<any> {
+  export type SitesResource = ResourceDefinition<any>;
+  
+  export function create(name: Expressionable<string>, properties: any): SitesResource {
     return {
       type: 'Microsoft.Web/sites',
       apiVersion: '2014-06-01',
@@ -45,7 +53,9 @@ export namespace sites {
   }
 }
 export namespace certificates {
-  export function create(name: Expressionable<string>, properties: any): ResourceDefinition<any> {
+  export type CertificatesResource = ResourceDefinition<any>;
+  
+  export function create(name: Expressionable<string>, properties: any): CertificatesResource {
     return {
       type: 'Microsoft.Web/certificates',
       apiVersion: '2014-06-01',

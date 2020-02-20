@@ -12,12 +12,19 @@ export interface MaintenanceConfigurationProperties {
 }
 
 export namespace maintenanceConfigurations {
-  export function create(name: Expressionable<string>, properties: MaintenanceConfigurationProperties, location?: Expressionable<string>): ResourceDefinition<MaintenanceConfigurationProperties> {
+  export interface AddedResourceProps {
+    tags?: Expressionable<any>;
+  }
+  
+  export type MaintenanceConfigurationsResource = ResourceDefinition<MaintenanceConfigurationProperties> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: MaintenanceConfigurationProperties, location?: Expressionable<string>, tags?: Expressionable<any>): MaintenanceConfigurationsResource {
     return {
       type: 'Microsoft.Maintenance/maintenanceConfigurations',
       apiVersion: '2018-06-01-preview',
       name: [name],
       location,
+      tags,
       properties,
     };
   }

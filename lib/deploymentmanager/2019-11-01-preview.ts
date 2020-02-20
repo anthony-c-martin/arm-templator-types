@@ -133,51 +133,76 @@ export interface WaitStepProperties {
 }
 
 export namespace artifactSources {
-  export function create(name: Expressionable<string>, properties: ArtifactSourceProperties, location: Expressionable<string>): ResourceDefinition<ArtifactSourceProperties> {
+  export interface AddedResourceProps {
+    tags?: Expressionable<any>;
+  }
+  
+  export type ArtifactSourcesResource = ResourceDefinition<ArtifactSourceProperties> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: ArtifactSourceProperties, location: Expressionable<string>, tags?: Expressionable<any>): ArtifactSourcesResource {
     return {
       type: 'Microsoft.DeploymentManager/artifactSources',
       apiVersion: '2019-11-01-preview',
       name: [name],
       location,
+      tags,
       properties,
     };
   }
 }
 export namespace rollouts {
-  interface AdditionalProps {
+  export interface AddedResourceProps {
     identity: Expressionable<Identity>;
+    tags?: Expressionable<any>;
   }
   
-  export function create(name: Expressionable<string>, properties: RolloutRequestProperties, location: Expressionable<string>, identity: Expressionable<Identity>): ResourceDefinition<RolloutRequestProperties> & AdditionalProps {
+  export type RolloutsResource = ResourceDefinition<RolloutRequestProperties> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: RolloutRequestProperties, location: Expressionable<string>, identity: Expressionable<Identity>, tags?: Expressionable<any>): RolloutsResource {
     return {
       type: 'Microsoft.DeploymentManager/rollouts',
       apiVersion: '2019-11-01-preview',
       name: [name],
       location,
       identity,
+      tags,
       properties,
     };
   }
 }
 export namespace serviceTopologies {
-  export function create(name: Expressionable<string>, properties: ServiceTopologyResourceProperties, location: Expressionable<string>): ResourceDefinition<ServiceTopologyResourceProperties> {
+  export interface AddedResourceProps {
+    tags?: Expressionable<any>;
+  }
+  
+  export type ServiceTopologiesResource = ResourceDefinition<ServiceTopologyResourceProperties> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: ServiceTopologyResourceProperties, location: Expressionable<string>, tags?: Expressionable<any>): ServiceTopologiesResource {
     return {
       type: 'Microsoft.DeploymentManager/serviceTopologies',
       apiVersion: '2019-11-01-preview',
       name: [name],
       location,
+      tags,
       properties,
     };
   }
 }
 export namespace serviceTopologies {
   export namespace services {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ServiceResourceProperties, location: Expressionable<string>): ResourceDefinition<ServiceResourceProperties> {
+    export interface AddedResourceProps {
+      tags?: Expressionable<any>;
+    }
+    
+    export type ServicesResource = ResourceDefinition<ServiceResourceProperties> & AddedResourceProps;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ServiceResourceProperties, location: Expressionable<string>, tags?: Expressionable<any>): ServicesResource {
       return {
         type: 'Microsoft.DeploymentManager/serviceTopologies/services',
         apiVersion: '2019-11-01-preview',
         name: name,
         location,
+        tags,
         properties,
       };
     }
@@ -186,12 +211,19 @@ export namespace serviceTopologies {
 export namespace serviceTopologies {
   export namespace services {
     export namespace serviceUnits {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ServiceUnitResourceProperties, location: Expressionable<string>): ResourceDefinition<ServiceUnitResourceProperties> {
+      export interface AddedResourceProps {
+        tags?: Expressionable<any>;
+      }
+      
+      export type ServiceUnitsResource = ResourceDefinition<ServiceUnitResourceProperties> & AddedResourceProps;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ServiceUnitResourceProperties, location: Expressionable<string>, tags?: Expressionable<any>): ServiceUnitsResource {
         return {
           type: 'Microsoft.DeploymentManager/serviceTopologies/services/serviceUnits',
           apiVersion: '2019-11-01-preview',
           name: name,
           location,
+          tags,
           properties,
         };
       }
@@ -199,12 +231,19 @@ export namespace serviceTopologies {
   }
 }
 export namespace steps {
-  export function create(name: Expressionable<string>, properties: StepProperties, location: Expressionable<string>): ResourceDefinition<StepProperties> {
+  export interface AddedResourceProps {
+    tags?: Expressionable<any>;
+  }
+  
+  export type StepsResource = ResourceDefinition<StepProperties> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: StepProperties, location: Expressionable<string>, tags?: Expressionable<any>): StepsResource {
     return {
       type: 'Microsoft.DeploymentManager/steps',
       apiVersion: '2019-11-01-preview',
       name: [name],
       location,
+      tags,
       properties,
     };
   }

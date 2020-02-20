@@ -66,12 +66,19 @@ export interface ManagedClusterServicePrincipalProfile {
 }
 
 export namespace managedClusters {
-  export function create(name: Expressionable<string>, properties: ManagedClusterProperties, location: Expressionable<string>): ResourceDefinition<ManagedClusterProperties> {
+  export interface AddedResourceProps {
+    tags?: Expressionable<any>;
+  }
+  
+  export type ManagedClustersResource = ResourceDefinition<ManagedClusterProperties> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: ManagedClusterProperties, location: Expressionable<string>, tags?: Expressionable<any>): ManagedClustersResource {
     return {
       type: 'Microsoft.ContainerService/managedClusters',
       apiVersion: '2018-08-01-preview',
       name: [name],
       location,
+      tags,
       properties,
     };
   }

@@ -32,24 +32,30 @@ export interface TransactionNodeProperties {
 }
 
 export namespace blockchainMembers {
-  interface AdditionalProps {
+  export interface AddedResourceProps {
     sku?: Expressionable<Sku>;
+    tags?: Expressionable<any>;
   }
   
-  export function create(name: Expressionable<string>, properties: BlockchainMemberProperties, location?: Expressionable<string>, sku?: Expressionable<Sku>): ResourceDefinition<BlockchainMemberProperties> & AdditionalProps {
+  export type BlockchainMembersResource = ResourceDefinition<BlockchainMemberProperties> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: BlockchainMemberProperties, location?: Expressionable<string>, sku?: Expressionable<Sku>, tags?: Expressionable<any>): BlockchainMembersResource {
     return {
       type: 'Microsoft.Blockchain/blockchainMembers',
       apiVersion: '2018-06-01-preview',
       name: [name],
       location,
       sku,
+      tags,
       properties,
     };
   }
 }
 export namespace blockchainMembers {
   export namespace transactionNodes {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: TransactionNodeProperties, location?: Expressionable<string>): ResourceDefinition<TransactionNodeProperties> {
+    export type TransactionNodesResource = ResourceDefinition<TransactionNodeProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: TransactionNodeProperties, location?: Expressionable<string>): TransactionNodesResource {
       return {
         type: 'Microsoft.Blockchain/blockchainMembers/transactionNodes',
         apiVersion: '2018-06-01-preview',

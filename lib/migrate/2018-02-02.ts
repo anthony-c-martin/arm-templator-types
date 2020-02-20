@@ -26,19 +26,28 @@ export interface ProjectProperties {
 }
 
 export namespace projects {
-  export function create(name: Expressionable<string>, properties: ProjectProperties, location?: Expressionable<string>): ResourceDefinition<ProjectProperties> {
+  export interface AddedResourceProps {
+    tags?: Expressionable<any>;
+  }
+  
+  export type ProjectsResource = ResourceDefinition<ProjectProperties> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: ProjectProperties, location?: Expressionable<string>, tags?: Expressionable<any>): ProjectsResource {
     return {
       type: 'Microsoft.Migrate/projects',
       apiVersion: '2018-02-02',
       name: [name],
       location,
+      tags,
       properties,
     };
   }
 }
 export namespace projects {
   export namespace groups {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: GroupProperties): ResourceDefinition<GroupProperties> {
+    export type GroupsResource = ResourceDefinition<GroupProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: GroupProperties): GroupsResource {
       return {
         type: 'Microsoft.Migrate/projects/groups',
         apiVersion: '2018-02-02',
@@ -51,7 +60,9 @@ export namespace projects {
 export namespace projects {
   export namespace groups {
     export namespace assessments {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: AssessmentProperties): ResourceDefinition<AssessmentProperties> {
+      export type AssessmentsResource = ResourceDefinition<AssessmentProperties>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: AssessmentProperties): AssessmentsResource {
         return {
           type: 'Microsoft.Migrate/projects/groups/assessments',
           apiVersion: '2018-02-02',

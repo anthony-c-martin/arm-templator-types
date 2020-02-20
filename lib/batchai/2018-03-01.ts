@@ -261,34 +261,55 @@ export interface VirtualMachineConfiguration {
 }
 
 export namespace clusters {
-  export function create(name: Expressionable<string>, properties: ClusterBaseProperties, location: Expressionable<string>): ResourceDefinition<ClusterBaseProperties> {
+  export interface AddedResourceProps {
+    tags?: Expressionable<any>;
+  }
+  
+  export type ClustersResource = ResourceDefinition<ClusterBaseProperties> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: ClusterBaseProperties, location: Expressionable<string>, tags?: Expressionable<any>): ClustersResource {
     return {
       type: 'Microsoft.BatchAI/clusters',
       apiVersion: '2018-03-01',
       name: [name],
       location,
+      tags,
       properties,
     };
   }
 }
 export namespace fileServers {
-  export function create(name: Expressionable<string>, properties: FileServerBaseProperties, location: Expressionable<string>): ResourceDefinition<FileServerBaseProperties> {
+  export interface AddedResourceProps {
+    tags?: Expressionable<any>;
+  }
+  
+  export type FileServersResource = ResourceDefinition<FileServerBaseProperties> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: FileServerBaseProperties, location: Expressionable<string>, tags?: Expressionable<any>): FileServersResource {
     return {
       type: 'Microsoft.BatchAI/fileServers',
       apiVersion: '2018-03-01',
       name: [name],
       location,
+      tags,
       properties,
     };
   }
 }
 export namespace jobs {
-  export function create(name: Expressionable<string>, properties: JobBaseProperties, location: Expressionable<string>): ResourceDefinition<JobBaseProperties> {
+  export interface AddedResourceProps {
+    tags?: Expressionable<any>;
+  }
+  
+  export type JobsResource = ResourceDefinition<JobBaseProperties> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: JobBaseProperties, location: Expressionable<string>, tags?: Expressionable<any>): JobsResource {
     return {
       type: 'Microsoft.BatchAI/jobs',
       apiVersion: '2018-03-01',
       name: [name],
       location,
+      tags,
       properties,
     };
   }

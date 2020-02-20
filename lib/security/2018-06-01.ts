@@ -125,7 +125,9 @@ export interface InformationProtectionKeyword {
 }
 
 export namespace pricings {
-  export function create(name: Expressionable<string>, properties: PricingProperties): ResourceDefinition<PricingProperties> {
+  export type PricingsResource = ResourceDefinition<PricingProperties>;
+  
+  export function create(name: Expressionable<string>, properties: PricingProperties): PricingsResource {
     return {
       type: 'Microsoft.Security/pricings',
       apiVersion: '2018-06-01',
@@ -135,7 +137,9 @@ export namespace pricings {
   }
 }
 export namespace securityContacts {
-  export function create(name: Expressionable<string>, properties: SecurityContactProperties): ResourceDefinition<SecurityContactProperties> {
+  export type SecurityContactsResource = ResourceDefinition<SecurityContactProperties>;
+  
+  export function create(name: Expressionable<string>, properties: SecurityContactProperties): SecurityContactsResource {
     return {
       type: 'Microsoft.Security/securityContacts',
       apiVersion: '2018-06-01',
@@ -145,7 +149,9 @@ export namespace securityContacts {
   }
 }
 export namespace workspaceSettings {
-  export function create(name: Expressionable<string>, properties: WorkspaceSettingProperties): ResourceDefinition<WorkspaceSettingProperties> {
+  export type WorkspaceSettingsResource = ResourceDefinition<WorkspaceSettingProperties>;
+  
+  export function create(name: Expressionable<string>, properties: WorkspaceSettingProperties): WorkspaceSettingsResource {
     return {
       type: 'Microsoft.Security/workspaceSettings',
       apiVersion: '2018-06-01',
@@ -155,7 +161,9 @@ export namespace workspaceSettings {
   }
 }
 export namespace autoProvisioningSettings {
-  export function create(name: Expressionable<string>, properties: AutoProvisioningSettingProperties): ResourceDefinition<AutoProvisioningSettingProperties> {
+  export type AutoProvisioningSettingsResource = ResourceDefinition<AutoProvisioningSettingProperties>;
+  
+  export function create(name: Expressionable<string>, properties: AutoProvisioningSettingProperties): AutoProvisioningSettingsResource {
     return {
       type: 'Microsoft.Security/autoProvisioningSettings',
       apiVersion: '2018-06-01',
@@ -165,7 +173,9 @@ export namespace autoProvisioningSettings {
   }
 }
 export namespace advancedThreatProtectionSettings {
-  export function create(name: Expressionable<string>, properties: AdvancedThreatProtectionProperties): ResourceDefinition<AdvancedThreatProtectionProperties> {
+  export type AdvancedThreatProtectionSettingsResource = ResourceDefinition<AdvancedThreatProtectionProperties>;
+  
+  export function create(name: Expressionable<string>, properties: AdvancedThreatProtectionProperties): AdvancedThreatProtectionSettingsResource {
     return {
       type: 'Microsoft.Security/advancedThreatProtectionSettings',
       apiVersion: '2018-06-01',
@@ -175,7 +185,9 @@ export namespace advancedThreatProtectionSettings {
   }
 }
 export namespace settings {
-  export function create(name: Expressionable<string>, properties: SettingResource): ResourceDefinition<SettingResource> {
+  export type SettingsResource = ResourceDefinition<SettingResource>;
+  
+  export function create(name: Expressionable<string>, properties: SettingResource): SettingsResource {
     return {
       type: 'Microsoft.Security/settings',
       apiVersion: '2018-06-01',
@@ -185,7 +197,9 @@ export namespace settings {
   }
 }
 export namespace informationProtectionPolicies {
-  export function create(name: Expressionable<string>, properties: InformationProtectionPolicyProperties): ResourceDefinition<InformationProtectionPolicyProperties> {
+  export type InformationProtectionPoliciesResource = ResourceDefinition<InformationProtectionPolicyProperties>;
+  
+  export function create(name: Expressionable<string>, properties: InformationProtectionPolicyProperties): InformationProtectionPoliciesResource {
     return {
       type: 'Microsoft.Security/informationProtectionPolicies',
       apiVersion: '2018-06-01',

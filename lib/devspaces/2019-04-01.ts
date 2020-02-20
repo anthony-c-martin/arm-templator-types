@@ -11,17 +11,21 @@ export interface Sku {
 }
 
 export namespace controllers {
-  interface AdditionalProps {
+  export interface AddedResourceProps {
     sku: Expressionable<Sku>;
+    tags?: Expressionable<any>;
   }
   
-  export function create(name: Expressionable<string>, properties: ControllerProperties, sku: Expressionable<Sku>, location?: Expressionable<string>): ResourceDefinition<ControllerProperties> & AdditionalProps {
+  export type ControllersResource = ResourceDefinition<ControllerProperties> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: ControllerProperties, sku: Expressionable<Sku>, location?: Expressionable<string>, tags?: Expressionable<any>): ControllersResource {
     return {
       type: 'Microsoft.DevSpaces/controllers',
       apiVersion: '2019-04-01',
       name: [name],
       location,
       sku,
+      tags,
       properties,
     };
   }

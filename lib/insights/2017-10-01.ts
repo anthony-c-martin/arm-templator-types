@@ -10,7 +10,9 @@ export interface PricingPlanProperties {
 
 export namespace components {
   export namespace pricingPlans {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: PricingPlanProperties, location: Expressionable<string>): ResourceDefinition<PricingPlanProperties> {
+    export type PricingPlansResource = ResourceDefinition<PricingPlanProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: PricingPlanProperties, location: Expressionable<string>): PricingPlansResource {
       return {
         type: 'Microsoft.Insights/components/pricingPlans',
         apiVersion: '2017-10-01',

@@ -32,7 +32,9 @@ export interface TokenProperties {
 
 export namespace registries {
   export namespace scopeMaps {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ScopeMapProperties): ResourceDefinition<ScopeMapProperties> {
+    export type ScopeMapsResource = ResourceDefinition<ScopeMapProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ScopeMapProperties): ScopeMapsResource {
       return {
         type: 'Microsoft.ContainerRegistry/registries/scopeMaps',
         apiVersion: '2019-05-01-preview',
@@ -44,7 +46,9 @@ export namespace registries {
 }
 export namespace registries {
   export namespace tokens {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: TokenProperties): ResourceDefinition<TokenProperties> {
+    export type TokensResource = ResourceDefinition<TokenProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: TokenProperties): TokensResource {
       return {
         type: 'Microsoft.ContainerRegistry/registries/tokens',
         apiVersion: '2019-05-01-preview',

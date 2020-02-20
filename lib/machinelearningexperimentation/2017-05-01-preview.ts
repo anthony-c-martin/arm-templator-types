@@ -26,7 +26,9 @@ export interface WorkspaceProperties {
 }
 
 export namespace accounts {
-  export function create(name: Expressionable<string>, properties: AccountProperties, location: Expressionable<string>): ResourceDefinition<AccountProperties> {
+  export type AccountsResource = ResourceDefinition<AccountProperties>;
+  
+  export function create(name: Expressionable<string>, properties: AccountProperties, location: Expressionable<string>): AccountsResource {
     return {
       type: 'Microsoft.MachineLearningExperimentation/accounts',
       apiVersion: '2017-05-01-preview',
@@ -38,7 +40,9 @@ export namespace accounts {
 }
 export namespace accounts {
   export namespace workspaces {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: WorkspaceProperties, location: Expressionable<string>): ResourceDefinition<WorkspaceProperties> {
+    export type WorkspacesResource = ResourceDefinition<WorkspaceProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: WorkspaceProperties, location: Expressionable<string>): WorkspacesResource {
       return {
         type: 'Microsoft.MachineLearningExperimentation/accounts/workspaces',
         apiVersion: '2017-05-01-preview',
@@ -52,7 +56,9 @@ export namespace accounts {
 export namespace accounts {
   export namespace workspaces {
     export namespace projects {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ProjectProperties, location: Expressionable<string>): ResourceDefinition<ProjectProperties> {
+      export type ProjectsResource = ResourceDefinition<ProjectProperties>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ProjectProperties, location: Expressionable<string>): ProjectsResource {
         return {
           type: 'Microsoft.MachineLearningExperimentation/accounts/workspaces/projects',
           apiVersion: '2017-05-01-preview',

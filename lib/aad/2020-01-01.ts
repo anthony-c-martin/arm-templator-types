@@ -34,12 +34,19 @@ export interface ReplicaSet {
 }
 
 export namespace domainServices {
-  export function create(name: Expressionable<string>, properties: DomainServiceProperties, location?: Expressionable<string>): ResourceDefinition<DomainServiceProperties> {
+  export interface AddedResourceProps {
+    tags?: Expressionable<any>;
+  }
+  
+  export type DomainServicesResource = ResourceDefinition<DomainServiceProperties> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: DomainServiceProperties, location?: Expressionable<string>, tags?: Expressionable<any>): DomainServicesResource {
     return {
       type: 'Microsoft.AAD/domainServices',
       apiVersion: '2020-01-01',
       name: [name],
       location,
+      tags,
       properties,
     };
   }

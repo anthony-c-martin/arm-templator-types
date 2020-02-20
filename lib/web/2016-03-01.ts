@@ -21,7 +21,9 @@ export interface Csr_properties {
 }
 
 export namespace certificates {
-  export function create(name: Expressionable<string>, properties: Certificate_properties): ResourceDefinition<Certificate_properties> {
+  export type CertificatesResource = ResourceDefinition<Certificate_properties>;
+  
+  export function create(name: Expressionable<string>, properties: Certificate_properties): CertificatesResource {
     return {
       type: 'Microsoft.Web/certificates',
       apiVersion: '2016-03-01',
@@ -31,7 +33,9 @@ export namespace certificates {
   }
 }
 export namespace csrs {
-  export function create(name: Expressionable<string>, properties: Csr_properties): ResourceDefinition<Csr_properties> {
+  export type CsrsResource = ResourceDefinition<Csr_properties>;
+  
+  export function create(name: Expressionable<string>, properties: Csr_properties): CsrsResource {
     return {
       type: 'Microsoft.Web/csrs',
       apiVersion: '2016-03-01',

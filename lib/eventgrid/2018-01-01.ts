@@ -38,7 +38,9 @@ export interface EventSubscriptionFilter {
 }
 
 export namespace topics {
-  export function create(name: Expressionable<string>, properties: TopicProperties, location: Expressionable<string>): ResourceDefinition<TopicProperties> {
+  export type TopicsResource = ResourceDefinition<TopicProperties>;
+  
+  export function create(name: Expressionable<string>, properties: TopicProperties, location: Expressionable<string>): TopicsResource {
     return {
       type: 'Microsoft.EventGrid/topics',
       apiVersion: '2018-01-01',
@@ -49,7 +51,9 @@ export namespace topics {
   }
 }
 export namespace eventSubscriptions {
-  export function create(name: Expressionable<string>, properties: EventSubscriptionProperties): ResourceDefinition<EventSubscriptionProperties> {
+  export type EventSubscriptionsResource = ResourceDefinition<EventSubscriptionProperties>;
+  
+  export function create(name: Expressionable<string>, properties: EventSubscriptionProperties): EventSubscriptionsResource {
     return {
       type: 'Microsoft.EventGrid/eventSubscriptions',
       apiVersion: '2018-01-01',

@@ -136,12 +136,15 @@ export interface VirtualNetworkRuleProperties {
 }
 
 export namespace managedInstances {
-  interface AdditionalProps {
+  export interface AddedResourceProps {
     identity?: Expressionable<ResourceIdentity>;
     sku?: Expressionable<Sku>;
+    tags?: Expressionable<any>;
   }
   
-  export function create(name: Expressionable<string>, properties: ManagedInstanceProperties, location: Expressionable<string>, identity?: Expressionable<ResourceIdentity>, sku?: Expressionable<Sku>): ResourceDefinition<ManagedInstanceProperties> & AdditionalProps {
+  export type ManagedInstancesResource = ResourceDefinition<ManagedInstanceProperties> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: ManagedInstanceProperties, location: Expressionable<string>, identity?: Expressionable<ResourceIdentity>, sku?: Expressionable<Sku>, tags?: Expressionable<any>): ManagedInstancesResource {
     return {
       type: 'Microsoft.Sql/managedInstances',
       apiVersion: '2015-05-01-preview',
@@ -149,22 +152,27 @@ export namespace managedInstances {
       location,
       identity,
       sku,
+      tags,
       properties,
     };
   }
 }
 export namespace servers {
-  interface AdditionalProps {
+  export interface AddedResourceProps {
     identity?: Expressionable<ResourceIdentity>;
+    tags?: Expressionable<any>;
   }
   
-  export function create(name: Expressionable<string>, properties: ServerProperties, location: Expressionable<string>, identity?: Expressionable<ResourceIdentity>): ResourceDefinition<ServerProperties> & AdditionalProps {
+  export type ServersResource = ResourceDefinition<ServerProperties> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: ServerProperties, location: Expressionable<string>, identity?: Expressionable<ResourceIdentity>, tags?: Expressionable<any>): ServersResource {
     return {
       type: 'Microsoft.Sql/servers',
       apiVersion: '2015-05-01-preview',
       name: [name],
       location,
       identity,
+      tags,
       properties,
     };
   }
@@ -172,7 +180,9 @@ export namespace servers {
 export namespace servers {
   export namespace databases {
     export namespace auditingSettings {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: DatabaseBlobAuditingPolicyProperties): ResourceDefinition<DatabaseBlobAuditingPolicyProperties> {
+      export type AuditingSettingsResource = ResourceDefinition<DatabaseBlobAuditingPolicyProperties>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: DatabaseBlobAuditingPolicyProperties): AuditingSettingsResource {
         return {
           type: 'Microsoft.Sql/servers/databases/auditingSettings',
           apiVersion: '2015-05-01-preview',
@@ -186,7 +196,9 @@ export namespace servers {
 export namespace servers {
   export namespace databases {
     export namespace syncGroups {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: SyncGroupProperties): ResourceDefinition<SyncGroupProperties> {
+      export type SyncGroupsResource = ResourceDefinition<SyncGroupProperties>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: SyncGroupProperties): SyncGroupsResource {
         return {
           type: 'Microsoft.Sql/servers/databases/syncGroups',
           apiVersion: '2015-05-01-preview',
@@ -201,7 +213,9 @@ export namespace servers {
   export namespace databases {
     export namespace syncGroups {
       export namespace syncMembers {
-        export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: SyncMemberProperties): ResourceDefinition<SyncMemberProperties> {
+        export type SyncMembersResource = ResourceDefinition<SyncMemberProperties>;
+        
+        export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: SyncMemberProperties): SyncMembersResource {
           return {
             type: 'Microsoft.Sql/servers/databases/syncGroups/syncMembers',
             apiVersion: '2015-05-01-preview',
@@ -215,7 +229,9 @@ export namespace servers {
 }
 export namespace servers {
   export namespace encryptionProtector {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: EncryptionProtectorProperties): ResourceDefinition<EncryptionProtectorProperties> {
+    export type EncryptionProtectorResource = ResourceDefinition<EncryptionProtectorProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: EncryptionProtectorProperties): EncryptionProtectorResource {
       return {
         type: 'Microsoft.Sql/servers/encryptionProtector',
         apiVersion: '2015-05-01-preview',
@@ -227,11 +243,18 @@ export namespace servers {
 }
 export namespace servers {
   export namespace failoverGroups {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: FailoverGroupProperties): ResourceDefinition<FailoverGroupProperties> {
+    export interface AddedResourceProps {
+      tags?: Expressionable<any>;
+    }
+    
+    export type FailoverGroupsResource = ResourceDefinition<FailoverGroupProperties> & AddedResourceProps;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: FailoverGroupProperties, tags?: Expressionable<any>): FailoverGroupsResource {
       return {
         type: 'Microsoft.Sql/servers/failoverGroups',
         apiVersion: '2015-05-01-preview',
         name: name,
+        tags,
         properties,
       };
     }
@@ -239,7 +262,9 @@ export namespace servers {
 }
 export namespace servers {
   export namespace firewallRules {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ServerFirewallRuleProperties): ResourceDefinition<ServerFirewallRuleProperties> {
+    export type FirewallRulesResource = ResourceDefinition<ServerFirewallRuleProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ServerFirewallRuleProperties): FirewallRulesResource {
       return {
         type: 'Microsoft.Sql/servers/firewallRules',
         apiVersion: '2015-05-01-preview',
@@ -251,11 +276,13 @@ export namespace servers {
 }
 export namespace servers {
   export namespace keys {
-    interface AdditionalProps {
+    export interface AddedResourceProps {
       kind?: Expressionable<string>;
     }
     
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ServerKeyProperties, kind?: Expressionable<string>): ResourceDefinition<ServerKeyProperties> & AdditionalProps {
+    export type KeysResource = ResourceDefinition<ServerKeyProperties> & AddedResourceProps;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ServerKeyProperties, kind?: Expressionable<string>): KeysResource {
       return {
         type: 'Microsoft.Sql/servers/keys',
         apiVersion: '2015-05-01-preview',
@@ -268,7 +295,9 @@ export namespace servers {
 }
 export namespace servers {
   export namespace syncAgents {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: SyncAgentProperties): ResourceDefinition<SyncAgentProperties> {
+    export type SyncAgentsResource = ResourceDefinition<SyncAgentProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: SyncAgentProperties): SyncAgentsResource {
       return {
         type: 'Microsoft.Sql/servers/syncAgents',
         apiVersion: '2015-05-01-preview',
@@ -280,7 +309,9 @@ export namespace servers {
 }
 export namespace servers {
   export namespace virtualNetworkRules {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: VirtualNetworkRuleProperties): ResourceDefinition<VirtualNetworkRuleProperties> {
+    export type VirtualNetworkRulesResource = ResourceDefinition<VirtualNetworkRuleProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: VirtualNetworkRuleProperties): VirtualNetworkRulesResource {
       return {
         type: 'Microsoft.Sql/servers/virtualNetworkRules',
         apiVersion: '2015-05-01-preview',

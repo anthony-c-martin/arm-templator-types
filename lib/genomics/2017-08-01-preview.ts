@@ -1,7 +1,9 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 
 export namespace accounts {
-  export function create(name: Expressionable<string>, properties: any, location: Expressionable<string>): ResourceDefinition<any> {
+  export type AccountsResource = ResourceDefinition<any>;
+  
+  export function create(name: Expressionable<string>, properties: any, location: Expressionable<string>): AccountsResource {
     return {
       type: 'Microsoft.Genomics/accounts',
       apiVersion: '2017-08-01-preview',

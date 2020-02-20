@@ -200,17 +200,21 @@ export interface UserIdentityProperties {
 
 export namespace registries {
   export namespace taskRuns {
-    interface AdditionalProps {
+    export interface AddedResourceProps {
       identity?: Expressionable<IdentityProperties>;
+      tags?: Expressionable<any>;
     }
     
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: TaskRunProperties, location: Expressionable<string>, identity?: Expressionable<IdentityProperties>): ResourceDefinition<TaskRunProperties> & AdditionalProps {
+    export type TaskRunsResource = ResourceDefinition<TaskRunProperties> & AddedResourceProps;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: TaskRunProperties, location: Expressionable<string>, identity?: Expressionable<IdentityProperties>, tags?: Expressionable<any>): TaskRunsResource {
       return {
         type: 'Microsoft.ContainerRegistry/registries/taskRuns',
         apiVersion: '2019-06-01-preview',
         name: name,
         location,
         identity,
+        tags,
         properties,
       };
     }
@@ -218,17 +222,21 @@ export namespace registries {
 }
 export namespace registries {
   export namespace tasks {
-    interface AdditionalProps {
+    export interface AddedResourceProps {
       identity?: Expressionable<IdentityProperties>;
+      tags?: Expressionable<any>;
     }
     
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: TaskProperties, location: Expressionable<string>, identity?: Expressionable<IdentityProperties>): ResourceDefinition<TaskProperties> & AdditionalProps {
+    export type TasksResource = ResourceDefinition<TaskProperties> & AddedResourceProps;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: TaskProperties, location: Expressionable<string>, identity?: Expressionable<IdentityProperties>, tags?: Expressionable<any>): TasksResource {
       return {
         type: 'Microsoft.ContainerRegistry/registries/tasks',
         apiVersion: '2019-06-01-preview',
         name: name,
         location,
         identity,
+        tags,
         properties,
       };
     }

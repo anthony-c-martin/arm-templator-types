@@ -31,19 +31,28 @@ export interface ServerEndpointCreateParametersProperties {
 }
 
 export namespace storageSyncServices {
-  export function create(name: Expressionable<string>, properties: any, location: Expressionable<string>): ResourceDefinition<any> {
+  export interface AddedResourceProps {
+    tags?: Expressionable<any>;
+  }
+  
+  export type StorageSyncServicesResource = ResourceDefinition<any> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: any, location: Expressionable<string>, tags?: Expressionable<any>): StorageSyncServicesResource {
     return {
       type: 'Microsoft.StorageSync/storageSyncServices',
       apiVersion: '2019-03-01',
       name: [name],
       location,
+      tags,
       properties,
     };
   }
 }
 export namespace storageSyncServices {
   export namespace registeredServers {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RegisteredServerCreateParametersProperties): ResourceDefinition<RegisteredServerCreateParametersProperties> {
+    export type RegisteredServersResource = ResourceDefinition<RegisteredServerCreateParametersProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RegisteredServerCreateParametersProperties): RegisteredServersResource {
       return {
         type: 'Microsoft.StorageSync/storageSyncServices/registeredServers',
         apiVersion: '2019-03-01',
@@ -55,7 +64,9 @@ export namespace storageSyncServices {
 }
 export namespace storageSyncServices {
   export namespace syncGroups {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: any): ResourceDefinition<any> {
+    export type SyncGroupsResource = ResourceDefinition<any>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: any): SyncGroupsResource {
       return {
         type: 'Microsoft.StorageSync/storageSyncServices/syncGroups',
         apiVersion: '2019-03-01',
@@ -68,7 +79,9 @@ export namespace storageSyncServices {
 export namespace storageSyncServices {
   export namespace syncGroups {
     export namespace cloudEndpoints {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: CloudEndpointCreateParametersProperties): ResourceDefinition<CloudEndpointCreateParametersProperties> {
+      export type CloudEndpointsResource = ResourceDefinition<CloudEndpointCreateParametersProperties>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: CloudEndpointCreateParametersProperties): CloudEndpointsResource {
         return {
           type: 'Microsoft.StorageSync/storageSyncServices/syncGroups/cloudEndpoints',
           apiVersion: '2019-03-01',
@@ -82,7 +95,9 @@ export namespace storageSyncServices {
 export namespace storageSyncServices {
   export namespace syncGroups {
     export namespace serverEndpoints {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ServerEndpointCreateParametersProperties): ResourceDefinition<ServerEndpointCreateParametersProperties> {
+      export type ServerEndpointsResource = ResourceDefinition<ServerEndpointCreateParametersProperties>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ServerEndpointCreateParametersProperties): ServerEndpointsResource {
         return {
           type: 'Microsoft.StorageSync/storageSyncServices/syncGroups/serverEndpoints',
           apiVersion: '2019-03-01',

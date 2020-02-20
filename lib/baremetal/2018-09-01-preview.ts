@@ -6,7 +6,9 @@ export interface crayServersProperties {
 }
 
 export namespace crayServers {
-  export function create(name: Expressionable<string>, properties: crayServersProperties, location: Expressionable<string>): ResourceDefinition<crayServersProperties> {
+  export type CrayServersResource = ResourceDefinition<crayServersProperties>;
+  
+  export function create(name: Expressionable<string>, properties: crayServersProperties, location: Expressionable<string>): CrayServersResource {
     return {
       type: 'Microsoft.BareMetal/crayServers',
       apiVersion: '2018-09-01-preview',

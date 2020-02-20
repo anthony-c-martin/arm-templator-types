@@ -81,12 +81,19 @@ export interface KeyVaultSecretRef {
 }
 
 export namespace containerServices {
-  export function create(name: Expressionable<string>, properties: ContainerServiceProperties, location: Expressionable<string>): ResourceDefinition<ContainerServiceProperties> {
+  export interface AddedResourceProps {
+    tags?: Expressionable<any>;
+  }
+  
+  export type ContainerServicesResource = ResourceDefinition<ContainerServiceProperties> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: ContainerServiceProperties, location: Expressionable<string>, tags?: Expressionable<any>): ContainerServicesResource {
     return {
       type: 'Microsoft.ContainerService/containerServices',
       apiVersion: '2017-07-01',
       name: [name],
       location,
+      tags,
       properties,
     };
   }

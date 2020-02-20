@@ -12,7 +12,9 @@ export interface RemediationProperties {
 }
 
 export namespace remediations {
-  export function create(name: Expressionable<string>, properties: RemediationProperties): ResourceDefinition<RemediationProperties> {
+  export type RemediationsResource = ResourceDefinition<RemediationProperties>;
+  
+  export function create(name: Expressionable<string>, properties: RemediationProperties): RemediationsResource {
     return {
       type: 'Microsoft.PolicyInsights/remediations',
       apiVersion: '2019-07-01',

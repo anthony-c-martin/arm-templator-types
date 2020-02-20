@@ -12,11 +12,13 @@ export interface administrator {
 }
 
 export namespace capacities {
-  interface AdditionalProps {
+  export interface AddedResourceProps {
     sku: Expressionable<Sku>;
   }
   
-  export function create(name: Expressionable<string>, properties: CapacityProperties, location: Expressionable<string>, sku: Expressionable<Sku>): ResourceDefinition<CapacityProperties> & AdditionalProps {
+  export type CapacitiesResource = ResourceDefinition<CapacityProperties> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: CapacityProperties, location: Expressionable<string>, sku: Expressionable<Sku>): CapacitiesResource {
     return {
       type: 'Microsoft.PowerBIDedicated/capacities',
       apiVersion: '2017-10-01',

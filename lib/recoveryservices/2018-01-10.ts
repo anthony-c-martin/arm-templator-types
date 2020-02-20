@@ -264,7 +264,9 @@ export interface VMwareV2FabricCreationInput {
 
 export namespace vaults {
   export namespace replicationAlertSettings {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ConfigureAlertRequestProperties): ResourceDefinition<ConfigureAlertRequestProperties> {
+    export type ReplicationAlertSettingsResource = ResourceDefinition<ConfigureAlertRequestProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ConfigureAlertRequestProperties): ReplicationAlertSettingsResource {
       return {
         type: 'Microsoft.RecoveryServices/vaults/replicationAlertSettings',
         apiVersion: '2018-01-10',
@@ -276,7 +278,9 @@ export namespace vaults {
 }
 export namespace vaults {
   export namespace replicationFabrics {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: FabricCreationInputProperties): ResourceDefinition<FabricCreationInputProperties> {
+    export type ReplicationFabricsResource = ResourceDefinition<FabricCreationInputProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: FabricCreationInputProperties): ReplicationFabricsResource {
       return {
         type: 'Microsoft.RecoveryServices/vaults/replicationFabrics',
         apiVersion: '2018-01-10',
@@ -290,7 +294,9 @@ export namespace vaults {
   export namespace replicationFabrics {
     export namespace replicationNetworks {
       export namespace replicationNetworkMappings {
-        export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: CreateNetworkMappingInputProperties): ResourceDefinition<CreateNetworkMappingInputProperties> {
+        export type ReplicationNetworkMappingsResource = ResourceDefinition<CreateNetworkMappingInputProperties>;
+        
+        export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: CreateNetworkMappingInputProperties): ReplicationNetworkMappingsResource {
           return {
             type: 'Microsoft.RecoveryServices/vaults/replicationFabrics/replicationNetworks/replicationNetworkMappings',
             apiVersion: '2018-01-10',
@@ -305,7 +311,9 @@ export namespace vaults {
 export namespace vaults {
   export namespace replicationFabrics {
     export namespace replicationProtectionContainers {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: CreateProtectionContainerInputProperties): ResourceDefinition<CreateProtectionContainerInputProperties> {
+      export type ReplicationProtectionContainersResource = ResourceDefinition<CreateProtectionContainerInputProperties>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: CreateProtectionContainerInputProperties): ReplicationProtectionContainersResource {
         return {
           type: 'Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers',
           apiVersion: '2018-01-10',
@@ -320,7 +328,9 @@ export namespace vaults {
   export namespace replicationFabrics {
     export namespace replicationProtectionContainers {
       export namespace replicationMigrationItems {
-        export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: EnableMigrationInputProperties): ResourceDefinition<EnableMigrationInputProperties> {
+        export type ReplicationMigrationItemsResource = ResourceDefinition<EnableMigrationInputProperties>;
+        
+        export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: EnableMigrationInputProperties): ReplicationMigrationItemsResource {
           return {
             type: 'Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationMigrationItems',
             apiVersion: '2018-01-10',
@@ -336,7 +346,9 @@ export namespace vaults {
   export namespace replicationFabrics {
     export namespace replicationProtectionContainers {
       export namespace replicationProtectedItems {
-        export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: EnableProtectionInputProperties): ResourceDefinition<EnableProtectionInputProperties> {
+        export type ReplicationProtectedItemsResource = ResourceDefinition<EnableProtectionInputProperties>;
+        
+        export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: EnableProtectionInputProperties): ReplicationProtectedItemsResource {
           return {
             type: 'Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems',
             apiVersion: '2018-01-10',
@@ -352,7 +364,9 @@ export namespace vaults {
   export namespace replicationFabrics {
     export namespace replicationProtectionContainers {
       export namespace replicationProtectionContainerMappings {
-        export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: CreateProtectionContainerMappingInputProperties): ResourceDefinition<CreateProtectionContainerMappingInputProperties> {
+        export type ReplicationProtectionContainerMappingsResource = ResourceDefinition<CreateProtectionContainerMappingInputProperties>;
+        
+        export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: CreateProtectionContainerMappingInputProperties): ReplicationProtectionContainerMappingsResource {
           return {
             type: 'Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectionContainerMappings',
             apiVersion: '2018-01-10',
@@ -367,7 +381,9 @@ export namespace vaults {
 export namespace vaults {
   export namespace replicationFabrics {
     export namespace replicationRecoveryServicesProviders {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: AddRecoveryServicesProviderInputProperties): ResourceDefinition<AddRecoveryServicesProviderInputProperties> {
+      export type ReplicationRecoveryServicesProvidersResource = ResourceDefinition<AddRecoveryServicesProviderInputProperties>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: AddRecoveryServicesProviderInputProperties): ReplicationRecoveryServicesProvidersResource {
         return {
           type: 'Microsoft.RecoveryServices/vaults/replicationFabrics/replicationRecoveryServicesProviders',
           apiVersion: '2018-01-10',
@@ -382,7 +398,9 @@ export namespace vaults {
   export namespace replicationFabrics {
     export namespace replicationStorageClassifications {
       export namespace replicationStorageClassificationMappings {
-        export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: StorageMappingInputProperties): ResourceDefinition<StorageMappingInputProperties> {
+        export type ReplicationStorageClassificationMappingsResource = ResourceDefinition<StorageMappingInputProperties>;
+        
+        export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: StorageMappingInputProperties): ReplicationStorageClassificationMappingsResource {
           return {
             type: 'Microsoft.RecoveryServices/vaults/replicationFabrics/replicationStorageClassifications/replicationStorageClassificationMappings',
             apiVersion: '2018-01-10',
@@ -397,7 +415,9 @@ export namespace vaults {
 export namespace vaults {
   export namespace replicationFabrics {
     export namespace replicationvCenters {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: AddVCenterRequestProperties): ResourceDefinition<AddVCenterRequestProperties> {
+      export type ReplicationvCentersResource = ResourceDefinition<AddVCenterRequestProperties>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: AddVCenterRequestProperties): ReplicationvCentersResource {
         return {
           type: 'Microsoft.RecoveryServices/vaults/replicationFabrics/replicationvCenters',
           apiVersion: '2018-01-10',
@@ -410,7 +430,9 @@ export namespace vaults {
 }
 export namespace vaults {
   export namespace replicationPolicies {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: CreatePolicyInputProperties): ResourceDefinition<CreatePolicyInputProperties> {
+    export type ReplicationPoliciesResource = ResourceDefinition<CreatePolicyInputProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: CreatePolicyInputProperties): ReplicationPoliciesResource {
       return {
         type: 'Microsoft.RecoveryServices/vaults/replicationPolicies',
         apiVersion: '2018-01-10',
@@ -422,7 +444,9 @@ export namespace vaults {
 }
 export namespace vaults {
   export namespace replicationRecoveryPlans {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: CreateRecoveryPlanInputProperties): ResourceDefinition<CreateRecoveryPlanInputProperties> {
+    export type ReplicationRecoveryPlansResource = ResourceDefinition<CreateRecoveryPlanInputProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: CreateRecoveryPlanInputProperties): ReplicationRecoveryPlansResource {
       return {
         type: 'Microsoft.RecoveryServices/vaults/replicationRecoveryPlans',
         apiVersion: '2018-01-10',

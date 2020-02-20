@@ -144,7 +144,9 @@ export interface DeadLetterDestination {
 }
 
 export namespace topics {
-  export function create(name: Expressionable<string>, properties: TopicProperties, location: Expressionable<string>): ResourceDefinition<TopicProperties> {
+  export type TopicsResource = ResourceDefinition<TopicProperties>;
+  
+  export function create(name: Expressionable<string>, properties: TopicProperties, location: Expressionable<string>): TopicsResource {
     return {
       type: 'Microsoft.EventGrid/topics',
       apiVersion: '2019-06-01',
@@ -155,7 +157,9 @@ export namespace topics {
   }
 }
 export namespace eventSubscriptions {
-  export function create(name: Expressionable<string>, properties: EventSubscriptionProperties): ResourceDefinition<EventSubscriptionProperties> {
+  export type EventSubscriptionsResource = ResourceDefinition<EventSubscriptionProperties>;
+  
+  export function create(name: Expressionable<string>, properties: EventSubscriptionProperties): EventSubscriptionsResource {
     return {
       type: 'Microsoft.EventGrid/eventSubscriptions',
       apiVersion: '2019-06-01',
@@ -165,7 +169,9 @@ export namespace eventSubscriptions {
   }
 }
 export namespace domains {
-  export function create(name: Expressionable<string>, properties: DomainProperties, location: Expressionable<string>): ResourceDefinition<DomainProperties> {
+  export type DomainsResource = ResourceDefinition<DomainProperties>;
+  
+  export function create(name: Expressionable<string>, properties: DomainProperties, location: Expressionable<string>): DomainsResource {
     return {
       type: 'Microsoft.EventGrid/domains',
       apiVersion: '2019-06-01',
@@ -177,7 +183,9 @@ export namespace domains {
 }
 export namespace domains {
   export namespace topics {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: any): ResourceDefinition<any> {
+    export type TopicsResource = ResourceDefinition<any>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: any): TopicsResource {
       return {
         type: 'Microsoft.EventGrid/domains/topics',
         apiVersion: '2019-06-01',

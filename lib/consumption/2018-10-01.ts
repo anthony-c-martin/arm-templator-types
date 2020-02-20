@@ -31,7 +31,9 @@ export interface Notification {
 }
 
 export namespace budgets {
-  export function create(name: Expressionable<string>, properties: BudgetProperties): ResourceDefinition<BudgetProperties> {
+  export type BudgetsResource = ResourceDefinition<BudgetProperties>;
+  
+  export function create(name: Expressionable<string>, properties: BudgetProperties): BudgetsResource {
     return {
       type: 'Microsoft.Consumption/budgets',
       apiVersion: '2018-10-01',

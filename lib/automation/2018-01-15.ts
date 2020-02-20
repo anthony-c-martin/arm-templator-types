@@ -30,12 +30,19 @@ export interface DscNodeConfigurationCreateOrUpdateParametersProperties {
 
 export namespace automationAccounts {
   export namespace compilationjobs {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: DscCompilationJobCreateProperties, location?: Expressionable<string>): ResourceDefinition<DscCompilationJobCreateProperties> {
+    export interface AddedResourceProps {
+      tags?: Expressionable<any>;
+    }
+    
+    export type CompilationjobsResource = ResourceDefinition<DscCompilationJobCreateProperties> & AddedResourceProps;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: DscCompilationJobCreateProperties, location?: Expressionable<string>, tags?: Expressionable<any>): CompilationjobsResource {
       return {
         type: 'Microsoft.Automation/automationAccounts/compilationjobs',
         apiVersion: '2018-01-15',
         name: name,
         location,
+        tags,
         properties,
       };
     }
@@ -43,11 +50,18 @@ export namespace automationAccounts {
 }
 export namespace automationAccounts {
   export namespace nodeConfigurations {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: DscNodeConfigurationCreateOrUpdateParametersProperties): ResourceDefinition<DscNodeConfigurationCreateOrUpdateParametersProperties> {
+    export interface AddedResourceProps {
+      tags?: Expressionable<any>;
+    }
+    
+    export type NodeConfigurationsResource = ResourceDefinition<DscNodeConfigurationCreateOrUpdateParametersProperties> & AddedResourceProps;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: DscNodeConfigurationCreateOrUpdateParametersProperties, tags?: Expressionable<any>): NodeConfigurationsResource {
       return {
         type: 'Microsoft.Automation/automationAccounts/nodeConfigurations',
         apiVersion: '2018-01-15',
         name: name,
+        tags,
         properties,
       };
     }

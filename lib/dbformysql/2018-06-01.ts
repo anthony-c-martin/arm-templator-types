@@ -16,7 +16,9 @@ export interface PrivateLinkServiceConnectionStateProperty {
 
 export namespace servers {
   export namespace privateEndpointConnections {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: PrivateEndpointConnectionProperties): ResourceDefinition<PrivateEndpointConnectionProperties> {
+    export type PrivateEndpointConnectionsResource = ResourceDefinition<PrivateEndpointConnectionProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: PrivateEndpointConnectionProperties): PrivateEndpointConnectionsResource {
       return {
         type: 'Microsoft.DBforMySQL/servers/privateEndpointConnections',
         apiVersion: '2018-06-01',

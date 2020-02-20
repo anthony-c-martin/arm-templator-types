@@ -37,17 +37,21 @@ export interface Sku {
 }
 
 export namespace dataManagers {
-  interface AdditionalProps {
+  export interface AddedResourceProps {
     sku?: Expressionable<Sku>;
+    tags?: Expressionable<any>;
   }
   
-  export function create(name: Expressionable<string>, properties: any, location: Expressionable<string>, sku?: Expressionable<Sku>): ResourceDefinition<any> & AdditionalProps {
+  export type DataManagersResource = ResourceDefinition<any> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: any, location: Expressionable<string>, sku?: Expressionable<Sku>, tags?: Expressionable<any>): DataManagersResource {
     return {
       type: 'Microsoft.HybridData/dataManagers',
       apiVersion: '2016-06-01',
       name: [name],
       location,
       sku,
+      tags,
       properties,
     };
   }
@@ -55,7 +59,9 @@ export namespace dataManagers {
 export namespace dataManagers {
   export namespace dataServices {
     export namespace jobDefinitions {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: JobDefinitionProperties): ResourceDefinition<JobDefinitionProperties> {
+      export type JobDefinitionsResource = ResourceDefinition<JobDefinitionProperties>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: JobDefinitionProperties): JobDefinitionsResource {
         return {
           type: 'Microsoft.HybridData/dataManagers/dataServices/jobDefinitions',
           apiVersion: '2016-06-01',
@@ -68,7 +74,9 @@ export namespace dataManagers {
 }
 export namespace dataManagers {
   export namespace dataStores {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: DataStoreProperties): ResourceDefinition<DataStoreProperties> {
+    export type DataStoresResource = ResourceDefinition<DataStoreProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: DataStoreProperties): DataStoresResource {
       return {
         type: 'Microsoft.HybridData/dataManagers/dataStores',
         apiVersion: '2016-06-01',

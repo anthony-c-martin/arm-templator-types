@@ -127,7 +127,9 @@ export interface WindowsProperties {
 
 export namespace automationAccounts {
   export namespace jobs {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: JobCreateProperties): ResourceDefinition<JobCreateProperties> {
+    export type JobsResource = ResourceDefinition<JobCreateProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: JobCreateProperties): JobsResource {
       return {
         type: 'Microsoft.Automation/automationAccounts/jobs',
         apiVersion: '2017-05-15-preview',
@@ -139,7 +141,9 @@ export namespace automationAccounts {
 }
 export namespace automationAccounts {
   export namespace softwareUpdateConfigurations {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: SoftwareUpdateConfigurationProperties): ResourceDefinition<SoftwareUpdateConfigurationProperties> {
+    export type SoftwareUpdateConfigurationsResource = ResourceDefinition<SoftwareUpdateConfigurationProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: SoftwareUpdateConfigurationProperties): SoftwareUpdateConfigurationsResource {
       return {
         type: 'Microsoft.Automation/automationAccounts/softwareUpdateConfigurations',
         apiVersion: '2017-05-15-preview',
@@ -151,7 +155,9 @@ export namespace automationAccounts {
 }
 export namespace automationAccounts {
   export namespace sourceControls {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: SourceControlCreateOrUpdateProperties): ResourceDefinition<SourceControlCreateOrUpdateProperties> {
+    export type SourceControlsResource = ResourceDefinition<SourceControlCreateOrUpdateProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: SourceControlCreateOrUpdateProperties): SourceControlsResource {
       return {
         type: 'Microsoft.Automation/automationAccounts/sourceControls',
         apiVersion: '2017-05-15-preview',
@@ -164,7 +170,9 @@ export namespace automationAccounts {
 export namespace automationAccounts {
   export namespace sourceControls {
     export namespace sourceControlSyncJobs {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: SourceControlSyncJobCreateProperties): ResourceDefinition<SourceControlSyncJobCreateProperties> {
+      export type SourceControlSyncJobsResource = ResourceDefinition<SourceControlSyncJobCreateProperties>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: SourceControlSyncJobCreateProperties): SourceControlSyncJobsResource {
         return {
           type: 'Microsoft.Automation/automationAccounts/sourceControls/sourceControlSyncJobs',
           apiVersion: '2017-05-15-preview',

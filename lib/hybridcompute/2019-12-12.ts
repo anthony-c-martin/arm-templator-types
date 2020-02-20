@@ -56,29 +56,40 @@ export interface MachinePropertiesOsProfile {
 }
 
 export namespace machines {
-  interface AdditionalProps {
+  export interface AddedResourceProps {
     identity?: Expressionable<MachineIdentity>;
+    tags?: Expressionable<any>;
   }
   
-  export function create(name: Expressionable<string>, properties: MachinePropertiesModel, location: Expressionable<string>, identity?: Expressionable<MachineIdentity>): ResourceDefinition<MachinePropertiesModel> & AdditionalProps {
+  export type MachinesResource = ResourceDefinition<MachinePropertiesModel> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: MachinePropertiesModel, location: Expressionable<string>, identity?: Expressionable<MachineIdentity>, tags?: Expressionable<any>): MachinesResource {
     return {
       type: 'Microsoft.HybridCompute/machines',
       apiVersion: '2019-12-12',
       name: [name],
       location,
       identity,
+      tags,
       properties,
     };
   }
 }
 export namespace machines {
   export namespace extensions {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: MachineExtensionProperties, location: Expressionable<string>): ResourceDefinition<MachineExtensionProperties> {
+    export interface AddedResourceProps {
+      tags?: Expressionable<any>;
+    }
+    
+    export type ExtensionsResource = ResourceDefinition<MachineExtensionProperties> & AddedResourceProps;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: MachineExtensionProperties, location: Expressionable<string>, tags?: Expressionable<any>): ExtensionsResource {
       return {
         type: 'Microsoft.HybridCompute/machines/extensions',
         apiVersion: '2019-12-12',
         name: name,
         location,
+        tags,
         properties,
       };
     }

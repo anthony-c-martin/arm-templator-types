@@ -26,7 +26,9 @@ export interface Tag {
 
 export namespace workspaces {
   export namespace savedSearches {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: SavedSearchProperties): ResourceDefinition<SavedSearchProperties> {
+    export type SavedSearchesResource = ResourceDefinition<SavedSearchProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: SavedSearchProperties): SavedSearchesResource {
       return {
         type: 'Microsoft.OperationalInsights/workspaces/savedSearches',
         apiVersion: '2015-03-20',
@@ -38,11 +40,18 @@ export namespace workspaces {
 }
 export namespace workspaces {
   export namespace storageInsightConfigs {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: StorageInsightProperties): ResourceDefinition<StorageInsightProperties> {
+    export interface AddedResourceProps {
+      tags?: Expressionable<any>;
+    }
+    
+    export type StorageInsightConfigsResource = ResourceDefinition<StorageInsightProperties> & AddedResourceProps;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: StorageInsightProperties, tags?: Expressionable<any>): StorageInsightConfigsResource {
       return {
         type: 'Microsoft.OperationalInsights/workspaces/storageInsightConfigs',
         apiVersion: '2015-03-20',
         name: name,
+        tags,
         properties,
       };
     }

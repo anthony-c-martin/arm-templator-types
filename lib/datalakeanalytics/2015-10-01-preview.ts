@@ -28,19 +28,28 @@ export interface StorageAccountProperties {
 }
 
 export namespace accounts {
-  export function create(name: Expressionable<string>, properties: DataLakeAnalyticsAccountProperties, location?: Expressionable<string>): ResourceDefinition<DataLakeAnalyticsAccountProperties> {
+  export interface AddedResourceProps {
+    tags?: Expressionable<any>;
+  }
+  
+  export type AccountsResource = ResourceDefinition<DataLakeAnalyticsAccountProperties> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: DataLakeAnalyticsAccountProperties, location?: Expressionable<string>, tags?: Expressionable<any>): AccountsResource {
     return {
       type: 'Microsoft.DataLakeAnalytics/accounts',
       apiVersion: '2015-10-01-preview',
       name: [name],
       location,
+      tags,
       properties,
     };
   }
 }
 export namespace accounts {
   export namespace DataLakeStoreAccounts {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: DataLakeStoreAccountInfoProperties): ResourceDefinition<DataLakeStoreAccountInfoProperties> {
+    export type DataLakeStoreAccountsResource = ResourceDefinition<DataLakeStoreAccountInfoProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: DataLakeStoreAccountInfoProperties): DataLakeStoreAccountsResource {
       return {
         type: 'Microsoft.DataLakeAnalytics/accounts/DataLakeStoreAccounts',
         apiVersion: '2015-10-01-preview',
@@ -52,7 +61,9 @@ export namespace accounts {
 }
 export namespace accounts {
   export namespace StorageAccounts {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: StorageAccountProperties): ResourceDefinition<StorageAccountProperties> {
+    export type StorageAccountsResource = ResourceDefinition<StorageAccountProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: StorageAccountProperties): StorageAccountsResource {
       return {
         type: 'Microsoft.DataLakeAnalytics/accounts/StorageAccounts',
         apiVersion: '2015-10-01-preview',

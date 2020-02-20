@@ -55,7 +55,9 @@ export interface CertificateOrderCertificate_properties {
 }
 
 export namespace certificateOrders {
-  export function create(name: Expressionable<string>, properties: CertificateOrder_properties): ResourceDefinition<CertificateOrder_properties> {
+  export type CertificateOrdersResource = ResourceDefinition<CertificateOrder_properties>;
+  
+  export function create(name: Expressionable<string>, properties: CertificateOrder_properties): CertificateOrdersResource {
     return {
       type: 'Microsoft.CertificateRegistration/certificateOrders',
       apiVersion: '2015-08-01',
@@ -66,7 +68,9 @@ export namespace certificateOrders {
 }
 export namespace certificateOrders {
   export namespace certificates {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: CertificateOrderCertificate_properties): ResourceDefinition<CertificateOrderCertificate_properties> {
+    export type CertificatesResource = ResourceDefinition<CertificateOrderCertificate_properties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: CertificateOrderCertificate_properties): CertificatesResource {
       return {
         type: 'Microsoft.CertificateRegistration/certificateOrders/certificates',
         apiVersion: '2015-08-01',

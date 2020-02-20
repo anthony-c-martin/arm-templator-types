@@ -19,7 +19,9 @@ export interface RoleDefinitionProperties {
 }
 
 export namespace roleAssignments {
-  export function create(name: Expressionable<string>, properties: RoleAssignmentProperties): ResourceDefinition<RoleAssignmentProperties> {
+  export type RoleAssignmentsResource = ResourceDefinition<RoleAssignmentProperties>;
+  
+  export function create(name: Expressionable<string>, properties: RoleAssignmentProperties): RoleAssignmentsResource {
     return {
       type: 'Microsoft.Authorization/roleAssignments',
       apiVersion: '2017-09-01',
@@ -29,7 +31,9 @@ export namespace roleAssignments {
   }
 }
 export namespace roleDefinitions {
-  export function create(name: Expressionable<string>, properties: RoleDefinitionProperties): ResourceDefinition<RoleDefinitionProperties> {
+  export type RoleDefinitionsResource = ResourceDefinition<RoleDefinitionProperties>;
+  
+  export function create(name: Expressionable<string>, properties: RoleDefinitionProperties): RoleDefinitionsResource {
     return {
       type: 'Microsoft.Authorization/roleDefinitions',
       apiVersion: '2017-09-01',

@@ -6,7 +6,9 @@ export interface user {
 }
 
 export namespace catalogs {
-  export function create(name: Expressionable<string>, properties: any): ResourceDefinition<any> {
+  export type CatalogsResource = ResourceDefinition<any>;
+  
+  export function create(name: Expressionable<string>, properties: any): CatalogsResource {
     return {
       type: 'Microsoft.DataCatalog/catalogs',
       apiVersion: '2016-03-30',

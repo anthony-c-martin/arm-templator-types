@@ -476,7 +476,9 @@ export interface networkWatcherAgentLinux {
 }
 
 export namespace availabilitySets {
-  export function create(name: Expressionable<string>, properties: any): ResourceDefinition<any> {
+  export type AvailabilitySetsResource = ResourceDefinition<any>;
+  
+  export function create(name: Expressionable<string>, properties: any): AvailabilitySetsResource {
     return {
       type: 'Microsoft.Compute/availabilitySets',
       apiVersion: '2015-05-01-preview',
@@ -486,7 +488,9 @@ export namespace availabilitySets {
   }
 }
 export namespace virtualMachines {
-  export function create(name: Expressionable<string>, properties: any): ResourceDefinition<any> {
+  export type VirtualMachinesResource = ResourceDefinition<any>;
+  
+  export function create(name: Expressionable<string>, properties: any): VirtualMachinesResource {
     return {
       type: 'Microsoft.Compute/virtualMachines',
       apiVersion: '2015-05-01-preview',
@@ -496,11 +500,13 @@ export namespace virtualMachines {
   }
 }
 export namespace virtualMachineScaleSets {
-  interface AdditionalProps {
+  export interface AddedResourceProps {
     sku: Expressionable<sku>;
   }
   
-  export function create(name: Expressionable<string>, properties: any, sku: Expressionable<sku>): ResourceDefinition<any> & AdditionalProps {
+  export type VirtualMachineScaleSetsResource = ResourceDefinition<any> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: any, sku: Expressionable<sku>): VirtualMachineScaleSetsResource {
     return {
       type: 'Microsoft.Compute/virtualMachineScaleSets',
       apiVersion: '2015-05-01-preview',
@@ -512,7 +518,9 @@ export namespace virtualMachineScaleSets {
 }
 export namespace virtualMachines {
   export namespace extensions {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: any): ResourceDefinition<any> {
+    export type ExtensionsResource = ResourceDefinition<any>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: any): ExtensionsResource {
       return {
         type: 'Microsoft.Compute/virtualMachines/extensions',
         apiVersion: '2015-05-01-preview',

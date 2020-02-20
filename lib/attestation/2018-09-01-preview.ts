@@ -25,7 +25,9 @@ export interface JSONWebKeySet {
 }
 
 export namespace attestationProviders {
-  export function create(name: Expressionable<string>, properties: any): ResourceDefinition<any> {
+  export type AttestationProvidersResource = ResourceDefinition<any>;
+  
+  export function create(name: Expressionable<string>, properties: any): AttestationProvidersResource {
     return {
       type: 'Microsoft.Attestation/attestationProviders',
       apiVersion: '2018-09-01-preview',

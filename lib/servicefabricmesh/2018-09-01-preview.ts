@@ -242,69 +242,111 @@ export interface VolumeResourceProperties {
 }
 
 export namespace applications {
-  export function create(name: Expressionable<string>, properties: ApplicationResourceProperties, location: Expressionable<string>): ResourceDefinition<ApplicationResourceProperties> {
+  export interface AddedResourceProps {
+    tags?: Expressionable<any>;
+  }
+  
+  export type ApplicationsResource = ResourceDefinition<ApplicationResourceProperties> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: ApplicationResourceProperties, location: Expressionable<string>, tags?: Expressionable<any>): ApplicationsResource {
     return {
       type: 'Microsoft.ServiceFabricMesh/applications',
       apiVersion: '2018-09-01-preview',
       name: [name],
       location,
+      tags,
       properties,
     };
   }
 }
 export namespace gateways {
-  export function create(name: Expressionable<string>, properties: GatewayResourceProperties, location: Expressionable<string>): ResourceDefinition<GatewayResourceProperties> {
+  export interface AddedResourceProps {
+    tags?: Expressionable<any>;
+  }
+  
+  export type GatewaysResource = ResourceDefinition<GatewayResourceProperties> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: GatewayResourceProperties, location: Expressionable<string>, tags?: Expressionable<any>): GatewaysResource {
     return {
       type: 'Microsoft.ServiceFabricMesh/gateways',
       apiVersion: '2018-09-01-preview',
       name: [name],
       location,
+      tags,
       properties,
     };
   }
 }
 export namespace networks {
-  export function create(name: Expressionable<string>, properties: NetworkResourceProperties, location: Expressionable<string>): ResourceDefinition<NetworkResourceProperties> {
+  export interface AddedResourceProps {
+    tags?: Expressionable<any>;
+  }
+  
+  export type NetworksResource = ResourceDefinition<NetworkResourceProperties> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: NetworkResourceProperties, location: Expressionable<string>, tags?: Expressionable<any>): NetworksResource {
     return {
       type: 'Microsoft.ServiceFabricMesh/networks',
       apiVersion: '2018-09-01-preview',
       name: [name],
       location,
+      tags,
       properties,
     };
   }
 }
 export namespace secrets {
-  export function create(name: Expressionable<string>, properties: SecretResourceProperties, location: Expressionable<string>): ResourceDefinition<SecretResourceProperties> {
+  export interface AddedResourceProps {
+    tags?: Expressionable<any>;
+  }
+  
+  export type SecretsResource = ResourceDefinition<SecretResourceProperties> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: SecretResourceProperties, location: Expressionable<string>, tags?: Expressionable<any>): SecretsResource {
     return {
       type: 'Microsoft.ServiceFabricMesh/secrets',
       apiVersion: '2018-09-01-preview',
       name: [name],
       location,
+      tags,
       properties,
     };
   }
 }
 export namespace secrets {
   export namespace values {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: SecretValueResourceProperties, location: Expressionable<string>): ResourceDefinition<SecretValueResourceProperties> {
+    export interface AddedResourceProps {
+      tags?: Expressionable<any>;
+    }
+    
+    export type ValuesResource = ResourceDefinition<SecretValueResourceProperties> & AddedResourceProps;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: SecretValueResourceProperties, location: Expressionable<string>, tags?: Expressionable<any>): ValuesResource {
       return {
         type: 'Microsoft.ServiceFabricMesh/secrets/values',
         apiVersion: '2018-09-01-preview',
         name: name,
         location,
+        tags,
         properties,
       };
     }
   }
 }
 export namespace volumes {
-  export function create(name: Expressionable<string>, properties: VolumeResourceProperties, location: Expressionable<string>): ResourceDefinition<VolumeResourceProperties> {
+  export interface AddedResourceProps {
+    tags?: Expressionable<any>;
+  }
+  
+  export type VolumesResource = ResourceDefinition<VolumeResourceProperties> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: VolumeResourceProperties, location: Expressionable<string>, tags?: Expressionable<any>): VolumesResource {
     return {
       type: 'Microsoft.ServiceFabricMesh/volumes',
       apiVersion: '2018-09-01-preview',
       name: [name],
       location,
+      tags,
       properties,
     };
   }

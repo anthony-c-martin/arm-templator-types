@@ -32,19 +32,28 @@ export interface Sku {
 }
 
 export namespace Redis {
-  export function create(name: Expressionable<string>, properties: RedisCreateProperties, location: Expressionable<string>): ResourceDefinition<RedisCreateProperties> {
+  export interface AddedResourceProps {
+    tags?: Expressionable<any>;
+  }
+  
+  export type RedisResource = ResourceDefinition<RedisCreateProperties> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: RedisCreateProperties, location: Expressionable<string>, tags?: Expressionable<any>): RedisResource {
     return {
       type: 'Microsoft.Cache/Redis',
       apiVersion: '2016-04-01',
       name: [name],
       location,
+      tags,
       properties,
     };
   }
 }
 export namespace Redis {
   export namespace firewallRules {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RedisFirewallRuleProperties): ResourceDefinition<RedisFirewallRuleProperties> {
+    export type FirewallRulesResource = ResourceDefinition<RedisFirewallRuleProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RedisFirewallRuleProperties): FirewallRulesResource {
       return {
         type: 'Microsoft.Cache/Redis/firewallRules',
         apiVersion: '2016-04-01',
@@ -56,7 +65,9 @@ export namespace Redis {
 }
 export namespace Redis {
   export namespace patchSchedules {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ScheduleEntries): ResourceDefinition<ScheduleEntries> {
+    export type PatchSchedulesResource = ResourceDefinition<ScheduleEntries>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ScheduleEntries): PatchSchedulesResource {
       return {
         type: 'Microsoft.Cache/Redis/patchSchedules',
         apiVersion: '2016-04-01',

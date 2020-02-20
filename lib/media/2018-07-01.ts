@@ -630,7 +630,9 @@ export interface VideoOverlay {
 }
 
 export namespace mediaServices {
-  export function create(name: Expressionable<string>, properties: MediaServiceProperties, location?: Expressionable<string>): ResourceDefinition<MediaServiceProperties> {
+  export type MediaServicesResource = ResourceDefinition<MediaServiceProperties>;
+  
+  export function create(name: Expressionable<string>, properties: MediaServiceProperties, location?: Expressionable<string>): MediaServicesResource {
     return {
       type: 'Microsoft.Media/mediaServices',
       apiVersion: '2018-07-01',
@@ -642,7 +644,9 @@ export namespace mediaServices {
 }
 export namespace mediaServices {
   export namespace accountFilters {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: MediaFilterProperties): ResourceDefinition<MediaFilterProperties> {
+    export type AccountFiltersResource = ResourceDefinition<MediaFilterProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: MediaFilterProperties): AccountFiltersResource {
       return {
         type: 'Microsoft.Media/mediaServices/accountFilters',
         apiVersion: '2018-07-01',
@@ -654,7 +658,9 @@ export namespace mediaServices {
 }
 export namespace mediaServices {
   export namespace assets {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: AssetProperties): ResourceDefinition<AssetProperties> {
+    export type AssetsResource = ResourceDefinition<AssetProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: AssetProperties): AssetsResource {
       return {
         type: 'Microsoft.Media/mediaServices/assets',
         apiVersion: '2018-07-01',
@@ -667,7 +673,9 @@ export namespace mediaServices {
 export namespace mediaServices {
   export namespace assets {
     export namespace assetFilters {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: MediaFilterProperties): ResourceDefinition<MediaFilterProperties> {
+      export type AssetFiltersResource = ResourceDefinition<MediaFilterProperties>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: MediaFilterProperties): AssetFiltersResource {
         return {
           type: 'Microsoft.Media/mediaServices/assets/assetFilters',
           apiVersion: '2018-07-01',
@@ -680,7 +688,9 @@ export namespace mediaServices {
 }
 export namespace mediaServices {
   export namespace contentKeyPolicies {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ContentKeyPolicyProperties): ResourceDefinition<ContentKeyPolicyProperties> {
+    export type ContentKeyPoliciesResource = ResourceDefinition<ContentKeyPolicyProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ContentKeyPolicyProperties): ContentKeyPoliciesResource {
       return {
         type: 'Microsoft.Media/mediaServices/contentKeyPolicies',
         apiVersion: '2018-07-01',
@@ -692,7 +702,9 @@ export namespace mediaServices {
 }
 export namespace mediaServices {
   export namespace liveEvents {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: LiveEventProperties, location?: Expressionable<string>): ResourceDefinition<LiveEventProperties> {
+    export type LiveEventsResource = ResourceDefinition<LiveEventProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: LiveEventProperties, location?: Expressionable<string>): LiveEventsResource {
       return {
         type: 'Microsoft.Media/mediaServices/liveEvents',
         apiVersion: '2018-07-01',
@@ -706,7 +718,9 @@ export namespace mediaServices {
 export namespace mediaServices {
   export namespace liveEvents {
     export namespace liveOutputs {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: LiveOutputProperties): ResourceDefinition<LiveOutputProperties> {
+      export type LiveOutputsResource = ResourceDefinition<LiveOutputProperties>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: LiveOutputProperties): LiveOutputsResource {
         return {
           type: 'Microsoft.Media/mediaServices/liveEvents/liveOutputs',
           apiVersion: '2018-07-01',
@@ -719,7 +733,9 @@ export namespace mediaServices {
 }
 export namespace mediaServices {
   export namespace streamingEndpoints {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: StreamingEndpointProperties, location?: Expressionable<string>): ResourceDefinition<StreamingEndpointProperties> {
+    export type StreamingEndpointsResource = ResourceDefinition<StreamingEndpointProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: StreamingEndpointProperties, location?: Expressionable<string>): StreamingEndpointsResource {
       return {
         type: 'Microsoft.Media/mediaServices/streamingEndpoints',
         apiVersion: '2018-07-01',
@@ -732,7 +748,9 @@ export namespace mediaServices {
 }
 export namespace mediaServices {
   export namespace streamingLocators {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: StreamingLocatorProperties): ResourceDefinition<StreamingLocatorProperties> {
+    export type StreamingLocatorsResource = ResourceDefinition<StreamingLocatorProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: StreamingLocatorProperties): StreamingLocatorsResource {
       return {
         type: 'Microsoft.Media/mediaServices/streamingLocators',
         apiVersion: '2018-07-01',
@@ -744,7 +762,9 @@ export namespace mediaServices {
 }
 export namespace mediaServices {
   export namespace streamingPolicies {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: StreamingPolicyProperties): ResourceDefinition<StreamingPolicyProperties> {
+    export type StreamingPoliciesResource = ResourceDefinition<StreamingPolicyProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: StreamingPolicyProperties): StreamingPoliciesResource {
       return {
         type: 'Microsoft.Media/mediaServices/streamingPolicies',
         apiVersion: '2018-07-01',
@@ -756,7 +776,9 @@ export namespace mediaServices {
 }
 export namespace mediaServices {
   export namespace transforms {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: TransformProperties): ResourceDefinition<TransformProperties> {
+    export type TransformsResource = ResourceDefinition<TransformProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: TransformProperties): TransformsResource {
       return {
         type: 'Microsoft.Media/mediaServices/transforms',
         apiVersion: '2018-07-01',
@@ -769,7 +791,9 @@ export namespace mediaServices {
 export namespace mediaServices {
   export namespace transforms {
     export namespace jobs {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: JobProperties): ResourceDefinition<JobProperties> {
+      export type JobsResource = ResourceDefinition<JobProperties>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: JobProperties): JobsResource {
         return {
           type: 'Microsoft.Media/mediaServices/transforms/jobs',
           apiVersion: '2018-07-01',

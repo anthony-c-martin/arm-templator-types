@@ -1,7 +1,9 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 
 export namespace trafficManagerProfiles {
-  export function create(name: Expressionable<string>, properties: any, location: Expressionable<('global')>): ResourceDefinition<any> {
+  export type TrafficManagerProfilesResource = ResourceDefinition<any>;
+  
+  export function create(name: Expressionable<string>, properties: any, location: Expressionable<('global')>): TrafficManagerProfilesResource {
     return {
       type: 'Microsoft.Network/trafficManagerProfiles',
       apiVersion: '2015-11-01',

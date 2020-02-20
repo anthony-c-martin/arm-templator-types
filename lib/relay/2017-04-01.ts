@@ -25,24 +25,30 @@ export interface WcfRelayProperties {
 }
 
 export namespace namespaces {
-  interface AdditionalProps {
+  export interface AddedResourceProps {
     sku?: Expressionable<Sku>;
+    tags?: Expressionable<any>;
   }
   
-  export function create(name: Expressionable<string>, properties: RelayNamespaceProperties, location: Expressionable<string>, sku?: Expressionable<Sku>): ResourceDefinition<RelayNamespaceProperties> & AdditionalProps {
+  export type NamespacesResource = ResourceDefinition<RelayNamespaceProperties> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: RelayNamespaceProperties, location: Expressionable<string>, sku?: Expressionable<Sku>, tags?: Expressionable<any>): NamespacesResource {
     return {
       type: 'Microsoft.Relay/namespaces',
       apiVersion: '2017-04-01',
       name: [name],
       location,
       sku,
+      tags,
       properties,
     };
   }
 }
 export namespace namespaces {
   export namespace authorizationRules {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: AuthorizationRuleProperties): ResourceDefinition<AuthorizationRuleProperties> {
+    export type AuthorizationRulesResource = ResourceDefinition<AuthorizationRuleProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: AuthorizationRuleProperties): AuthorizationRulesResource {
       return {
         type: 'Microsoft.Relay/namespaces/authorizationRules',
         apiVersion: '2017-04-01',
@@ -54,7 +60,9 @@ export namespace namespaces {
 }
 export namespace namespaces {
   export namespace hybridConnections {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: HybridConnectionProperties): ResourceDefinition<HybridConnectionProperties> {
+    export type HybridConnectionsResource = ResourceDefinition<HybridConnectionProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: HybridConnectionProperties): HybridConnectionsResource {
       return {
         type: 'Microsoft.Relay/namespaces/hybridConnections',
         apiVersion: '2017-04-01',
@@ -67,7 +75,9 @@ export namespace namespaces {
 export namespace namespaces {
   export namespace hybridConnections {
     export namespace authorizationRules {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: AuthorizationRuleProperties): ResourceDefinition<AuthorizationRuleProperties> {
+      export type AuthorizationRulesResource = ResourceDefinition<AuthorizationRuleProperties>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: AuthorizationRuleProperties): AuthorizationRulesResource {
         return {
           type: 'Microsoft.Relay/namespaces/hybridConnections/authorizationRules',
           apiVersion: '2017-04-01',
@@ -80,7 +90,9 @@ export namespace namespaces {
 }
 export namespace namespaces {
   export namespace wcfRelays {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: WcfRelayProperties): ResourceDefinition<WcfRelayProperties> {
+    export type WcfRelaysResource = ResourceDefinition<WcfRelayProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: WcfRelayProperties): WcfRelaysResource {
       return {
         type: 'Microsoft.Relay/namespaces/wcfRelays',
         apiVersion: '2017-04-01',
@@ -93,7 +105,9 @@ export namespace namespaces {
 export namespace namespaces {
   export namespace wcfRelays {
     export namespace authorizationRules {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: AuthorizationRuleProperties): ResourceDefinition<AuthorizationRuleProperties> {
+      export type AuthorizationRulesResource = ResourceDefinition<AuthorizationRuleProperties>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: AuthorizationRuleProperties): AuthorizationRulesResource {
         return {
           type: 'Microsoft.Relay/namespaces/wcfRelays/authorizationRules',
           apiVersion: '2017-04-01',

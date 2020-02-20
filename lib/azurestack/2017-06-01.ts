@@ -9,7 +9,9 @@ export interface RegistrationParameterProperties {
 }
 
 export namespace registrations {
-  export function create(name: Expressionable<string>, properties: RegistrationParameterProperties, location: Expressionable<('global')>): ResourceDefinition<RegistrationParameterProperties> {
+  export type RegistrationsResource = ResourceDefinition<RegistrationParameterProperties>;
+  
+  export function create(name: Expressionable<string>, properties: RegistrationParameterProperties, location: Expressionable<('global')>): RegistrationsResource {
     return {
       type: 'Microsoft.AzureStack/registrations',
       apiVersion: '2017-06-01',
@@ -21,7 +23,9 @@ export namespace registrations {
 }
 export namespace registrations {
   export namespace customerSubscriptions {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: CustomerSubscriptionProperties, location: Expressionable<('global')>): ResourceDefinition<CustomerSubscriptionProperties> {
+    export type CustomerSubscriptionsResource = ResourceDefinition<CustomerSubscriptionProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: CustomerSubscriptionProperties, location: Expressionable<('global')>): CustomerSubscriptionsResource {
       return {
         type: 'Microsoft.AzureStack/registrations/customerSubscriptions',
         apiVersion: '2017-06-01',

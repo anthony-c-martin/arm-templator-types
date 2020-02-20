@@ -81,12 +81,19 @@ export interface ShippingInformation {
 }
 
 export namespace jobs {
-  export function create(name: Expressionable<string>, properties: JobDetails, location?: Expressionable<string>): ResourceDefinition<JobDetails> {
+  export interface AddedResourceProps {
+    tags?: Expressionable<any>;
+  }
+  
+  export type JobsResource = ResourceDefinition<JobDetails> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: JobDetails, location?: Expressionable<string>, tags?: Expressionable<any>): JobsResource {
     return {
       type: 'Microsoft.ImportExport/jobs',
       apiVersion: '2016-11-01',
       name: [name],
       location,
+      tags,
       properties,
     };
   }

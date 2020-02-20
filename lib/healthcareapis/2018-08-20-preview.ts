@@ -30,11 +30,13 @@ export interface ServicesProperties {
 }
 
 export namespace services {
-  interface AdditionalProps {
+  export interface AddedResourceProps {
     kind: Expressionable<('fhir' | 'fhir-Stu3' | 'fhir-R4')>;
   }
   
-  export function create(name: Expressionable<string>, properties: ServicesProperties, location: Expressionable<string>, kind: Expressionable<('fhir' | 'fhir-Stu3' | 'fhir-R4')>): ResourceDefinition<ServicesProperties> & AdditionalProps {
+  export type ServicesResource = ResourceDefinition<ServicesProperties> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: ServicesProperties, location: Expressionable<string>, kind: Expressionable<('fhir' | 'fhir-Stu3' | 'fhir-R4')>): ServicesResource {
     return {
       type: 'Microsoft.HealthcareApis/services',
       apiVersion: '2018-08-20-preview',

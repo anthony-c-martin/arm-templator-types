@@ -16,7 +16,9 @@ export interface PrivateLinkServiceConnectionStateProperty {
 
 export namespace databaseAccounts {
   export namespace privateEndpointConnections {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: PrivateEndpointConnectionProperties): ResourceDefinition<PrivateEndpointConnectionProperties> {
+    export type PrivateEndpointConnectionsResource = ResourceDefinition<PrivateEndpointConnectionProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: PrivateEndpointConnectionProperties): PrivateEndpointConnectionsResource {
       return {
         type: 'Microsoft.DocumentDB/databaseAccounts/privateEndpointConnections',
         apiVersion: '2019-08-01-preview',

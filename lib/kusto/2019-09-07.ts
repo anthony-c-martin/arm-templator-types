@@ -108,13 +108,15 @@ export interface EventSystemProperties {
 }
 
 export namespace clusters {
-  interface AdditionalProps {
+  export interface AddedResourceProps {
     sku: Expressionable<AzureSku>;
     zones?: Expressionable<string[]>;
     identity?: Expressionable<Identity>;
   }
   
-  export function create(name: Expressionable<string>, properties: ClusterProperties, location: Expressionable<string>, sku: Expressionable<AzureSku>, identity?: Expressionable<Identity>, zones?: Expressionable<string[]>): ResourceDefinition<ClusterProperties> & AdditionalProps {
+  export type ClustersResource = ResourceDefinition<ClusterProperties> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: ClusterProperties, location: Expressionable<string>, sku: Expressionable<AzureSku>, identity?: Expressionable<Identity>, zones?: Expressionable<string[]>): ClustersResource {
     return {
       type: 'Microsoft.Kusto/clusters',
       apiVersion: '2019-09-07',
@@ -129,7 +131,9 @@ export namespace clusters {
 }
 export namespace clusters {
   export namespace databases {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ReadWriteDatabaseProperties, location?: Expressionable<string>): ResourceDefinition<ReadWriteDatabaseProperties> {
+    export type DatabasesResource = ResourceDefinition<ReadWriteDatabaseProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ReadWriteDatabaseProperties, location?: Expressionable<string>): DatabasesResource {
       return {
         type: 'Microsoft.Kusto/clusters/databases',
         apiVersion: '2019-09-07',
@@ -143,7 +147,9 @@ export namespace clusters {
 export namespace clusters {
   export namespace databases {
     export namespace dataConnections {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: any): ResourceDefinition<any> {
+      export type DataConnectionsResource = ResourceDefinition<any>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: any): DataConnectionsResource {
         return {
           type: 'Microsoft.Kusto/clusters/databases/dataConnections',
           apiVersion: '2019-09-07',
@@ -156,7 +162,9 @@ export namespace clusters {
 }
 export namespace clusters {
   export namespace AttachedDatabaseConfigurations {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: AttachedDatabaseConfigurationsProperties, location?: Expressionable<string>): ResourceDefinition<AttachedDatabaseConfigurationsProperties> {
+    export type AttachedDatabaseConfigurationsResource = ResourceDefinition<AttachedDatabaseConfigurationsProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: AttachedDatabaseConfigurationsProperties, location?: Expressionable<string>): AttachedDatabaseConfigurationsResource {
       return {
         type: 'Microsoft.Kusto/clusters/AttachedDatabaseConfigurations',
         apiVersion: '2019-09-07',

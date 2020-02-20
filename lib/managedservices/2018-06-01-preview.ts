@@ -24,7 +24,9 @@ export interface RegistrationDefinitionProperties {
 }
 
 export namespace registrationAssignments {
-  export function create(name: Expressionable<string>, properties: RegistrationAssignmentProperties): ResourceDefinition<RegistrationAssignmentProperties> {
+  export type RegistrationAssignmentsResource = ResourceDefinition<RegistrationAssignmentProperties>;
+  
+  export function create(name: Expressionable<string>, properties: RegistrationAssignmentProperties): RegistrationAssignmentsResource {
     return {
       type: 'Microsoft.ManagedServices/registrationAssignments',
       apiVersion: '2018-06-01-preview',
@@ -34,11 +36,13 @@ export namespace registrationAssignments {
   }
 }
 export namespace registrationDefinitions {
-  interface AdditionalProps {
+  export interface AddedResourceProps {
     plan?: Expressionable<Plan>;
   }
   
-  export function create(name: Expressionable<string>, properties: RegistrationDefinitionProperties, plan?: Expressionable<Plan>): ResourceDefinition<RegistrationDefinitionProperties> & AdditionalProps {
+  export type RegistrationDefinitionsResource = ResourceDefinition<RegistrationDefinitionProperties> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: RegistrationDefinitionProperties, plan?: Expressionable<Plan>): RegistrationDefinitionsResource {
     return {
       type: 'Microsoft.ManagedServices/registrationDefinitions',
       apiVersion: '2018-06-01-preview',

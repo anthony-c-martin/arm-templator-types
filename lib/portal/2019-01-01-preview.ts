@@ -25,12 +25,19 @@ export interface DashboardProperties {
 }
 
 export namespace dashboards {
-  export function create(name: Expressionable<string>, properties: DashboardProperties, location: Expressionable<string>): ResourceDefinition<DashboardProperties> {
+  export interface AddedResourceProps {
+    tags?: Expressionable<any>;
+  }
+  
+  export type DashboardsResource = ResourceDefinition<DashboardProperties> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: DashboardProperties, location: Expressionable<string>, tags?: Expressionable<any>): DashboardsResource {
     return {
       type: 'Microsoft.Portal/dashboards',
       apiVersion: '2019-01-01-preview',
       name: [name],
       location,
+      tags,
       properties,
     };
   }

@@ -90,12 +90,14 @@ export interface VirtualNetworkConfiguration {
 }
 
 export namespace clusters {
-  interface AdditionalProps {
+  export interface AddedResourceProps {
     sku: Expressionable<Sku>;
     zones?: Expressionable<Zones>;
   }
   
-  export function create(name: Expressionable<string>, properties: ClusterProperties, location: Expressionable<string>, sku: Expressionable<Sku>, zones?: Expressionable<Zones>): ResourceDefinition<ClusterProperties> & AdditionalProps {
+  export type ClustersResource = ResourceDefinition<ClusterProperties> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: ClusterProperties, location: Expressionable<string>, sku: Expressionable<Sku>, zones?: Expressionable<Zones>): ClustersResource {
     return {
       type: 'Microsoft.Kusto/clusters',
       apiVersion: '2019-05-15',
@@ -109,7 +111,9 @@ export namespace clusters {
 }
 export namespace clusters {
   export namespace databases {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: DatabaseProperties): ResourceDefinition<DatabaseProperties> {
+    export type DatabasesResource = ResourceDefinition<DatabaseProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: DatabaseProperties): DatabasesResource {
       return {
         type: 'Microsoft.Kusto/clusters/databases',
         apiVersion: '2019-05-15',
@@ -122,7 +126,9 @@ export namespace clusters {
 export namespace clusters {
   export namespace databases {
     export namespace dataconnections {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: any): ResourceDefinition<any> {
+      export type DataconnectionsResource = ResourceDefinition<any>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: any): DataconnectionsResource {
         return {
           type: 'Microsoft.Kusto/clusters/databases/dataconnections',
           apiVersion: '2019-05-15',

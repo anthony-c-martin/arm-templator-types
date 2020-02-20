@@ -1,6 +1,6 @@
 {
   "name": "arm-templator-types",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "ARM Typescript template generator types",
   "main": "dist",
   "typings": "dist",
@@ -27,7 +27,7 @@
   "author": "Anthony Martin <anthony.ct.martin@gmail.com>",
   "license": "ISC",
   "dependencies": {
-    "arm-templator": "^0.0.17"
+    "arm-templator": "^0.0.20"
   },
   "devDependencies": {
     "@types/async": "^3.0.3",

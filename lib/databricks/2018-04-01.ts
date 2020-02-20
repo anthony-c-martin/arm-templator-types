@@ -48,17 +48,21 @@ export interface WorkspaceProviderAuthorization {
 }
 
 export namespace workspaces {
-  interface AdditionalProps {
+  export interface AddedResourceProps {
     sku?: Expressionable<Sku>;
+    tags?: Expressionable<any>;
   }
   
-  export function create(name: Expressionable<string>, properties: WorkspaceProperties, location: Expressionable<string>, sku?: Expressionable<Sku>): ResourceDefinition<WorkspaceProperties> & AdditionalProps {
+  export type WorkspacesResource = ResourceDefinition<WorkspaceProperties> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: WorkspaceProperties, location: Expressionable<string>, sku?: Expressionable<Sku>, tags?: Expressionable<any>): WorkspacesResource {
     return {
       type: 'Microsoft.Databricks/workspaces',
       apiVersion: '2018-04-01',
       name: [name],
       location,
       sku,
+      tags,
       properties,
     };
   }

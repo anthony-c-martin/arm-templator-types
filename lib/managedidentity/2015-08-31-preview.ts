@@ -1,7 +1,9 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 
 export namespace userAssignedIdentities {
-  export function create(name: Expressionable<string>, properties: any, location: Expressionable<string>): ResourceDefinition<any> {
+  export type UserAssignedIdentitiesResource = ResourceDefinition<any>;
+  
+  export function create(name: Expressionable<string>, properties: any, location: Expressionable<string>): UserAssignedIdentitiesResource {
     return {
       type: 'Microsoft.ManagedIdentity/userAssignedIdentities',
       apiVersion: '2015-08-31-preview',

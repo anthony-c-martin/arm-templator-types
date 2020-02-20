@@ -126,7 +126,9 @@ export interface WorkspaceProperties {
 }
 
 export namespace workspaces {
-  export function create(name: Expressionable<string>, properties: WorkspaceProperties, location?: Expressionable<string>): ResourceDefinition<WorkspaceProperties> {
+  export type WorkspacesResource = ResourceDefinition<WorkspaceProperties>;
+  
+  export function create(name: Expressionable<string>, properties: WorkspaceProperties, location?: Expressionable<string>): WorkspacesResource {
     return {
       type: 'Microsoft.MachineLearningServices/workspaces',
       apiVersion: '2018-11-19',
@@ -138,7 +140,9 @@ export namespace workspaces {
 }
 export namespace workspaces {
   export namespace computes {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: Compute, location?: Expressionable<string>): ResourceDefinition<Compute> {
+    export type ComputesResource = ResourceDefinition<Compute>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: Compute, location?: Expressionable<string>): ComputesResource {
       return {
         type: 'Microsoft.MachineLearningServices/workspaces/computes',
         apiVersion: '2018-11-19',

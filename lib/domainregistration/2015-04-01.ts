@@ -54,7 +54,9 @@ export interface HostName {
 }
 
 export namespace domains {
-  export function create(name: Expressionable<string>, properties: Domain_properties): ResourceDefinition<Domain_properties> {
+  export type DomainsResource = ResourceDefinition<Domain_properties>;
+  
+  export function create(name: Expressionable<string>, properties: Domain_properties): DomainsResource {
     return {
       type: 'Microsoft.DomainRegistration/domains',
       apiVersion: '2015-04-01',
@@ -65,7 +67,9 @@ export namespace domains {
 }
 export namespace domains {
   export namespace domainOwnershipIdentifiers {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: DomainOwnershipIdentifier_properties): ResourceDefinition<DomainOwnershipIdentifier_properties> {
+    export type DomainOwnershipIdentifiersResource = ResourceDefinition<DomainOwnershipIdentifier_properties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: DomainOwnershipIdentifier_properties): DomainOwnershipIdentifiersResource {
       return {
         type: 'Microsoft.DomainRegistration/domains/domainOwnershipIdentifiers',
         apiVersion: '2015-04-01',

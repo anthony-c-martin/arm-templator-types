@@ -15,7 +15,9 @@ export interface WorkflowProperties {
 }
 
 export namespace workflows {
-  export function create(name: Expressionable<string>, properties: WorkflowProperties, location?: Expressionable<string>): ResourceDefinition<WorkflowProperties> {
+  export type WorkflowsResource = ResourceDefinition<WorkflowProperties>;
+  
+  export function create(name: Expressionable<string>, properties: WorkflowProperties, location?: Expressionable<string>): WorkflowsResource {
     return {
       type: 'Microsoft.Logic/workflows',
       apiVersion: '2016-10-01',

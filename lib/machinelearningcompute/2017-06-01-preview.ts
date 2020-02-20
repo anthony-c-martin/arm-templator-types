@@ -68,12 +68,19 @@ export interface StorageAccountProperties {
 }
 
 export namespace operationalizationClusters {
-  export function create(name: Expressionable<string>, properties: OperationalizationClusterProperties, location: Expressionable<string>): ResourceDefinition<OperationalizationClusterProperties> {
+  export interface AddedResourceProps {
+    tags?: Expressionable<any>;
+  }
+  
+  export type OperationalizationClustersResource = ResourceDefinition<OperationalizationClusterProperties> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: OperationalizationClusterProperties, location: Expressionable<string>, tags?: Expressionable<any>): OperationalizationClustersResource {
     return {
       type: 'Microsoft.MachineLearningCompute/operationalizationClusters',
       apiVersion: '2017-06-01-preview',
       name: [name],
       location,
+      tags,
       properties,
     };
   }

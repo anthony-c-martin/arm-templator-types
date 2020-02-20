@@ -122,24 +122,30 @@ export interface Subnet {
 }
 
 export namespace namespaces {
-  interface AdditionalProps {
+  export interface AddedResourceProps {
     sku?: Expressionable<SBSku>;
+    tags?: Expressionable<any>;
   }
   
-  export function create(name: Expressionable<string>, properties: SBNamespaceProperties, location: Expressionable<string>, sku?: Expressionable<SBSku>): ResourceDefinition<SBNamespaceProperties> & AdditionalProps {
+  export type NamespacesResource = ResourceDefinition<SBNamespaceProperties> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: SBNamespaceProperties, location: Expressionable<string>, sku?: Expressionable<SBSku>, tags?: Expressionable<any>): NamespacesResource {
     return {
       type: 'Microsoft.ServiceBus/namespaces',
       apiVersion: '2017-04-01',
       name: [name],
       location,
       sku,
+      tags,
       properties,
     };
   }
 }
 export namespace namespaces {
   export namespace AuthorizationRules {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: SBAuthorizationRuleProperties): ResourceDefinition<SBAuthorizationRuleProperties> {
+    export type AuthorizationRulesResource = ResourceDefinition<SBAuthorizationRuleProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: SBAuthorizationRuleProperties): AuthorizationRulesResource {
       return {
         type: 'Microsoft.ServiceBus/namespaces/AuthorizationRules',
         apiVersion: '2017-04-01',
@@ -151,7 +157,9 @@ export namespace namespaces {
 }
 export namespace namespaces {
   export namespace disasterRecoveryConfigs {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ArmDisasterRecoveryProperties): ResourceDefinition<ArmDisasterRecoveryProperties> {
+    export type DisasterRecoveryConfigsResource = ResourceDefinition<ArmDisasterRecoveryProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ArmDisasterRecoveryProperties): DisasterRecoveryConfigsResource {
       return {
         type: 'Microsoft.ServiceBus/namespaces/disasterRecoveryConfigs',
         apiVersion: '2017-04-01',
@@ -163,7 +171,9 @@ export namespace namespaces {
 }
 export namespace namespaces {
   export namespace migrationConfigurations {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: MigrationConfigPropertiesProperties): ResourceDefinition<MigrationConfigPropertiesProperties> {
+    export type MigrationConfigurationsResource = ResourceDefinition<MigrationConfigPropertiesProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: MigrationConfigPropertiesProperties): MigrationConfigurationsResource {
       return {
         type: 'Microsoft.ServiceBus/namespaces/migrationConfigurations',
         apiVersion: '2017-04-01',
@@ -175,7 +185,9 @@ export namespace namespaces {
 }
 export namespace namespaces {
   export namespace networkRuleSets {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: NetworkRuleSetProperties): ResourceDefinition<NetworkRuleSetProperties> {
+    export type NetworkRuleSetsResource = ResourceDefinition<NetworkRuleSetProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: NetworkRuleSetProperties): NetworkRuleSetsResource {
       return {
         type: 'Microsoft.ServiceBus/namespaces/networkRuleSets',
         apiVersion: '2017-04-01',
@@ -187,7 +199,9 @@ export namespace namespaces {
 }
 export namespace namespaces {
   export namespace queues {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: SBQueueProperties): ResourceDefinition<SBQueueProperties> {
+    export type QueuesResource = ResourceDefinition<SBQueueProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: SBQueueProperties): QueuesResource {
       return {
         type: 'Microsoft.ServiceBus/namespaces/queues',
         apiVersion: '2017-04-01',
@@ -200,7 +214,9 @@ export namespace namespaces {
 export namespace namespaces {
   export namespace queues {
     export namespace authorizationRules {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: SBAuthorizationRuleProperties): ResourceDefinition<SBAuthorizationRuleProperties> {
+      export type AuthorizationRulesResource = ResourceDefinition<SBAuthorizationRuleProperties>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: SBAuthorizationRuleProperties): AuthorizationRulesResource {
         return {
           type: 'Microsoft.ServiceBus/namespaces/queues/authorizationRules',
           apiVersion: '2017-04-01',
@@ -213,7 +229,9 @@ export namespace namespaces {
 }
 export namespace namespaces {
   export namespace topics {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: SBTopicProperties): ResourceDefinition<SBTopicProperties> {
+    export type TopicsResource = ResourceDefinition<SBTopicProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: SBTopicProperties): TopicsResource {
       return {
         type: 'Microsoft.ServiceBus/namespaces/topics',
         apiVersion: '2017-04-01',
@@ -226,7 +244,9 @@ export namespace namespaces {
 export namespace namespaces {
   export namespace topics {
     export namespace authorizationRules {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: SBAuthorizationRuleProperties): ResourceDefinition<SBAuthorizationRuleProperties> {
+      export type AuthorizationRulesResource = ResourceDefinition<SBAuthorizationRuleProperties>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: SBAuthorizationRuleProperties): AuthorizationRulesResource {
         return {
           type: 'Microsoft.ServiceBus/namespaces/topics/authorizationRules',
           apiVersion: '2017-04-01',
@@ -240,7 +260,9 @@ export namespace namespaces {
 export namespace namespaces {
   export namespace topics {
     export namespace subscriptions {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: SBSubscriptionProperties): ResourceDefinition<SBSubscriptionProperties> {
+      export type SubscriptionsResource = ResourceDefinition<SBSubscriptionProperties>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: SBSubscriptionProperties): SubscriptionsResource {
         return {
           type: 'Microsoft.ServiceBus/namespaces/topics/subscriptions',
           apiVersion: '2017-04-01',
@@ -255,7 +277,9 @@ export namespace namespaces {
   export namespace topics {
     export namespace subscriptions {
       export namespace rules {
-        export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: Ruleproperties): ResourceDefinition<Ruleproperties> {
+        export type RulesResource = ResourceDefinition<Ruleproperties>;
+        
+        export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: Ruleproperties): RulesResource {
           return {
             type: 'Microsoft.ServiceBus/namespaces/topics/subscriptions/rules',
             apiVersion: '2017-04-01',

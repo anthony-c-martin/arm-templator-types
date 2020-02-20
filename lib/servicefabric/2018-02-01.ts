@@ -134,12 +134,19 @@ export interface SettingsSectionDescription {
 }
 
 export namespace clusters {
-  export function create(name: Expressionable<string>, properties: ClusterProperties, location: Expressionable<string>): ResourceDefinition<ClusterProperties> {
+  export interface AddedResourceProps {
+    tags?: Expressionable<any>;
+  }
+  
+  export type ClustersResource = ResourceDefinition<ClusterProperties> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: ClusterProperties, location: Expressionable<string>, tags?: Expressionable<any>): ClustersResource {
     return {
       type: 'Microsoft.ServiceFabric/clusters',
       apiVersion: '2018-02-01',
       name: [name],
       location,
+      tags,
       properties,
     };
   }

@@ -37,11 +37,13 @@ export interface Sku {
 }
 
 export namespace profiles {
-  interface AdditionalProps {
+  export interface AddedResourceProps {
     sku: Expressionable<Sku>;
   }
   
-  export function create(name: Expressionable<string>, properties: any, location: Expressionable<string>, sku: Expressionable<Sku>): ResourceDefinition<any> & AdditionalProps {
+  export type ProfilesResource = ResourceDefinition<any> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: any, location: Expressionable<string>, sku: Expressionable<Sku>): ProfilesResource {
     return {
       type: 'Microsoft.Cdn/profiles',
       apiVersion: '2016-04-02',
@@ -54,7 +56,9 @@ export namespace profiles {
 }
 export namespace profiles {
   export namespace endpoints {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: EndpointPropertiesCreateParameters, location: Expressionable<string>): ResourceDefinition<EndpointPropertiesCreateParameters> {
+    export type EndpointsResource = ResourceDefinition<EndpointPropertiesCreateParameters>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: EndpointPropertiesCreateParameters, location: Expressionable<string>): EndpointsResource {
       return {
         type: 'Microsoft.Cdn/profiles/endpoints',
         apiVersion: '2016-04-02',
@@ -68,7 +72,9 @@ export namespace profiles {
 export namespace profiles {
   export namespace endpoints {
     export namespace customDomains {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: CustomDomainPropertiesParameters): ResourceDefinition<CustomDomainPropertiesParameters> {
+      export type CustomDomainsResource = ResourceDefinition<CustomDomainPropertiesParameters>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: CustomDomainPropertiesParameters): CustomDomainsResource {
         return {
           type: 'Microsoft.Cdn/profiles/endpoints/customDomains',
           apiVersion: '2016-04-02',
@@ -82,7 +88,9 @@ export namespace profiles {
 export namespace profiles {
   export namespace endpoints {
     export namespace origins {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: OriginPropertiesParameters): ResourceDefinition<OriginPropertiesParameters> {
+      export type OriginsResource = ResourceDefinition<OriginPropertiesParameters>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: OriginPropertiesParameters): OriginsResource {
         return {
           type: 'Microsoft.Cdn/profiles/endpoints/origins',
           apiVersion: '2016-04-02',

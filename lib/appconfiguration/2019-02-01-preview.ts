@@ -4,7 +4,9 @@ export interface ConfigurationStoreProperties {
 }
 
 export namespace configurationStores {
-  export function create(name: Expressionable<string>, properties: ConfigurationStoreProperties, location: Expressionable<string>): ResourceDefinition<ConfigurationStoreProperties> {
+  export type ConfigurationStoresResource = ResourceDefinition<ConfigurationStoreProperties>;
+  
+  export function create(name: Expressionable<string>, properties: ConfigurationStoreProperties, location: Expressionable<string>): ConfigurationStoresResource {
     return {
       type: 'Microsoft.AppConfiguration/configurationStores',
       apiVersion: '2019-02-01-preview',

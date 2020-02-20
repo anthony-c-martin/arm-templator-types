@@ -43,24 +43,30 @@ export interface UnknownTarget {
 }
 
 export namespace caches {
-  interface AdditionalProps {
+  export interface AddedResourceProps {
     sku?: Expressionable<CacheSku>;
+    tags?: Expressionable<any>;
   }
   
-  export function create(name: Expressionable<string>, properties: CacheProperties, location?: Expressionable<string>, sku?: Expressionable<CacheSku>): ResourceDefinition<CacheProperties> & AdditionalProps {
+  export type CachesResource = ResourceDefinition<CacheProperties> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: CacheProperties, location?: Expressionable<string>, sku?: Expressionable<CacheSku>, tags?: Expressionable<any>): CachesResource {
     return {
       type: 'Microsoft.StorageCache/caches',
       apiVersion: '2019-08-01-preview',
       name: [name],
       location,
       sku,
+      tags,
       properties,
     };
   }
 }
 export namespace caches {
   export namespace storageTargets {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: StorageTargetProperties): ResourceDefinition<StorageTargetProperties> {
+    export type StorageTargetsResource = ResourceDefinition<StorageTargetProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: StorageTargetProperties): StorageTargetsResource {
       return {
         type: 'Microsoft.StorageCache/caches/storageTargets',
         apiVersion: '2019-08-01-preview',

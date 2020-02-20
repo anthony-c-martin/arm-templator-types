@@ -106,7 +106,9 @@ export interface Time {
 }
 
 export namespace managers {
-  export function create(name: Expressionable<string>, properties: ManagerProperties, location: Expressionable<string>): ResourceDefinition<ManagerProperties> {
+  export type ManagersResource = ResourceDefinition<ManagerProperties>;
+  
+  export function create(name: Expressionable<string>, properties: ManagerProperties, location: Expressionable<string>): ManagersResource {
     return {
       type: 'Microsoft.StorSimple/managers',
       apiVersion: '2016-10-01',
@@ -118,7 +120,9 @@ export namespace managers {
 }
 export namespace managers {
   export namespace accessControlRecords {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: AccessControlRecordProperties): ResourceDefinition<AccessControlRecordProperties> {
+    export type AccessControlRecordsResource = ResourceDefinition<AccessControlRecordProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: AccessControlRecordProperties): AccessControlRecordsResource {
       return {
         type: 'Microsoft.StorSimple/managers/accessControlRecords',
         apiVersion: '2016-10-01',
@@ -130,7 +134,9 @@ export namespace managers {
 }
 export namespace managers {
   export namespace certificates {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RawCertificateData): ResourceDefinition<RawCertificateData> {
+    export type CertificatesResource = ResourceDefinition<RawCertificateData>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RawCertificateData): CertificatesResource {
       return {
         type: 'Microsoft.StorSimple/managers/certificates',
         apiVersion: '2016-10-01',
@@ -143,7 +149,9 @@ export namespace managers {
 export namespace managers {
   export namespace devices {
     export namespace alertSettings {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: AlertSettingsProperties): ResourceDefinition<AlertSettingsProperties> {
+      export type AlertSettingsResource = ResourceDefinition<AlertSettingsProperties>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: AlertSettingsProperties): AlertSettingsResource {
         return {
           type: 'Microsoft.StorSimple/managers/devices/alertSettings',
           apiVersion: '2016-10-01',
@@ -157,7 +165,9 @@ export namespace managers {
 export namespace managers {
   export namespace devices {
     export namespace backupScheduleGroups {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: BackupScheduleGroupProperties): ResourceDefinition<BackupScheduleGroupProperties> {
+      export type BackupScheduleGroupsResource = ResourceDefinition<BackupScheduleGroupProperties>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: BackupScheduleGroupProperties): BackupScheduleGroupsResource {
         return {
           type: 'Microsoft.StorSimple/managers/devices/backupScheduleGroups',
           apiVersion: '2016-10-01',
@@ -171,7 +181,9 @@ export namespace managers {
 export namespace managers {
   export namespace devices {
     export namespace chapSettings {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ChapProperties): ResourceDefinition<ChapProperties> {
+      export type ChapSettingsResource = ResourceDefinition<ChapProperties>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ChapProperties): ChapSettingsResource {
         return {
           type: 'Microsoft.StorSimple/managers/devices/chapSettings',
           apiVersion: '2016-10-01',
@@ -185,7 +197,9 @@ export namespace managers {
 export namespace managers {
   export namespace devices {
     export namespace fileservers {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: FileServerProperties): ResourceDefinition<FileServerProperties> {
+      export type FileserversResource = ResourceDefinition<FileServerProperties>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: FileServerProperties): FileserversResource {
         return {
           type: 'Microsoft.StorSimple/managers/devices/fileservers',
           apiVersion: '2016-10-01',
@@ -200,7 +214,9 @@ export namespace managers {
   export namespace devices {
     export namespace fileservers {
       export namespace shares {
-        export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: FileShareProperties): ResourceDefinition<FileShareProperties> {
+        export type SharesResource = ResourceDefinition<FileShareProperties>;
+        
+        export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: FileShareProperties): SharesResource {
           return {
             type: 'Microsoft.StorSimple/managers/devices/fileservers/shares',
             apiVersion: '2016-10-01',
@@ -215,7 +231,9 @@ export namespace managers {
 export namespace managers {
   export namespace devices {
     export namespace iscsiservers {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ISCSIServerProperties): ResourceDefinition<ISCSIServerProperties> {
+      export type IscsiserversResource = ResourceDefinition<ISCSIServerProperties>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ISCSIServerProperties): IscsiserversResource {
         return {
           type: 'Microsoft.StorSimple/managers/devices/iscsiservers',
           apiVersion: '2016-10-01',
@@ -230,7 +248,9 @@ export namespace managers {
   export namespace devices {
     export namespace iscsiservers {
       export namespace disks {
-        export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ISCSIDiskProperties): ResourceDefinition<ISCSIDiskProperties> {
+        export type DisksResource = ResourceDefinition<ISCSIDiskProperties>;
+        
+        export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ISCSIDiskProperties): DisksResource {
           return {
             type: 'Microsoft.StorSimple/managers/devices/iscsiservers/disks',
             apiVersion: '2016-10-01',
@@ -244,7 +264,9 @@ export namespace managers {
 }
 export namespace managers {
   export namespace extendedInformation {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ManagerExtendedInfoProperties): ResourceDefinition<ManagerExtendedInfoProperties> {
+    export type ExtendedInformationResource = ResourceDefinition<ManagerExtendedInfoProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ManagerExtendedInfoProperties): ExtendedInformationResource {
       return {
         type: 'Microsoft.StorSimple/managers/extendedInformation',
         apiVersion: '2016-10-01',
@@ -256,7 +278,9 @@ export namespace managers {
 }
 export namespace managers {
   export namespace storageAccountCredentials {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: StorageAccountCredentialProperties): ResourceDefinition<StorageAccountCredentialProperties> {
+    export type StorageAccountCredentialsResource = ResourceDefinition<StorageAccountCredentialProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: StorageAccountCredentialProperties): StorageAccountCredentialsResource {
       return {
         type: 'Microsoft.StorSimple/managers/storageAccountCredentials',
         apiVersion: '2016-10-01',
@@ -268,7 +292,9 @@ export namespace managers {
 }
 export namespace managers {
   export namespace storageDomains {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: StorageDomainProperties): ResourceDefinition<StorageDomainProperties> {
+    export type StorageDomainsResource = ResourceDefinition<StorageDomainProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: StorageDomainProperties): StorageDomainsResource {
       return {
         type: 'Microsoft.StorSimple/managers/storageDomains',
         apiVersion: '2016-10-01',

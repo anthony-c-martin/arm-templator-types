@@ -18,7 +18,9 @@ export interface TemplateExpressionEvaluationScope {
 }
 
 export namespace deployments {
-  export function create(name: Expressionable<string>, properties: any): ResourceDefinition<any> {
+  export type DeploymentsResource = ResourceDefinition<any>;
+  
+  export function create(name: Expressionable<string>, properties: any): DeploymentsResource {
     return {
       type: 'Microsoft.Resources/deployments',
       apiVersion: '2015-01-01',
@@ -28,7 +30,9 @@ export namespace deployments {
   }
 }
 export namespace links {
-  export function create(name: Expressionable<string>, properties: any): ResourceDefinition<any> {
+  export type LinksResource = ResourceDefinition<any>;
+  
+  export function create(name: Expressionable<string>, properties: any): LinksResource {
     return {
       type: 'Microsoft.Resources/links',
       apiVersion: '2015-01-01',

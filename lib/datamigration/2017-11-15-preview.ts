@@ -76,12 +76,14 @@ export interface Unknown {
 }
 
 export namespace services {
-  interface AdditionalProps {
+  export interface AddedResourceProps {
     kind?: Expressionable<string>;
     sku?: Expressionable<ServiceSku>;
   }
   
-  export function create(name: Expressionable<string>, properties: DataMigrationServiceProperties, location: Expressionable<string>, sku?: Expressionable<ServiceSku>, kind?: Expressionable<string>): ResourceDefinition<DataMigrationServiceProperties> & AdditionalProps {
+  export type ServicesResource = ResourceDefinition<DataMigrationServiceProperties> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: DataMigrationServiceProperties, location: Expressionable<string>, sku?: Expressionable<ServiceSku>, kind?: Expressionable<string>): ServicesResource {
     return {
       type: 'Microsoft.DataMigration/services',
       apiVersion: '2017-11-15-preview',
@@ -95,7 +97,9 @@ export namespace services {
 }
 export namespace services {
   export namespace projects {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ProjectProperties, location: Expressionable<string>): ResourceDefinition<ProjectProperties> {
+    export type ProjectsResource = ResourceDefinition<ProjectProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ProjectProperties, location: Expressionable<string>): ProjectsResource {
       return {
         type: 'Microsoft.DataMigration/services/projects',
         apiVersion: '2017-11-15-preview',
@@ -109,7 +113,9 @@ export namespace services {
 export namespace services {
   export namespace projects {
     export namespace tasks {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: Unknown): ResourceDefinition<Unknown> {
+      export type TasksResource = ResourceDefinition<Unknown>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: Unknown): TasksResource {
         return {
           type: 'Microsoft.DataMigration/services/projects/tasks',
           apiVersion: '2017-11-15-preview',

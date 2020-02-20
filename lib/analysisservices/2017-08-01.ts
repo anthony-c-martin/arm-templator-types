@@ -19,11 +19,13 @@ export interface administrator {
 }
 
 export namespace servers {
-  interface AdditionalProps {
+  export interface AddedResourceProps {
     sku: Expressionable<Sku>;
   }
   
-  export function create(name: Expressionable<string>, properties: ServerProperties, location: Expressionable<string>, sku: Expressionable<Sku>): ResourceDefinition<ServerProperties> & AdditionalProps {
+  export type ServersResource = ResourceDefinition<ServerProperties> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: ServerProperties, location: Expressionable<string>, sku: Expressionable<Sku>): ServersResource {
     return {
       type: 'Microsoft.AnalysisServices/servers',
       apiVersion: '2017-08-01',

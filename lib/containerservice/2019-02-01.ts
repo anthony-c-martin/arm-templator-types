@@ -85,19 +85,28 @@ export interface ManagedClusterServicePrincipalProfile {
 }
 
 export namespace managedClusters {
-  export function create(name: Expressionable<string>, properties: ManagedClusterProperties, location: Expressionable<string>): ResourceDefinition<ManagedClusterProperties> {
+  export interface AddedResourceProps {
+    tags?: Expressionable<any>;
+  }
+  
+  export type ManagedClustersResource = ResourceDefinition<ManagedClusterProperties> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: ManagedClusterProperties, location: Expressionable<string>, tags?: Expressionable<any>): ManagedClustersResource {
     return {
       type: 'Microsoft.ContainerService/managedClusters',
       apiVersion: '2019-02-01',
       name: [name],
       location,
+      tags,
       properties,
     };
   }
 }
 export namespace managedClusters {
   export namespace agentPools {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ManagedClusterAgentPoolProfileProperties): ResourceDefinition<ManagedClusterAgentPoolProfileProperties> {
+    export type AgentPoolsResource = ResourceDefinition<ManagedClusterAgentPoolProfileProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ManagedClusterAgentPoolProfileProperties): AgentPoolsResource {
       return {
         type: 'Microsoft.ContainerService/managedClusters/agentPools',
         apiVersion: '2019-02-01',

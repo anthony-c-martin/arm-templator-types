@@ -8,7 +8,9 @@ export interface ProactiveDetectionConfigurationRule {
 }
 
 export namespace ProactiveDetectionConfigs {
-  export function create(name: Expressionable<string>, properties: ProactiveDetectionConfigurationRule, location: Expressionable<string>): ResourceDefinition<ProactiveDetectionConfigurationRule> {
+  export type ProactiveDetectionConfigsResource = ResourceDefinition<ProactiveDetectionConfigurationRule>;
+  
+  export function create(name: Expressionable<string>, properties: ProactiveDetectionConfigurationRule, location: Expressionable<string>): ProactiveDetectionConfigsResource {
     return {
       type: 'Microsoft.Insights/ProactiveDetectionConfigs',
       apiVersion: '2018-05-01-preview',

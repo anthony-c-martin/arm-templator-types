@@ -35,7 +35,9 @@ export interface UTC {
 }
 
 export namespace jobCollections {
-  export function create(name: Expressionable<string>, properties: any): ResourceDefinition<any> {
+  export type JobCollectionsResource = ResourceDefinition<any>;
+  
+  export function create(name: Expressionable<string>, properties: any): JobCollectionsResource {
     return {
       type: 'Microsoft.Scheduler/jobCollections',
       apiVersion: '2014-08-01-preview',
@@ -46,7 +48,9 @@ export namespace jobCollections {
 }
 export namespace jobCollections {
   export namespace jobs {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: any): ResourceDefinition<any> {
+    export type JobsResource = ResourceDefinition<any>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: any): JobsResource {
       return {
         type: 'Microsoft.Scheduler/jobCollections/jobs',
         apiVersion: '2014-08-01-preview',

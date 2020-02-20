@@ -69,7 +69,9 @@ export interface ResourceRange {
 }
 
 export namespace galleries {
-  export function create(name: Expressionable<string>, properties: GalleryProperties, location: Expressionable<string>): ResourceDefinition<GalleryProperties> {
+  export type GalleriesResource = ResourceDefinition<GalleryProperties>;
+  
+  export function create(name: Expressionable<string>, properties: GalleryProperties, location: Expressionable<string>): GalleriesResource {
     return {
       type: 'Microsoft.Compute/galleries',
       apiVersion: '2018-06-01',
@@ -81,7 +83,9 @@ export namespace galleries {
 }
 export namespace galleries {
   export namespace images {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: GalleryImageProperties, location: Expressionable<string>): ResourceDefinition<GalleryImageProperties> {
+    export type ImagesResource = ResourceDefinition<GalleryImageProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: GalleryImageProperties, location: Expressionable<string>): ImagesResource {
       return {
         type: 'Microsoft.Compute/galleries/images',
         apiVersion: '2018-06-01',
@@ -95,7 +99,9 @@ export namespace galleries {
 export namespace galleries {
   export namespace images {
     export namespace versions {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: GalleryImageVersionProperties, location: Expressionable<string>): ResourceDefinition<GalleryImageVersionProperties> {
+      export type VersionsResource = ResourceDefinition<GalleryImageVersionProperties>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: GalleryImageVersionProperties, location: Expressionable<string>): VersionsResource {
         return {
           type: 'Microsoft.Compute/galleries/images/versions',
           apiVersion: '2018-06-01',

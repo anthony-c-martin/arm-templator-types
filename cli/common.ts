@@ -262,8 +262,8 @@ function writeHeaders(output: string[]) {
   appendOutput(output, ``);
 }
 
-function writeDefinition(output: string[], indent: number, external: boolean, definition: ObjectProperty, name: string) {
-  appendOutput(output, `${external ? 'export ' : ''}interface ${name} {`, indent);
+function writeDefinition(output: string[], indent: number, definition: ObjectProperty, name: string) {
+  appendOutput(output, `export interface ${name} {`, indent);
   for (const key of Object.keys(definition.properties)) {
     const required = definition.required.indexOf(key) > -1;
     let escapedKey = key.match(/\W/) ? `'${key}'` : key;
@@ -310,8 +310,8 @@ function writeBuilderFunction(output: string[], schema: any, definition: ObjectP
   const apiVersionName = resourceApiVersion.values[0];
 
   let indent = 0;
-  const typeSections = typeName.split('/').splice(1);
-  for (const section of typeSections.map(s => s.replace(/\W/g, ''))) {
+  const typeSections = typeName.split('/').splice(1).map(s => s.replace(/\W/g, ''));
+  for (const section of typeSections) {
     appendOutput(output, `export namespace ${section} {`, indent);
     indent += 2;
   }
@@ -325,10 +325,10 @@ function writeBuilderFunction(output: string[], schema: any, definition: ObjectP
 
   const propertiesType = resourceProperties.length > 0 ? resourceProperties.map(r => r.refName).join(' | ') : 'any';
 
-  const knownProps = filter(['location', 'identity', 'sku', 'zones', 'kind', 'plan'], p => p in definition.properties);
+  const knownProps = filter(['location', 'identity', 'sku', 'zones', 'kind', 'plan', 'tags'], p => p in definition.properties);
 
   let argsString = '';
-  let unionTypeString = '';
+  let hasAddedProps = false;
   if (knownProps.length > 0) {
     const [required, optional] = partition(knownProps, k => includes(definition.required, k));
     const properties = pickBy(definition.properties, (_, p) => includes(knownProps, p));
@@ -341,12 +341,18 @@ function writeBuilderFunction(output: string[], schema: any, definition: ObjectP
 
     delete properties['location'];
     if (Object.keys(properties).length > 0) {
-      writeDefinition(output, indent, false, new ObjectProperty(properties, required, [], null), 'AdditionalProps');
-      unionTypeString = '& AdditionalProps ';
+      writeDefinition(output, indent, new ObjectProperty(properties, required, [], null), 'AddedResourceProps');
+      hasAddedProps = true;
     }
   }
 
-  appendOutput(output, `export function create(name: ${nameType}, properties: ${propertiesType}${argsString}): ResourceDefinition<${propertiesType}> ${unionTypeString}{`, indent);
+  let definitionName = `${typeSections[typeSections.length - 1]}Resource`;
+  definitionName = definitionName.charAt(0).toUpperCase() + definitionName.slice(1);
+
+  appendOutput(output, `export type ${definitionName} = ResourceDefinition<${propertiesType}>${hasAddedProps ? ' & AddedResourceProps' : ''};`, indent);
+  appendOutput(output, ``, indent);
+
+  appendOutput(output, `export function create(name: ${nameType}, properties: ${propertiesType}${argsString}): ${definitionName} {`, indent);
   appendOutput(output, `  return {`, indent);
   appendOutput(output, `    type: '${typeName}',`, indent);
   appendOutput(output, `    apiVersion: '${apiVersionName}',`, indent);
@@ -389,7 +395,7 @@ export function processSchemaFile(basePath: string, schemaUri: string) {
       }
       
       const definition = getDefinition(schema.definitions[name], name);
-      writeDefinition(output, 0, true, definition, name);
+      writeDefinition(output, 0, definition, name);
     }
   }
   

@@ -93,17 +93,21 @@ export interface TransportPreferences {
 }
 
 export namespace jobs {
-  interface AdditionalProps {
+  export interface AddedResourceProps {
     sku: Expressionable<Sku>;
+    tags?: Expressionable<any>;
   }
   
-  export function create(name: Expressionable<string>, properties: JobProperties, location: Expressionable<string>, sku: Expressionable<Sku>): ResourceDefinition<JobProperties> & AdditionalProps {
+  export type JobsResource = ResourceDefinition<JobProperties> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: JobProperties, location: Expressionable<string>, sku: Expressionable<Sku>, tags?: Expressionable<any>): JobsResource {
     return {
       type: 'Microsoft.DataBox/jobs',
       apiVersion: '2019-09-01',
       name: [name],
       location,
       sku,
+      tags,
       properties,
     };
   }

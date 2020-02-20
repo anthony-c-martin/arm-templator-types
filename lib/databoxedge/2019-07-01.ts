@@ -178,24 +178,30 @@ export interface UserProperties {
 }
 
 export namespace dataBoxEdgeDevices {
-  interface AdditionalProps {
+  export interface AddedResourceProps {
     sku?: Expressionable<Sku>;
+    tags?: Expressionable<any>;
   }
   
-  export function create(name: Expressionable<string>, properties: DataBoxEdgeDeviceProperties, location: Expressionable<string>, sku?: Expressionable<Sku>): ResourceDefinition<DataBoxEdgeDeviceProperties> & AdditionalProps {
+  export type DataBoxEdgeDevicesResource = ResourceDefinition<DataBoxEdgeDeviceProperties> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: DataBoxEdgeDeviceProperties, location: Expressionable<string>, sku?: Expressionable<Sku>, tags?: Expressionable<any>): DataBoxEdgeDevicesResource {
     return {
       type: 'Microsoft.DataBoxEdge/dataBoxEdgeDevices',
       apiVersion: '2019-07-01',
       name: [name],
       location,
       sku,
+      tags,
       properties,
     };
   }
 }
 export namespace dataBoxEdgeDevices {
   export namespace bandwidthSchedules {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: BandwidthScheduleProperties): ResourceDefinition<BandwidthScheduleProperties> {
+    export type BandwidthSchedulesResource = ResourceDefinition<BandwidthScheduleProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: BandwidthScheduleProperties): BandwidthSchedulesResource {
       return {
         type: 'Microsoft.DataBoxEdge/dataBoxEdgeDevices/bandwidthSchedules',
         apiVersion: '2019-07-01',
@@ -207,7 +213,9 @@ export namespace dataBoxEdgeDevices {
 }
 export namespace dataBoxEdgeDevices {
   export namespace orders {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: OrderProperties): ResourceDefinition<OrderProperties> {
+    export type OrdersResource = ResourceDefinition<OrderProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: OrderProperties): OrdersResource {
       return {
         type: 'Microsoft.DataBoxEdge/dataBoxEdgeDevices/orders',
         apiVersion: '2019-07-01',
@@ -219,7 +227,9 @@ export namespace dataBoxEdgeDevices {
 }
 export namespace dataBoxEdgeDevices {
   export namespace roles {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: IoTRoleProperties): ResourceDefinition<IoTRoleProperties> {
+    export type RolesResource = ResourceDefinition<IoTRoleProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: IoTRoleProperties): RolesResource {
       return {
         type: 'Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles',
         apiVersion: '2019-07-01',
@@ -231,7 +241,9 @@ export namespace dataBoxEdgeDevices {
 }
 export namespace dataBoxEdgeDevices {
   export namespace shares {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ShareProperties): ResourceDefinition<ShareProperties> {
+    export type SharesResource = ResourceDefinition<ShareProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ShareProperties): SharesResource {
       return {
         type: 'Microsoft.DataBoxEdge/dataBoxEdgeDevices/shares',
         apiVersion: '2019-07-01',
@@ -243,7 +255,9 @@ export namespace dataBoxEdgeDevices {
 }
 export namespace dataBoxEdgeDevices {
   export namespace storageAccountCredentials {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: StorageAccountCredentialProperties): ResourceDefinition<StorageAccountCredentialProperties> {
+    export type StorageAccountCredentialsResource = ResourceDefinition<StorageAccountCredentialProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: StorageAccountCredentialProperties): StorageAccountCredentialsResource {
       return {
         type: 'Microsoft.DataBoxEdge/dataBoxEdgeDevices/storageAccountCredentials',
         apiVersion: '2019-07-01',
@@ -255,7 +269,9 @@ export namespace dataBoxEdgeDevices {
 }
 export namespace dataBoxEdgeDevices {
   export namespace triggers {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: FileTriggerProperties | PeriodicTimerProperties): ResourceDefinition<FileTriggerProperties | PeriodicTimerProperties> {
+    export type TriggersResource = ResourceDefinition<FileTriggerProperties | PeriodicTimerProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: FileTriggerProperties | PeriodicTimerProperties): TriggersResource {
       return {
         type: 'Microsoft.DataBoxEdge/dataBoxEdgeDevices/triggers',
         apiVersion: '2019-07-01',
@@ -267,7 +283,9 @@ export namespace dataBoxEdgeDevices {
 }
 export namespace dataBoxEdgeDevices {
   export namespace users {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: UserProperties): ResourceDefinition<UserProperties> {
+    export type UsersResource = ResourceDefinition<UserProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: UserProperties): UsersResource {
       return {
         type: 'Microsoft.DataBoxEdge/dataBoxEdgeDevices/users',
         apiVersion: '2019-07-01',

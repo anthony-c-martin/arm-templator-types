@@ -6,7 +6,9 @@ export interface ManagementLockProperties {
 }
 
 export namespace locks {
-  export function create(name: Expressionable<string>, properties: ManagementLockProperties): ResourceDefinition<ManagementLockProperties> {
+  export type LocksResource = ResourceDefinition<ManagementLockProperties>;
+  
+  export function create(name: Expressionable<string>, properties: ManagementLockProperties): LocksResource {
     return {
       type: 'Microsoft.Authorization/locks',
       apiVersion: '2016-09-01',

@@ -296,7 +296,9 @@ export interface networkWatcherAgentLinux {
 
 export namespace virtualMachines {
   export namespace extensions {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: any, location: Expressionable<string>): ResourceDefinition<any> {
+    export type ExtensionsResource = ResourceDefinition<any>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: any, location: Expressionable<string>): ExtensionsResource {
       return {
         type: 'Microsoft.Compute/virtualMachines/extensions',
         apiVersion: '2018-06-01',
@@ -309,7 +311,9 @@ export namespace virtualMachines {
 }
 export namespace virtualMachineScaleSets {
   export namespace extensions {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: any): ResourceDefinition<any> {
+    export type ExtensionsResource = ResourceDefinition<any>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: any): ExtensionsResource {
       return {
         type: 'Microsoft.Compute/virtualMachineScaleSets/extensions',
         apiVersion: '2018-06-01',

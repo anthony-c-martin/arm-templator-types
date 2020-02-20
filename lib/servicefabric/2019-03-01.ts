@@ -238,24 +238,38 @@ export interface StatelessServiceProperties {
 }
 
 export namespace clusters {
-  export function create(name: Expressionable<string>, properties: ClusterProperties, location: Expressionable<string>): ResourceDefinition<ClusterProperties> {
+  export interface AddedResourceProps {
+    tags?: Expressionable<any>;
+  }
+  
+  export type ClustersResource = ResourceDefinition<ClusterProperties> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: ClusterProperties, location: Expressionable<string>, tags?: Expressionable<any>): ClustersResource {
     return {
       type: 'Microsoft.ServiceFabric/clusters',
       apiVersion: '2019-03-01',
       name: [name],
       location,
+      tags,
       properties,
     };
   }
 }
 export namespace clusters {
   export namespace applications {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ApplicationResourceProperties, location?: Expressionable<string>): ResourceDefinition<ApplicationResourceProperties> {
+    export interface AddedResourceProps {
+      tags?: Expressionable<any>;
+    }
+    
+    export type ApplicationsResource = ResourceDefinition<ApplicationResourceProperties> & AddedResourceProps;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ApplicationResourceProperties, location?: Expressionable<string>, tags?: Expressionable<any>): ApplicationsResource {
       return {
         type: 'Microsoft.ServiceFabric/clusters/applications',
         apiVersion: '2019-03-01',
         name: name,
         location,
+        tags,
         properties,
       };
     }
@@ -264,12 +278,19 @@ export namespace clusters {
 export namespace clusters {
   export namespace applications {
     export namespace services {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ServiceResourceProperties, location?: Expressionable<string>): ResourceDefinition<ServiceResourceProperties> {
+      export interface AddedResourceProps {
+        tags?: Expressionable<any>;
+      }
+      
+      export type ServicesResource = ResourceDefinition<ServiceResourceProperties> & AddedResourceProps;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ServiceResourceProperties, location?: Expressionable<string>, tags?: Expressionable<any>): ServicesResource {
         return {
           type: 'Microsoft.ServiceFabric/clusters/applications/services',
           apiVersion: '2019-03-01',
           name: name,
           location,
+          tags,
           properties,
         };
       }
@@ -278,12 +299,19 @@ export namespace clusters {
 }
 export namespace clusters {
   export namespace applicationTypes {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ApplicationTypeResourceProperties, location?: Expressionable<string>): ResourceDefinition<ApplicationTypeResourceProperties> {
+    export interface AddedResourceProps {
+      tags?: Expressionable<any>;
+    }
+    
+    export type ApplicationTypesResource = ResourceDefinition<ApplicationTypeResourceProperties> & AddedResourceProps;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ApplicationTypeResourceProperties, location?: Expressionable<string>, tags?: Expressionable<any>): ApplicationTypesResource {
       return {
         type: 'Microsoft.ServiceFabric/clusters/applicationTypes',
         apiVersion: '2019-03-01',
         name: name,
         location,
+        tags,
         properties,
       };
     }
@@ -292,12 +320,19 @@ export namespace clusters {
 export namespace clusters {
   export namespace applicationTypes {
     export namespace versions {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ApplicationTypeVersionResourceProperties, location?: Expressionable<string>): ResourceDefinition<ApplicationTypeVersionResourceProperties> {
+      export interface AddedResourceProps {
+        tags?: Expressionable<any>;
+      }
+      
+      export type VersionsResource = ResourceDefinition<ApplicationTypeVersionResourceProperties> & AddedResourceProps;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ApplicationTypeVersionResourceProperties, location?: Expressionable<string>, tags?: Expressionable<any>): VersionsResource {
         return {
           type: 'Microsoft.ServiceFabric/clusters/applicationTypes/versions',
           apiVersion: '2019-03-01',
           name: name,
           location,
+          tags,
           properties,
         };
       }

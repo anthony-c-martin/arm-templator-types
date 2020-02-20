@@ -50,7 +50,9 @@ export interface WebhookReceiver {
 }
 
 export namespace actionGroups {
-  export function create(name: Expressionable<string>, properties: ActionGroup): ResourceDefinition<ActionGroup> {
+  export type ActionGroupsResource = ResourceDefinition<ActionGroup>;
+  
+  export function create(name: Expressionable<string>, properties: ActionGroup): ActionGroupsResource {
     return {
       type: 'Microsoft.Insights/actionGroups',
       apiVersion: '2017-03-01-preview',
@@ -60,7 +62,9 @@ export namespace actionGroups {
   }
 }
 export namespace activityLogAlerts {
-  export function create(name: Expressionable<string>, properties: ActivityLogAlert): ResourceDefinition<ActivityLogAlert> {
+  export type ActivityLogAlertsResource = ResourceDefinition<ActivityLogAlert>;
+  
+  export function create(name: Expressionable<string>, properties: ActivityLogAlert): ActivityLogAlertsResource {
     return {
       type: 'Microsoft.Insights/activityLogAlerts',
       apiVersion: '2017-03-01-preview',

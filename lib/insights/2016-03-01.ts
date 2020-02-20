@@ -49,7 +49,9 @@ export interface RuleManagementEventClaimsDataSource {
 }
 
 export namespace alertrules {
-  export function create(name: Expressionable<string>, properties: AlertRule, location: Expressionable<string>): ResourceDefinition<AlertRule> {
+  export type AlertrulesResource = ResourceDefinition<AlertRule>;
+  
+  export function create(name: Expressionable<string>, properties: AlertRule, location: Expressionable<string>): AlertrulesResource {
     return {
       type: 'microsoft.insights/alertrules',
       apiVersion: '2016-03-01',

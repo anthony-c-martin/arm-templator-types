@@ -285,7 +285,9 @@ export interface VnetGateway_properties {
 }
 
 export namespace sites {
-  export function create(name: Expressionable<string>, properties: Site_properties): ResourceDefinition<Site_properties> {
+  export type SitesResource = ResourceDefinition<Site_properties>;
+  
+  export function create(name: Expressionable<string>, properties: Site_properties): SitesResource {
     return {
       type: 'Microsoft.Web/sites',
       apiVersion: '2016-08-01',
@@ -296,7 +298,9 @@ export namespace sites {
 }
 export namespace sites {
   export namespace config {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: SiteConfig): ResourceDefinition<SiteConfig> {
+    export type ConfigResource = ResourceDefinition<SiteConfig>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: SiteConfig): ConfigResource {
       return {
         type: 'Microsoft.Web/sites/config',
         apiVersion: '2016-08-01',
@@ -308,7 +312,9 @@ export namespace sites {
 }
 export namespace sites {
   export namespace deployments {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: Deployment_properties): ResourceDefinition<Deployment_properties> {
+    export type DeploymentsResource = ResourceDefinition<Deployment_properties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: Deployment_properties): DeploymentsResource {
       return {
         type: 'Microsoft.Web/sites/deployments',
         apiVersion: '2016-08-01',
@@ -320,7 +326,9 @@ export namespace sites {
 }
 export namespace sites {
   export namespace domainOwnershipIdentifiers {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: Identifier_properties): ResourceDefinition<Identifier_properties> {
+    export type DomainOwnershipIdentifiersResource = ResourceDefinition<Identifier_properties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: Identifier_properties): DomainOwnershipIdentifiersResource {
       return {
         type: 'Microsoft.Web/sites/domainOwnershipIdentifiers',
         apiVersion: '2016-08-01',
@@ -332,7 +340,9 @@ export namespace sites {
 }
 export namespace sites {
   export namespace hostNameBindings {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: HostNameBinding_properties): ResourceDefinition<HostNameBinding_properties> {
+    export type HostNameBindingsResource = ResourceDefinition<HostNameBinding_properties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: HostNameBinding_properties): HostNameBindingsResource {
       return {
         type: 'Microsoft.Web/sites/hostNameBindings',
         apiVersion: '2016-08-01',
@@ -344,7 +354,9 @@ export namespace sites {
 }
 export namespace sites {
   export namespace hybridconnection {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RelayServiceConnectionEntity_properties): ResourceDefinition<RelayServiceConnectionEntity_properties> {
+    export type HybridconnectionResource = ResourceDefinition<RelayServiceConnectionEntity_properties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RelayServiceConnectionEntity_properties): HybridconnectionResource {
       return {
         type: 'Microsoft.Web/sites/hybridconnection',
         apiVersion: '2016-08-01',
@@ -357,7 +369,9 @@ export namespace sites {
 export namespace sites {
   export namespace hybridConnectionNamespaces {
     export namespace relays {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: HybridConnection_properties): ResourceDefinition<HybridConnection_properties> {
+      export type RelaysResource = ResourceDefinition<HybridConnection_properties>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: HybridConnection_properties): RelaysResource {
         return {
           type: 'Microsoft.Web/sites/hybridConnectionNamespaces/relays',
           apiVersion: '2016-08-01',
@@ -371,7 +385,9 @@ export namespace sites {
 export namespace sites {
   export namespace instances {
     export namespace deployments {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: Deployment_properties): ResourceDefinition<Deployment_properties> {
+      export type DeploymentsResource = ResourceDefinition<Deployment_properties>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: Deployment_properties): DeploymentsResource {
         return {
           type: 'Microsoft.Web/sites/instances/deployments',
           apiVersion: '2016-08-01',
@@ -384,7 +400,9 @@ export namespace sites {
 }
 export namespace sites {
   export namespace premieraddons {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: PremierAddOn_properties): ResourceDefinition<PremierAddOn_properties> {
+    export type PremieraddonsResource = ResourceDefinition<PremierAddOn_properties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: PremierAddOn_properties): PremieraddonsResource {
       return {
         type: 'Microsoft.Web/sites/premieraddons',
         apiVersion: '2016-08-01',
@@ -396,7 +414,9 @@ export namespace sites {
 }
 export namespace sites {
   export namespace publiccertificates {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: PublicCertificate_properties): ResourceDefinition<PublicCertificate_properties> {
+    export type PubliccertificatesResource = ResourceDefinition<PublicCertificate_properties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: PublicCertificate_properties): PubliccertificatesResource {
       return {
         type: 'Microsoft.Web/sites/publiccertificates',
         apiVersion: '2016-08-01',
@@ -408,7 +428,9 @@ export namespace sites {
 }
 export namespace sites {
   export namespace sourcecontrols {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: SourceControl): ResourceDefinition<SourceControl> {
+    export type SourcecontrolsResource = ResourceDefinition<SourceControl>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: SourceControl): SourcecontrolsResource {
       return {
         type: 'Microsoft.Web/sites/sourcecontrols',
         apiVersion: '2016-08-01',
@@ -420,7 +442,9 @@ export namespace sites {
 }
 export namespace sites {
   export namespace slots {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: Site_properties): ResourceDefinition<Site_properties> {
+    export type SlotsResource = ResourceDefinition<Site_properties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: Site_properties): SlotsResource {
       return {
         type: 'Microsoft.Web/sites/slots',
         apiVersion: '2016-08-01',
@@ -433,7 +457,9 @@ export namespace sites {
 export namespace sites {
   export namespace slots {
     export namespace config {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: SiteConfig): ResourceDefinition<SiteConfig> {
+      export type ConfigResource = ResourceDefinition<SiteConfig>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: SiteConfig): ConfigResource {
         return {
           type: 'Microsoft.Web/sites/slots/config',
           apiVersion: '2016-08-01',
@@ -447,7 +473,9 @@ export namespace sites {
 export namespace sites {
   export namespace slots {
     export namespace deployments {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: Deployment_properties): ResourceDefinition<Deployment_properties> {
+      export type DeploymentsResource = ResourceDefinition<Deployment_properties>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: Deployment_properties): DeploymentsResource {
         return {
           type: 'Microsoft.Web/sites/slots/deployments',
           apiVersion: '2016-08-01',
@@ -461,7 +489,9 @@ export namespace sites {
 export namespace sites {
   export namespace slots {
     export namespace domainOwnershipIdentifiers {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: Identifier_properties): ResourceDefinition<Identifier_properties> {
+      export type DomainOwnershipIdentifiersResource = ResourceDefinition<Identifier_properties>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: Identifier_properties): DomainOwnershipIdentifiersResource {
         return {
           type: 'Microsoft.Web/sites/slots/domainOwnershipIdentifiers',
           apiVersion: '2016-08-01',
@@ -475,7 +505,9 @@ export namespace sites {
 export namespace sites {
   export namespace slots {
     export namespace hostNameBindings {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: HostNameBinding_properties): ResourceDefinition<HostNameBinding_properties> {
+      export type HostNameBindingsResource = ResourceDefinition<HostNameBinding_properties>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: HostNameBinding_properties): HostNameBindingsResource {
         return {
           type: 'Microsoft.Web/sites/slots/hostNameBindings',
           apiVersion: '2016-08-01',
@@ -489,7 +521,9 @@ export namespace sites {
 export namespace sites {
   export namespace slots {
     export namespace hybridconnection {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: RelayServiceConnectionEntity_properties): ResourceDefinition<RelayServiceConnectionEntity_properties> {
+      export type HybridconnectionResource = ResourceDefinition<RelayServiceConnectionEntity_properties>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: RelayServiceConnectionEntity_properties): HybridconnectionResource {
         return {
           type: 'Microsoft.Web/sites/slots/hybridconnection',
           apiVersion: '2016-08-01',
@@ -504,7 +538,9 @@ export namespace sites {
   export namespace slots {
     export namespace hybridConnectionNamespaces {
       export namespace relays {
-        export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: HybridConnection_properties): ResourceDefinition<HybridConnection_properties> {
+        export type RelaysResource = ResourceDefinition<HybridConnection_properties>;
+        
+        export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: HybridConnection_properties): RelaysResource {
           return {
             type: 'Microsoft.Web/sites/slots/hybridConnectionNamespaces/relays',
             apiVersion: '2016-08-01',
@@ -520,7 +556,9 @@ export namespace sites {
   export namespace slots {
     export namespace instances {
       export namespace deployments {
-        export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: Deployment_properties): ResourceDefinition<Deployment_properties> {
+        export type DeploymentsResource = ResourceDefinition<Deployment_properties>;
+        
+        export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: Deployment_properties): DeploymentsResource {
           return {
             type: 'Microsoft.Web/sites/slots/instances/deployments',
             apiVersion: '2016-08-01',
@@ -535,7 +573,9 @@ export namespace sites {
 export namespace sites {
   export namespace slots {
     export namespace premieraddons {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: PremierAddOn_properties): ResourceDefinition<PremierAddOn_properties> {
+      export type PremieraddonsResource = ResourceDefinition<PremierAddOn_properties>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: PremierAddOn_properties): PremieraddonsResource {
         return {
           type: 'Microsoft.Web/sites/slots/premieraddons',
           apiVersion: '2016-08-01',
@@ -549,7 +589,9 @@ export namespace sites {
 export namespace sites {
   export namespace slots {
     export namespace publiccertificates {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: PublicCertificate_properties): ResourceDefinition<PublicCertificate_properties> {
+      export type PubliccertificatesResource = ResourceDefinition<PublicCertificate_properties>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: PublicCertificate_properties): PubliccertificatesResource {
         return {
           type: 'Microsoft.Web/sites/slots/publiccertificates',
           apiVersion: '2016-08-01',
@@ -563,7 +605,9 @@ export namespace sites {
 export namespace sites {
   export namespace slots {
     export namespace virtualNetworkConnections {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: any): ResourceDefinition<any> {
+      export type VirtualNetworkConnectionsResource = ResourceDefinition<any>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: any): VirtualNetworkConnectionsResource {
         return {
           type: 'Microsoft.Web/sites/slots/virtualNetworkConnections',
           apiVersion: '2016-08-01',
@@ -578,7 +622,9 @@ export namespace sites {
   export namespace slots {
     export namespace virtualNetworkConnections {
       export namespace gateways {
-        export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: VnetGateway_properties): ResourceDefinition<VnetGateway_properties> {
+        export type GatewaysResource = ResourceDefinition<VnetGateway_properties>;
+        
+        export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: VnetGateway_properties): GatewaysResource {
           return {
             type: 'Microsoft.Web/sites/slots/virtualNetworkConnections/gateways',
             apiVersion: '2016-08-01',
@@ -593,7 +639,9 @@ export namespace sites {
 export namespace sites {
   export namespace slots {
     export namespace sourcecontrols {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: SourceControl): ResourceDefinition<SourceControl> {
+      export type SourcecontrolsResource = ResourceDefinition<SourceControl>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: SourceControl): SourcecontrolsResource {
         return {
           type: 'Microsoft.Web/sites/slots/sourcecontrols',
           apiVersion: '2016-08-01',
@@ -606,7 +654,9 @@ export namespace sites {
 }
 export namespace sites {
   export namespace virtualNetworkConnections {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: any): ResourceDefinition<any> {
+    export type VirtualNetworkConnectionsResource = ResourceDefinition<any>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: any): VirtualNetworkConnectionsResource {
       return {
         type: 'Microsoft.Web/sites/virtualNetworkConnections',
         apiVersion: '2016-08-01',
@@ -619,7 +669,9 @@ export namespace sites {
 export namespace sites {
   export namespace virtualNetworkConnections {
     export namespace gateways {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: VnetGateway_properties): ResourceDefinition<VnetGateway_properties> {
+      export type GatewaysResource = ResourceDefinition<VnetGateway_properties>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: VnetGateway_properties): GatewaysResource {
         return {
           type: 'Microsoft.Web/sites/virtualNetworkConnections/gateways',
           apiVersion: '2016-08-01',

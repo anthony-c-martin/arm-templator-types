@@ -74,12 +74,19 @@ export interface ImageTemplateVhdDistributor {
 }
 
 export namespace imageTemplates {
-  export function create(name: Expressionable<string>, properties: ImageTemplateProperties, location: Expressionable<string>): ResourceDefinition<ImageTemplateProperties> {
+  export interface AddedResourceProps {
+    tags?: Expressionable<any>;
+  }
+  
+  export type ImageTemplatesResource = ResourceDefinition<ImageTemplateProperties> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: ImageTemplateProperties, location: Expressionable<string>, tags?: Expressionable<any>): ImageTemplatesResource {
     return {
       type: 'Microsoft.VirtualMachineImages/imageTemplates',
       apiVersion: '2019-02-01-preview',
       name: [name],
       location,
+      tags,
       properties,
     };
   }

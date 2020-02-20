@@ -29,24 +29,30 @@ export interface Identity {
 }
 
 export namespace clusters {
-  interface AdditionalProps {
+  export interface AddedResourceProps {
     identity?: Expressionable<Identity>;
+    tags?: Expressionable<any>;
   }
   
-  export function create(name: Expressionable<string>, properties: ClusterProperties, location?: Expressionable<string>, identity?: Expressionable<Identity>): ResourceDefinition<ClusterProperties> & AdditionalProps {
+  export type ClustersResource = ResourceDefinition<ClusterProperties> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: ClusterProperties, location?: Expressionable<string>, identity?: Expressionable<Identity>, tags?: Expressionable<any>): ClustersResource {
     return {
       type: 'Microsoft.OperationalInsights/clusters',
       apiVersion: '2019-08-01-preview',
       name: [name],
       location,
       identity,
+      tags,
       properties,
     };
   }
 }
 export namespace workspaces {
   export namespace dataExports {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: DataExportProperties): ResourceDefinition<DataExportProperties> {
+    export type DataExportsResource = ResourceDefinition<DataExportProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: DataExportProperties): DataExportsResource {
       return {
         type: 'Microsoft.OperationalInsights/workspaces/dataExports',
         apiVersion: '2019-08-01-preview',

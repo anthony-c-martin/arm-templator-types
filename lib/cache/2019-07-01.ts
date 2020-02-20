@@ -40,24 +40,30 @@ export interface Sku {
 }
 
 export namespace Redis {
-  interface AdditionalProps {
+  export interface AddedResourceProps {
+    tags?: Expressionable<any>;
     zones?: Expressionable<string[]>;
   }
   
-  export function create(name: Expressionable<string>, properties: RedisCreateProperties, location: Expressionable<string>, zones?: Expressionable<string[]>): ResourceDefinition<RedisCreateProperties> & AdditionalProps {
+  export type RedisResource = ResourceDefinition<RedisCreateProperties> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: RedisCreateProperties, location: Expressionable<string>, zones?: Expressionable<string[]>, tags?: Expressionable<any>): RedisResource {
     return {
       type: 'Microsoft.Cache/Redis',
       apiVersion: '2019-07-01',
       name: [name],
       location,
       zones,
+      tags,
       properties,
     };
   }
 }
 export namespace Redis {
   export namespace firewallRules {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RedisFirewallRuleProperties): ResourceDefinition<RedisFirewallRuleProperties> {
+    export type FirewallRulesResource = ResourceDefinition<RedisFirewallRuleProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RedisFirewallRuleProperties): FirewallRulesResource {
       return {
         type: 'Microsoft.Cache/Redis/firewallRules',
         apiVersion: '2019-07-01',
@@ -69,7 +75,9 @@ export namespace Redis {
 }
 export namespace Redis {
   export namespace linkedServers {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RedisLinkedServerCreateProperties): ResourceDefinition<RedisLinkedServerCreateProperties> {
+    export type LinkedServersResource = ResourceDefinition<RedisLinkedServerCreateProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RedisLinkedServerCreateProperties): LinkedServersResource {
       return {
         type: 'Microsoft.Cache/Redis/linkedServers',
         apiVersion: '2019-07-01',
@@ -81,7 +89,9 @@ export namespace Redis {
 }
 export namespace Redis {
   export namespace patchSchedules {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ScheduleEntries): ResourceDefinition<ScheduleEntries> {
+    export type PatchSchedulesResource = ResourceDefinition<ScheduleEntries>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ScheduleEntries): PatchSchedulesResource {
       return {
         type: 'Microsoft.Cache/Redis/patchSchedules',
         apiVersion: '2019-07-01',

@@ -87,7 +87,9 @@ export interface Action {
 }
 
 export namespace actionGroups {
-  export function create(name: Expressionable<string>, properties: ActionGroup): ResourceDefinition<ActionGroup> {
+  export type ActionGroupsResource = ResourceDefinition<ActionGroup>;
+  
+  export function create(name: Expressionable<string>, properties: ActionGroup): ActionGroupsResource {
     return {
       type: 'Microsoft.Insights/actionGroups',
       apiVersion: '2019-03-01',

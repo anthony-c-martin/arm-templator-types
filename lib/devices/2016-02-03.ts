@@ -65,17 +65,21 @@ export interface StorageEndpointProperties {
 }
 
 export namespace IotHubs {
-  interface AdditionalProps {
+  export interface AddedResourceProps {
     sku: Expressionable<IotHubSkuInfo>;
+    tags?: Expressionable<any>;
   }
   
-  export function create(name: Expressionable<string>, properties: IotHubProperties, location: Expressionable<string>, sku: Expressionable<IotHubSkuInfo>): ResourceDefinition<IotHubProperties> & AdditionalProps {
+  export type IotHubsResource = ResourceDefinition<IotHubProperties> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: IotHubProperties, location: Expressionable<string>, sku: Expressionable<IotHubSkuInfo>, tags?: Expressionable<any>): IotHubsResource {
     return {
       type: 'Microsoft.Devices/IotHubs',
       apiVersion: '2016-02-03',
       name: [name],
       location,
       sku,
+      tags,
       properties,
     };
   }
@@ -83,7 +87,9 @@ export namespace IotHubs {
 export namespace IotHubs {
   export namespace eventHubEndpoints {
     export namespace ConsumerGroups {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: any): ResourceDefinition<any> {
+      export type ConsumerGroupsResource = ResourceDefinition<any>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: any): ConsumerGroupsResource {
         return {
           type: 'Microsoft.Devices/IotHubs/eventHubEndpoints/ConsumerGroups',
           apiVersion: '2016-02-03',

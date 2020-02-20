@@ -18,7 +18,9 @@ export interface sku {
 
 export namespace vaults {
   export namespace secrets {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: any): ResourceDefinition<any> {
+    export type SecretsResource = ResourceDefinition<any>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: any): SecretsResource {
       return {
         type: 'Microsoft.KeyVault/vaults/secrets',
         apiVersion: '2014-12-19-preview',
@@ -28,7 +30,9 @@ export namespace vaults {
     }
   }
 }
-export function create(name: [], properties: any): ResourceDefinition<any> {
+export type UndefinedResource = ResourceDefinition<any>;
+
+export function create(name: [], properties: any): UndefinedResource {
   return {
     type: 'secrets',
     apiVersion: '2014-12-19-preview',
@@ -37,7 +41,9 @@ export function create(name: [], properties: any): ResourceDefinition<any> {
   };
 }
 export namespace vaults {
-  export function create(name: Expressionable<string>, properties: any): ResourceDefinition<any> {
+  export type VaultsResource = ResourceDefinition<any>;
+  
+  export function create(name: Expressionable<string>, properties: any): VaultsResource {
     return {
       type: 'Microsoft.KeyVault/vaults',
       apiVersion: '2014-12-19-preview',

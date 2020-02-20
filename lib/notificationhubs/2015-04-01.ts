@@ -8,7 +8,9 @@ export interface SBNamespaceProperties {
 }
 
 export namespace namespaces {
-  export function create(name: Expressionable<string>, properties: any): ResourceDefinition<any> {
+  export type NamespacesResource = ResourceDefinition<any>;
+  
+  export function create(name: Expressionable<string>, properties: any): NamespacesResource {
     return {
       type: 'Microsoft.NotificationHubs/namespaces',
       apiVersion: '2015-04-01',
@@ -19,7 +21,9 @@ export namespace namespaces {
 }
 export namespace namespaces {
   export namespace AuthorizationRules {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: SBAuthorizationRuleProperties): ResourceDefinition<SBAuthorizationRuleProperties> {
+    export type AuthorizationRulesResource = ResourceDefinition<SBAuthorizationRuleProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: SBAuthorizationRuleProperties): AuthorizationRulesResource {
       return {
         type: 'Microsoft.NotificationHubs/namespaces/AuthorizationRules',
         apiVersion: '2015-04-01',
@@ -31,7 +35,9 @@ export namespace namespaces {
 }
 export namespace namespaces {
   export namespace notificationHubs {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: any): ResourceDefinition<any> {
+    export type NotificationHubsResource = ResourceDefinition<any>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: any): NotificationHubsResource {
       return {
         type: 'Microsoft.NotificationHubs/namespaces/notificationHubs',
         apiVersion: '2015-04-01',
@@ -44,7 +50,9 @@ export namespace namespaces {
 export namespace namespaces {
   export namespace NotificationHubs {
     export namespace authorizationRules {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: SBAuthorizationRuleProperties): ResourceDefinition<SBAuthorizationRuleProperties> {
+      export type AuthorizationRulesResource = ResourceDefinition<SBAuthorizationRuleProperties>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: SBAuthorizationRuleProperties): AuthorizationRulesResource {
         return {
           type: 'Microsoft.NotificationHubs/namespaces/NotificationHubs/authorizationRules',
           apiVersion: '2015-04-01',

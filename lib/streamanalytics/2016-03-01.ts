@@ -349,19 +349,28 @@ export interface TransformationProperties {
 }
 
 export namespace streamingjobs {
-  export function create(name: Expressionable<string>, properties: StreamingJobProperties, location?: Expressionable<string>): ResourceDefinition<StreamingJobProperties> {
+  export interface AddedResourceProps {
+    tags?: Expressionable<any>;
+  }
+  
+  export type StreamingjobsResource = ResourceDefinition<StreamingJobProperties> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: StreamingJobProperties, location?: Expressionable<string>, tags?: Expressionable<any>): StreamingjobsResource {
     return {
       type: 'Microsoft.StreamAnalytics/streamingjobs',
       apiVersion: '2016-03-01',
       name: [name],
       location,
+      tags,
       properties,
     };
   }
 }
 export namespace streamingjobs {
   export namespace functions {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: FunctionProperties): ResourceDefinition<FunctionProperties> {
+    export type FunctionsResource = ResourceDefinition<FunctionProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: FunctionProperties): FunctionsResource {
       return {
         type: 'Microsoft.StreamAnalytics/streamingjobs/functions',
         apiVersion: '2016-03-01',
@@ -373,7 +382,9 @@ export namespace streamingjobs {
 }
 export namespace streamingjobs {
   export namespace inputs {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: InputProperties): ResourceDefinition<InputProperties> {
+    export type InputsResource = ResourceDefinition<InputProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: InputProperties): InputsResource {
       return {
         type: 'Microsoft.StreamAnalytics/streamingjobs/inputs',
         apiVersion: '2016-03-01',
@@ -385,7 +396,9 @@ export namespace streamingjobs {
 }
 export namespace streamingjobs {
   export namespace outputs {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: OutputProperties): ResourceDefinition<OutputProperties> {
+    export type OutputsResource = ResourceDefinition<OutputProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: OutputProperties): OutputsResource {
       return {
         type: 'Microsoft.StreamAnalytics/streamingjobs/outputs',
         apiVersion: '2016-03-01',
@@ -397,7 +410,9 @@ export namespace streamingjobs {
 }
 export namespace streamingjobs {
   export namespace transformations {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: TransformationProperties): ResourceDefinition<TransformationProperties> {
+    export type TransformationsResource = ResourceDefinition<TransformationProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: TransformationProperties): TransformationsResource {
       return {
         type: 'Microsoft.StreamAnalytics/streamingjobs/transformations',
         apiVersion: '2016-03-01',

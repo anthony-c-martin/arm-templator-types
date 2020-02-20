@@ -81,24 +81,30 @@ export interface VirtualNetworkRuleProperties {
 }
 
 export namespace servers {
-  interface AdditionalProps {
+  export interface AddedResourceProps {
     sku?: Expressionable<Sku>;
+    tags?: Expressionable<any>;
   }
   
-  export function create(name: Expressionable<string>, properties: ServerPropertiesForCreate, location: Expressionable<string>, sku?: Expressionable<Sku>): ResourceDefinition<ServerPropertiesForCreate> & AdditionalProps {
+  export type ServersResource = ResourceDefinition<ServerPropertiesForCreate> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: ServerPropertiesForCreate, location: Expressionable<string>, sku?: Expressionable<Sku>, tags?: Expressionable<any>): ServersResource {
     return {
       type: 'Microsoft.DBforMySQL/servers',
       apiVersion: '2017-12-01-preview',
       name: [name],
       location,
       sku,
+      tags,
       properties,
     };
   }
 }
 export namespace servers {
   export namespace Administrators {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ServerAdministratorProperties): ResourceDefinition<ServerAdministratorProperties> {
+    export type AdministratorsResource = ResourceDefinition<ServerAdministratorProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ServerAdministratorProperties): AdministratorsResource {
       return {
         type: 'Microsoft.DBforMySQL/servers/Administrators',
         apiVersion: '2017-12-01-preview',
@@ -110,7 +116,9 @@ export namespace servers {
 }
 export namespace servers {
   export namespace configurations {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ConfigurationProperties): ResourceDefinition<ConfigurationProperties> {
+    export type ConfigurationsResource = ResourceDefinition<ConfigurationProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ConfigurationProperties): ConfigurationsResource {
       return {
         type: 'Microsoft.DBforMySQL/servers/configurations',
         apiVersion: '2017-12-01-preview',
@@ -122,7 +130,9 @@ export namespace servers {
 }
 export namespace servers {
   export namespace databases {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: DatabaseProperties): ResourceDefinition<DatabaseProperties> {
+    export type DatabasesResource = ResourceDefinition<DatabaseProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: DatabaseProperties): DatabasesResource {
       return {
         type: 'Microsoft.DBforMySQL/servers/databases',
         apiVersion: '2017-12-01-preview',
@@ -134,7 +144,9 @@ export namespace servers {
 }
 export namespace servers {
   export namespace firewallRules {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: FirewallRuleProperties): ResourceDefinition<FirewallRuleProperties> {
+    export type FirewallRulesResource = ResourceDefinition<FirewallRuleProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: FirewallRuleProperties): FirewallRulesResource {
       return {
         type: 'Microsoft.DBforMySQL/servers/firewallRules',
         apiVersion: '2017-12-01-preview',
@@ -146,7 +158,9 @@ export namespace servers {
 }
 export namespace servers {
   export namespace securityAlertPolicies {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: SecurityAlertPolicyProperties): ResourceDefinition<SecurityAlertPolicyProperties> {
+    export type SecurityAlertPoliciesResource = ResourceDefinition<SecurityAlertPolicyProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: SecurityAlertPolicyProperties): SecurityAlertPoliciesResource {
       return {
         type: 'Microsoft.DBforMySQL/servers/securityAlertPolicies',
         apiVersion: '2017-12-01-preview',
@@ -158,7 +172,9 @@ export namespace servers {
 }
 export namespace servers {
   export namespace virtualNetworkRules {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: VirtualNetworkRuleProperties): ResourceDefinition<VirtualNetworkRuleProperties> {
+    export type VirtualNetworkRulesResource = ResourceDefinition<VirtualNetworkRuleProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: VirtualNetworkRuleProperties): VirtualNetworkRulesResource {
       return {
         type: 'Microsoft.DBforMySQL/servers/virtualNetworkRules',
         apiVersion: '2017-12-01-preview',

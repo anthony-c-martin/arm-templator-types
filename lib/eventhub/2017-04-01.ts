@@ -73,24 +73,30 @@ export interface Subnet {
 }
 
 export namespace namespaces {
-  interface AdditionalProps {
+  export interface AddedResourceProps {
     sku?: Expressionable<Sku>;
+    tags?: Expressionable<any>;
   }
   
-  export function create(name: Expressionable<string>, properties: EHNamespaceProperties, location?: Expressionable<string>, sku?: Expressionable<Sku>): ResourceDefinition<EHNamespaceProperties> & AdditionalProps {
+  export type NamespacesResource = ResourceDefinition<EHNamespaceProperties> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: EHNamespaceProperties, location?: Expressionable<string>, sku?: Expressionable<Sku>, tags?: Expressionable<any>): NamespacesResource {
     return {
       type: 'Microsoft.EventHub/namespaces',
       apiVersion: '2017-04-01',
       name: [name],
       location,
       sku,
+      tags,
       properties,
     };
   }
 }
 export namespace namespaces {
   export namespace AuthorizationRules {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: AuthorizationRuleProperties): ResourceDefinition<AuthorizationRuleProperties> {
+    export type AuthorizationRulesResource = ResourceDefinition<AuthorizationRuleProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: AuthorizationRuleProperties): AuthorizationRulesResource {
       return {
         type: 'Microsoft.EventHub/namespaces/AuthorizationRules',
         apiVersion: '2017-04-01',
@@ -102,7 +108,9 @@ export namespace namespaces {
 }
 export namespace namespaces {
   export namespace disasterRecoveryConfigs {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ArmDisasterRecoveryProperties): ResourceDefinition<ArmDisasterRecoveryProperties> {
+    export type DisasterRecoveryConfigsResource = ResourceDefinition<ArmDisasterRecoveryProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ArmDisasterRecoveryProperties): DisasterRecoveryConfigsResource {
       return {
         type: 'Microsoft.EventHub/namespaces/disasterRecoveryConfigs',
         apiVersion: '2017-04-01',
@@ -114,7 +122,9 @@ export namespace namespaces {
 }
 export namespace namespaces {
   export namespace eventhubs {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: EventhubProperties): ResourceDefinition<EventhubProperties> {
+    export type EventhubsResource = ResourceDefinition<EventhubProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: EventhubProperties): EventhubsResource {
       return {
         type: 'Microsoft.EventHub/namespaces/eventhubs',
         apiVersion: '2017-04-01',
@@ -127,7 +137,9 @@ export namespace namespaces {
 export namespace namespaces {
   export namespace eventhubs {
     export namespace authorizationRules {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: AuthorizationRuleProperties): ResourceDefinition<AuthorizationRuleProperties> {
+      export type AuthorizationRulesResource = ResourceDefinition<AuthorizationRuleProperties>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: AuthorizationRuleProperties): AuthorizationRulesResource {
         return {
           type: 'Microsoft.EventHub/namespaces/eventhubs/authorizationRules',
           apiVersion: '2017-04-01',
@@ -141,7 +153,9 @@ export namespace namespaces {
 export namespace namespaces {
   export namespace eventhubs {
     export namespace consumergroups {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ConsumerGroupProperties): ResourceDefinition<ConsumerGroupProperties> {
+      export type ConsumergroupsResource = ResourceDefinition<ConsumerGroupProperties>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ConsumerGroupProperties): ConsumergroupsResource {
         return {
           type: 'Microsoft.EventHub/namespaces/eventhubs/consumergroups',
           apiVersion: '2017-04-01',
@@ -154,7 +168,9 @@ export namespace namespaces {
 }
 export namespace namespaces {
   export namespace networkRuleSets {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: NetworkRuleSetProperties): ResourceDefinition<NetworkRuleSetProperties> {
+    export type NetworkRuleSetsResource = ResourceDefinition<NetworkRuleSetProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: NetworkRuleSetProperties): NetworkRuleSetsResource {
       return {
         type: 'Microsoft.EventHub/namespaces/networkRuleSets',
         apiVersion: '2017-04-01',

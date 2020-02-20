@@ -47,7 +47,9 @@ export interface VaultProperties {
 }
 
 export namespace vaults {
-  export function create(name: Expressionable<string>, properties: VaultProperties, location: Expressionable<string>): ResourceDefinition<VaultProperties> {
+  export type VaultsResource = ResourceDefinition<VaultProperties>;
+  
+  export function create(name: Expressionable<string>, properties: VaultProperties, location: Expressionable<string>): VaultsResource {
     return {
       type: 'Microsoft.KeyVault/vaults',
       apiVersion: '2016-10-01',
@@ -59,7 +61,9 @@ export namespace vaults {
 }
 export namespace vaults {
   export namespace accessPolicies {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: VaultAccessPolicyProperties): ResourceDefinition<VaultAccessPolicyProperties> {
+    export type AccessPoliciesResource = ResourceDefinition<VaultAccessPolicyProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: VaultAccessPolicyProperties): AccessPoliciesResource {
       return {
         type: 'Microsoft.KeyVault/vaults/accessPolicies',
         apiVersion: '2016-10-01',
@@ -71,7 +75,9 @@ export namespace vaults {
 }
 export namespace vaults {
   export namespace secrets {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: SecretProperties): ResourceDefinition<SecretProperties> {
+    export type SecretsResource = ResourceDefinition<SecretProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: SecretProperties): SecretsResource {
       return {
         type: 'Microsoft.KeyVault/vaults/secrets',
         apiVersion: '2016-10-01',

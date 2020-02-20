@@ -34,23 +34,32 @@ export interface ScopeAssignmentProperties {
 }
 
 export namespace managedNetworks {
-  export function create(name: Expressionable<string>, properties: ManagedNetworkProperties, location?: Expressionable<string>): ResourceDefinition<ManagedNetworkProperties> {
+  export interface AddedResourceProps {
+    tags?: Expressionable<any>;
+  }
+  
+  export type ManagedNetworksResource = ResourceDefinition<ManagedNetworkProperties> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: ManagedNetworkProperties, location?: Expressionable<string>, tags?: Expressionable<any>): ManagedNetworksResource {
     return {
       type: 'Microsoft.ManagedNetwork/managedNetworks',
       apiVersion: '2019-06-01-preview',
       name: [name],
       location,
+      tags,
       properties,
     };
   }
 }
 export namespace managedNetworks {
   export namespace managedNetworkGroups {
-    interface AdditionalProps {
+    export interface AddedResourceProps {
       kind?: Expressionable<('Connectivity')>;
     }
     
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ManagedNetworkGroupProperties, location?: Expressionable<string>, kind?: Expressionable<('Connectivity')>): ResourceDefinition<ManagedNetworkGroupProperties> & AdditionalProps {
+    export type ManagedNetworkGroupsResource = ResourceDefinition<ManagedNetworkGroupProperties> & AddedResourceProps;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ManagedNetworkGroupProperties, location?: Expressionable<string>, kind?: Expressionable<('Connectivity')>): ManagedNetworkGroupsResource {
       return {
         type: 'Microsoft.ManagedNetwork/managedNetworks/managedNetworkGroups',
         apiVersion: '2019-06-01-preview',
@@ -64,7 +73,9 @@ export namespace managedNetworks {
 }
 export namespace managedNetworks {
   export namespace managedNetworkPeeringPolicies {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ManagedNetworkPeeringPolicyProperties, location?: Expressionable<string>): ResourceDefinition<ManagedNetworkPeeringPolicyProperties> {
+    export type ManagedNetworkPeeringPoliciesResource = ResourceDefinition<ManagedNetworkPeeringPolicyProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ManagedNetworkPeeringPolicyProperties, location?: Expressionable<string>): ManagedNetworkPeeringPoliciesResource {
       return {
         type: 'Microsoft.ManagedNetwork/managedNetworks/managedNetworkPeeringPolicies',
         apiVersion: '2019-06-01-preview',

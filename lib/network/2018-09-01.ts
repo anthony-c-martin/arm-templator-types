@@ -67,7 +67,9 @@ export interface PrivateZoneProperties {
 }
 
 export namespace privateDnsZones {
-  export function create(name: Expressionable<string>, properties: PrivateZoneProperties, location: Expressionable<string>): ResourceDefinition<PrivateZoneProperties> {
+  export type PrivateDnsZonesResource = ResourceDefinition<PrivateZoneProperties>;
+  
+  export function create(name: Expressionable<string>, properties: PrivateZoneProperties, location: Expressionable<string>): PrivateDnsZonesResource {
     return {
       type: 'Microsoft.Network/privateDnsZones',
       apiVersion: '2018-09-01',
@@ -79,7 +81,9 @@ export namespace privateDnsZones {
 }
 export namespace privateDnsZones {
   export namespace virtualNetworkLinks {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: VirtualNetworkLinkProperties): ResourceDefinition<VirtualNetworkLinkProperties> {
+    export type VirtualNetworkLinksResource = ResourceDefinition<VirtualNetworkLinkProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: VirtualNetworkLinkProperties): VirtualNetworkLinksResource {
       return {
         type: 'Microsoft.Network/privateDnsZones/virtualNetworkLinks',
         apiVersion: '2018-09-01',
@@ -91,7 +95,9 @@ export namespace privateDnsZones {
 }
 export namespace privateDnsZones {
   export namespace A {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties): ResourceDefinition<RecordSetProperties> {
+    export type AResource = ResourceDefinition<RecordSetProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties): AResource {
       return {
         type: 'Microsoft.Network/privateDnsZones/A',
         apiVersion: '2018-09-01',
@@ -103,7 +109,9 @@ export namespace privateDnsZones {
 }
 export namespace privateDnsZones {
   export namespace AAAA {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties): ResourceDefinition<RecordSetProperties> {
+    export type AAAAResource = ResourceDefinition<RecordSetProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties): AAAAResource {
       return {
         type: 'Microsoft.Network/privateDnsZones/AAAA',
         apiVersion: '2018-09-01',
@@ -115,7 +123,9 @@ export namespace privateDnsZones {
 }
 export namespace privateDnsZones {
   export namespace CNAME {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties): ResourceDefinition<RecordSetProperties> {
+    export type CNAMEResource = ResourceDefinition<RecordSetProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties): CNAMEResource {
       return {
         type: 'Microsoft.Network/privateDnsZones/CNAME',
         apiVersion: '2018-09-01',
@@ -127,7 +137,9 @@ export namespace privateDnsZones {
 }
 export namespace privateDnsZones {
   export namespace MX {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties): ResourceDefinition<RecordSetProperties> {
+    export type MXResource = ResourceDefinition<RecordSetProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties): MXResource {
       return {
         type: 'Microsoft.Network/privateDnsZones/MX',
         apiVersion: '2018-09-01',
@@ -139,7 +151,9 @@ export namespace privateDnsZones {
 }
 export namespace privateDnsZones {
   export namespace PTR {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties): ResourceDefinition<RecordSetProperties> {
+    export type PTRResource = ResourceDefinition<RecordSetProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties): PTRResource {
       return {
         type: 'Microsoft.Network/privateDnsZones/PTR',
         apiVersion: '2018-09-01',
@@ -151,7 +165,9 @@ export namespace privateDnsZones {
 }
 export namespace privateDnsZones {
   export namespace SOA {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties): ResourceDefinition<RecordSetProperties> {
+    export type SOAResource = ResourceDefinition<RecordSetProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties): SOAResource {
       return {
         type: 'Microsoft.Network/privateDnsZones/SOA',
         apiVersion: '2018-09-01',
@@ -163,7 +179,9 @@ export namespace privateDnsZones {
 }
 export namespace privateDnsZones {
   export namespace SRV {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties): ResourceDefinition<RecordSetProperties> {
+    export type SRVResource = ResourceDefinition<RecordSetProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties): SRVResource {
       return {
         type: 'Microsoft.Network/privateDnsZones/SRV',
         apiVersion: '2018-09-01',
@@ -175,7 +193,9 @@ export namespace privateDnsZones {
 }
 export namespace privateDnsZones {
   export namespace TXT {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties): ResourceDefinition<RecordSetProperties> {
+    export type TXTResource = ResourceDefinition<RecordSetProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties): TXTResource {
       return {
         type: 'Microsoft.Network/privateDnsZones/TXT',
         apiVersion: '2018-09-01',

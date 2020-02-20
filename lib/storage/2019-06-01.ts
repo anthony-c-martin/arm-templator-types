@@ -198,13 +198,15 @@ export interface VirtualNetworkRule {
 }
 
 export namespace storageAccounts {
-  interface AdditionalProps {
+  export interface AddedResourceProps {
     sku: Expressionable<Sku>;
     kind: Expressionable<('Storage' | 'StorageV2' | 'BlobStorage' | 'FileStorage' | 'BlockBlobStorage')>;
     identity?: Expressionable<Identity>;
   }
   
-  export function create(name: Expressionable<string>, properties: StorageAccountPropertiesCreateParameters, location: Expressionable<string>, sku: Expressionable<Sku>, kind: Expressionable<('Storage' | 'StorageV2' | 'BlobStorage' | 'FileStorage' | 'BlockBlobStorage')>, identity?: Expressionable<Identity>): ResourceDefinition<StorageAccountPropertiesCreateParameters> & AdditionalProps {
+  export type StorageAccountsResource = ResourceDefinition<StorageAccountPropertiesCreateParameters> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: StorageAccountPropertiesCreateParameters, location: Expressionable<string>, sku: Expressionable<Sku>, kind: Expressionable<('Storage' | 'StorageV2' | 'BlobStorage' | 'FileStorage' | 'BlockBlobStorage')>, identity?: Expressionable<Identity>): StorageAccountsResource {
     return {
       type: 'Microsoft.Storage/storageAccounts',
       apiVersion: '2019-06-01',
@@ -219,7 +221,9 @@ export namespace storageAccounts {
 }
 export namespace storageAccounts {
   export namespace blobServices {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: BlobServicePropertiesProperties): ResourceDefinition<BlobServicePropertiesProperties> {
+    export type BlobServicesResource = ResourceDefinition<BlobServicePropertiesProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: BlobServicePropertiesProperties): BlobServicesResource {
       return {
         type: 'Microsoft.Storage/storageAccounts/blobServices',
         apiVersion: '2019-06-01',
@@ -232,7 +236,9 @@ export namespace storageAccounts {
 export namespace storageAccounts {
   export namespace blobServices {
     export namespace containers {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ContainerProperties): ResourceDefinition<ContainerProperties> {
+      export type ContainersResource = ResourceDefinition<ContainerProperties>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ContainerProperties): ContainersResource {
         return {
           type: 'Microsoft.Storage/storageAccounts/blobServices/containers',
           apiVersion: '2019-06-01',
@@ -247,7 +253,9 @@ export namespace storageAccounts {
   export namespace blobServices {
     export namespace containers {
       export namespace immutabilityPolicies {
-        export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ImmutabilityPolicyProperty): ResourceDefinition<ImmutabilityPolicyProperty> {
+        export type ImmutabilityPoliciesResource = ResourceDefinition<ImmutabilityPolicyProperty>;
+        
+        export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ImmutabilityPolicyProperty): ImmutabilityPoliciesResource {
           return {
             type: 'Microsoft.Storage/storageAccounts/blobServices/containers/immutabilityPolicies',
             apiVersion: '2019-06-01',
@@ -261,7 +269,9 @@ export namespace storageAccounts {
 }
 export namespace storageAccounts {
   export namespace fileServices {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: FileServicePropertiesProperties): ResourceDefinition<FileServicePropertiesProperties> {
+    export type FileServicesResource = ResourceDefinition<FileServicePropertiesProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: FileServicePropertiesProperties): FileServicesResource {
       return {
         type: 'Microsoft.Storage/storageAccounts/fileServices',
         apiVersion: '2019-06-01',
@@ -274,7 +284,9 @@ export namespace storageAccounts {
 export namespace storageAccounts {
   export namespace fileServices {
     export namespace shares {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: FileShareProperties): ResourceDefinition<FileShareProperties> {
+      export type SharesResource = ResourceDefinition<FileShareProperties>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: FileShareProperties): SharesResource {
         return {
           type: 'Microsoft.Storage/storageAccounts/fileServices/shares',
           apiVersion: '2019-06-01',
@@ -287,7 +299,9 @@ export namespace storageAccounts {
 }
 export namespace storageAccounts {
   export namespace managementPolicies {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ManagementPolicyProperties): ResourceDefinition<ManagementPolicyProperties> {
+    export type ManagementPoliciesResource = ResourceDefinition<ManagementPolicyProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ManagementPolicyProperties): ManagementPoliciesResource {
       return {
         type: 'Microsoft.Storage/storageAccounts/managementPolicies',
         apiVersion: '2019-06-01',
@@ -299,7 +313,9 @@ export namespace storageAccounts {
 }
 export namespace storageAccounts {
   export namespace privateEndpointConnections {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: PrivateEndpointConnectionProperties): ResourceDefinition<PrivateEndpointConnectionProperties> {
+    export type PrivateEndpointConnectionsResource = ResourceDefinition<PrivateEndpointConnectionProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: PrivateEndpointConnectionProperties): PrivateEndpointConnectionsResource {
       return {
         type: 'Microsoft.Storage/storageAccounts/privateEndpointConnections',
         apiVersion: '2019-06-01',

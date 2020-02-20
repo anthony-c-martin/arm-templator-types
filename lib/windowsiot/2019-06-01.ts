@@ -1,7 +1,9 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 
 export namespace deviceServices {
-  export function create(name: Expressionable<string>, properties: any): ResourceDefinition<any> {
+  export type DeviceServicesResource = ResourceDefinition<any>;
+  
+  export function create(name: Expressionable<string>, properties: any): DeviceServicesResource {
     return {
       type: 'Microsoft.WindowsIoT/deviceServices',
       apiVersion: '2019-06-01',

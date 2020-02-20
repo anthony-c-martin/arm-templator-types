@@ -50,7 +50,9 @@ export interface StorageProfile {
 }
 
 export namespace hanaInstances {
-  export function create(name: Expressionable<string>, properties: HanaInstanceProperties, location?: Expressionable<string>): ResourceDefinition<HanaInstanceProperties> {
+  export type HanaInstancesResource = ResourceDefinition<HanaInstanceProperties>;
+  
+  export function create(name: Expressionable<string>, properties: HanaInstanceProperties, location?: Expressionable<string>): HanaInstancesResource {
     return {
       type: 'Microsoft.HanaOnAzure/hanaInstances',
       apiVersion: '2017-11-03-preview',
@@ -61,7 +63,9 @@ export namespace hanaInstances {
   }
 }
 export namespace sapMonitors {
-  export function create(name: Expressionable<string>, properties: SapMonitorProperties, location?: Expressionable<string>): ResourceDefinition<SapMonitorProperties> {
+  export type SapMonitorsResource = ResourceDefinition<SapMonitorProperties>;
+  
+  export function create(name: Expressionable<string>, properties: SapMonitorProperties, location?: Expressionable<string>): SapMonitorsResource {
     return {
       type: 'Microsoft.HanaOnAzure/sapMonitors',
       apiVersion: '2017-11-03-preview',

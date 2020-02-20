@@ -5,12 +5,15 @@ export interface Sku {
 }
 
 export namespace accounts {
-  interface AdditionalProps {
+  export interface AddedResourceProps {
     kind: Expressionable<('Academic' | 'Bing.Autosuggest' | 'Bing.Search' | 'Bing.Speech' | 'Bing.SpellCheck' | 'ComputerVision' | 'ContentModerator' | 'Emotion' | 'Face' | 'LUIS' | 'Recommendations' | 'SpeakerRecognition' | 'Speech' | 'SpeechTranslation' | 'TextAnalytics' | 'TextTranslation' | 'WebLM')>;
     sku: Expressionable<Sku>;
+    tags?: Expressionable<any>;
   }
   
-  export function create(name: Expressionable<string>, properties: any, location: Expressionable<string>, sku: Expressionable<Sku>, kind: Expressionable<('Academic' | 'Bing.Autosuggest' | 'Bing.Search' | 'Bing.Speech' | 'Bing.SpellCheck' | 'ComputerVision' | 'ContentModerator' | 'Emotion' | 'Face' | 'LUIS' | 'Recommendations' | 'SpeakerRecognition' | 'Speech' | 'SpeechTranslation' | 'TextAnalytics' | 'TextTranslation' | 'WebLM')>): ResourceDefinition<any> & AdditionalProps {
+  export type AccountsResource = ResourceDefinition<any> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: any, location: Expressionable<string>, sku: Expressionable<Sku>, kind: Expressionable<('Academic' | 'Bing.Autosuggest' | 'Bing.Search' | 'Bing.Speech' | 'Bing.SpellCheck' | 'ComputerVision' | 'ContentModerator' | 'Emotion' | 'Face' | 'LUIS' | 'Recommendations' | 'SpeakerRecognition' | 'Speech' | 'SpeechTranslation' | 'TextAnalytics' | 'TextTranslation' | 'WebLM')>, tags?: Expressionable<any>): AccountsResource {
     return {
       type: 'Microsoft.CognitiveServices/accounts',
       apiVersion: '2016-02-01-preview',
@@ -18,6 +21,7 @@ export namespace accounts {
       location,
       sku,
       kind,
+      tags,
       properties,
     };
   }

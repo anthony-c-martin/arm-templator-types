@@ -272,19 +272,28 @@ export interface VirtualMachineConfiguration {
 }
 
 export namespace workspaces {
-  export function create(name: Expressionable<string>, properties: any, location: Expressionable<string>): ResourceDefinition<any> {
+  export interface AddedResourceProps {
+    tags?: Expressionable<any>;
+  }
+  
+  export type WorkspacesResource = ResourceDefinition<any> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: any, location: Expressionable<string>, tags?: Expressionable<any>): WorkspacesResource {
     return {
       type: 'Microsoft.BatchAI/workspaces',
       apiVersion: '2018-05-01',
       name: [name],
       location,
+      tags,
       properties,
     };
   }
 }
 export namespace workspaces {
   export namespace clusters {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ClusterBaseProperties): ResourceDefinition<ClusterBaseProperties> {
+    export type ClustersResource = ResourceDefinition<ClusterBaseProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ClusterBaseProperties): ClustersResource {
       return {
         type: 'Microsoft.BatchAI/workspaces/clusters',
         apiVersion: '2018-05-01',
@@ -296,7 +305,9 @@ export namespace workspaces {
 }
 export namespace workspaces {
   export namespace experiments {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: any): ResourceDefinition<any> {
+    export type ExperimentsResource = ResourceDefinition<any>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: any): ExperimentsResource {
       return {
         type: 'Microsoft.BatchAI/workspaces/experiments',
         apiVersion: '2018-05-01',
@@ -309,7 +320,9 @@ export namespace workspaces {
 export namespace workspaces {
   export namespace experiments {
     export namespace jobs {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: JobBaseProperties): ResourceDefinition<JobBaseProperties> {
+      export type JobsResource = ResourceDefinition<JobBaseProperties>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: JobBaseProperties): JobsResource {
         return {
           type: 'Microsoft.BatchAI/workspaces/experiments/jobs',
           apiVersion: '2018-05-01',
@@ -322,7 +335,9 @@ export namespace workspaces {
 }
 export namespace workspaces {
   export namespace fileServers {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: FileServerBaseProperties): ResourceDefinition<FileServerBaseProperties> {
+    export type FileServersResource = ResourceDefinition<FileServerBaseProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: FileServerBaseProperties): FileServersResource {
       return {
         type: 'Microsoft.BatchAI/workspaces/fileServers',
         apiVersion: '2018-05-01',

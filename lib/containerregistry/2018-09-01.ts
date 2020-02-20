@@ -115,12 +115,19 @@ export interface TriggerProperties {
 
 export namespace registries {
   export namespace tasks {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: TaskProperties, location: Expressionable<string>): ResourceDefinition<TaskProperties> {
+    export interface AddedResourceProps {
+      tags?: Expressionable<any>;
+    }
+    
+    export type TasksResource = ResourceDefinition<TaskProperties> & AddedResourceProps;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: TaskProperties, location: Expressionable<string>, tags?: Expressionable<any>): TasksResource {
       return {
         type: 'Microsoft.ContainerRegistry/registries/tasks',
         apiVersion: '2018-09-01',
         name: name,
         location,
+        tags,
         properties,
       };
     }

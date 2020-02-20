@@ -318,24 +318,30 @@ export interface SqlDWTableProperties {
 }
 
 export namespace accounts {
-  interface AdditionalProps {
+  export interface AddedResourceProps {
     identity: Expressionable<Identity>;
+    tags?: Expressionable<any>;
   }
   
-  export function create(name: Expressionable<string>, properties: AccountProperties, identity: Expressionable<Identity>, location?: Expressionable<string>): ResourceDefinition<AccountProperties> & AdditionalProps {
+  export type AccountsResource = ResourceDefinition<AccountProperties> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: AccountProperties, identity: Expressionable<Identity>, location?: Expressionable<string>, tags?: Expressionable<any>): AccountsResource {
     return {
       type: 'Microsoft.DataShare/accounts',
       apiVersion: '2018-11-01-preview',
       name: [name],
       location,
       identity,
+      tags,
       properties,
     };
   }
 }
 export namespace accounts {
   export namespace shares {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ShareProperties): ResourceDefinition<ShareProperties> {
+    export type SharesResource = ResourceDefinition<ShareProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ShareProperties): SharesResource {
       return {
         type: 'Microsoft.DataShare/accounts/shares',
         apiVersion: '2018-11-01-preview',
@@ -347,7 +353,9 @@ export namespace accounts {
 }
 export namespace accounts {
   export namespace shareSubscriptions {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ShareSubscriptionProperties): ResourceDefinition<ShareSubscriptionProperties> {
+    export type ShareSubscriptionsResource = ResourceDefinition<ShareSubscriptionProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ShareSubscriptionProperties): ShareSubscriptionsResource {
       return {
         type: 'Microsoft.DataShare/accounts/shareSubscriptions',
         apiVersion: '2018-11-01-preview',
@@ -360,7 +368,9 @@ export namespace accounts {
 export namespace accounts {
   export namespace shareSubscriptions {
     export namespace dataSetMappings {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: BlobMappingProperties | BlobFolderMappingProperties | BlobContainerMappingProperties | ADLSGen2FileDataSetMappingProperties | ADLSGen2FolderDataSetMappingProperties | ADLSGen2FileSystemDataSetMappingProperties | KustoClusterDataSetMappingProperties | KustoDatabaseDataSetMappingProperties | SqlDWTableDataSetMappingProperties | SqlDBTableDataSetMappingProperties): ResourceDefinition<BlobMappingProperties | BlobFolderMappingProperties | BlobContainerMappingProperties | ADLSGen2FileDataSetMappingProperties | ADLSGen2FolderDataSetMappingProperties | ADLSGen2FileSystemDataSetMappingProperties | KustoClusterDataSetMappingProperties | KustoDatabaseDataSetMappingProperties | SqlDWTableDataSetMappingProperties | SqlDBTableDataSetMappingProperties> {
+      export type DataSetMappingsResource = ResourceDefinition<BlobMappingProperties | BlobFolderMappingProperties | BlobContainerMappingProperties | ADLSGen2FileDataSetMappingProperties | ADLSGen2FolderDataSetMappingProperties | ADLSGen2FileSystemDataSetMappingProperties | KustoClusterDataSetMappingProperties | KustoDatabaseDataSetMappingProperties | SqlDWTableDataSetMappingProperties | SqlDBTableDataSetMappingProperties>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: BlobMappingProperties | BlobFolderMappingProperties | BlobContainerMappingProperties | ADLSGen2FileDataSetMappingProperties | ADLSGen2FolderDataSetMappingProperties | ADLSGen2FileSystemDataSetMappingProperties | KustoClusterDataSetMappingProperties | KustoDatabaseDataSetMappingProperties | SqlDWTableDataSetMappingProperties | SqlDBTableDataSetMappingProperties): DataSetMappingsResource {
         return {
           type: 'Microsoft.DataShare/accounts/shareSubscriptions/dataSetMappings',
           apiVersion: '2018-11-01-preview',
@@ -374,7 +384,9 @@ export namespace accounts {
 export namespace accounts {
   export namespace shareSubscriptions {
     export namespace triggers {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ScheduledTriggerProperties): ResourceDefinition<ScheduledTriggerProperties> {
+      export type TriggersResource = ResourceDefinition<ScheduledTriggerProperties>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ScheduledTriggerProperties): TriggersResource {
         return {
           type: 'Microsoft.DataShare/accounts/shareSubscriptions/triggers',
           apiVersion: '2018-11-01-preview',
@@ -388,7 +400,9 @@ export namespace accounts {
 export namespace accounts {
   export namespace shares {
     export namespace dataSets {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: BlobProperties | BlobFolderProperties | BlobContainerProperties | ADLSGen2FileProperties | ADLSGen2FolderProperties | ADLSGen2FileSystemProperties | ADLSGen1FolderProperties | ADLSGen1FileProperties | KustoClusterDataSetProperties | KustoDatabaseDataSetProperties | SqlDWTableProperties | SqlDBTableProperties): ResourceDefinition<BlobProperties | BlobFolderProperties | BlobContainerProperties | ADLSGen2FileProperties | ADLSGen2FolderProperties | ADLSGen2FileSystemProperties | ADLSGen1FolderProperties | ADLSGen1FileProperties | KustoClusterDataSetProperties | KustoDatabaseDataSetProperties | SqlDWTableProperties | SqlDBTableProperties> {
+      export type DataSetsResource = ResourceDefinition<BlobProperties | BlobFolderProperties | BlobContainerProperties | ADLSGen2FileProperties | ADLSGen2FolderProperties | ADLSGen2FileSystemProperties | ADLSGen1FolderProperties | ADLSGen1FileProperties | KustoClusterDataSetProperties | KustoDatabaseDataSetProperties | SqlDWTableProperties | SqlDBTableProperties>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: BlobProperties | BlobFolderProperties | BlobContainerProperties | ADLSGen2FileProperties | ADLSGen2FolderProperties | ADLSGen2FileSystemProperties | ADLSGen1FolderProperties | ADLSGen1FileProperties | KustoClusterDataSetProperties | KustoDatabaseDataSetProperties | SqlDWTableProperties | SqlDBTableProperties): DataSetsResource {
         return {
           type: 'Microsoft.DataShare/accounts/shares/dataSets',
           apiVersion: '2018-11-01-preview',
@@ -402,7 +416,9 @@ export namespace accounts {
 export namespace accounts {
   export namespace shares {
     export namespace invitations {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: InvitationProperties): ResourceDefinition<InvitationProperties> {
+      export type InvitationsResource = ResourceDefinition<InvitationProperties>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: InvitationProperties): InvitationsResource {
         return {
           type: 'Microsoft.DataShare/accounts/shares/invitations',
           apiVersion: '2018-11-01-preview',
@@ -416,7 +432,9 @@ export namespace accounts {
 export namespace accounts {
   export namespace shares {
     export namespace synchronizationSettings {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ScheduledSynchronizationSettingProperties): ResourceDefinition<ScheduledSynchronizationSettingProperties> {
+      export type SynchronizationSettingsResource = ResourceDefinition<ScheduledSynchronizationSettingProperties>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ScheduledSynchronizationSettingProperties): SynchronizationSettingsResource {
         return {
           type: 'Microsoft.DataShare/accounts/shares/synchronizationSettings',
           apiVersion: '2018-11-01-preview',

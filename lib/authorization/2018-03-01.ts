@@ -40,11 +40,13 @@ export interface PolicySku {
 }
 
 export namespace policyAssignments {
-  interface AdditionalProps {
+  export interface AddedResourceProps {
     sku?: Expressionable<PolicySku>;
   }
   
-  export function create(name: Expressionable<string>, properties: PolicyAssignmentProperties, sku?: Expressionable<PolicySku>): ResourceDefinition<PolicyAssignmentProperties> & AdditionalProps {
+  export type PolicyAssignmentsResource = ResourceDefinition<PolicyAssignmentProperties> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: PolicyAssignmentProperties, sku?: Expressionable<PolicySku>): PolicyAssignmentsResource {
     return {
       type: 'Microsoft.Authorization/policyAssignments',
       apiVersion: '2018-03-01',
@@ -55,7 +57,9 @@ export namespace policyAssignments {
   }
 }
 export namespace policyDefinitions {
-  export function create(name: Expressionable<string>, properties: PolicyDefinitionProperties): ResourceDefinition<PolicyDefinitionProperties> {
+  export type PolicyDefinitionsResource = ResourceDefinition<PolicyDefinitionProperties>;
+  
+  export function create(name: Expressionable<string>, properties: PolicyDefinitionProperties): PolicyDefinitionsResource {
     return {
       type: 'Microsoft.Authorization/policyDefinitions',
       apiVersion: '2018-03-01',
@@ -65,7 +69,9 @@ export namespace policyDefinitions {
   }
 }
 export namespace policySetDefinitions {
-  export function create(name: Expressionable<string>, properties: PolicySetDefinitionProperties): ResourceDefinition<PolicySetDefinitionProperties> {
+  export type PolicySetDefinitionsResource = ResourceDefinition<PolicySetDefinitionProperties>;
+  
+  export function create(name: Expressionable<string>, properties: PolicySetDefinitionProperties): PolicySetDefinitionsResource {
     return {
       type: 'Microsoft.Authorization/policySetDefinitions',
       apiVersion: '2018-03-01',

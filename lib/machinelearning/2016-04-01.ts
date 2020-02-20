@@ -7,7 +7,9 @@ export interface WorkspaceProperties {
 }
 
 export namespace workspaces {
-  export function create(name: Expressionable<string>, properties: WorkspaceProperties): ResourceDefinition<WorkspaceProperties> {
+  export type WorkspacesResource = ResourceDefinition<WorkspaceProperties>;
+  
+  export function create(name: Expressionable<string>, properties: WorkspaceProperties): WorkspacesResource {
     return {
       type: 'Microsoft.MachineLearning/workspaces',
       apiVersion: '2016-04-01',

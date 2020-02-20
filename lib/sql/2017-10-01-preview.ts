@@ -104,7 +104,9 @@ export interface VulnerabilityAssessmentRecurringScansProperties {
 
 export namespace locations {
   export namespace instanceFailoverGroups {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: InstanceFailoverGroupProperties): ResourceDefinition<InstanceFailoverGroupProperties> {
+    export type InstanceFailoverGroupsResource = ResourceDefinition<InstanceFailoverGroupProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: InstanceFailoverGroupProperties): InstanceFailoverGroupsResource {
       return {
         type: 'Microsoft.Sql/locations/instanceFailoverGroups',
         apiVersion: '2017-10-01-preview',
@@ -117,7 +119,9 @@ export namespace locations {
 export namespace managedInstances {
   export namespace databases {
     export namespace vulnerabilityAssessments {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: DatabaseVulnerabilityAssessmentProperties): ResourceDefinition<DatabaseVulnerabilityAssessmentProperties> {
+      export type VulnerabilityAssessmentsResource = ResourceDefinition<DatabaseVulnerabilityAssessmentProperties>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: DatabaseVulnerabilityAssessmentProperties): VulnerabilityAssessmentsResource {
         return {
           type: 'Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments',
           apiVersion: '2017-10-01-preview',
@@ -133,7 +137,9 @@ export namespace managedInstances {
     export namespace vulnerabilityAssessments {
       export namespace rules {
         export namespace baselines {
-          export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: DatabaseVulnerabilityAssessmentRuleBaselineProperties): ResourceDefinition<DatabaseVulnerabilityAssessmentRuleBaselineProperties> {
+          export type BaselinesResource = ResourceDefinition<DatabaseVulnerabilityAssessmentRuleBaselineProperties>;
+          
+          export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: DatabaseVulnerabilityAssessmentRuleBaselineProperties): BaselinesResource {
             return {
               type: 'Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/rules/baselines',
               apiVersion: '2017-10-01-preview',
@@ -148,7 +154,9 @@ export namespace managedInstances {
 }
 export namespace managedInstances {
   export namespace encryptionProtector {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ManagedInstanceEncryptionProtectorProperties): ResourceDefinition<ManagedInstanceEncryptionProtectorProperties> {
+    export type EncryptionProtectorResource = ResourceDefinition<ManagedInstanceEncryptionProtectorProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ManagedInstanceEncryptionProtectorProperties): EncryptionProtectorResource {
       return {
         type: 'Microsoft.Sql/managedInstances/encryptionProtector',
         apiVersion: '2017-10-01-preview',
@@ -160,7 +168,9 @@ export namespace managedInstances {
 }
 export namespace managedInstances {
   export namespace keys {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ManagedInstanceKeyProperties): ResourceDefinition<ManagedInstanceKeyProperties> {
+    export type KeysResource = ResourceDefinition<ManagedInstanceKeyProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ManagedInstanceKeyProperties): KeysResource {
       return {
         type: 'Microsoft.Sql/managedInstances/keys',
         apiVersion: '2017-10-01-preview',
@@ -172,17 +182,21 @@ export namespace managedInstances {
 }
 export namespace servers {
   export namespace databases {
-    interface AdditionalProps {
+    export interface AddedResourceProps {
       sku?: Expressionable<Sku>;
+      tags?: Expressionable<any>;
     }
     
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: DatabaseProperties, location: Expressionable<string>, sku?: Expressionable<Sku>): ResourceDefinition<DatabaseProperties> & AdditionalProps {
+    export type DatabasesResource = ResourceDefinition<DatabaseProperties> & AddedResourceProps;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: DatabaseProperties, location: Expressionable<string>, sku?: Expressionable<Sku>, tags?: Expressionable<any>): DatabasesResource {
       return {
         type: 'Microsoft.Sql/servers/databases',
         apiVersion: '2017-10-01-preview',
         name: name,
         location,
         sku,
+        tags,
         properties,
       };
     }
@@ -191,7 +205,9 @@ export namespace servers {
 export namespace servers {
   export namespace databases {
     export namespace backupShortTermRetentionPolicies {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: BackupShortTermRetentionPolicyProperties): ResourceDefinition<BackupShortTermRetentionPolicyProperties> {
+      export type BackupShortTermRetentionPoliciesResource = ResourceDefinition<BackupShortTermRetentionPolicyProperties>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: BackupShortTermRetentionPolicyProperties): BackupShortTermRetentionPoliciesResource {
         return {
           type: 'Microsoft.Sql/servers/databases/backupShortTermRetentionPolicies',
           apiVersion: '2017-10-01-preview',
@@ -204,17 +220,21 @@ export namespace servers {
 }
 export namespace servers {
   export namespace elasticPools {
-    interface AdditionalProps {
+    export interface AddedResourceProps {
       sku?: Expressionable<Sku>;
+      tags?: Expressionable<any>;
     }
     
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ElasticPoolProperties, location: Expressionable<string>, sku?: Expressionable<Sku>): ResourceDefinition<ElasticPoolProperties> & AdditionalProps {
+    export type ElasticPoolsResource = ResourceDefinition<ElasticPoolProperties> & AddedResourceProps;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ElasticPoolProperties, location: Expressionable<string>, sku?: Expressionable<Sku>, tags?: Expressionable<any>): ElasticPoolsResource {
       return {
         type: 'Microsoft.Sql/servers/elasticPools',
         apiVersion: '2017-10-01-preview',
         name: name,
         location,
         sku,
+        tags,
         properties,
       };
     }

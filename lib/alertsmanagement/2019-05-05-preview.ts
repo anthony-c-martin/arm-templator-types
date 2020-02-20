@@ -32,12 +32,19 @@ export interface Scope {
 }
 
 export namespace actionRules {
-  export function create(name: Expressionable<string>, properties: ActionRuleProperties, location: Expressionable<string>): ResourceDefinition<ActionRuleProperties> {
+  export interface AddedResourceProps {
+    tags?: Expressionable<any>;
+  }
+  
+  export type ActionRulesResource = ResourceDefinition<ActionRuleProperties> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: ActionRuleProperties, location: Expressionable<string>, tags?: Expressionable<any>): ActionRulesResource {
     return {
       type: 'Microsoft.AlertsManagement/actionRules',
       apiVersion: '2019-05-05-preview',
       name: [name],
       location,
+      tags,
       properties,
     };
   }

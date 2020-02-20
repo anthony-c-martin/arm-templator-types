@@ -92,39 +92,57 @@ export interface VirtualNic {
 }
 
 export namespace dedicatedCloudNodes {
-  interface AdditionalProps {
+  export interface AddedResourceProps {
     sku?: Expressionable<Sku>;
+    tags?: Expressionable<any>;
   }
   
-  export function create(name: Expressionable<string>, properties: DedicatedCloudNodeProperties, location: Expressionable<string>, sku?: Expressionable<Sku>): ResourceDefinition<DedicatedCloudNodeProperties> & AdditionalProps {
+  export type DedicatedCloudNodesResource = ResourceDefinition<DedicatedCloudNodeProperties> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: DedicatedCloudNodeProperties, location: Expressionable<string>, sku?: Expressionable<Sku>, tags?: Expressionable<any>): DedicatedCloudNodesResource {
     return {
       type: 'Microsoft.VMwareCloudSimple/dedicatedCloudNodes',
       apiVersion: '2019-04-01',
       name: [name],
       location,
       sku,
+      tags,
       properties,
     };
   }
 }
 export namespace dedicatedCloudServices {
-  export function create(name: Expressionable<string>, properties: DedicatedCloudServiceProperties, location: Expressionable<string>): ResourceDefinition<DedicatedCloudServiceProperties> {
+  export interface AddedResourceProps {
+    tags?: Expressionable<any>;
+  }
+  
+  export type DedicatedCloudServicesResource = ResourceDefinition<DedicatedCloudServiceProperties> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: DedicatedCloudServiceProperties, location: Expressionable<string>, tags?: Expressionable<any>): DedicatedCloudServicesResource {
     return {
       type: 'Microsoft.VMwareCloudSimple/dedicatedCloudServices',
       apiVersion: '2019-04-01',
       name: [name],
       location,
+      tags,
       properties,
     };
   }
 }
 export namespace virtualMachines {
-  export function create(name: Expressionable<string>, properties: VirtualMachineProperties, location: Expressionable<string>): ResourceDefinition<VirtualMachineProperties> {
+  export interface AddedResourceProps {
+    tags?: Expressionable<any>;
+  }
+  
+  export type VirtualMachinesResource = ResourceDefinition<VirtualMachineProperties> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: VirtualMachineProperties, location: Expressionable<string>, tags?: Expressionable<any>): VirtualMachinesResource {
     return {
       type: 'Microsoft.VMwareCloudSimple/virtualMachines',
       apiVersion: '2019-04-01',
       name: [name],
       location,
+      tags,
       properties,
     };
   }

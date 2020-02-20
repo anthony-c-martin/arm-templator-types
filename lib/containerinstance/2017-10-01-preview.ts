@@ -85,12 +85,19 @@ export interface VolumeMount {
 }
 
 export namespace containerGroups {
-  export function create(name: Expressionable<string>, properties: ContainerGroupProperties, location: Expressionable<string>): ResourceDefinition<ContainerGroupProperties> {
+  export interface AddedResourceProps {
+    tags?: Expressionable<any>;
+  }
+  
+  export type ContainerGroupsResource = ResourceDefinition<ContainerGroupProperties> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: ContainerGroupProperties, location: Expressionable<string>, tags?: Expressionable<any>): ContainerGroupsResource {
     return {
       type: 'Microsoft.ContainerInstance/containerGroups',
       apiVersion: '2017-10-01-preview',
       name: [name],
       location,
+      tags,
       properties,
     };
   }

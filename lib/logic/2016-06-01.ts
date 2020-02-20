@@ -100,7 +100,9 @@ export interface batchReleaseCriteriaProperties {
 }
 
 export namespace workflows {
-  export function create(name: Expressionable<string>, properties: WorkflowProperties, location?: Expressionable<string>): ResourceDefinition<WorkflowProperties> {
+  export type WorkflowsResource = ResourceDefinition<WorkflowProperties>;
+  
+  export function create(name: Expressionable<string>, properties: WorkflowProperties, location?: Expressionable<string>): WorkflowsResource {
     return {
       type: 'Microsoft.Logic/workflows',
       apiVersion: '2016-06-01',
@@ -111,7 +113,9 @@ export namespace workflows {
   }
 }
 export namespace integrationAccounts {
-  export function create(name: Expressionable<string>, properties: any, location?: Expressionable<string>): ResourceDefinition<any> {
+  export type IntegrationAccountsResource = ResourceDefinition<any>;
+  
+  export function create(name: Expressionable<string>, properties: any, location?: Expressionable<string>): IntegrationAccountsResource {
     return {
       type: 'Microsoft.Logic/integrationAccounts',
       apiVersion: '2016-06-01',
@@ -123,7 +127,9 @@ export namespace integrationAccounts {
 }
 export namespace integrationAccounts {
   export namespace agreements {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: integrationAccountsAgreementsProperties, location?: Expressionable<string>): ResourceDefinition<integrationAccountsAgreementsProperties> {
+    export type AgreementsResource = ResourceDefinition<integrationAccountsAgreementsProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: integrationAccountsAgreementsProperties, location?: Expressionable<string>): AgreementsResource {
       return {
         type: 'Microsoft.Logic/integrationAccounts/agreements',
         apiVersion: '2016-06-01',
@@ -136,7 +142,9 @@ export namespace integrationAccounts {
 }
 export namespace integrationAccounts {
   export namespace certificates {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: integrationAccountsCertificatesProperties, location?: Expressionable<string>): ResourceDefinition<integrationAccountsCertificatesProperties> {
+    export type CertificatesResource = ResourceDefinition<integrationAccountsCertificatesProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: integrationAccountsCertificatesProperties, location?: Expressionable<string>): CertificatesResource {
       return {
         type: 'Microsoft.Logic/integrationAccounts/certificates',
         apiVersion: '2016-06-01',
@@ -149,7 +157,9 @@ export namespace integrationAccounts {
 }
 export namespace integrationAccounts {
   export namespace maps {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: integrationAccountsMapsProperties, location?: Expressionable<string>): ResourceDefinition<integrationAccountsMapsProperties> {
+    export type MapsResource = ResourceDefinition<integrationAccountsMapsProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: integrationAccountsMapsProperties, location?: Expressionable<string>): MapsResource {
       return {
         type: 'Microsoft.Logic/integrationAccounts/maps',
         apiVersion: '2016-06-01',
@@ -162,7 +172,9 @@ export namespace integrationAccounts {
 }
 export namespace integrationAccounts {
   export namespace partners {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: integrationAccountsPartnersProperties, location?: Expressionable<string>): ResourceDefinition<integrationAccountsPartnersProperties> {
+    export type PartnersResource = ResourceDefinition<integrationAccountsPartnersProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: integrationAccountsPartnersProperties, location?: Expressionable<string>): PartnersResource {
       return {
         type: 'Microsoft.Logic/integrationAccounts/partners',
         apiVersion: '2016-06-01',
@@ -175,7 +187,9 @@ export namespace integrationAccounts {
 }
 export namespace integrationAccounts {
   export namespace schemas {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: integrationAccountsSchemasProperties, location?: Expressionable<string>): ResourceDefinition<integrationAccountsSchemasProperties> {
+    export type SchemasResource = ResourceDefinition<integrationAccountsSchemasProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: integrationAccountsSchemasProperties, location?: Expressionable<string>): SchemasResource {
       return {
         type: 'Microsoft.Logic/integrationAccounts/schemas',
         apiVersion: '2016-06-01',
@@ -188,7 +202,9 @@ export namespace integrationAccounts {
 }
 export namespace integrationAccounts {
   export namespace assemblies {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: integrationAccountsAssembliesProperties, location?: Expressionable<string>): ResourceDefinition<integrationAccountsAssembliesProperties> {
+    export type AssembliesResource = ResourceDefinition<integrationAccountsAssembliesProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: integrationAccountsAssembliesProperties, location?: Expressionable<string>): AssembliesResource {
       return {
         type: 'Microsoft.Logic/integrationAccounts/assemblies',
         apiVersion: '2016-06-01',
@@ -201,7 +217,9 @@ export namespace integrationAccounts {
 }
 export namespace integrationAccounts {
   export namespace batchConfigurations {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: integrationAccountsBatchConfigurationsProperties, location?: Expressionable<string>): ResourceDefinition<integrationAccountsBatchConfigurationsProperties> {
+    export type BatchConfigurationsResource = ResourceDefinition<integrationAccountsBatchConfigurationsProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: integrationAccountsBatchConfigurationsProperties, location?: Expressionable<string>): BatchConfigurationsResource {
       return {
         type: 'Microsoft.Logic/integrationAccounts/batchConfigurations',
         apiVersion: '2016-06-01',

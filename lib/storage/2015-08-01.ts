@@ -1,7 +1,9 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 
 export namespace storageAccounts {
-  export function create(name: Expressionable<string>, properties: any): ResourceDefinition<any> {
+  export type StorageAccountsResource = ResourceDefinition<any>;
+  
+  export function create(name: Expressionable<string>, properties: any): StorageAccountsResource {
     return {
       type: 'Microsoft.Storage/storageAccounts',
       apiVersion: '2015-05-01-preview',

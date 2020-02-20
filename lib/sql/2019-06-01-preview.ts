@@ -73,46 +73,61 @@ export interface WorkloadGroupProperties {
 
 export namespace managedInstances {
   export namespace databases {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ManagedDatabaseProperties, location: Expressionable<string>): ResourceDefinition<ManagedDatabaseProperties> {
+    export interface AddedResourceProps {
+      tags?: Expressionable<any>;
+    }
+    
+    export type DatabasesResource = ResourceDefinition<ManagedDatabaseProperties> & AddedResourceProps;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ManagedDatabaseProperties, location: Expressionable<string>, tags?: Expressionable<any>): DatabasesResource {
       return {
         type: 'Microsoft.Sql/managedInstances/databases',
         apiVersion: '2019-06-01-preview',
         name: name,
         location,
+        tags,
         properties,
       };
     }
   }
 }
 export namespace servers {
-  interface AdditionalProps {
+  export interface AddedResourceProps {
     identity?: Expressionable<ResourceIdentity>;
+    tags?: Expressionable<any>;
   }
   
-  export function create(name: Expressionable<string>, properties: ServerProperties, location: Expressionable<string>, identity?: Expressionable<ResourceIdentity>): ResourceDefinition<ServerProperties> & AdditionalProps {
+  export type ServersResource = ResourceDefinition<ServerProperties> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: ServerProperties, location: Expressionable<string>, identity?: Expressionable<ResourceIdentity>, tags?: Expressionable<any>): ServersResource {
     return {
       type: 'Microsoft.Sql/servers',
       apiVersion: '2019-06-01-preview',
       name: [name],
       location,
       identity,
+      tags,
       properties,
     };
   }
 }
 export namespace servers {
   export namespace databases {
-    interface AdditionalProps {
+    export interface AddedResourceProps {
       sku?: Expressionable<Sku>;
+      tags?: Expressionable<any>;
     }
     
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: DatabaseProperties, location: Expressionable<string>, sku?: Expressionable<Sku>): ResourceDefinition<DatabaseProperties> & AdditionalProps {
+    export type DatabasesResource = ResourceDefinition<DatabaseProperties> & AddedResourceProps;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: DatabaseProperties, location: Expressionable<string>, sku?: Expressionable<Sku>, tags?: Expressionable<any>): DatabasesResource {
       return {
         type: 'Microsoft.Sql/servers/databases',
         apiVersion: '2019-06-01-preview',
         name: name,
         location,
         sku,
+        tags,
         properties,
       };
     }
@@ -121,7 +136,9 @@ export namespace servers {
 export namespace servers {
   export namespace databases {
     export namespace workloadGroups {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: WorkloadGroupProperties): ResourceDefinition<WorkloadGroupProperties> {
+      export type WorkloadGroupsResource = ResourceDefinition<WorkloadGroupProperties>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: WorkloadGroupProperties): WorkloadGroupsResource {
         return {
           type: 'Microsoft.Sql/servers/databases/workloadGroups',
           apiVersion: '2019-06-01-preview',
@@ -136,7 +153,9 @@ export namespace servers {
   export namespace databases {
     export namespace workloadGroups {
       export namespace workloadClassifiers {
-        export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: WorkloadClassifierProperties): ResourceDefinition<WorkloadClassifierProperties> {
+        export type WorkloadClassifiersResource = ResourceDefinition<WorkloadClassifierProperties>;
+        
+        export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: WorkloadClassifierProperties): WorkloadClassifiersResource {
           return {
             type: 'Microsoft.Sql/servers/databases/workloadGroups/workloadClassifiers',
             apiVersion: '2019-06-01-preview',

@@ -59,24 +59,30 @@ export interface VirtualNetworkRuleProperties {
 }
 
 export namespace namespaces {
-  interface AdditionalProps {
+  export interface AddedResourceProps {
     sku?: Expressionable<SBSku>;
+    tags?: Expressionable<any>;
   }
   
-  export function create(name: Expressionable<string>, properties: SBNamespaceProperties, location: Expressionable<string>, sku?: Expressionable<SBSku>): ResourceDefinition<SBNamespaceProperties> & AdditionalProps {
+  export type NamespacesResource = ResourceDefinition<SBNamespaceProperties> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: SBNamespaceProperties, location: Expressionable<string>, sku?: Expressionable<SBSku>, tags?: Expressionable<any>): NamespacesResource {
     return {
       type: 'Microsoft.ServiceBus/namespaces',
       apiVersion: '2018-01-01-preview',
       name: [name],
       location,
       sku,
+      tags,
       properties,
     };
   }
 }
 export namespace namespaces {
   export namespace ipfilterrules {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: IpFilterRuleProperties): ResourceDefinition<IpFilterRuleProperties> {
+    export type IpfilterrulesResource = ResourceDefinition<IpFilterRuleProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: IpFilterRuleProperties): IpfilterrulesResource {
       return {
         type: 'Microsoft.ServiceBus/namespaces/ipfilterrules',
         apiVersion: '2018-01-01-preview',
@@ -88,7 +94,9 @@ export namespace namespaces {
 }
 export namespace namespaces {
   export namespace networkrulesets {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: NetworkRuleSetProperties): ResourceDefinition<NetworkRuleSetProperties> {
+    export type NetworkrulesetsResource = ResourceDefinition<NetworkRuleSetProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: NetworkRuleSetProperties): NetworkrulesetsResource {
       return {
         type: 'Microsoft.ServiceBus/namespaces/networkrulesets',
         apiVersion: '2018-01-01-preview',
@@ -100,7 +108,9 @@ export namespace namespaces {
 }
 export namespace namespaces {
   export namespace virtualnetworkrules {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: VirtualNetworkRuleProperties): ResourceDefinition<VirtualNetworkRuleProperties> {
+    export type VirtualnetworkrulesResource = ResourceDefinition<VirtualNetworkRuleProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: VirtualNetworkRuleProperties): VirtualnetworkrulesResource {
       return {
         type: 'Microsoft.ServiceBus/namespaces/virtualnetworkrules',
         apiVersion: '2018-01-01-preview',

@@ -28,24 +28,30 @@ export interface SharedAccessSignatureAuthorizationRuleAccessRightsDescription {
 }
 
 export namespace provisioningServices {
-  interface AdditionalProps {
+  export interface AddedResourceProps {
     sku: Expressionable<IotDpsSkuInfo>;
+    tags?: Expressionable<any>;
   }
   
-  export function create(name: Expressionable<string>, properties: IotDpsPropertiesDescription, location: Expressionable<string>, sku: Expressionable<IotDpsSkuInfo>): ResourceDefinition<IotDpsPropertiesDescription> & AdditionalProps {
+  export type ProvisioningServicesResource = ResourceDefinition<IotDpsPropertiesDescription> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: IotDpsPropertiesDescription, location: Expressionable<string>, sku: Expressionable<IotDpsSkuInfo>, tags?: Expressionable<any>): ProvisioningServicesResource {
     return {
       type: 'Microsoft.Devices/provisioningServices',
       apiVersion: '2018-01-22',
       name: [name],
       location,
       sku,
+      tags,
       properties,
     };
   }
 }
 export namespace provisioningServices {
   export namespace certificates {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: any): ResourceDefinition<any> {
+    export type CertificatesResource = ResourceDefinition<any>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: any): CertificatesResource {
       return {
         type: 'Microsoft.Devices/provisioningServices/certificates',
         apiVersion: '2018-01-22',

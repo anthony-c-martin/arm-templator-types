@@ -189,19 +189,28 @@ export interface WindowsConfiguration {
 }
 
 export namespace batchAccounts {
-  export function create(name: Expressionable<string>, properties: BatchAccountCreateProperties, location: Expressionable<string>): ResourceDefinition<BatchAccountCreateProperties> {
+  export interface AddedResourceProps {
+    tags?: Expressionable<any>;
+  }
+  
+  export type BatchAccountsResource = ResourceDefinition<BatchAccountCreateProperties> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: BatchAccountCreateProperties, location: Expressionable<string>, tags?: Expressionable<any>): BatchAccountsResource {
     return {
       type: 'Microsoft.Batch/batchAccounts',
       apiVersion: '2017-09-01',
       name: [name],
       location,
+      tags,
       properties,
     };
   }
 }
 export namespace batchAccounts {
   export namespace applications {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: any): ResourceDefinition<any> {
+    export type ApplicationsResource = ResourceDefinition<any>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: any): ApplicationsResource {
       return {
         type: 'Microsoft.Batch/batchAccounts/applications',
         apiVersion: '2017-09-01',
@@ -214,7 +223,9 @@ export namespace batchAccounts {
 export namespace batchAccounts {
   export namespace applications {
     export namespace versions {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: any): ResourceDefinition<any> {
+      export type VersionsResource = ResourceDefinition<any>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: any): VersionsResource {
         return {
           type: 'Microsoft.Batch/batchAccounts/applications/versions',
           apiVersion: '2017-09-01',
@@ -227,7 +238,9 @@ export namespace batchAccounts {
 }
 export namespace batchAccounts {
   export namespace certificates {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: CertificateCreateOrUpdateProperties): ResourceDefinition<CertificateCreateOrUpdateProperties> {
+    export type CertificatesResource = ResourceDefinition<CertificateCreateOrUpdateProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: CertificateCreateOrUpdateProperties): CertificatesResource {
       return {
         type: 'Microsoft.Batch/batchAccounts/certificates',
         apiVersion: '2017-09-01',
@@ -239,7 +252,9 @@ export namespace batchAccounts {
 }
 export namespace batchAccounts {
   export namespace pools {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: PoolProperties): ResourceDefinition<PoolProperties> {
+    export type PoolsResource = ResourceDefinition<PoolProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: PoolProperties): PoolsResource {
       return {
         type: 'Microsoft.Batch/batchAccounts/pools',
         apiVersion: '2017-09-01',

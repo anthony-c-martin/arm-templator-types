@@ -99,19 +99,28 @@ export interface UserSourceInfo {
 }
 
 export namespace Spring {
-  export function create(name: Expressionable<string>, properties: ClusterResourceProperties, location?: Expressionable<string>): ResourceDefinition<ClusterResourceProperties> {
+  export interface AddedResourceProps {
+    tags?: Expressionable<any>;
+  }
+  
+  export type SpringResource = ResourceDefinition<ClusterResourceProperties> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: ClusterResourceProperties, location?: Expressionable<string>, tags?: Expressionable<any>): SpringResource {
     return {
       type: 'Microsoft.AppPlatform/Spring',
       apiVersion: '2019-05-01-preview',
       name: [name],
       location,
+      tags,
       properties,
     };
   }
 }
 export namespace Spring {
   export namespace apps {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: AppResourceProperties): ResourceDefinition<AppResourceProperties> {
+    export type AppsResource = ResourceDefinition<AppResourceProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: AppResourceProperties): AppsResource {
       return {
         type: 'Microsoft.AppPlatform/Spring/apps',
         apiVersion: '2019-05-01-preview',
@@ -124,7 +133,9 @@ export namespace Spring {
 export namespace Spring {
   export namespace apps {
     export namespace bindings {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: BindingResourceProperties): ResourceDefinition<BindingResourceProperties> {
+      export type BindingsResource = ResourceDefinition<BindingResourceProperties>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: BindingResourceProperties): BindingsResource {
         return {
           type: 'Microsoft.AppPlatform/Spring/apps/bindings',
           apiVersion: '2019-05-01-preview',
@@ -138,7 +149,9 @@ export namespace Spring {
 export namespace Spring {
   export namespace apps {
     export namespace deployments {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: DeploymentResourceProperties): ResourceDefinition<DeploymentResourceProperties> {
+      export type DeploymentsResource = ResourceDefinition<DeploymentResourceProperties>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: DeploymentResourceProperties): DeploymentsResource {
         return {
           type: 'Microsoft.AppPlatform/Spring/apps/deployments',
           apiVersion: '2019-05-01-preview',

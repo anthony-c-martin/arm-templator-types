@@ -2483,24 +2483,30 @@ export interface ZohoSource {
 }
 
 export namespace factories {
-  interface AdditionalProps {
+  export interface AddedResourceProps {
     identity?: Expressionable<FactoryIdentity>;
+    tags?: Expressionable<any>;
   }
   
-  export function create(name: Expressionable<string>, properties: FactoryProperties, location?: Expressionable<string>, identity?: Expressionable<FactoryIdentity>): ResourceDefinition<FactoryProperties> & AdditionalProps {
+  export type FactoriesResource = ResourceDefinition<FactoryProperties> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: FactoryProperties, location?: Expressionable<string>, identity?: Expressionable<FactoryIdentity>, tags?: Expressionable<any>): FactoriesResource {
     return {
       type: 'Microsoft.DataFactory/factories',
       apiVersion: '2017-09-01-preview',
       name: [name],
       location,
       identity,
+      tags,
       properties,
     };
   }
 }
 export namespace factories {
   export namespace datasets {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: Dataset): ResourceDefinition<Dataset> {
+    export type DatasetsResource = ResourceDefinition<Dataset>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: Dataset): DatasetsResource {
       return {
         type: 'Microsoft.DataFactory/factories/datasets',
         apiVersion: '2017-09-01-preview',
@@ -2512,7 +2518,9 @@ export namespace factories {
 }
 export namespace factories {
   export namespace integrationRuntimes {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: IntegrationRuntime): ResourceDefinition<IntegrationRuntime> {
+    export type IntegrationRuntimesResource = ResourceDefinition<IntegrationRuntime>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: IntegrationRuntime): IntegrationRuntimesResource {
       return {
         type: 'Microsoft.DataFactory/factories/integrationRuntimes',
         apiVersion: '2017-09-01-preview',
@@ -2524,7 +2532,9 @@ export namespace factories {
 }
 export namespace factories {
   export namespace linkedservices {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: LinkedService): ResourceDefinition<LinkedService> {
+    export type LinkedservicesResource = ResourceDefinition<LinkedService>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: LinkedService): LinkedservicesResource {
       return {
         type: 'Microsoft.DataFactory/factories/linkedservices',
         apiVersion: '2017-09-01-preview',
@@ -2536,7 +2546,9 @@ export namespace factories {
 }
 export namespace factories {
   export namespace pipelines {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: Pipeline): ResourceDefinition<Pipeline> {
+    export type PipelinesResource = ResourceDefinition<Pipeline>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: Pipeline): PipelinesResource {
       return {
         type: 'Microsoft.DataFactory/factories/pipelines',
         apiVersion: '2017-09-01-preview',
@@ -2548,7 +2560,9 @@ export namespace factories {
 }
 export namespace factories {
   export namespace triggers {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: Trigger): ResourceDefinition<Trigger> {
+    export type TriggersResource = ResourceDefinition<Trigger>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: Trigger): TriggersResource {
       return {
         type: 'Microsoft.DataFactory/factories/triggers',
         apiVersion: '2017-09-01-preview',

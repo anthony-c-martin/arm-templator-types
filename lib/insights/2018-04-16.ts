@@ -67,12 +67,19 @@ export interface TriggerCondition {
 }
 
 export namespace scheduledQueryRules {
-  export function create(name: Expressionable<string>, properties: LogSearchRule, location: Expressionable<string>): ResourceDefinition<LogSearchRule> {
+  export interface AddedResourceProps {
+    tags?: Expressionable<any>;
+  }
+  
+  export type ScheduledQueryRulesResource = ResourceDefinition<LogSearchRule> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: LogSearchRule, location: Expressionable<string>, tags?: Expressionable<any>): ScheduledQueryRulesResource {
     return {
       type: 'Microsoft.Insights/scheduledQueryRules',
       apiVersion: '2018-04-16',
       name: [name],
       location,
+      tags,
       properties,
     };
   }

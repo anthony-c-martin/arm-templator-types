@@ -86,12 +86,15 @@ export interface WebhookPropertiesCreateParameters {
 }
 
 export namespace registries {
-  interface AdditionalProps {
+  export interface AddedResourceProps {
     identity?: Expressionable<IdentityProperties>;
     sku: Expressionable<Sku>;
+    tags?: Expressionable<any>;
   }
   
-  export function create(name: Expressionable<string>, properties: RegistryProperties, location: Expressionable<string>, sku: Expressionable<Sku>, identity?: Expressionable<IdentityProperties>): ResourceDefinition<RegistryProperties> & AdditionalProps {
+  export type RegistriesResource = ResourceDefinition<RegistryProperties> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: RegistryProperties, location: Expressionable<string>, sku: Expressionable<Sku>, identity?: Expressionable<IdentityProperties>, tags?: Expressionable<any>): RegistriesResource {
     return {
       type: 'Microsoft.ContainerRegistry/registries',
       apiVersion: '2019-12-01-preview',
@@ -99,18 +102,26 @@ export namespace registries {
       location,
       identity,
       sku,
+      tags,
       properties,
     };
   }
 }
 export namespace registries {
   export namespace replications {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ReplicationProperties, location: Expressionable<string>): ResourceDefinition<ReplicationProperties> {
+    export interface AddedResourceProps {
+      tags?: Expressionable<any>;
+    }
+    
+    export type ReplicationsResource = ResourceDefinition<ReplicationProperties> & AddedResourceProps;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ReplicationProperties, location: Expressionable<string>, tags?: Expressionable<any>): ReplicationsResource {
       return {
         type: 'Microsoft.ContainerRegistry/registries/replications',
         apiVersion: '2019-12-01-preview',
         name: name,
         location,
+        tags,
         properties,
       };
     }
@@ -118,12 +129,19 @@ export namespace registries {
 }
 export namespace registries {
   export namespace webhooks {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: WebhookPropertiesCreateParameters, location: Expressionable<string>): ResourceDefinition<WebhookPropertiesCreateParameters> {
+    export interface AddedResourceProps {
+      tags?: Expressionable<any>;
+    }
+    
+    export type WebhooksResource = ResourceDefinition<WebhookPropertiesCreateParameters> & AddedResourceProps;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: WebhookPropertiesCreateParameters, location: Expressionable<string>, tags?: Expressionable<any>): WebhooksResource {
       return {
         type: 'Microsoft.ContainerRegistry/registries/webhooks',
         apiVersion: '2019-12-01-preview',
         name: name,
         location,
+        tags,
         properties,
       };
     }

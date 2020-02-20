@@ -57,11 +57,13 @@ export interface TrustedExternalTenant {
 }
 
 export namespace clusters {
-  interface AdditionalProps {
+  export interface AddedResourceProps {
     sku: Expressionable<Sku>;
   }
   
-  export function create(name: Expressionable<string>, properties: ClusterProperties, location: Expressionable<string>, sku: Expressionable<Sku>): ResourceDefinition<ClusterProperties> & AdditionalProps {
+  export type ClustersResource = ResourceDefinition<ClusterProperties> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: ClusterProperties, location: Expressionable<string>, sku: Expressionable<Sku>): ClustersResource {
     return {
       type: 'Microsoft.Kusto/clusters',
       apiVersion: '2018-09-07-preview',
@@ -74,7 +76,9 @@ export namespace clusters {
 }
 export namespace clusters {
   export namespace databases {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: DatabaseProperties): ResourceDefinition<DatabaseProperties> {
+    export type DatabasesResource = ResourceDefinition<DatabaseProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: DatabaseProperties): DatabasesResource {
       return {
         type: 'Microsoft.Kusto/clusters/databases',
         apiVersion: '2018-09-07-preview',
@@ -87,7 +91,9 @@ export namespace clusters {
 export namespace clusters {
   export namespace databases {
     export namespace dataconnections {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: any): ResourceDefinition<any> {
+      export type DataconnectionsResource = ResourceDefinition<any>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: any): DataconnectionsResource {
         return {
           type: 'Microsoft.Kusto/clusters/databases/dataconnections',
           apiVersion: '2018-09-07-preview',

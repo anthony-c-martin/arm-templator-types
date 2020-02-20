@@ -64,24 +64,30 @@ export interface Sku {
 }
 
 export namespace environments {
-  interface AdditionalProps {
+  export interface AddedResourceProps {
     sku: Expressionable<Sku>;
+    tags?: Expressionable<any>;
   }
   
-  export function create(name: Expressionable<string>, properties: EnvironmentCreationProperties, location: Expressionable<string>, sku: Expressionable<Sku>): ResourceDefinition<EnvironmentCreationProperties> & AdditionalProps {
+  export type EnvironmentsResource = ResourceDefinition<EnvironmentCreationProperties> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: EnvironmentCreationProperties, location: Expressionable<string>, sku: Expressionable<Sku>, tags?: Expressionable<any>): EnvironmentsResource {
     return {
       type: 'Microsoft.TimeSeriesInsights/environments',
       apiVersion: '2017-11-15',
       name: [name],
       location,
       sku,
+      tags,
       properties,
     };
   }
 }
 export namespace environments {
   export namespace accessPolicies {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: AccessPolicyResourceProperties): ResourceDefinition<AccessPolicyResourceProperties> {
+    export type AccessPoliciesResource = ResourceDefinition<AccessPolicyResourceProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: AccessPolicyResourceProperties): AccessPoliciesResource {
       return {
         type: 'Microsoft.TimeSeriesInsights/environments/accessPolicies',
         apiVersion: '2017-11-15',
@@ -93,12 +99,19 @@ export namespace environments {
 }
 export namespace environments {
   export namespace eventSources {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: EventHubEventSourceCreationProperties | IoTHubEventSourceCreationProperties, location: Expressionable<string>): ResourceDefinition<EventHubEventSourceCreationProperties | IoTHubEventSourceCreationProperties> {
+    export interface AddedResourceProps {
+      tags?: Expressionable<any>;
+    }
+    
+    export type EventSourcesResource = ResourceDefinition<EventHubEventSourceCreationProperties | IoTHubEventSourceCreationProperties> & AddedResourceProps;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: EventHubEventSourceCreationProperties | IoTHubEventSourceCreationProperties, location: Expressionable<string>, tags?: Expressionable<any>): EventSourcesResource {
       return {
         type: 'Microsoft.TimeSeriesInsights/environments/eventSources',
         apiVersion: '2017-11-15',
         name: name,
         location,
+        tags,
         properties,
       };
     }
@@ -106,12 +119,19 @@ export namespace environments {
 }
 export namespace environments {
   export namespace referenceDataSets {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ReferenceDataSetCreationProperties, location: Expressionable<string>): ResourceDefinition<ReferenceDataSetCreationProperties> {
+    export interface AddedResourceProps {
+      tags?: Expressionable<any>;
+    }
+    
+    export type ReferenceDataSetsResource = ResourceDefinition<ReferenceDataSetCreationProperties> & AddedResourceProps;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ReferenceDataSetCreationProperties, location: Expressionable<string>, tags?: Expressionable<any>): ReferenceDataSetsResource {
       return {
         type: 'Microsoft.TimeSeriesInsights/environments/referenceDataSets',
         apiVersion: '2017-11-15',
         name: name,
         location,
+        tags,
         properties,
       };
     }

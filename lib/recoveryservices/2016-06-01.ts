@@ -21,11 +21,13 @@ export interface VaultExtendedInfo {
 }
 
 export namespace vaults {
-  interface AdditionalProps {
+  export interface AddedResourceProps {
     sku: Expressionable<Sku>;
   }
   
-  export function create(name: Expressionable<string>, properties: RecoveryServicesPropertiesCreateParameters, location: Expressionable<string>, sku: Expressionable<Sku>): ResourceDefinition<RecoveryServicesPropertiesCreateParameters> & AdditionalProps {
+  export type VaultsResource = ResourceDefinition<RecoveryServicesPropertiesCreateParameters> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: RecoveryServicesPropertiesCreateParameters, location: Expressionable<string>, sku: Expressionable<Sku>): VaultsResource {
     return {
       type: 'Microsoft.RecoveryServices/vaults',
       apiVersion: '2018-01-10',
@@ -38,7 +40,9 @@ export namespace vaults {
 }
 export namespace vaults {
   export namespace certificates {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RawCertificateData): ResourceDefinition<RawCertificateData> {
+    export type CertificatesResource = ResourceDefinition<RawCertificateData>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RawCertificateData): CertificatesResource {
       return {
         type: 'Microsoft.RecoveryServices/vaults/certificates',
         apiVersion: '2016-06-01',
@@ -50,7 +54,9 @@ export namespace vaults {
 }
 export namespace vaults {
   export namespace extendedInformation {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: VaultExtendedInfo): ResourceDefinition<VaultExtendedInfo> {
+    export type ExtendedInformationResource = ResourceDefinition<VaultExtendedInfo>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: VaultExtendedInfo): ExtendedInformationResource {
       return {
         type: 'Microsoft.RecoveryServices/vaults/extendedInformation',
         apiVersion: '2016-06-01',

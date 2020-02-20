@@ -174,12 +174,15 @@ export interface WebChatSite {
 }
 
 export namespace botServices {
-  interface AdditionalProps {
+  export interface AddedResourceProps {
     kind?: Expressionable<('sdk' | 'designer' | 'bot' | 'function')>;
     sku?: Expressionable<Sku>;
+    tags?: Expressionable<any>;
   }
   
-  export function create(name: Expressionable<string>, properties: BotProperties, location?: Expressionable<string>, sku?: Expressionable<Sku>, kind?: Expressionable<('sdk' | 'designer' | 'bot' | 'function')>): ResourceDefinition<BotProperties> & AdditionalProps {
+  export type BotServicesResource = ResourceDefinition<BotProperties> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: BotProperties, location?: Expressionable<string>, sku?: Expressionable<Sku>, kind?: Expressionable<('sdk' | 'designer' | 'bot' | 'function')>, tags?: Expressionable<any>): BotServicesResource {
     return {
       type: 'Microsoft.BotService/botServices',
       apiVersion: '2017-12-01',
@@ -187,18 +190,22 @@ export namespace botServices {
       location,
       sku,
       kind,
+      tags,
       properties,
     };
   }
 }
 export namespace botServices {
   export namespace channels {
-    interface AdditionalProps {
+    export interface AddedResourceProps {
       kind?: Expressionable<('sdk' | 'designer' | 'bot' | 'function')>;
       sku?: Expressionable<Sku>;
+      tags?: Expressionable<any>;
     }
     
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: Channel, location?: Expressionable<string>, sku?: Expressionable<Sku>, kind?: Expressionable<('sdk' | 'designer' | 'bot' | 'function')>): ResourceDefinition<Channel> & AdditionalProps {
+    export type ChannelsResource = ResourceDefinition<Channel> & AddedResourceProps;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: Channel, location?: Expressionable<string>, sku?: Expressionable<Sku>, kind?: Expressionable<('sdk' | 'designer' | 'bot' | 'function')>, tags?: Expressionable<any>): ChannelsResource {
       return {
         type: 'Microsoft.BotService/botServices/channels',
         apiVersion: '2017-12-01',
@@ -206,6 +213,7 @@ export namespace botServices {
         location,
         sku,
         kind,
+        tags,
         properties,
       };
     }
@@ -213,12 +221,15 @@ export namespace botServices {
 }
 export namespace botServices {
   export namespace Connections {
-    interface AdditionalProps {
+    export interface AddedResourceProps {
       kind?: Expressionable<('sdk' | 'designer' | 'bot' | 'function')>;
       sku?: Expressionable<Sku>;
+      tags?: Expressionable<any>;
     }
     
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ConnectionSettingProperties, location?: Expressionable<string>, sku?: Expressionable<Sku>, kind?: Expressionable<('sdk' | 'designer' | 'bot' | 'function')>): ResourceDefinition<ConnectionSettingProperties> & AdditionalProps {
+    export type ConnectionsResource = ResourceDefinition<ConnectionSettingProperties> & AddedResourceProps;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ConnectionSettingProperties, location?: Expressionable<string>, sku?: Expressionable<Sku>, kind?: Expressionable<('sdk' | 'designer' | 'bot' | 'function')>, tags?: Expressionable<any>): ConnectionsResource {
       return {
         type: 'Microsoft.BotService/botServices/Connections',
         apiVersion: '2017-12-01',
@@ -226,6 +237,7 @@ export namespace botServices {
         location,
         sku,
         kind,
+        tags,
         properties,
       };
     }

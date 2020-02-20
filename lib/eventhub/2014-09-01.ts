@@ -30,24 +30,30 @@ export interface Sku {
 }
 
 export namespace namespaces {
-  interface AdditionalProps {
+  export interface AddedResourceProps {
     sku?: Expressionable<Sku>;
+    tags?: Expressionable<any>;
   }
   
-  export function create(name: Expressionable<string>, properties: NamespaceProperties, location: Expressionable<string>, sku?: Expressionable<Sku>): ResourceDefinition<NamespaceProperties> & AdditionalProps {
+  export type NamespacesResource = ResourceDefinition<NamespaceProperties> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: NamespaceProperties, location: Expressionable<string>, sku?: Expressionable<Sku>, tags?: Expressionable<any>): NamespacesResource {
     return {
       type: 'Microsoft.EventHub/namespaces',
       apiVersion: '2014-09-01',
       name: [name],
       location,
       sku,
+      tags,
       properties,
     };
   }
 }
 export namespace namespaces {
   export namespace AuthorizationRules {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: SharedAccessAuthorizationRuleProperties, location?: Expressionable<string>): ResourceDefinition<SharedAccessAuthorizationRuleProperties> {
+    export type AuthorizationRulesResource = ResourceDefinition<SharedAccessAuthorizationRuleProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: SharedAccessAuthorizationRuleProperties, location?: Expressionable<string>): AuthorizationRulesResource {
       return {
         type: 'Microsoft.EventHub/namespaces/AuthorizationRules',
         apiVersion: '2014-09-01',
@@ -60,7 +66,9 @@ export namespace namespaces {
 }
 export namespace namespaces {
   export namespace eventhubs {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: EventHubProperties, location: Expressionable<string>): ResourceDefinition<EventHubProperties> {
+    export type EventhubsResource = ResourceDefinition<EventHubProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: EventHubProperties, location: Expressionable<string>): EventhubsResource {
       return {
         type: 'Microsoft.EventHub/namespaces/eventhubs',
         apiVersion: '2014-09-01',
@@ -74,7 +82,9 @@ export namespace namespaces {
 export namespace namespaces {
   export namespace eventhubs {
     export namespace authorizationRules {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: SharedAccessAuthorizationRuleProperties, location?: Expressionable<string>): ResourceDefinition<SharedAccessAuthorizationRuleProperties> {
+      export type AuthorizationRulesResource = ResourceDefinition<SharedAccessAuthorizationRuleProperties>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: SharedAccessAuthorizationRuleProperties, location?: Expressionable<string>): AuthorizationRulesResource {
         return {
           type: 'Microsoft.EventHub/namespaces/eventhubs/authorizationRules',
           apiVersion: '2014-09-01',
@@ -89,7 +99,9 @@ export namespace namespaces {
 export namespace namespaces {
   export namespace eventhubs {
     export namespace consumergroups {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ConsumerGroupProperties, location: Expressionable<string>): ResourceDefinition<ConsumerGroupProperties> {
+      export type ConsumergroupsResource = ResourceDefinition<ConsumerGroupProperties>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ConsumerGroupProperties, location: Expressionable<string>): ConsumergroupsResource {
         return {
           type: 'Microsoft.EventHub/namespaces/eventhubs/consumergroups',
           apiVersion: '2014-09-01',

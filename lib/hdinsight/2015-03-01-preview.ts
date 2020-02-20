@@ -188,28 +188,39 @@ export interface VirtualNetworkProfile {
 }
 
 export namespace clusters {
-  interface AdditionalProps {
+  export interface AddedResourceProps {
     identity?: Expressionable<ClusterIdentity>;
+    tags?: Expressionable<any>;
   }
   
-  export function create(name: Expressionable<string>, properties: ClusterCreateProperties, location?: Expressionable<string>, identity?: Expressionable<ClusterIdentity>): ResourceDefinition<ClusterCreateProperties> & AdditionalProps {
+  export type ClustersResource = ResourceDefinition<ClusterCreateProperties> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: ClusterCreateProperties, location?: Expressionable<string>, identity?: Expressionable<ClusterIdentity>, tags?: Expressionable<any>): ClustersResource {
     return {
       type: 'Microsoft.HDInsight/clusters',
       apiVersion: '2015-03-01-preview',
       name: [name],
       location,
       identity,
+      tags,
       properties,
     };
   }
 }
 export namespace clusters {
   export namespace applications {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ApplicationProperties): ResourceDefinition<ApplicationProperties> {
+    export interface AddedResourceProps {
+      tags?: Expressionable<any>;
+    }
+    
+    export type ApplicationsResource = ResourceDefinition<ApplicationProperties> & AddedResourceProps;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ApplicationProperties, tags?: Expressionable<any>): ApplicationsResource {
       return {
         type: 'Microsoft.HDInsight/clusters/applications',
         apiVersion: '2015-03-01-preview',
         name: name,
+        tags,
         properties,
       };
     }
@@ -217,7 +228,9 @@ export namespace clusters {
 }
 export namespace clusters {
   export namespace extensions {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: any): ResourceDefinition<any> {
+    export type ExtensionsResource = ResourceDefinition<any>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: any): ExtensionsResource {
       return {
         type: 'Microsoft.HDInsight/clusters/extensions',
         apiVersion: '2015-03-01-preview',

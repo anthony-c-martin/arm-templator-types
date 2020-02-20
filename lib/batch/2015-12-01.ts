@@ -9,19 +9,28 @@ export interface BatchAccountBaseProperties {
 }
 
 export namespace batchAccounts {
-  export function create(name: Expressionable<string>, properties: BatchAccountBaseProperties, location: Expressionable<string>): ResourceDefinition<BatchAccountBaseProperties> {
+  export interface AddedResourceProps {
+    tags?: Expressionable<any>;
+  }
+  
+  export type BatchAccountsResource = ResourceDefinition<BatchAccountBaseProperties> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: BatchAccountBaseProperties, location: Expressionable<string>, tags?: Expressionable<any>): BatchAccountsResource {
     return {
       type: 'Microsoft.Batch/batchAccounts',
       apiVersion: '2015-12-01',
       name: [name],
       location,
+      tags,
       properties,
     };
   }
 }
 export namespace batchAccounts {
   export namespace applications {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: any): ResourceDefinition<any> {
+    export type ApplicationsResource = ResourceDefinition<any>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: any): ApplicationsResource {
       return {
         type: 'Microsoft.Batch/batchAccounts/applications',
         apiVersion: '2015-12-01',
@@ -34,7 +43,9 @@ export namespace batchAccounts {
 export namespace batchAccounts {
   export namespace applications {
     export namespace versions {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: any): ResourceDefinition<any> {
+      export type VersionsResource = ResourceDefinition<any>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: any): VersionsResource {
         return {
           type: 'Microsoft.Batch/batchAccounts/applications/versions',
           apiVersion: '2015-12-01',

@@ -13,11 +13,13 @@ export interface DatabaseProperties {
 }
 
 export namespace clusters {
-  interface AdditionalProps {
+  export interface AddedResourceProps {
     sku: Expressionable<Sku>;
   }
   
-  export function create(name: Expressionable<string>, properties: any, location: Expressionable<string>, sku: Expressionable<Sku>): ResourceDefinition<any> & AdditionalProps {
+  export type ClustersResource = ResourceDefinition<any> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: any, location: Expressionable<string>, sku: Expressionable<Sku>): ClustersResource {
     return {
       type: 'Microsoft.Kusto/clusters',
       apiVersion: '2017-09-07-privatepreview',
@@ -30,7 +32,9 @@ export namespace clusters {
 }
 export namespace clusters {
   export namespace databases {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: DatabaseProperties): ResourceDefinition<DatabaseProperties> {
+    export type DatabasesResource = ResourceDefinition<DatabaseProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: DatabaseProperties): DatabasesResource {
       return {
         type: 'Microsoft.Kusto/clusters/databases',
         apiVersion: '2017-09-07-privatepreview',

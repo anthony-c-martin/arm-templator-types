@@ -1429,12 +1429,14 @@ export interface VpnSiteProperties {
 }
 
 export namespace applicationGateways {
-  interface AdditionalProps {
+  export interface AddedResourceProps {
     zones?: Expressionable<string[]>;
     identity?: Expressionable<ManagedServiceIdentity>;
   }
   
-  export function create(name: Expressionable<string>, properties: ApplicationGatewayPropertiesFormat, location: Expressionable<string>, identity?: Expressionable<ManagedServiceIdentity>, zones?: Expressionable<string[]>): ResourceDefinition<ApplicationGatewayPropertiesFormat> & AdditionalProps {
+  export type ApplicationGatewaysResource = ResourceDefinition<ApplicationGatewayPropertiesFormat> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: ApplicationGatewayPropertiesFormat, location: Expressionable<string>, identity?: Expressionable<ManagedServiceIdentity>, zones?: Expressionable<string[]>): ApplicationGatewaysResource {
     return {
       type: 'Microsoft.Network/applicationGateways',
       apiVersion: '2018-11-01',
@@ -1447,7 +1449,9 @@ export namespace applicationGateways {
   }
 }
 export namespace applicationSecurityGroups {
-  export function create(name: Expressionable<string>, properties: ApplicationSecurityGroupPropertiesFormat, location: Expressionable<string>): ResourceDefinition<ApplicationSecurityGroupPropertiesFormat> {
+  export type ApplicationSecurityGroupsResource = ResourceDefinition<ApplicationSecurityGroupPropertiesFormat>;
+  
+  export function create(name: Expressionable<string>, properties: ApplicationSecurityGroupPropertiesFormat, location: Expressionable<string>): ApplicationSecurityGroupsResource {
     return {
       type: 'Microsoft.Network/applicationSecurityGroups',
       apiVersion: '2018-11-01',
@@ -1458,7 +1462,9 @@ export namespace applicationSecurityGroups {
   }
 }
 export namespace azureFirewalls {
-  export function create(name: Expressionable<string>, properties: AzureFirewallPropertiesFormat, location: Expressionable<string>): ResourceDefinition<AzureFirewallPropertiesFormat> {
+  export type AzureFirewallsResource = ResourceDefinition<AzureFirewallPropertiesFormat>;
+  
+  export function create(name: Expressionable<string>, properties: AzureFirewallPropertiesFormat, location: Expressionable<string>): AzureFirewallsResource {
     return {
       type: 'Microsoft.Network/azureFirewalls',
       apiVersion: '2018-11-01',
@@ -1469,7 +1475,9 @@ export namespace azureFirewalls {
   }
 }
 export namespace connections {
-  export function create(name: Expressionable<string>, properties: VirtualNetworkGatewayConnectionPropertiesFormat, location: Expressionable<string>): ResourceDefinition<VirtualNetworkGatewayConnectionPropertiesFormat> {
+  export type ConnectionsResource = ResourceDefinition<VirtualNetworkGatewayConnectionPropertiesFormat>;
+  
+  export function create(name: Expressionable<string>, properties: VirtualNetworkGatewayConnectionPropertiesFormat, location: Expressionable<string>): ConnectionsResource {
     return {
       type: 'Microsoft.Network/connections',
       apiVersion: '2018-11-01',
@@ -1480,7 +1488,9 @@ export namespace connections {
   }
 }
 export namespace ddosCustomPolicies {
-  export function create(name: Expressionable<string>, properties: DdosCustomPolicyPropertiesFormat, location: Expressionable<string>): ResourceDefinition<DdosCustomPolicyPropertiesFormat> {
+  export type DdosCustomPoliciesResource = ResourceDefinition<DdosCustomPolicyPropertiesFormat>;
+  
+  export function create(name: Expressionable<string>, properties: DdosCustomPolicyPropertiesFormat, location: Expressionable<string>): DdosCustomPoliciesResource {
     return {
       type: 'Microsoft.Network/ddosCustomPolicies',
       apiVersion: '2018-11-01',
@@ -1491,7 +1501,9 @@ export namespace ddosCustomPolicies {
   }
 }
 export namespace ddosProtectionPlans {
-  export function create(name: Expressionable<string>, properties: DdosProtectionPlanPropertiesFormat, location?: Expressionable<string>): ResourceDefinition<DdosProtectionPlanPropertiesFormat> {
+  export type DdosProtectionPlansResource = ResourceDefinition<DdosProtectionPlanPropertiesFormat>;
+  
+  export function create(name: Expressionable<string>, properties: DdosProtectionPlanPropertiesFormat, location?: Expressionable<string>): DdosProtectionPlansResource {
     return {
       type: 'Microsoft.Network/ddosProtectionPlans',
       apiVersion: '2018-11-01',
@@ -1502,11 +1514,13 @@ export namespace ddosProtectionPlans {
   }
 }
 export namespace expressRouteCircuits {
-  interface AdditionalProps {
+  export interface AddedResourceProps {
     sku?: Expressionable<ExpressRouteCircuitSku>;
   }
   
-  export function create(name: Expressionable<string>, properties: ExpressRouteCircuitPropertiesFormat, location: Expressionable<string>, sku?: Expressionable<ExpressRouteCircuitSku>): ResourceDefinition<ExpressRouteCircuitPropertiesFormat> & AdditionalProps {
+  export type ExpressRouteCircuitsResource = ResourceDefinition<ExpressRouteCircuitPropertiesFormat> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: ExpressRouteCircuitPropertiesFormat, location: Expressionable<string>, sku?: Expressionable<ExpressRouteCircuitSku>): ExpressRouteCircuitsResource {
     return {
       type: 'Microsoft.Network/expressRouteCircuits',
       apiVersion: '2018-11-01',
@@ -1519,7 +1533,9 @@ export namespace expressRouteCircuits {
 }
 export namespace expressRouteCircuits {
   export namespace authorizations {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: AuthorizationPropertiesFormat): ResourceDefinition<AuthorizationPropertiesFormat> {
+    export type AuthorizationsResource = ResourceDefinition<AuthorizationPropertiesFormat>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: AuthorizationPropertiesFormat): AuthorizationsResource {
       return {
         type: 'Microsoft.Network/expressRouteCircuits/authorizations',
         apiVersion: '2018-11-01',
@@ -1531,7 +1547,9 @@ export namespace expressRouteCircuits {
 }
 export namespace expressRouteCircuits {
   export namespace peerings {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ExpressRouteCircuitPeeringPropertiesFormat): ResourceDefinition<ExpressRouteCircuitPeeringPropertiesFormat> {
+    export type PeeringsResource = ResourceDefinition<ExpressRouteCircuitPeeringPropertiesFormat>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ExpressRouteCircuitPeeringPropertiesFormat): PeeringsResource {
       return {
         type: 'Microsoft.Network/expressRouteCircuits/peerings',
         apiVersion: '2018-11-01',
@@ -1544,7 +1562,9 @@ export namespace expressRouteCircuits {
 export namespace expressRouteCircuits {
   export namespace peerings {
     export namespace connections {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ExpressRouteCircuitConnectionPropertiesFormat): ResourceDefinition<ExpressRouteCircuitConnectionPropertiesFormat> {
+      export type ConnectionsResource = ResourceDefinition<ExpressRouteCircuitConnectionPropertiesFormat>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ExpressRouteCircuitConnectionPropertiesFormat): ConnectionsResource {
         return {
           type: 'Microsoft.Network/expressRouteCircuits/peerings/connections',
           apiVersion: '2018-11-01',
@@ -1556,7 +1576,9 @@ export namespace expressRouteCircuits {
   }
 }
 export namespace expressRouteCrossConnections {
-  export function create(name: Expressionable<string>, properties: ExpressRouteCrossConnectionProperties, location: Expressionable<string>): ResourceDefinition<ExpressRouteCrossConnectionProperties> {
+  export type ExpressRouteCrossConnectionsResource = ResourceDefinition<ExpressRouteCrossConnectionProperties>;
+  
+  export function create(name: Expressionable<string>, properties: ExpressRouteCrossConnectionProperties, location: Expressionable<string>): ExpressRouteCrossConnectionsResource {
     return {
       type: 'Microsoft.Network/expressRouteCrossConnections',
       apiVersion: '2018-11-01',
@@ -1568,7 +1590,9 @@ export namespace expressRouteCrossConnections {
 }
 export namespace expressRouteCrossConnections {
   export namespace peerings {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ExpressRouteCrossConnectionPeeringProperties): ResourceDefinition<ExpressRouteCrossConnectionPeeringProperties> {
+    export type PeeringsResource = ResourceDefinition<ExpressRouteCrossConnectionPeeringProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ExpressRouteCrossConnectionPeeringProperties): PeeringsResource {
       return {
         type: 'Microsoft.Network/expressRouteCrossConnections/peerings',
         apiVersion: '2018-11-01',
@@ -1579,7 +1603,9 @@ export namespace expressRouteCrossConnections {
   }
 }
 export namespace expressRouteGateways {
-  export function create(name: Expressionable<string>, properties: ExpressRouteGatewayProperties, location: Expressionable<string>): ResourceDefinition<ExpressRouteGatewayProperties> {
+  export type ExpressRouteGatewaysResource = ResourceDefinition<ExpressRouteGatewayProperties>;
+  
+  export function create(name: Expressionable<string>, properties: ExpressRouteGatewayProperties, location: Expressionable<string>): ExpressRouteGatewaysResource {
     return {
       type: 'Microsoft.Network/expressRouteGateways',
       apiVersion: '2018-11-01',
@@ -1591,7 +1617,9 @@ export namespace expressRouteGateways {
 }
 export namespace expressRouteGateways {
   export namespace expressRouteConnections {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ExpressRouteConnectionProperties): ResourceDefinition<ExpressRouteConnectionProperties> {
+    export type ExpressRouteConnectionsResource = ResourceDefinition<ExpressRouteConnectionProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ExpressRouteConnectionProperties): ExpressRouteConnectionsResource {
       return {
         type: 'Microsoft.Network/expressRouteGateways/expressRouteConnections',
         apiVersion: '2018-11-01',
@@ -1602,7 +1630,9 @@ export namespace expressRouteGateways {
   }
 }
 export namespace ExpressRoutePorts {
-  export function create(name: Expressionable<string>, properties: ExpressRoutePortPropertiesFormat, location: Expressionable<string>): ResourceDefinition<ExpressRoutePortPropertiesFormat> {
+  export type ExpressRoutePortsResource = ResourceDefinition<ExpressRoutePortPropertiesFormat>;
+  
+  export function create(name: Expressionable<string>, properties: ExpressRoutePortPropertiesFormat, location: Expressionable<string>): ExpressRoutePortsResource {
     return {
       type: 'Microsoft.Network/ExpressRoutePorts',
       apiVersion: '2018-11-01',
@@ -1613,7 +1643,9 @@ export namespace ExpressRoutePorts {
   }
 }
 export namespace interfaceEndpoints {
-  export function create(name: Expressionable<string>, properties: InterfaceEndpointProperties, location: Expressionable<string>): ResourceDefinition<InterfaceEndpointProperties> {
+  export type InterfaceEndpointsResource = ResourceDefinition<InterfaceEndpointProperties>;
+  
+  export function create(name: Expressionable<string>, properties: InterfaceEndpointProperties, location: Expressionable<string>): InterfaceEndpointsResource {
     return {
       type: 'Microsoft.Network/interfaceEndpoints',
       apiVersion: '2018-11-01',
@@ -1624,11 +1656,13 @@ export namespace interfaceEndpoints {
   }
 }
 export namespace loadBalancers {
-  interface AdditionalProps {
+  export interface AddedResourceProps {
     sku?: Expressionable<LoadBalancerSku>;
   }
   
-  export function create(name: Expressionable<string>, properties: LoadBalancerPropertiesFormat, location: Expressionable<string>, sku?: Expressionable<LoadBalancerSku>): ResourceDefinition<LoadBalancerPropertiesFormat> & AdditionalProps {
+  export type LoadBalancersResource = ResourceDefinition<LoadBalancerPropertiesFormat> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: LoadBalancerPropertiesFormat, location: Expressionable<string>, sku?: Expressionable<LoadBalancerSku>): LoadBalancersResource {
     return {
       type: 'Microsoft.Network/loadBalancers',
       apiVersion: '2018-11-01',
@@ -1641,7 +1675,9 @@ export namespace loadBalancers {
 }
 export namespace loadBalancers {
   export namespace inboundNatRules {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: InboundNatRulePropertiesFormat): ResourceDefinition<InboundNatRulePropertiesFormat> {
+    export type InboundNatRulesResource = ResourceDefinition<InboundNatRulePropertiesFormat>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: InboundNatRulePropertiesFormat): InboundNatRulesResource {
       return {
         type: 'Microsoft.Network/loadBalancers/inboundNatRules',
         apiVersion: '2018-11-01',
@@ -1652,7 +1688,9 @@ export namespace loadBalancers {
   }
 }
 export namespace localNetworkGateways {
-  export function create(name: Expressionable<string>, properties: LocalNetworkGatewayPropertiesFormat, location: Expressionable<string>): ResourceDefinition<LocalNetworkGatewayPropertiesFormat> {
+  export type LocalNetworkGatewaysResource = ResourceDefinition<LocalNetworkGatewayPropertiesFormat>;
+  
+  export function create(name: Expressionable<string>, properties: LocalNetworkGatewayPropertiesFormat, location: Expressionable<string>): LocalNetworkGatewaysResource {
     return {
       type: 'Microsoft.Network/localNetworkGateways',
       apiVersion: '2018-11-01',
@@ -1663,7 +1701,9 @@ export namespace localNetworkGateways {
   }
 }
 export namespace networkInterfaces {
-  export function create(name: Expressionable<string>, properties: NetworkInterfacePropertiesFormat, location: Expressionable<string>): ResourceDefinition<NetworkInterfacePropertiesFormat> {
+  export type NetworkInterfacesResource = ResourceDefinition<NetworkInterfacePropertiesFormat>;
+  
+  export function create(name: Expressionable<string>, properties: NetworkInterfacePropertiesFormat, location: Expressionable<string>): NetworkInterfacesResource {
     return {
       type: 'Microsoft.Network/networkInterfaces',
       apiVersion: '2018-11-01',
@@ -1675,7 +1715,9 @@ export namespace networkInterfaces {
 }
 export namespace networkInterfaces {
   export namespace tapConfigurations {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: NetworkInterfaceTapConfigurationPropertiesFormat): ResourceDefinition<NetworkInterfaceTapConfigurationPropertiesFormat> {
+    export type TapConfigurationsResource = ResourceDefinition<NetworkInterfaceTapConfigurationPropertiesFormat>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: NetworkInterfaceTapConfigurationPropertiesFormat): TapConfigurationsResource {
       return {
         type: 'Microsoft.Network/networkInterfaces/tapConfigurations',
         apiVersion: '2018-11-01',
@@ -1686,7 +1728,9 @@ export namespace networkInterfaces {
   }
 }
 export namespace networkProfiles {
-  export function create(name: Expressionable<string>, properties: NetworkProfilePropertiesFormat, location: Expressionable<string>): ResourceDefinition<NetworkProfilePropertiesFormat> {
+  export type NetworkProfilesResource = ResourceDefinition<NetworkProfilePropertiesFormat>;
+  
+  export function create(name: Expressionable<string>, properties: NetworkProfilePropertiesFormat, location: Expressionable<string>): NetworkProfilesResource {
     return {
       type: 'Microsoft.Network/networkProfiles',
       apiVersion: '2018-11-01',
@@ -1697,7 +1741,9 @@ export namespace networkProfiles {
   }
 }
 export namespace networkSecurityGroups {
-  export function create(name: Expressionable<string>, properties: NetworkSecurityGroupPropertiesFormat, location: Expressionable<string>): ResourceDefinition<NetworkSecurityGroupPropertiesFormat> {
+  export type NetworkSecurityGroupsResource = ResourceDefinition<NetworkSecurityGroupPropertiesFormat>;
+  
+  export function create(name: Expressionable<string>, properties: NetworkSecurityGroupPropertiesFormat, location: Expressionable<string>): NetworkSecurityGroupsResource {
     return {
       type: 'Microsoft.Network/networkSecurityGroups',
       apiVersion: '2018-11-01',
@@ -1709,7 +1755,9 @@ export namespace networkSecurityGroups {
 }
 export namespace networkSecurityGroups {
   export namespace securityRules {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: SecurityRulePropertiesFormat): ResourceDefinition<SecurityRulePropertiesFormat> {
+    export type SecurityRulesResource = ResourceDefinition<SecurityRulePropertiesFormat>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: SecurityRulePropertiesFormat): SecurityRulesResource {
       return {
         type: 'Microsoft.Network/networkSecurityGroups/securityRules',
         apiVersion: '2018-11-01',
@@ -1720,7 +1768,9 @@ export namespace networkSecurityGroups {
   }
 }
 export namespace networkWatchers {
-  export function create(name: Expressionable<string>, properties: NetworkWatcherPropertiesFormat, location: Expressionable<string>): ResourceDefinition<NetworkWatcherPropertiesFormat> {
+  export type NetworkWatchersResource = ResourceDefinition<NetworkWatcherPropertiesFormat>;
+  
+  export function create(name: Expressionable<string>, properties: NetworkWatcherPropertiesFormat, location: Expressionable<string>): NetworkWatchersResource {
     return {
       type: 'Microsoft.Network/networkWatchers',
       apiVersion: '2018-11-01',
@@ -1732,7 +1782,9 @@ export namespace networkWatchers {
 }
 export namespace networkWatchers {
   export namespace connectionMonitors {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ConnectionMonitorParameters, location?: Expressionable<string>): ResourceDefinition<ConnectionMonitorParameters> {
+    export type ConnectionMonitorsResource = ResourceDefinition<ConnectionMonitorParameters>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ConnectionMonitorParameters, location?: Expressionable<string>): ConnectionMonitorsResource {
       return {
         type: 'Microsoft.Network/networkWatchers/connectionMonitors',
         apiVersion: '2018-11-01',
@@ -1745,7 +1797,9 @@ export namespace networkWatchers {
 }
 export namespace networkWatchers {
   export namespace packetCaptures {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: PacketCaptureParameters): ResourceDefinition<PacketCaptureParameters> {
+    export type PacketCapturesResource = ResourceDefinition<PacketCaptureParameters>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: PacketCaptureParameters): PacketCapturesResource {
       return {
         type: 'Microsoft.Network/networkWatchers/packetCaptures',
         apiVersion: '2018-11-01',
@@ -1756,7 +1810,9 @@ export namespace networkWatchers {
   }
 }
 export namespace p2svpnGateways {
-  export function create(name: Expressionable<string>, properties: P2SVpnGatewayProperties, location: Expressionable<string>): ResourceDefinition<P2SVpnGatewayProperties> {
+  export type P2svpnGatewaysResource = ResourceDefinition<P2SVpnGatewayProperties>;
+  
+  export function create(name: Expressionable<string>, properties: P2SVpnGatewayProperties, location: Expressionable<string>): P2svpnGatewaysResource {
     return {
       type: 'Microsoft.Network/p2svpnGateways',
       apiVersion: '2018-11-01',
@@ -1767,12 +1823,14 @@ export namespace p2svpnGateways {
   }
 }
 export namespace publicIPAddresses {
-  interface AdditionalProps {
+  export interface AddedResourceProps {
     sku?: Expressionable<PublicIPAddressSku>;
     zones?: Expressionable<string[]>;
   }
   
-  export function create(name: Expressionable<string>, properties: PublicIPAddressPropertiesFormat, location: Expressionable<string>, sku?: Expressionable<PublicIPAddressSku>, zones?: Expressionable<string[]>): ResourceDefinition<PublicIPAddressPropertiesFormat> & AdditionalProps {
+  export type PublicIPAddressesResource = ResourceDefinition<PublicIPAddressPropertiesFormat> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: PublicIPAddressPropertiesFormat, location: Expressionable<string>, sku?: Expressionable<PublicIPAddressSku>, zones?: Expressionable<string[]>): PublicIPAddressesResource {
     return {
       type: 'Microsoft.Network/publicIPAddresses',
       apiVersion: '2018-11-01',
@@ -1785,12 +1843,14 @@ export namespace publicIPAddresses {
   }
 }
 export namespace publicIPPrefixes {
-  interface AdditionalProps {
+  export interface AddedResourceProps {
     sku?: Expressionable<PublicIPPrefixSku>;
     zones?: Expressionable<string[]>;
   }
   
-  export function create(name: Expressionable<string>, properties: PublicIPPrefixPropertiesFormat, location: Expressionable<string>, sku?: Expressionable<PublicIPPrefixSku>, zones?: Expressionable<string[]>): ResourceDefinition<PublicIPPrefixPropertiesFormat> & AdditionalProps {
+  export type PublicIPPrefixesResource = ResourceDefinition<PublicIPPrefixPropertiesFormat> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: PublicIPPrefixPropertiesFormat, location: Expressionable<string>, sku?: Expressionable<PublicIPPrefixSku>, zones?: Expressionable<string[]>): PublicIPPrefixesResource {
     return {
       type: 'Microsoft.Network/publicIPPrefixes',
       apiVersion: '2018-11-01',
@@ -1803,7 +1863,9 @@ export namespace publicIPPrefixes {
   }
 }
 export namespace routeFilters {
-  export function create(name: Expressionable<string>, properties: RouteFilterPropertiesFormat, location: Expressionable<string>): ResourceDefinition<RouteFilterPropertiesFormat> {
+  export type RouteFiltersResource = ResourceDefinition<RouteFilterPropertiesFormat>;
+  
+  export function create(name: Expressionable<string>, properties: RouteFilterPropertiesFormat, location: Expressionable<string>): RouteFiltersResource {
     return {
       type: 'Microsoft.Network/routeFilters',
       apiVersion: '2018-11-01',
@@ -1815,7 +1877,9 @@ export namespace routeFilters {
 }
 export namespace routeFilters {
   export namespace routeFilterRules {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RouteFilterRulePropertiesFormat, location?: Expressionable<string>): ResourceDefinition<RouteFilterRulePropertiesFormat> {
+    export type RouteFilterRulesResource = ResourceDefinition<RouteFilterRulePropertiesFormat>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RouteFilterRulePropertiesFormat, location?: Expressionable<string>): RouteFilterRulesResource {
       return {
         type: 'Microsoft.Network/routeFilters/routeFilterRules',
         apiVersion: '2018-11-01',
@@ -1827,7 +1891,9 @@ export namespace routeFilters {
   }
 }
 export namespace routeTables {
-  export function create(name: Expressionable<string>, properties: RouteTablePropertiesFormat, location: Expressionable<string>): ResourceDefinition<RouteTablePropertiesFormat> {
+  export type RouteTablesResource = ResourceDefinition<RouteTablePropertiesFormat>;
+  
+  export function create(name: Expressionable<string>, properties: RouteTablePropertiesFormat, location: Expressionable<string>): RouteTablesResource {
     return {
       type: 'Microsoft.Network/routeTables',
       apiVersion: '2018-11-01',
@@ -1839,7 +1905,9 @@ export namespace routeTables {
 }
 export namespace routeTables {
   export namespace routes {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RoutePropertiesFormat): ResourceDefinition<RoutePropertiesFormat> {
+    export type RoutesResource = ResourceDefinition<RoutePropertiesFormat>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: RoutePropertiesFormat): RoutesResource {
       return {
         type: 'Microsoft.Network/routeTables/routes',
         apiVersion: '2018-11-01',
@@ -1850,7 +1918,9 @@ export namespace routeTables {
   }
 }
 export namespace serviceEndpointPolicies {
-  export function create(name: Expressionable<string>, properties: ServiceEndpointPolicyPropertiesFormat, location: Expressionable<string>): ResourceDefinition<ServiceEndpointPolicyPropertiesFormat> {
+  export type ServiceEndpointPoliciesResource = ResourceDefinition<ServiceEndpointPolicyPropertiesFormat>;
+  
+  export function create(name: Expressionable<string>, properties: ServiceEndpointPolicyPropertiesFormat, location: Expressionable<string>): ServiceEndpointPoliciesResource {
     return {
       type: 'Microsoft.Network/serviceEndpointPolicies',
       apiVersion: '2018-11-01',
@@ -1862,7 +1932,9 @@ export namespace serviceEndpointPolicies {
 }
 export namespace serviceEndpointPolicies {
   export namespace serviceEndpointPolicyDefinitions {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ServiceEndpointPolicyDefinitionPropertiesFormat): ResourceDefinition<ServiceEndpointPolicyDefinitionPropertiesFormat> {
+    export type ServiceEndpointPolicyDefinitionsResource = ResourceDefinition<ServiceEndpointPolicyDefinitionPropertiesFormat>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ServiceEndpointPolicyDefinitionPropertiesFormat): ServiceEndpointPolicyDefinitionsResource {
       return {
         type: 'Microsoft.Network/serviceEndpointPolicies/serviceEndpointPolicyDefinitions',
         apiVersion: '2018-11-01',
@@ -1873,7 +1945,9 @@ export namespace serviceEndpointPolicies {
   }
 }
 export namespace virtualHubs {
-  export function create(name: Expressionable<string>, properties: VirtualHubProperties, location: Expressionable<string>): ResourceDefinition<VirtualHubProperties> {
+  export type VirtualHubsResource = ResourceDefinition<VirtualHubProperties>;
+  
+  export function create(name: Expressionable<string>, properties: VirtualHubProperties, location: Expressionable<string>): VirtualHubsResource {
     return {
       type: 'Microsoft.Network/virtualHubs',
       apiVersion: '2018-11-01',
@@ -1884,7 +1958,9 @@ export namespace virtualHubs {
   }
 }
 export namespace virtualNetworkGateways {
-  export function create(name: Expressionable<string>, properties: VirtualNetworkGatewayPropertiesFormat, location: Expressionable<string>): ResourceDefinition<VirtualNetworkGatewayPropertiesFormat> {
+  export type VirtualNetworkGatewaysResource = ResourceDefinition<VirtualNetworkGatewayPropertiesFormat>;
+  
+  export function create(name: Expressionable<string>, properties: VirtualNetworkGatewayPropertiesFormat, location: Expressionable<string>): VirtualNetworkGatewaysResource {
     return {
       type: 'Microsoft.Network/virtualNetworkGateways',
       apiVersion: '2018-11-01',
@@ -1895,7 +1971,9 @@ export namespace virtualNetworkGateways {
   }
 }
 export namespace virtualNetworks {
-  export function create(name: Expressionable<string>, properties: VirtualNetworkPropertiesFormat, location: Expressionable<string>): ResourceDefinition<VirtualNetworkPropertiesFormat> {
+  export type VirtualNetworksResource = ResourceDefinition<VirtualNetworkPropertiesFormat>;
+  
+  export function create(name: Expressionable<string>, properties: VirtualNetworkPropertiesFormat, location: Expressionable<string>): VirtualNetworksResource {
     return {
       type: 'Microsoft.Network/virtualNetworks',
       apiVersion: '2018-11-01',
@@ -1907,7 +1985,9 @@ export namespace virtualNetworks {
 }
 export namespace virtualNetworks {
   export namespace subnets {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: SubnetPropertiesFormat): ResourceDefinition<SubnetPropertiesFormat> {
+    export type SubnetsResource = ResourceDefinition<SubnetPropertiesFormat>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: SubnetPropertiesFormat): SubnetsResource {
       return {
         type: 'Microsoft.Network/virtualNetworks/subnets',
         apiVersion: '2018-11-01',
@@ -1919,7 +1999,9 @@ export namespace virtualNetworks {
 }
 export namespace virtualNetworks {
   export namespace virtualNetworkPeerings {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: VirtualNetworkPeeringPropertiesFormat): ResourceDefinition<VirtualNetworkPeeringPropertiesFormat> {
+    export type VirtualNetworkPeeringsResource = ResourceDefinition<VirtualNetworkPeeringPropertiesFormat>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: VirtualNetworkPeeringPropertiesFormat): VirtualNetworkPeeringsResource {
       return {
         type: 'Microsoft.Network/virtualNetworks/virtualNetworkPeerings',
         apiVersion: '2018-11-01',
@@ -1930,7 +2012,9 @@ export namespace virtualNetworks {
   }
 }
 export namespace virtualNetworkTaps {
-  export function create(name: Expressionable<string>, properties: VirtualNetworkTapPropertiesFormat, location: Expressionable<string>): ResourceDefinition<VirtualNetworkTapPropertiesFormat> {
+  export type VirtualNetworkTapsResource = ResourceDefinition<VirtualNetworkTapPropertiesFormat>;
+  
+  export function create(name: Expressionable<string>, properties: VirtualNetworkTapPropertiesFormat, location: Expressionable<string>): VirtualNetworkTapsResource {
     return {
       type: 'Microsoft.Network/virtualNetworkTaps',
       apiVersion: '2018-11-01',
@@ -1941,7 +2025,9 @@ export namespace virtualNetworkTaps {
   }
 }
 export namespace virtualWans {
-  export function create(name: Expressionable<string>, properties: VirtualWanProperties, location: Expressionable<string>): ResourceDefinition<VirtualWanProperties> {
+  export type VirtualWansResource = ResourceDefinition<VirtualWanProperties>;
+  
+  export function create(name: Expressionable<string>, properties: VirtualWanProperties, location: Expressionable<string>): VirtualWansResource {
     return {
       type: 'Microsoft.Network/virtualWans',
       apiVersion: '2018-11-01',
@@ -1953,7 +2039,9 @@ export namespace virtualWans {
 }
 export namespace virtualWans {
   export namespace p2sVpnServerConfigurations {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: P2SVpnServerConfigurationProperties): ResourceDefinition<P2SVpnServerConfigurationProperties> {
+    export type P2sVpnServerConfigurationsResource = ResourceDefinition<P2SVpnServerConfigurationProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: P2SVpnServerConfigurationProperties): P2sVpnServerConfigurationsResource {
       return {
         type: 'Microsoft.Network/virtualWans/p2sVpnServerConfigurations',
         apiVersion: '2018-11-01',
@@ -1964,7 +2052,9 @@ export namespace virtualWans {
   }
 }
 export namespace vpnGateways {
-  export function create(name: Expressionable<string>, properties: VpnGatewayProperties, location: Expressionable<string>): ResourceDefinition<VpnGatewayProperties> {
+  export type VpnGatewaysResource = ResourceDefinition<VpnGatewayProperties>;
+  
+  export function create(name: Expressionable<string>, properties: VpnGatewayProperties, location: Expressionable<string>): VpnGatewaysResource {
     return {
       type: 'Microsoft.Network/vpnGateways',
       apiVersion: '2018-11-01',
@@ -1976,7 +2066,9 @@ export namespace vpnGateways {
 }
 export namespace vpnGateways {
   export namespace vpnConnections {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: VpnConnectionProperties): ResourceDefinition<VpnConnectionProperties> {
+    export type VpnConnectionsResource = ResourceDefinition<VpnConnectionProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: VpnConnectionProperties): VpnConnectionsResource {
       return {
         type: 'Microsoft.Network/vpnGateways/vpnConnections',
         apiVersion: '2018-11-01',
@@ -1987,7 +2079,9 @@ export namespace vpnGateways {
   }
 }
 export namespace vpnSites {
-  export function create(name: Expressionable<string>, properties: VpnSiteProperties, location: Expressionable<string>): ResourceDefinition<VpnSiteProperties> {
+  export type VpnSitesResource = ResourceDefinition<VpnSiteProperties>;
+  
+  export function create(name: Expressionable<string>, properties: VpnSiteProperties, location: Expressionable<string>): VpnSitesResource {
     return {
       type: 'Microsoft.Network/vpnSites',
       apiVersion: '2018-11-01',

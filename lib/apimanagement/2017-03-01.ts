@@ -327,12 +327,14 @@ export interface X509CertificateName {
 }
 
 export namespace service {
-  interface AdditionalProps {
+  export interface AddedResourceProps {
     sku: Expressionable<ApiManagementServiceSkuProperties>;
     identity?: Expressionable<ApiManagementServiceIdentity>;
   }
   
-  export function create(name: Expressionable<string>, properties: ApiManagementServiceProperties, location: Expressionable<string>, sku: Expressionable<ApiManagementServiceSkuProperties>, identity?: Expressionable<ApiManagementServiceIdentity>): ResourceDefinition<ApiManagementServiceProperties> & AdditionalProps {
+  export type ServiceResource = ResourceDefinition<ApiManagementServiceProperties> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: ApiManagementServiceProperties, location: Expressionable<string>, sku: Expressionable<ApiManagementServiceSkuProperties>, identity?: Expressionable<ApiManagementServiceIdentity>): ServiceResource {
     return {
       type: 'Microsoft.ApiManagement/service',
       apiVersion: '2017-03-01',
@@ -346,7 +348,9 @@ export namespace service {
 }
 export namespace service {
   export namespace apis {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ApiCreateOrUpdateProperties): ResourceDefinition<ApiCreateOrUpdateProperties> {
+    export type ApisResource = ResourceDefinition<ApiCreateOrUpdateProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ApiCreateOrUpdateProperties): ApisResource {
       return {
         type: 'Microsoft.ApiManagement/service/apis',
         apiVersion: '2017-03-01',
@@ -359,7 +363,9 @@ export namespace service {
 export namespace service {
   export namespace apis {
     export namespace operations {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: OperationContractProperties): ResourceDefinition<OperationContractProperties> {
+      export type OperationsResource = ResourceDefinition<OperationContractProperties>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: OperationContractProperties): OperationsResource {
         return {
           type: 'Microsoft.ApiManagement/service/apis/operations',
           apiVersion: '2017-03-01',
@@ -374,7 +380,9 @@ export namespace service {
   export namespace apis {
     export namespace operations {
       export namespace policies {
-        export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: PolicyContractProperties): ResourceDefinition<PolicyContractProperties> {
+        export type PoliciesResource = ResourceDefinition<PolicyContractProperties>;
+        
+        export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: PolicyContractProperties): PoliciesResource {
           return {
             type: 'Microsoft.ApiManagement/service/apis/operations/policies',
             apiVersion: '2017-03-01',
@@ -390,7 +398,9 @@ export namespace service {
   export namespace apis {
     export namespace operations {
       export namespace tags {
-        export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: any): ResourceDefinition<any> {
+        export type TagsResource = ResourceDefinition<any>;
+        
+        export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: any): TagsResource {
           return {
             type: 'Microsoft.ApiManagement/service/apis/operations/tags',
             apiVersion: '2017-03-01',
@@ -405,7 +415,9 @@ export namespace service {
 export namespace service {
   export namespace apis {
     export namespace policies {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: PolicyContractProperties): ResourceDefinition<PolicyContractProperties> {
+      export type PoliciesResource = ResourceDefinition<PolicyContractProperties>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: PolicyContractProperties): PoliciesResource {
         return {
           type: 'Microsoft.ApiManagement/service/apis/policies',
           apiVersion: '2017-03-01',
@@ -419,7 +431,9 @@ export namespace service {
 export namespace service {
   export namespace apis {
     export namespace releases {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ApiReleaseContractProperties): ResourceDefinition<ApiReleaseContractProperties> {
+      export type ReleasesResource = ResourceDefinition<ApiReleaseContractProperties>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ApiReleaseContractProperties): ReleasesResource {
         return {
           type: 'Microsoft.ApiManagement/service/apis/releases',
           apiVersion: '2017-03-01',
@@ -433,7 +447,9 @@ export namespace service {
 export namespace service {
   export namespace apis {
     export namespace schemas {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: SchemaContractProperties): ResourceDefinition<SchemaContractProperties> {
+      export type SchemasResource = ResourceDefinition<SchemaContractProperties>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: SchemaContractProperties): SchemasResource {
         return {
           type: 'Microsoft.ApiManagement/service/apis/schemas',
           apiVersion: '2017-03-01',
@@ -447,7 +463,9 @@ export namespace service {
 export namespace service {
   export namespace apis {
     export namespace tagDescriptions {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: TagDescriptionBaseProperties): ResourceDefinition<TagDescriptionBaseProperties> {
+      export type TagDescriptionsResource = ResourceDefinition<TagDescriptionBaseProperties>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: TagDescriptionBaseProperties): TagDescriptionsResource {
         return {
           type: 'Microsoft.ApiManagement/service/apis/tagDescriptions',
           apiVersion: '2017-03-01',
@@ -461,7 +479,9 @@ export namespace service {
 export namespace service {
   export namespace apis {
     export namespace tags {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: any): ResourceDefinition<any> {
+      export type TagsResource = ResourceDefinition<any>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: any): TagsResource {
         return {
           type: 'Microsoft.ApiManagement/service/apis/tags',
           apiVersion: '2017-03-01',
@@ -474,7 +494,9 @@ export namespace service {
 }
 export namespace service {
   export namespace authorizationServers {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: AuthorizationServerContractProperties): ResourceDefinition<AuthorizationServerContractProperties> {
+    export type AuthorizationServersResource = ResourceDefinition<AuthorizationServerContractProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: AuthorizationServerContractProperties): AuthorizationServersResource {
       return {
         type: 'Microsoft.ApiManagement/service/authorizationServers',
         apiVersion: '2017-03-01',
@@ -486,7 +508,9 @@ export namespace service {
 }
 export namespace service {
   export namespace backends {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: BackendContractProperties): ResourceDefinition<BackendContractProperties> {
+    export type BackendsResource = ResourceDefinition<BackendContractProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: BackendContractProperties): BackendsResource {
       return {
         type: 'Microsoft.ApiManagement/service/backends',
         apiVersion: '2017-03-01',
@@ -498,7 +522,9 @@ export namespace service {
 }
 export namespace service {
   export namespace certificates {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: CertificateCreateOrUpdateProperties): ResourceDefinition<CertificateCreateOrUpdateProperties> {
+    export type CertificatesResource = ResourceDefinition<CertificateCreateOrUpdateProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: CertificateCreateOrUpdateProperties): CertificatesResource {
       return {
         type: 'Microsoft.ApiManagement/service/certificates',
         apiVersion: '2017-03-01',
@@ -510,7 +536,9 @@ export namespace service {
 }
 export namespace service {
   export namespace diagnostics {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: DiagnosticContractProperties): ResourceDefinition<DiagnosticContractProperties> {
+    export type DiagnosticsResource = ResourceDefinition<DiagnosticContractProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: DiagnosticContractProperties): DiagnosticsResource {
       return {
         type: 'Microsoft.ApiManagement/service/diagnostics',
         apiVersion: '2017-03-01',
@@ -523,7 +551,9 @@ export namespace service {
 export namespace service {
   export namespace diagnostics {
     export namespace loggers {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: any): ResourceDefinition<any> {
+      export type LoggersResource = ResourceDefinition<any>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: any): LoggersResource {
         return {
           type: 'Microsoft.ApiManagement/service/diagnostics/loggers',
           apiVersion: '2017-03-01',
@@ -536,7 +566,9 @@ export namespace service {
 }
 export namespace service {
   export namespace groups {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: GroupCreateParametersProperties): ResourceDefinition<GroupCreateParametersProperties> {
+    export type GroupsResource = ResourceDefinition<GroupCreateParametersProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: GroupCreateParametersProperties): GroupsResource {
       return {
         type: 'Microsoft.ApiManagement/service/groups',
         apiVersion: '2017-03-01',
@@ -549,7 +581,9 @@ export namespace service {
 export namespace service {
   export namespace groups {
     export namespace users {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: any): ResourceDefinition<any> {
+      export type UsersResource = ResourceDefinition<any>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: any): UsersResource {
         return {
           type: 'Microsoft.ApiManagement/service/groups/users',
           apiVersion: '2017-03-01',
@@ -562,7 +596,9 @@ export namespace service {
 }
 export namespace service {
   export namespace identityProviders {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: IdentityProviderContractProperties): ResourceDefinition<IdentityProviderContractProperties> {
+    export type IdentityProvidersResource = ResourceDefinition<IdentityProviderContractProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: IdentityProviderContractProperties): IdentityProvidersResource {
       return {
         type: 'Microsoft.ApiManagement/service/identityProviders',
         apiVersion: '2017-03-01',
@@ -574,7 +610,9 @@ export namespace service {
 }
 export namespace service {
   export namespace loggers {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: LoggerContractProperties): ResourceDefinition<LoggerContractProperties> {
+    export type LoggersResource = ResourceDefinition<LoggerContractProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: LoggerContractProperties): LoggersResource {
       return {
         type: 'Microsoft.ApiManagement/service/loggers',
         apiVersion: '2017-03-01',
@@ -586,7 +624,9 @@ export namespace service {
 }
 export namespace service {
   export namespace notifications {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: any): ResourceDefinition<any> {
+    export type NotificationsResource = ResourceDefinition<any>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: any): NotificationsResource {
       return {
         type: 'Microsoft.ApiManagement/service/notifications',
         apiVersion: '2017-03-01',
@@ -599,7 +639,9 @@ export namespace service {
 export namespace service {
   export namespace notifications {
     export namespace recipientEmails {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: any): ResourceDefinition<any> {
+      export type RecipientEmailsResource = ResourceDefinition<any>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: any): RecipientEmailsResource {
         return {
           type: 'Microsoft.ApiManagement/service/notifications/recipientEmails',
           apiVersion: '2017-03-01',
@@ -613,7 +655,9 @@ export namespace service {
 export namespace service {
   export namespace notifications {
     export namespace recipientUsers {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: any): ResourceDefinition<any> {
+      export type RecipientUsersResource = ResourceDefinition<any>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: any): RecipientUsersResource {
         return {
           type: 'Microsoft.ApiManagement/service/notifications/recipientUsers',
           apiVersion: '2017-03-01',
@@ -626,7 +670,9 @@ export namespace service {
 }
 export namespace service {
   export namespace openidConnectProviders {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: OpenidConnectProviderContractProperties): ResourceDefinition<OpenidConnectProviderContractProperties> {
+    export type OpenidConnectProvidersResource = ResourceDefinition<OpenidConnectProviderContractProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: OpenidConnectProviderContractProperties): OpenidConnectProvidersResource {
       return {
         type: 'Microsoft.ApiManagement/service/openidConnectProviders',
         apiVersion: '2017-03-01',
@@ -638,7 +684,9 @@ export namespace service {
 }
 export namespace service {
   export namespace policies {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: PolicyContractProperties): ResourceDefinition<PolicyContractProperties> {
+    export type PoliciesResource = ResourceDefinition<PolicyContractProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: PolicyContractProperties): PoliciesResource {
       return {
         type: 'Microsoft.ApiManagement/service/policies',
         apiVersion: '2017-03-01',
@@ -650,7 +698,9 @@ export namespace service {
 }
 export namespace service {
   export namespace products {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ProductContractProperties): ResourceDefinition<ProductContractProperties> {
+    export type ProductsResource = ResourceDefinition<ProductContractProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: ProductContractProperties): ProductsResource {
       return {
         type: 'Microsoft.ApiManagement/service/products',
         apiVersion: '2017-03-01',
@@ -663,7 +713,9 @@ export namespace service {
 export namespace service {
   export namespace products {
     export namespace apis {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: any): ResourceDefinition<any> {
+      export type ApisResource = ResourceDefinition<any>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: any): ApisResource {
         return {
           type: 'Microsoft.ApiManagement/service/products/apis',
           apiVersion: '2017-03-01',
@@ -677,7 +729,9 @@ export namespace service {
 export namespace service {
   export namespace products {
     export namespace groups {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: any): ResourceDefinition<any> {
+      export type GroupsResource = ResourceDefinition<any>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: any): GroupsResource {
         return {
           type: 'Microsoft.ApiManagement/service/products/groups',
           apiVersion: '2017-03-01',
@@ -691,7 +745,9 @@ export namespace service {
 export namespace service {
   export namespace products {
     export namespace policies {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: PolicyContractProperties): ResourceDefinition<PolicyContractProperties> {
+      export type PoliciesResource = ResourceDefinition<PolicyContractProperties>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: PolicyContractProperties): PoliciesResource {
         return {
           type: 'Microsoft.ApiManagement/service/products/policies',
           apiVersion: '2017-03-01',
@@ -705,7 +761,9 @@ export namespace service {
 export namespace service {
   export namespace products {
     export namespace tags {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: any): ResourceDefinition<any> {
+      export type TagsResource = ResourceDefinition<any>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: any): TagsResource {
         return {
           type: 'Microsoft.ApiManagement/service/products/tags',
           apiVersion: '2017-03-01',
@@ -718,7 +776,9 @@ export namespace service {
 }
 export namespace service {
   export namespace properties {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: PropertyContractProperties): ResourceDefinition<PropertyContractProperties> {
+    export type PropertiesResource = ResourceDefinition<PropertyContractProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: PropertyContractProperties): PropertiesResource {
       return {
         type: 'Microsoft.ApiManagement/service/properties',
         apiVersion: '2017-03-01',
@@ -730,7 +790,9 @@ export namespace service {
 }
 export namespace service {
   export namespace subscriptions {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: SubscriptionCreateParameterProperties): ResourceDefinition<SubscriptionCreateParameterProperties> {
+    export type SubscriptionsResource = ResourceDefinition<SubscriptionCreateParameterProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: SubscriptionCreateParameterProperties): SubscriptionsResource {
       return {
         type: 'Microsoft.ApiManagement/service/subscriptions',
         apiVersion: '2017-03-01',
@@ -742,7 +804,9 @@ export namespace service {
 }
 export namespace service {
   export namespace tags {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: TagContractProperties): ResourceDefinition<TagContractProperties> {
+    export type TagsResource = ResourceDefinition<TagContractProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: TagContractProperties): TagsResource {
       return {
         type: 'Microsoft.ApiManagement/service/tags',
         apiVersion: '2017-03-01',
@@ -754,7 +818,9 @@ export namespace service {
 }
 export namespace service {
   export namespace templates {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: EmailTemplateUpdateParameterProperties): ResourceDefinition<EmailTemplateUpdateParameterProperties> {
+    export type TemplatesResource = ResourceDefinition<EmailTemplateUpdateParameterProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: EmailTemplateUpdateParameterProperties): TemplatesResource {
       return {
         type: 'Microsoft.ApiManagement/service/templates',
         apiVersion: '2017-03-01',
@@ -766,7 +832,9 @@ export namespace service {
 }
 export namespace service {
   export namespace users {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: UserCreateParameterProperties): ResourceDefinition<UserCreateParameterProperties> {
+    export type UsersResource = ResourceDefinition<UserCreateParameterProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: UserCreateParameterProperties): UsersResource {
       return {
         type: 'Microsoft.ApiManagement/service/users',
         apiVersion: '2017-03-01',

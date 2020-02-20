@@ -98,11 +98,13 @@ export interface VnetRoute_properties {
 }
 
 export namespace serverfarms {
-  interface AdditionalProps {
+  export interface AddedResourceProps {
     sku?: Expressionable<SkuDescription>;
   }
   
-  export function create(name: Expressionable<string>, properties: AppServicePlan_properties, sku?: Expressionable<SkuDescription>): ResourceDefinition<AppServicePlan_properties> & AdditionalProps {
+  export type ServerfarmsResource = ResourceDefinition<AppServicePlan_properties> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: AppServicePlan_properties, sku?: Expressionable<SkuDescription>): ServerfarmsResource {
     return {
       type: 'Microsoft.Web/serverfarms',
       apiVersion: '2016-09-01',
@@ -115,7 +117,9 @@ export namespace serverfarms {
 export namespace serverfarms {
   export namespace virtualNetworkConnections {
     export namespace gateways {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: VnetGateway_properties): ResourceDefinition<VnetGateway_properties> {
+      export type GatewaysResource = ResourceDefinition<VnetGateway_properties>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: VnetGateway_properties): GatewaysResource {
         return {
           type: 'Microsoft.Web/serverfarms/virtualNetworkConnections/gateways',
           apiVersion: '2016-09-01',
@@ -129,7 +133,9 @@ export namespace serverfarms {
 export namespace serverfarms {
   export namespace virtualNetworkConnections {
     export namespace routes {
-      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: VnetRoute_properties): ResourceDefinition<VnetRoute_properties> {
+      export type RoutesResource = ResourceDefinition<VnetRoute_properties>;
+      
+      export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: VnetRoute_properties): RoutesResource {
         return {
           type: 'Microsoft.Web/serverfarms/virtualNetworkConnections/routes',
           apiVersion: '2016-09-01',
@@ -141,7 +147,9 @@ export namespace serverfarms {
   }
 }
 export namespace hostingEnvironments {
-  export function create(name: Expressionable<string>, properties: AppServiceEnvironment_properties): ResourceDefinition<AppServiceEnvironment_properties> {
+  export type HostingEnvironmentsResource = ResourceDefinition<AppServiceEnvironment_properties>;
+  
+  export function create(name: Expressionable<string>, properties: AppServiceEnvironment_properties): HostingEnvironmentsResource {
     return {
       type: 'Microsoft.Web/hostingEnvironments',
       apiVersion: '2016-09-01',
@@ -152,7 +160,9 @@ export namespace hostingEnvironments {
 }
 export namespace hostingEnvironments {
   export namespace workerPools {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: any): ResourceDefinition<any> {
+    export type WorkerPoolsResource = ResourceDefinition<any>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: any): WorkerPoolsResource {
       return {
         type: 'Microsoft.Web/hostingEnvironments/workerPools',
         apiVersion: '2016-09-01',
@@ -164,7 +174,9 @@ export namespace hostingEnvironments {
 }
 export namespace hostingEnvironments {
   export namespace multiRolePools {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: any): ResourceDefinition<any> {
+    export type MultiRolePoolsResource = ResourceDefinition<any>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: any): MultiRolePoolsResource {
       return {
         type: 'Microsoft.Web/hostingEnvironments/multiRolePools',
         apiVersion: '2016-09-01',

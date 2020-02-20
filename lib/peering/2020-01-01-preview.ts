@@ -89,12 +89,15 @@ export interface SubResource {
 }
 
 export namespace peerings {
-  interface AdditionalProps {
+  export interface AddedResourceProps {
     kind: Expressionable<('Direct' | 'Exchange')>;
     sku: Expressionable<PeeringSku>;
+    tags?: Expressionable<any>;
   }
   
-  export function create(name: Expressionable<string>, properties: PeeringProperties, location: Expressionable<string>, sku: Expressionable<PeeringSku>, kind: Expressionable<('Direct' | 'Exchange')>): ResourceDefinition<PeeringProperties> & AdditionalProps {
+  export type PeeringsResource = ResourceDefinition<PeeringProperties> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: PeeringProperties, location: Expressionable<string>, sku: Expressionable<PeeringSku>, kind: Expressionable<('Direct' | 'Exchange')>, tags?: Expressionable<any>): PeeringsResource {
     return {
       type: 'Microsoft.Peering/peerings',
       apiVersion: '2020-01-01-preview',
@@ -102,29 +105,36 @@ export namespace peerings {
       location,
       sku,
       kind,
+      tags,
       properties,
     };
   }
 }
 export namespace peeringServices {
-  interface AdditionalProps {
+  export interface AddedResourceProps {
     sku?: Expressionable<PeeringServiceSku>;
+    tags?: Expressionable<any>;
   }
   
-  export function create(name: Expressionable<string>, properties: PeeringServiceProperties, location: Expressionable<string>, sku?: Expressionable<PeeringServiceSku>): ResourceDefinition<PeeringServiceProperties> & AdditionalProps {
+  export type PeeringServicesResource = ResourceDefinition<PeeringServiceProperties> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: PeeringServiceProperties, location: Expressionable<string>, sku?: Expressionable<PeeringServiceSku>, tags?: Expressionable<any>): PeeringServicesResource {
     return {
       type: 'Microsoft.Peering/peeringServices',
       apiVersion: '2020-01-01-preview',
       name: [name],
       location,
       sku,
+      tags,
       properties,
     };
   }
 }
 export namespace peeringServices {
   export namespace prefixes {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: PeeringServicePrefixProperties): ResourceDefinition<PeeringServicePrefixProperties> {
+    export type PrefixesResource = ResourceDefinition<PeeringServicePrefixProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: PeeringServicePrefixProperties): PrefixesResource {
       return {
         type: 'Microsoft.Peering/peeringServices/prefixes',
         apiVersion: '2020-01-01-preview',
@@ -136,7 +146,9 @@ export namespace peeringServices {
 }
 export namespace peerings {
   export namespace registeredAsns {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: PeeringRegisteredAsnProperties): ResourceDefinition<PeeringRegisteredAsnProperties> {
+    export type RegisteredAsnsResource = ResourceDefinition<PeeringRegisteredAsnProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: PeeringRegisteredAsnProperties): RegisteredAsnsResource {
       return {
         type: 'Microsoft.Peering/peerings/registeredAsns',
         apiVersion: '2020-01-01-preview',
@@ -148,7 +160,9 @@ export namespace peerings {
 }
 export namespace peerings {
   export namespace registeredPrefixes {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: PeeringRegisteredPrefixProperties): ResourceDefinition<PeeringRegisteredPrefixProperties> {
+    export type RegisteredPrefixesResource = ResourceDefinition<PeeringRegisteredPrefixProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: PeeringRegisteredPrefixProperties): RegisteredPrefixesResource {
       return {
         type: 'Microsoft.Peering/peerings/registeredPrefixes',
         apiVersion: '2020-01-01-preview',

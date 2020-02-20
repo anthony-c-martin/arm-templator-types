@@ -724,11 +724,13 @@ export interface networkWatcherAgentLinux {
 }
 
 export namespace availabilitySets {
-  interface AdditionalProps {
+  export interface AddedResourceProps {
     sku?: Expressionable<Sku>;
   }
   
-  export function create(name: Expressionable<string>, properties: AvailabilitySetProperties, location: Expressionable<string>, sku?: Expressionable<Sku>): ResourceDefinition<AvailabilitySetProperties> & AdditionalProps {
+  export type AvailabilitySetsResource = ResourceDefinition<AvailabilitySetProperties> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: AvailabilitySetProperties, location: Expressionable<string>, sku?: Expressionable<Sku>): AvailabilitySetsResource {
     return {
       type: 'Microsoft.Compute/availabilitySets',
       apiVersion: '2017-03-30',
@@ -740,12 +742,14 @@ export namespace availabilitySets {
   }
 }
 export namespace disks {
-  interface AdditionalProps {
+  export interface AddedResourceProps {
     sku?: Expressionable<DiskSku>;
     zones?: Expressionable<string[]>;
   }
   
-  export function create(name: Expressionable<string>, properties: DiskProperties, location: Expressionable<string>, sku?: Expressionable<DiskSku>, zones?: Expressionable<string[]>): ResourceDefinition<DiskProperties> & AdditionalProps {
+  export type DisksResource = ResourceDefinition<DiskProperties> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: DiskProperties, location: Expressionable<string>, sku?: Expressionable<DiskSku>, zones?: Expressionable<string[]>): DisksResource {
     return {
       type: 'Microsoft.Compute/disks',
       apiVersion: '2017-03-30',
@@ -758,7 +762,9 @@ export namespace disks {
   }
 }
 export namespace images {
-  export function create(name: Expressionable<string>, properties: ImageProperties, location: Expressionable<string>): ResourceDefinition<ImageProperties> {
+  export type ImagesResource = ResourceDefinition<ImageProperties>;
+  
+  export function create(name: Expressionable<string>, properties: ImageProperties, location: Expressionable<string>): ImagesResource {
     return {
       type: 'Microsoft.Compute/images',
       apiVersion: '2017-03-30',
@@ -769,11 +775,13 @@ export namespace images {
   }
 }
 export namespace snapshots {
-  interface AdditionalProps {
+  export interface AddedResourceProps {
     sku?: Expressionable<DiskSku>;
   }
   
-  export function create(name: Expressionable<string>, properties: DiskProperties, location: Expressionable<string>, sku?: Expressionable<DiskSku>): ResourceDefinition<DiskProperties> & AdditionalProps {
+  export type SnapshotsResource = ResourceDefinition<DiskProperties> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: DiskProperties, location: Expressionable<string>, sku?: Expressionable<DiskSku>): SnapshotsResource {
     return {
       type: 'Microsoft.Compute/snapshots',
       apiVersion: '2017-03-30',
@@ -785,13 +793,15 @@ export namespace snapshots {
   }
 }
 export namespace virtualMachines {
-  interface AdditionalProps {
+  export interface AddedResourceProps {
     plan?: Expressionable<Plan>;
     identity?: Expressionable<VirtualMachineIdentity>;
     zones?: Expressionable<string[]>;
   }
   
-  export function create(name: Expressionable<string>, properties: VirtualMachineProperties, location: Expressionable<string>, identity?: Expressionable<VirtualMachineIdentity>, zones?: Expressionable<string[]>, plan?: Expressionable<Plan>): ResourceDefinition<VirtualMachineProperties> & AdditionalProps {
+  export type VirtualMachinesResource = ResourceDefinition<VirtualMachineProperties> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: VirtualMachineProperties, location: Expressionable<string>, identity?: Expressionable<VirtualMachineIdentity>, zones?: Expressionable<string[]>, plan?: Expressionable<Plan>): VirtualMachinesResource {
     return {
       type: 'Microsoft.Compute/virtualMachines',
       apiVersion: '2017-03-30',
@@ -806,7 +816,9 @@ export namespace virtualMachines {
 }
 export namespace virtualMachines {
   export namespace extensions {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: any, location: Expressionable<string>): ResourceDefinition<any> {
+    export type ExtensionsResource = ResourceDefinition<any>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: any, location: Expressionable<string>): ExtensionsResource {
       return {
         type: 'Microsoft.Compute/virtualMachines/extensions',
         apiVersion: '2017-03-30',
@@ -818,14 +830,16 @@ export namespace virtualMachines {
   }
 }
 export namespace virtualMachineScaleSets {
-  interface AdditionalProps {
+  export interface AddedResourceProps {
     sku?: Expressionable<Sku>;
     plan?: Expressionable<Plan>;
     identity?: Expressionable<VirtualMachineScaleSetIdentity>;
     zones?: Expressionable<string[]>;
   }
   
-  export function create(name: Expressionable<string>, properties: VirtualMachineScaleSetProperties, location: Expressionable<string>, identity?: Expressionable<VirtualMachineScaleSetIdentity>, sku?: Expressionable<Sku>, zones?: Expressionable<string[]>, plan?: Expressionable<Plan>): ResourceDefinition<VirtualMachineScaleSetProperties> & AdditionalProps {
+  export type VirtualMachineScaleSetsResource = ResourceDefinition<VirtualMachineScaleSetProperties> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: VirtualMachineScaleSetProperties, location: Expressionable<string>, identity?: Expressionable<VirtualMachineScaleSetIdentity>, sku?: Expressionable<Sku>, zones?: Expressionable<string[]>, plan?: Expressionable<Plan>): VirtualMachineScaleSetsResource {
     return {
       type: 'Microsoft.Compute/virtualMachineScaleSets',
       apiVersion: '2017-03-30',

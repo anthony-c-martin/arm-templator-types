@@ -5,11 +5,13 @@ export interface Sku {
 }
 
 export namespace accounts {
-  interface AdditionalProps {
+  export interface AddedResourceProps {
     sku: Expressionable<Sku>;
   }
   
-  export function create(name: Expressionable<string>, properties: any, location: Expressionable<string>, sku: Expressionable<Sku>): ResourceDefinition<any> & AdditionalProps {
+  export type AccountsResource = ResourceDefinition<any> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: any, location: Expressionable<string>, sku: Expressionable<Sku>): AccountsResource {
     return {
       type: 'Microsoft.Maps/accounts',
       apiVersion: '2018-05-01',

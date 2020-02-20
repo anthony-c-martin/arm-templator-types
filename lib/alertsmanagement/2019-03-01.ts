@@ -31,7 +31,9 @@ export interface ThrottlingInformation {
 }
 
 export namespace smartDetectorAlertRules {
-  export function create(name: Expressionable<string>, properties: AlertRuleProperties): ResourceDefinition<AlertRuleProperties> {
+  export type SmartDetectorAlertRulesResource = ResourceDefinition<AlertRuleProperties>;
+  
+  export function create(name: Expressionable<string>, properties: AlertRuleProperties): SmartDetectorAlertRulesResource {
     return {
       type: 'microsoft.alertsManagement/smartDetectorAlertRules',
       apiVersion: '2019-03-01',

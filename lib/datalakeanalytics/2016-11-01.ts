@@ -58,19 +58,28 @@ export interface CreateOrUpdateFirewallRuleProperties {
 }
 
 export namespace accounts {
-  export function create(name: Expressionable<string>, properties: CreateDataLakeAnalyticsAccountProperties, location: Expressionable<string>): ResourceDefinition<CreateDataLakeAnalyticsAccountProperties> {
+  export interface AddedResourceProps {
+    tags?: Expressionable<any>;
+  }
+  
+  export type AccountsResource = ResourceDefinition<CreateDataLakeAnalyticsAccountProperties> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: CreateDataLakeAnalyticsAccountProperties, location: Expressionable<string>, tags?: Expressionable<any>): AccountsResource {
     return {
       type: 'Microsoft.DataLakeAnalytics/accounts',
       apiVersion: '2016-11-01',
       name: [name],
       location,
+      tags,
       properties,
     };
   }
 }
 export namespace accounts {
   export namespace computePolicies {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: CreateOrUpdateComputePolicyProperties): ResourceDefinition<CreateOrUpdateComputePolicyProperties> {
+    export type ComputePoliciesResource = ResourceDefinition<CreateOrUpdateComputePolicyProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: CreateOrUpdateComputePolicyProperties): ComputePoliciesResource {
       return {
         type: 'Microsoft.DataLakeAnalytics/accounts/computePolicies',
         apiVersion: '2016-11-01',
@@ -82,7 +91,9 @@ export namespace accounts {
 }
 export namespace accounts {
   export namespace dataLakeStoreAccounts {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: AddDataLakeStoreProperties): ResourceDefinition<AddDataLakeStoreProperties> {
+    export type DataLakeStoreAccountsResource = ResourceDefinition<AddDataLakeStoreProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: AddDataLakeStoreProperties): DataLakeStoreAccountsResource {
       return {
         type: 'Microsoft.DataLakeAnalytics/accounts/dataLakeStoreAccounts',
         apiVersion: '2016-11-01',
@@ -94,7 +105,9 @@ export namespace accounts {
 }
 export namespace accounts {
   export namespace firewallRules {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: CreateOrUpdateFirewallRuleProperties): ResourceDefinition<CreateOrUpdateFirewallRuleProperties> {
+    export type FirewallRulesResource = ResourceDefinition<CreateOrUpdateFirewallRuleProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: CreateOrUpdateFirewallRuleProperties): FirewallRulesResource {
       return {
         type: 'Microsoft.DataLakeAnalytics/accounts/firewallRules',
         apiVersion: '2016-11-01',
@@ -106,7 +119,9 @@ export namespace accounts {
 }
 export namespace accounts {
   export namespace storageAccounts {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: AddStorageAccountProperties): ResourceDefinition<AddStorageAccountProperties> {
+    export type StorageAccountsResource = ResourceDefinition<AddStorageAccountProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: AddStorageAccountProperties): StorageAccountsResource {
       return {
         type: 'Microsoft.DataLakeAnalytics/accounts/storageAccounts',
         apiVersion: '2016-11-01',

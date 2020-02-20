@@ -63,7 +63,9 @@ export interface VirtualNetworkRuleProperties {
 }
 
 export namespace clusters {
-  export function create(name: Expressionable<string>, properties: any): ResourceDefinition<any> {
+  export type ClustersResource = ResourceDefinition<any>;
+  
+  export function create(name: Expressionable<string>, properties: any): ClustersResource {
     return {
       type: 'Microsoft.EventHub/clusters',
       apiVersion: '2018-01-01-preview',
@@ -73,24 +75,30 @@ export namespace clusters {
   }
 }
 export namespace namespaces {
-  interface AdditionalProps {
+  export interface AddedResourceProps {
     sku?: Expressionable<Sku>;
+    tags?: Expressionable<any>;
   }
   
-  export function create(name: Expressionable<string>, properties: EHNamespaceProperties, location?: Expressionable<string>, sku?: Expressionable<Sku>): ResourceDefinition<EHNamespaceProperties> & AdditionalProps {
+  export type NamespacesResource = ResourceDefinition<EHNamespaceProperties> & AddedResourceProps;
+  
+  export function create(name: Expressionable<string>, properties: EHNamespaceProperties, location?: Expressionable<string>, sku?: Expressionable<Sku>, tags?: Expressionable<any>): NamespacesResource {
     return {
       type: 'Microsoft.EventHub/namespaces',
       apiVersion: '2018-01-01-preview',
       name: [name],
       location,
       sku,
+      tags,
       properties,
     };
   }
 }
 export namespace namespaces {
   export namespace ipfilterrules {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: IpFilterRuleProperties): ResourceDefinition<IpFilterRuleProperties> {
+    export type IpfilterrulesResource = ResourceDefinition<IpFilterRuleProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: IpFilterRuleProperties): IpfilterrulesResource {
       return {
         type: 'Microsoft.EventHub/namespaces/ipfilterrules',
         apiVersion: '2018-01-01-preview',
@@ -102,7 +110,9 @@ export namespace namespaces {
 }
 export namespace namespaces {
   export namespace networkRuleSets {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: NetworkRuleSetProperties): ResourceDefinition<NetworkRuleSetProperties> {
+    export type NetworkRuleSetsResource = ResourceDefinition<NetworkRuleSetProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: NetworkRuleSetProperties): NetworkRuleSetsResource {
       return {
         type: 'Microsoft.EventHub/namespaces/networkRuleSets',
         apiVersion: '2018-01-01-preview',
@@ -114,7 +124,9 @@ export namespace namespaces {
 }
 export namespace namespaces {
   export namespace virtualnetworkrules {
-    export function create(name: [Expressionable<string>, Expressionable<string>], properties: VirtualNetworkRuleProperties): ResourceDefinition<VirtualNetworkRuleProperties> {
+    export type VirtualnetworkrulesResource = ResourceDefinition<VirtualNetworkRuleProperties>;
+    
+    export function create(name: [Expressionable<string>, Expressionable<string>], properties: VirtualNetworkRuleProperties): VirtualnetworkrulesResource {
       return {
         type: 'Microsoft.EventHub/namespaces/virtualnetworkrules',
         apiVersion: '2018-01-01-preview',
