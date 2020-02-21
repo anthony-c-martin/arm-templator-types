@@ -43,12 +43,12 @@ export interface UnknownTarget {
 }
 
 export namespace caches {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     sku?: Expressionable<CacheSku>;
     tags?: Expressionable<any>;
   }
   
-  export type CachesResource = ResourceDefinition<CacheProperties> & AddedResourceProps;
+  export type CachesResource = ResourceDefinition<CacheProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: CacheProperties, location?: Expressionable<string>, sku?: Expressionable<CacheSku>, tags?: Expressionable<any>): CachesResource {
     return {
@@ -56,15 +56,17 @@ export namespace caches {
       apiVersion: '2019-08-01-preview',
       name: [name],
       location,
-      sku,
-      tags,
       properties,
+      additional: {
+        sku,
+        tags,
+      },
     };
   }
 }
 export namespace caches {
   export namespace storageTargets {
-    export type StorageTargetsResource = ResourceDefinition<StorageTargetProperties>;
+    export type StorageTargetsResource = ResourceDefinition<StorageTargetProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: StorageTargetProperties): StorageTargetsResource {
       return {

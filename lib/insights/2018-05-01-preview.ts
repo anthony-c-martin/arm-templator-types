@@ -8,7 +8,7 @@ export interface ProactiveDetectionConfigurationRule {
 }
 
 export namespace ProactiveDetectionConfigs {
-  export type ProactiveDetectionConfigsResource = ResourceDefinition<ProactiveDetectionConfigurationRule>;
+  export type ProactiveDetectionConfigsResource = ResourceDefinition<ProactiveDetectionConfigurationRule, undefined>;
   
   export function create(name: Expressionable<string>, properties: ProactiveDetectionConfigurationRule, location: Expressionable<string>): ProactiveDetectionConfigsResource {
     return {

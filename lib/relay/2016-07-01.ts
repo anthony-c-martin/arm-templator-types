@@ -25,12 +25,12 @@ export interface WcfRelayProperties {
 }
 
 export namespace namespaces {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     sku?: Expressionable<Sku>;
     tags?: Expressionable<any>;
   }
   
-  export type NamespacesResource = ResourceDefinition<RelayNamespaceProperties> & AddedResourceProps;
+  export type NamespacesResource = ResourceDefinition<RelayNamespaceProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: RelayNamespaceProperties, location: Expressionable<string>, sku?: Expressionable<Sku>, tags?: Expressionable<any>): NamespacesResource {
     return {
@@ -38,15 +38,17 @@ export namespace namespaces {
       apiVersion: '2016-07-01',
       name: [name],
       location,
-      sku,
-      tags,
       properties,
+      additional: {
+        sku,
+        tags,
+      },
     };
   }
 }
 export namespace namespaces {
   export namespace AuthorizationRules {
-    export type AuthorizationRulesResource = ResourceDefinition<AuthorizationRuleProperties>;
+    export type AuthorizationRulesResource = ResourceDefinition<AuthorizationRuleProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: AuthorizationRuleProperties): AuthorizationRulesResource {
       return {
@@ -60,7 +62,7 @@ export namespace namespaces {
 }
 export namespace namespaces {
   export namespace HybridConnections {
-    export type HybridConnectionsResource = ResourceDefinition<HybridConnectionProperties>;
+    export type HybridConnectionsResource = ResourceDefinition<HybridConnectionProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: HybridConnectionProperties): HybridConnectionsResource {
       return {
@@ -75,7 +77,7 @@ export namespace namespaces {
 export namespace namespaces {
   export namespace HybridConnections {
     export namespace authorizationRules {
-      export type AuthorizationRulesResource = ResourceDefinition<AuthorizationRuleProperties>;
+      export type AuthorizationRulesResource = ResourceDefinition<AuthorizationRuleProperties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: AuthorizationRuleProperties): AuthorizationRulesResource {
         return {
@@ -90,7 +92,7 @@ export namespace namespaces {
 }
 export namespace namespaces {
   export namespace WcfRelays {
-    export type WcfRelaysResource = ResourceDefinition<WcfRelayProperties>;
+    export type WcfRelaysResource = ResourceDefinition<WcfRelayProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: WcfRelayProperties): WcfRelaysResource {
       return {
@@ -105,7 +107,7 @@ export namespace namespaces {
 export namespace namespaces {
   export namespace WcfRelays {
     export namespace authorizationRules {
-      export type AuthorizationRulesResource = ResourceDefinition<AuthorizationRuleProperties>;
+      export type AuthorizationRulesResource = ResourceDefinition<AuthorizationRuleProperties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: AuthorizationRuleProperties): AuthorizationRulesResource {
         return {

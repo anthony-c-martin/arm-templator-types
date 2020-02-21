@@ -12,11 +12,11 @@ export interface MaintenanceConfigurationProperties {
 }
 
 export namespace maintenanceConfigurations {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     tags?: Expressionable<any>;
   }
   
-  export type MaintenanceConfigurationsResource = ResourceDefinition<MaintenanceConfigurationProperties> & AddedResourceProps;
+  export type MaintenanceConfigurationsResource = ResourceDefinition<MaintenanceConfigurationProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: MaintenanceConfigurationProperties, location?: Expressionable<string>, tags?: Expressionable<any>): MaintenanceConfigurationsResource {
     return {
@@ -24,8 +24,10 @@ export namespace maintenanceConfigurations {
       apiVersion: '2018-06-01-preview',
       name: [name],
       location,
-      tags,
       properties,
+      additional: {
+        tags,
+      },
     };
   }
 }

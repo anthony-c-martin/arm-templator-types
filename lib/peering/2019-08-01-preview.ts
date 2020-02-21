@@ -79,13 +79,13 @@ export interface SubResource {
 }
 
 export namespace peerings {
-  export interface AddedResourceProps {
-    kind: Expressionable<('Direct' | 'Exchange')>;
+  export interface AdditionalProps {
     sku: Expressionable<PeeringSku>;
+    kind: Expressionable<('Direct' | 'Exchange')>;
     tags?: Expressionable<any>;
   }
   
-  export type PeeringsResource = ResourceDefinition<PeeringProperties> & AddedResourceProps;
+  export type PeeringsResource = ResourceDefinition<PeeringProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: PeeringProperties, location: Expressionable<string>, sku: Expressionable<PeeringSku>, kind: Expressionable<('Direct' | 'Exchange')>, tags?: Expressionable<any>): PeeringsResource {
     return {
@@ -93,19 +93,21 @@ export namespace peerings {
       apiVersion: '2019-08-01-preview',
       name: [name],
       location,
-      sku,
-      kind,
-      tags,
       properties,
+      additional: {
+        sku,
+        kind,
+        tags,
+      },
     };
   }
 }
 export namespace peeringServices {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     tags?: Expressionable<any>;
   }
   
-  export type PeeringServicesResource = ResourceDefinition<PeeringServiceProperties> & AddedResourceProps;
+  export type PeeringServicesResource = ResourceDefinition<PeeringServiceProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: PeeringServiceProperties, location: Expressionable<string>, tags?: Expressionable<any>): PeeringServicesResource {
     return {
@@ -113,14 +115,16 @@ export namespace peeringServices {
       apiVersion: '2019-08-01-preview',
       name: [name],
       location,
-      tags,
       properties,
+      additional: {
+        tags,
+      },
     };
   }
 }
 export namespace peeringServices {
   export namespace prefixes {
-    export type PrefixesResource = ResourceDefinition<PeeringServicePrefixProperties>;
+    export type PrefixesResource = ResourceDefinition<PeeringServicePrefixProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: PeeringServicePrefixProperties): PrefixesResource {
       return {

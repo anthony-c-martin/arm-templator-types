@@ -53,11 +53,11 @@ export interface TrustedExternalTenant {
 }
 
 export namespace clusters {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     sku: Expressionable<Sku>;
   }
   
-  export type ClustersResource = ResourceDefinition<ClusterProperties> & AddedResourceProps;
+  export type ClustersResource = ResourceDefinition<ClusterProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: ClusterProperties, location: Expressionable<string>, sku: Expressionable<Sku>): ClustersResource {
     return {
@@ -65,14 +65,16 @@ export namespace clusters {
       apiVersion: '2019-01-21',
       name: [name],
       location,
-      sku,
       properties,
+      additional: {
+        sku,
+      },
     };
   }
 }
 export namespace clusters {
   export namespace databases {
-    export type DatabasesResource = ResourceDefinition<DatabaseProperties>;
+    export type DatabasesResource = ResourceDefinition<DatabaseProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: DatabaseProperties): DatabasesResource {
       return {
@@ -87,7 +89,7 @@ export namespace clusters {
 export namespace clusters {
   export namespace databases {
     export namespace dataconnections {
-      export type DataconnectionsResource = ResourceDefinition<any>;
+      export type DataconnectionsResource = ResourceDefinition<any, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: any): DataconnectionsResource {
         return {

@@ -25,7 +25,7 @@ export interface JSONWebKeySet {
 }
 
 export namespace attestationProviders {
-  export type AttestationProvidersResource = ResourceDefinition<any>;
+  export type AttestationProvidersResource = ResourceDefinition<any, undefined>;
   
   export function create(name: Expressionable<string>, properties: any): AttestationProvidersResource {
     return {

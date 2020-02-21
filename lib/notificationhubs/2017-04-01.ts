@@ -8,7 +8,7 @@ export interface SBNamespaceProperties {
 }
 
 export namespace namespaces {
-  export type NamespacesResource = ResourceDefinition<any>;
+  export type NamespacesResource = ResourceDefinition<any, undefined>;
   
   export function create(name: Expressionable<string>, properties: any): NamespacesResource {
     return {
@@ -21,7 +21,7 @@ export namespace namespaces {
 }
 export namespace namespaces {
   export namespace AuthorizationRules {
-    export type AuthorizationRulesResource = ResourceDefinition<SBAuthorizationRuleProperties>;
+    export type AuthorizationRulesResource = ResourceDefinition<SBAuthorizationRuleProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: SBAuthorizationRuleProperties): AuthorizationRulesResource {
       return {
@@ -35,7 +35,7 @@ export namespace namespaces {
 }
 export namespace namespaces {
   export namespace notificationHubs {
-    export type NotificationHubsResource = ResourceDefinition<any>;
+    export type NotificationHubsResource = ResourceDefinition<any, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: any): NotificationHubsResource {
       return {
@@ -50,7 +50,7 @@ export namespace namespaces {
 export namespace namespaces {
   export namespace NotificationHubs {
     export namespace authorizationRules {
-      export type AuthorizationRulesResource = ResourceDefinition<SBAuthorizationRuleProperties>;
+      export type AuthorizationRulesResource = ResourceDefinition<SBAuthorizationRuleProperties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: SBAuthorizationRuleProperties): AuthorizationRulesResource {
         return {

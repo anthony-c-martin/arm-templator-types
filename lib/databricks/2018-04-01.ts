@@ -48,12 +48,12 @@ export interface WorkspaceProviderAuthorization {
 }
 
 export namespace workspaces {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     sku?: Expressionable<Sku>;
     tags?: Expressionable<any>;
   }
   
-  export type WorkspacesResource = ResourceDefinition<WorkspaceProperties> & AddedResourceProps;
+  export type WorkspacesResource = ResourceDefinition<WorkspaceProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: WorkspaceProperties, location: Expressionable<string>, sku?: Expressionable<Sku>, tags?: Expressionable<any>): WorkspacesResource {
     return {
@@ -61,9 +61,11 @@ export namespace workspaces {
       apiVersion: '2018-04-01',
       name: [name],
       location,
-      sku,
-      tags,
       properties,
+      additional: {
+        sku,
+        tags,
+      },
     };
   }
 }

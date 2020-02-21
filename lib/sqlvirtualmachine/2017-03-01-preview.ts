@@ -134,11 +134,11 @@ export interface WsfcDomainProfile {
 }
 
 export namespace sqlVirtualMachineGroups {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     tags?: Expressionable<any>;
   }
   
-  export type SqlVirtualMachineGroupsResource = ResourceDefinition<SqlVirtualMachineGroupProperties> & AddedResourceProps;
+  export type SqlVirtualMachineGroupsResource = ResourceDefinition<SqlVirtualMachineGroupProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: SqlVirtualMachineGroupProperties, location: Expressionable<string>, tags?: Expressionable<any>): SqlVirtualMachineGroupsResource {
     return {
@@ -146,14 +146,16 @@ export namespace sqlVirtualMachineGroups {
       apiVersion: '2017-03-01-preview',
       name: [name],
       location,
-      tags,
       properties,
+      additional: {
+        tags,
+      },
     };
   }
 }
 export namespace sqlVirtualMachineGroups {
   export namespace availabilityGroupListeners {
-    export type AvailabilityGroupListenersResource = ResourceDefinition<AvailabilityGroupListenerProperties>;
+    export type AvailabilityGroupListenersResource = ResourceDefinition<AvailabilityGroupListenerProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: AvailabilityGroupListenerProperties): AvailabilityGroupListenersResource {
       return {
@@ -166,12 +168,12 @@ export namespace sqlVirtualMachineGroups {
   }
 }
 export namespace sqlVirtualMachines {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     identity?: Expressionable<ResourceIdentity>;
     tags?: Expressionable<any>;
   }
   
-  export type SqlVirtualMachinesResource = ResourceDefinition<SqlVirtualMachineProperties> & AddedResourceProps;
+  export type SqlVirtualMachinesResource = ResourceDefinition<SqlVirtualMachineProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: SqlVirtualMachineProperties, location: Expressionable<string>, identity?: Expressionable<ResourceIdentity>, tags?: Expressionable<any>): SqlVirtualMachinesResource {
     return {
@@ -179,9 +181,11 @@ export namespace sqlVirtualMachines {
       apiVersion: '2017-03-01-preview',
       name: [name],
       location,
-      identity,
-      tags,
       properties,
+      additional: {
+        identity,
+        tags,
+      },
     };
   }
 }

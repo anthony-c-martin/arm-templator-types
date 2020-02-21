@@ -19,11 +19,11 @@ export interface Sku {
 }
 
 export namespace Redis {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     tags?: Expressionable<any>;
   }
   
-  export type RedisResource = ResourceDefinition<RedisProperties> & AddedResourceProps;
+  export type RedisResource = ResourceDefinition<RedisProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: RedisProperties, location: Expressionable<string>, tags?: Expressionable<any>): RedisResource {
     return {
@@ -31,8 +31,10 @@ export namespace Redis {
       apiVersion: '2015-08-01',
       name: [name],
       location,
-      tags,
       properties,
+      additional: {
+        tags,
+      },
     };
   }
 }

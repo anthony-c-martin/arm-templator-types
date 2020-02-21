@@ -108,13 +108,13 @@ export interface EventSystemProperties {
 }
 
 export namespace clusters {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
+    identity?: Expressionable<Identity>;
     sku: Expressionable<AzureSku>;
     zones?: Expressionable<string[]>;
-    identity?: Expressionable<Identity>;
   }
   
-  export type ClustersResource = ResourceDefinition<ClusterProperties> & AddedResourceProps;
+  export type ClustersResource = ResourceDefinition<ClusterProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: ClusterProperties, location: Expressionable<string>, sku: Expressionable<AzureSku>, identity?: Expressionable<Identity>, zones?: Expressionable<string[]>): ClustersResource {
     return {
@@ -122,16 +122,18 @@ export namespace clusters {
       apiVersion: '2019-09-07',
       name: [name],
       location,
-      identity,
-      sku,
-      zones,
       properties,
+      additional: {
+        identity,
+        sku,
+        zones,
+      },
     };
   }
 }
 export namespace clusters {
   export namespace databases {
-    export type DatabasesResource = ResourceDefinition<ReadWriteDatabaseProperties>;
+    export type DatabasesResource = ResourceDefinition<ReadWriteDatabaseProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: ReadWriteDatabaseProperties, location?: Expressionable<string>): DatabasesResource {
       return {
@@ -147,7 +149,7 @@ export namespace clusters {
 export namespace clusters {
   export namespace databases {
     export namespace dataConnections {
-      export type DataConnectionsResource = ResourceDefinition<any>;
+      export type DataConnectionsResource = ResourceDefinition<any, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: any): DataConnectionsResource {
         return {
@@ -162,7 +164,7 @@ export namespace clusters {
 }
 export namespace clusters {
   export namespace AttachedDatabaseConfigurations {
-    export type AttachedDatabaseConfigurationsResource = ResourceDefinition<AttachedDatabaseConfigurationsProperties>;
+    export type AttachedDatabaseConfigurationsResource = ResourceDefinition<AttachedDatabaseConfigurationsProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: AttachedDatabaseConfigurationsProperties, location?: Expressionable<string>): AttachedDatabaseConfigurationsResource {
       return {

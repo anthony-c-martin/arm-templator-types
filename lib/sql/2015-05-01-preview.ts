@@ -136,13 +136,13 @@ export interface VirtualNetworkRuleProperties {
 }
 
 export namespace managedInstances {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     identity?: Expressionable<ResourceIdentity>;
     sku?: Expressionable<Sku>;
     tags?: Expressionable<any>;
   }
   
-  export type ManagedInstancesResource = ResourceDefinition<ManagedInstanceProperties> & AddedResourceProps;
+  export type ManagedInstancesResource = ResourceDefinition<ManagedInstanceProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: ManagedInstanceProperties, location: Expressionable<string>, identity?: Expressionable<ResourceIdentity>, sku?: Expressionable<Sku>, tags?: Expressionable<any>): ManagedInstancesResource {
     return {
@@ -150,20 +150,22 @@ export namespace managedInstances {
       apiVersion: '2015-05-01-preview',
       name: [name],
       location,
-      identity,
-      sku,
-      tags,
       properties,
+      additional: {
+        identity,
+        sku,
+        tags,
+      },
     };
   }
 }
 export namespace servers {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     identity?: Expressionable<ResourceIdentity>;
     tags?: Expressionable<any>;
   }
   
-  export type ServersResource = ResourceDefinition<ServerProperties> & AddedResourceProps;
+  export type ServersResource = ResourceDefinition<ServerProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: ServerProperties, location: Expressionable<string>, identity?: Expressionable<ResourceIdentity>, tags?: Expressionable<any>): ServersResource {
     return {
@@ -171,16 +173,18 @@ export namespace servers {
       apiVersion: '2015-05-01-preview',
       name: [name],
       location,
-      identity,
-      tags,
       properties,
+      additional: {
+        identity,
+        tags,
+      },
     };
   }
 }
 export namespace servers {
   export namespace databases {
     export namespace auditingSettings {
-      export type AuditingSettingsResource = ResourceDefinition<DatabaseBlobAuditingPolicyProperties>;
+      export type AuditingSettingsResource = ResourceDefinition<DatabaseBlobAuditingPolicyProperties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: DatabaseBlobAuditingPolicyProperties): AuditingSettingsResource {
         return {
@@ -196,7 +200,7 @@ export namespace servers {
 export namespace servers {
   export namespace databases {
     export namespace syncGroups {
-      export type SyncGroupsResource = ResourceDefinition<SyncGroupProperties>;
+      export type SyncGroupsResource = ResourceDefinition<SyncGroupProperties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: SyncGroupProperties): SyncGroupsResource {
         return {
@@ -213,7 +217,7 @@ export namespace servers {
   export namespace databases {
     export namespace syncGroups {
       export namespace syncMembers {
-        export type SyncMembersResource = ResourceDefinition<SyncMemberProperties>;
+        export type SyncMembersResource = ResourceDefinition<SyncMemberProperties, undefined>;
         
         export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: SyncMemberProperties): SyncMembersResource {
           return {
@@ -229,7 +233,7 @@ export namespace servers {
 }
 export namespace servers {
   export namespace encryptionProtector {
-    export type EncryptionProtectorResource = ResourceDefinition<EncryptionProtectorProperties>;
+    export type EncryptionProtectorResource = ResourceDefinition<EncryptionProtectorProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: EncryptionProtectorProperties): EncryptionProtectorResource {
       return {
@@ -243,26 +247,28 @@ export namespace servers {
 }
 export namespace servers {
   export namespace failoverGroups {
-    export interface AddedResourceProps {
+    export interface AdditionalProps {
       tags?: Expressionable<any>;
     }
     
-    export type FailoverGroupsResource = ResourceDefinition<FailoverGroupProperties> & AddedResourceProps;
+    export type FailoverGroupsResource = ResourceDefinition<FailoverGroupProperties, AdditionalProps>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: FailoverGroupProperties, tags?: Expressionable<any>): FailoverGroupsResource {
       return {
         type: 'Microsoft.Sql/servers/failoverGroups',
         apiVersion: '2015-05-01-preview',
         name: name,
-        tags,
         properties,
+        additional: {
+          tags,
+        },
       };
     }
   }
 }
 export namespace servers {
   export namespace firewallRules {
-    export type FirewallRulesResource = ResourceDefinition<ServerFirewallRuleProperties>;
+    export type FirewallRulesResource = ResourceDefinition<ServerFirewallRuleProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: ServerFirewallRuleProperties): FirewallRulesResource {
       return {
@@ -276,26 +282,28 @@ export namespace servers {
 }
 export namespace servers {
   export namespace keys {
-    export interface AddedResourceProps {
+    export interface AdditionalProps {
       kind?: Expressionable<string>;
     }
     
-    export type KeysResource = ResourceDefinition<ServerKeyProperties> & AddedResourceProps;
+    export type KeysResource = ResourceDefinition<ServerKeyProperties, AdditionalProps>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: ServerKeyProperties, kind?: Expressionable<string>): KeysResource {
       return {
         type: 'Microsoft.Sql/servers/keys',
         apiVersion: '2015-05-01-preview',
         name: name,
-        kind,
         properties,
+        additional: {
+          kind,
+        },
       };
     }
   }
 }
 export namespace servers {
   export namespace syncAgents {
-    export type SyncAgentsResource = ResourceDefinition<SyncAgentProperties>;
+    export type SyncAgentsResource = ResourceDefinition<SyncAgentProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: SyncAgentProperties): SyncAgentsResource {
       return {
@@ -309,7 +317,7 @@ export namespace servers {
 }
 export namespace servers {
   export namespace virtualNetworkRules {
-    export type VirtualNetworkRulesResource = ResourceDefinition<VirtualNetworkRuleProperties>;
+    export type VirtualNetworkRulesResource = ResourceDefinition<VirtualNetworkRuleProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: VirtualNetworkRuleProperties): VirtualNetworkRulesResource {
       return {

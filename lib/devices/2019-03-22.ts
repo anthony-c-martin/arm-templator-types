@@ -123,12 +123,12 @@ export interface StorageEndpointProperties {
 }
 
 export namespace IotHubs {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     sku: Expressionable<IotHubSkuInfo>;
     tags?: Expressionable<any>;
   }
   
-  export type IotHubsResource = ResourceDefinition<IotHubProperties> & AddedResourceProps;
+  export type IotHubsResource = ResourceDefinition<IotHubProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: IotHubProperties, location: Expressionable<string>, sku: Expressionable<IotHubSkuInfo>, tags?: Expressionable<any>): IotHubsResource {
     return {
@@ -136,15 +136,17 @@ export namespace IotHubs {
       apiVersion: '2019-03-22',
       name: [name],
       location,
-      sku,
-      tags,
       properties,
+      additional: {
+        sku,
+        tags,
+      },
     };
   }
 }
 export namespace IotHubs {
   export namespace certificates {
-    export type CertificatesResource = ResourceDefinition<any>;
+    export type CertificatesResource = ResourceDefinition<any, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: any): CertificatesResource {
       return {
@@ -159,7 +161,7 @@ export namespace IotHubs {
 export namespace IotHubs {
   export namespace eventHubEndpoints {
     export namespace ConsumerGroups {
-      export type ConsumerGroupsResource = ResourceDefinition<any>;
+      export type ConsumerGroupsResource = ResourceDefinition<any, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: any): ConsumerGroupsResource {
         return {

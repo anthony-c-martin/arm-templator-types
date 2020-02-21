@@ -49,7 +49,7 @@ export interface RuleManagementEventClaimsDataSource {
 }
 
 export namespace alertrules {
-  export type AlertrulesResource = ResourceDefinition<AlertRule>;
+  export type AlertrulesResource = ResourceDefinition<AlertRule, undefined>;
   
   export function create(name: Expressionable<string>, properties: AlertRule, location: Expressionable<string>): AlertrulesResource {
     return {

@@ -58,11 +58,11 @@ export interface CreateOrUpdateFirewallRuleProperties {
 }
 
 export namespace accounts {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     tags?: Expressionable<any>;
   }
   
-  export type AccountsResource = ResourceDefinition<CreateDataLakeAnalyticsAccountProperties> & AddedResourceProps;
+  export type AccountsResource = ResourceDefinition<CreateDataLakeAnalyticsAccountProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: CreateDataLakeAnalyticsAccountProperties, location: Expressionable<string>, tags?: Expressionable<any>): AccountsResource {
     return {
@@ -70,14 +70,16 @@ export namespace accounts {
       apiVersion: '2016-11-01',
       name: [name],
       location,
-      tags,
       properties,
+      additional: {
+        tags,
+      },
     };
   }
 }
 export namespace accounts {
   export namespace computePolicies {
-    export type ComputePoliciesResource = ResourceDefinition<CreateOrUpdateComputePolicyProperties>;
+    export type ComputePoliciesResource = ResourceDefinition<CreateOrUpdateComputePolicyProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: CreateOrUpdateComputePolicyProperties): ComputePoliciesResource {
       return {
@@ -91,7 +93,7 @@ export namespace accounts {
 }
 export namespace accounts {
   export namespace dataLakeStoreAccounts {
-    export type DataLakeStoreAccountsResource = ResourceDefinition<AddDataLakeStoreProperties>;
+    export type DataLakeStoreAccountsResource = ResourceDefinition<AddDataLakeStoreProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: AddDataLakeStoreProperties): DataLakeStoreAccountsResource {
       return {
@@ -105,7 +107,7 @@ export namespace accounts {
 }
 export namespace accounts {
   export namespace firewallRules {
-    export type FirewallRulesResource = ResourceDefinition<CreateOrUpdateFirewallRuleProperties>;
+    export type FirewallRulesResource = ResourceDefinition<CreateOrUpdateFirewallRuleProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: CreateOrUpdateFirewallRuleProperties): FirewallRulesResource {
       return {
@@ -119,7 +121,7 @@ export namespace accounts {
 }
 export namespace accounts {
   export namespace storageAccounts {
-    export type StorageAccountsResource = ResourceDefinition<AddStorageAccountProperties>;
+    export type StorageAccountsResource = ResourceDefinition<AddStorageAccountProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: AddStorageAccountProperties): StorageAccountsResource {
       return {

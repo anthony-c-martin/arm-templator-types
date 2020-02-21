@@ -272,11 +272,11 @@ export interface VirtualMachineConfiguration {
 }
 
 export namespace workspaces {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     tags?: Expressionable<any>;
   }
   
-  export type WorkspacesResource = ResourceDefinition<any> & AddedResourceProps;
+  export type WorkspacesResource = ResourceDefinition<any, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: any, location: Expressionable<string>, tags?: Expressionable<any>): WorkspacesResource {
     return {
@@ -284,14 +284,16 @@ export namespace workspaces {
       apiVersion: '2018-05-01',
       name: [name],
       location,
-      tags,
       properties,
+      additional: {
+        tags,
+      },
     };
   }
 }
 export namespace workspaces {
   export namespace clusters {
-    export type ClustersResource = ResourceDefinition<ClusterBaseProperties>;
+    export type ClustersResource = ResourceDefinition<ClusterBaseProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: ClusterBaseProperties): ClustersResource {
       return {
@@ -305,7 +307,7 @@ export namespace workspaces {
 }
 export namespace workspaces {
   export namespace experiments {
-    export type ExperimentsResource = ResourceDefinition<any>;
+    export type ExperimentsResource = ResourceDefinition<any, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: any): ExperimentsResource {
       return {
@@ -320,7 +322,7 @@ export namespace workspaces {
 export namespace workspaces {
   export namespace experiments {
     export namespace jobs {
-      export type JobsResource = ResourceDefinition<JobBaseProperties>;
+      export type JobsResource = ResourceDefinition<JobBaseProperties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: JobBaseProperties): JobsResource {
         return {
@@ -335,7 +337,7 @@ export namespace workspaces {
 }
 export namespace workspaces {
   export namespace fileServers {
-    export type FileServersResource = ResourceDefinition<FileServerBaseProperties>;
+    export type FileServersResource = ResourceDefinition<FileServerBaseProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: FileServerBaseProperties): FileServersResource {
       return {

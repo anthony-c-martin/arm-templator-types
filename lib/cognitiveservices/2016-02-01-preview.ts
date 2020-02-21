@@ -5,13 +5,13 @@ export interface Sku {
 }
 
 export namespace accounts {
-  export interface AddedResourceProps {
-    kind: Expressionable<('Academic' | 'Bing.Autosuggest' | 'Bing.Search' | 'Bing.Speech' | 'Bing.SpellCheck' | 'ComputerVision' | 'ContentModerator' | 'Emotion' | 'Face' | 'LUIS' | 'Recommendations' | 'SpeakerRecognition' | 'Speech' | 'SpeechTranslation' | 'TextAnalytics' | 'TextTranslation' | 'WebLM')>;
+  export interface AdditionalProps {
     sku: Expressionable<Sku>;
+    kind: Expressionable<('Academic' | 'Bing.Autosuggest' | 'Bing.Search' | 'Bing.Speech' | 'Bing.SpellCheck' | 'ComputerVision' | 'ContentModerator' | 'Emotion' | 'Face' | 'LUIS' | 'Recommendations' | 'SpeakerRecognition' | 'Speech' | 'SpeechTranslation' | 'TextAnalytics' | 'TextTranslation' | 'WebLM')>;
     tags?: Expressionable<any>;
   }
   
-  export type AccountsResource = ResourceDefinition<any> & AddedResourceProps;
+  export type AccountsResource = ResourceDefinition<any, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: any, location: Expressionable<string>, sku: Expressionable<Sku>, kind: Expressionable<('Academic' | 'Bing.Autosuggest' | 'Bing.Search' | 'Bing.Speech' | 'Bing.SpellCheck' | 'ComputerVision' | 'ContentModerator' | 'Emotion' | 'Face' | 'LUIS' | 'Recommendations' | 'SpeakerRecognition' | 'Speech' | 'SpeechTranslation' | 'TextAnalytics' | 'TextTranslation' | 'WebLM')>, tags?: Expressionable<any>): AccountsResource {
     return {
@@ -19,10 +19,12 @@ export namespace accounts {
       apiVersion: '2016-02-01-preview',
       name: [name],
       location,
-      sku,
-      kind,
-      tags,
       properties,
+      additional: {
+        sku,
+        kind,
+        tags,
+      },
     };
   }
 }

@@ -216,7 +216,7 @@ export interface VulnerabilityAssessmentRecurringScansProperties {
 
 export namespace managedInstances {
   export namespace administrators {
-    export type AdministratorsResource = ResourceDefinition<ManagedInstanceAdministratorProperties>;
+    export type AdministratorsResource = ResourceDefinition<ManagedInstanceAdministratorProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: ManagedInstanceAdministratorProperties): AdministratorsResource {
       return {
@@ -230,11 +230,11 @@ export namespace managedInstances {
 }
 export namespace managedInstances {
   export namespace databases {
-    export interface AddedResourceProps {
+    export interface AdditionalProps {
       tags?: Expressionable<any>;
     }
     
-    export type DatabasesResource = ResourceDefinition<ManagedDatabaseProperties> & AddedResourceProps;
+    export type DatabasesResource = ResourceDefinition<ManagedDatabaseProperties, AdditionalProps>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: ManagedDatabaseProperties, location: Expressionable<string>, tags?: Expressionable<any>): DatabasesResource {
       return {
@@ -242,8 +242,10 @@ export namespace managedInstances {
         apiVersion: '2017-03-01-preview',
         name: name,
         location,
-        tags,
         properties,
+        additional: {
+          tags,
+        },
       };
     }
   }
@@ -251,7 +253,7 @@ export namespace managedInstances {
 export namespace managedInstances {
   export namespace databases {
     export namespace backupShortTermRetentionPolicies {
-      export type BackupShortTermRetentionPoliciesResource = ResourceDefinition<ManagedBackupShortTermRetentionPolicyProperties>;
+      export type BackupShortTermRetentionPoliciesResource = ResourceDefinition<ManagedBackupShortTermRetentionPolicyProperties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ManagedBackupShortTermRetentionPolicyProperties): BackupShortTermRetentionPoliciesResource {
         return {
@@ -267,7 +269,7 @@ export namespace managedInstances {
 export namespace managedInstances {
   export namespace databases {
     export namespace securityAlertPolicies {
-      export type SecurityAlertPoliciesResource = ResourceDefinition<SecurityAlertPolicyProperties>;
+      export type SecurityAlertPoliciesResource = ResourceDefinition<SecurityAlertPolicyProperties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: SecurityAlertPolicyProperties): SecurityAlertPoliciesResource {
         return {
@@ -283,7 +285,7 @@ export namespace managedInstances {
 export namespace managedInstances {
   export namespace restorableDroppedDatabases {
     export namespace backupShortTermRetentionPolicies {
-      export type BackupShortTermRetentionPoliciesResource = ResourceDefinition<ManagedBackupShortTermRetentionPolicyProperties>;
+      export type BackupShortTermRetentionPoliciesResource = ResourceDefinition<ManagedBackupShortTermRetentionPolicyProperties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ManagedBackupShortTermRetentionPolicyProperties): BackupShortTermRetentionPoliciesResource {
         return {
@@ -298,7 +300,7 @@ export namespace managedInstances {
 }
 export namespace managedInstances {
   export namespace securityAlertPolicies {
-    export type SecurityAlertPoliciesResource = ResourceDefinition<SecurityAlertPolicyProperties>;
+    export type SecurityAlertPoliciesResource = ResourceDefinition<SecurityAlertPolicyProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: SecurityAlertPolicyProperties): SecurityAlertPoliciesResource {
       return {
@@ -312,7 +314,7 @@ export namespace managedInstances {
 }
 export namespace servers {
   export namespace auditingSettings {
-    export type AuditingSettingsResource = ResourceDefinition<ServerBlobAuditingPolicyProperties>;
+    export type AuditingSettingsResource = ResourceDefinition<ServerBlobAuditingPolicyProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: ServerBlobAuditingPolicyProperties): AuditingSettingsResource {
       return {
@@ -326,12 +328,12 @@ export namespace servers {
 }
 export namespace servers {
   export namespace databases {
-    export interface AddedResourceProps {
+    export interface AdditionalProps {
       sku?: Expressionable<Sku>;
       tags?: Expressionable<any>;
     }
     
-    export type DatabasesResource = ResourceDefinition<DatabasePropertiesModel> & AddedResourceProps;
+    export type DatabasesResource = ResourceDefinition<DatabasePropertiesModel, AdditionalProps>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: DatabasePropertiesModel, location: Expressionable<string>, sku?: Expressionable<Sku>, tags?: Expressionable<any>): DatabasesResource {
       return {
@@ -339,9 +341,11 @@ export namespace servers {
         apiVersion: '2017-03-01-preview',
         name: name,
         location,
-        sku,
-        tags,
         properties,
+        additional: {
+          sku,
+          tags,
+        },
       };
     }
   }
@@ -349,7 +353,7 @@ export namespace servers {
 export namespace servers {
   export namespace databases {
     export namespace auditingSettings {
-      export type AuditingSettingsResource = ResourceDefinition<DatabaseBlobAuditingPolicyProperties>;
+      export type AuditingSettingsResource = ResourceDefinition<DatabaseBlobAuditingPolicyProperties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: DatabaseBlobAuditingPolicyProperties): AuditingSettingsResource {
         return {
@@ -365,7 +369,7 @@ export namespace servers {
 export namespace servers {
   export namespace databases {
     export namespace backupLongTermRetentionPolicies {
-      export type BackupLongTermRetentionPoliciesResource = ResourceDefinition<LongTermRetentionPolicyProperties>;
+      export type BackupLongTermRetentionPoliciesResource = ResourceDefinition<LongTermRetentionPolicyProperties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: LongTermRetentionPolicyProperties): BackupLongTermRetentionPoliciesResource {
         return {
@@ -381,7 +385,7 @@ export namespace servers {
 export namespace servers {
   export namespace databases {
     export namespace extendedAuditingSettings {
-      export type ExtendedAuditingSettingsResource = ResourceDefinition<ExtendedDatabaseBlobAuditingPolicyProperties>;
+      export type ExtendedAuditingSettingsResource = ResourceDefinition<ExtendedDatabaseBlobAuditingPolicyProperties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ExtendedDatabaseBlobAuditingPolicyProperties): ExtendedAuditingSettingsResource {
         return {
@@ -400,7 +404,7 @@ export namespace servers {
       export namespace tables {
         export namespace columns {
           export namespace sensitivityLabels {
-            export type SensitivityLabelsResource = ResourceDefinition<SensitivityLabelProperties>;
+            export type SensitivityLabelsResource = ResourceDefinition<SensitivityLabelProperties, undefined>;
             
             export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: SensitivityLabelProperties): SensitivityLabelsResource {
               return {
@@ -419,7 +423,7 @@ export namespace servers {
 export namespace servers {
   export namespace databases {
     export namespace vulnerabilityAssessments {
-      export type VulnerabilityAssessmentsResource = ResourceDefinition<DatabaseVulnerabilityAssessmentProperties>;
+      export type VulnerabilityAssessmentsResource = ResourceDefinition<DatabaseVulnerabilityAssessmentProperties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: DatabaseVulnerabilityAssessmentProperties): VulnerabilityAssessmentsResource {
         return {
@@ -437,7 +441,7 @@ export namespace servers {
     export namespace vulnerabilityAssessments {
       export namespace rules {
         export namespace baselines {
-          export type BaselinesResource = ResourceDefinition<DatabaseVulnerabilityAssessmentRuleBaselineProperties>;
+          export type BaselinesResource = ResourceDefinition<DatabaseVulnerabilityAssessmentRuleBaselineProperties, undefined>;
           
           export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: DatabaseVulnerabilityAssessmentRuleBaselineProperties): BaselinesResource {
             return {
@@ -454,7 +458,7 @@ export namespace servers {
 }
 export namespace servers {
   export namespace dnsAliases {
-    export type DnsAliasesResource = ResourceDefinition<any>;
+    export type DnsAliasesResource = ResourceDefinition<any, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: any): DnsAliasesResource {
       return {
@@ -468,7 +472,7 @@ export namespace servers {
 }
 export namespace servers {
   export namespace extendedAuditingSettings {
-    export type ExtendedAuditingSettingsResource = ResourceDefinition<ExtendedServerBlobAuditingPolicyProperties>;
+    export type ExtendedAuditingSettingsResource = ResourceDefinition<ExtendedServerBlobAuditingPolicyProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: ExtendedServerBlobAuditingPolicyProperties): ExtendedAuditingSettingsResource {
       return {
@@ -482,12 +486,12 @@ export namespace servers {
 }
 export namespace servers {
   export namespace jobAgents {
-    export interface AddedResourceProps {
+    export interface AdditionalProps {
       sku?: Expressionable<Sku>;
       tags?: Expressionable<any>;
     }
     
-    export type JobAgentsResource = ResourceDefinition<JobAgentProperties> & AddedResourceProps;
+    export type JobAgentsResource = ResourceDefinition<JobAgentProperties, AdditionalProps>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: JobAgentProperties, location: Expressionable<string>, sku?: Expressionable<Sku>, tags?: Expressionable<any>): JobAgentsResource {
       return {
@@ -495,9 +499,11 @@ export namespace servers {
         apiVersion: '2017-03-01-preview',
         name: name,
         location,
-        sku,
-        tags,
         properties,
+        additional: {
+          sku,
+          tags,
+        },
       };
     }
   }
@@ -505,7 +511,7 @@ export namespace servers {
 export namespace servers {
   export namespace jobAgents {
     export namespace credentials {
-      export type CredentialsResource = ResourceDefinition<JobCredentialProperties>;
+      export type CredentialsResource = ResourceDefinition<JobCredentialProperties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: JobCredentialProperties): CredentialsResource {
         return {
@@ -521,7 +527,7 @@ export namespace servers {
 export namespace servers {
   export namespace jobAgents {
     export namespace jobs {
-      export type JobsResource = ResourceDefinition<JobProperties>;
+      export type JobsResource = ResourceDefinition<JobProperties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: JobProperties): JobsResource {
         return {
@@ -538,7 +544,7 @@ export namespace servers {
   export namespace jobAgents {
     export namespace jobs {
       export namespace executions {
-        export type ExecutionsResource = ResourceDefinition<any>;
+        export type ExecutionsResource = ResourceDefinition<any, undefined>;
         
         export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: any): ExecutionsResource {
           return {
@@ -556,7 +562,7 @@ export namespace servers {
   export namespace jobAgents {
     export namespace jobs {
       export namespace steps {
-        export type StepsResource = ResourceDefinition<JobStepProperties>;
+        export type StepsResource = ResourceDefinition<JobStepProperties, undefined>;
         
         export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: JobStepProperties): StepsResource {
           return {
@@ -573,7 +579,7 @@ export namespace servers {
 export namespace servers {
   export namespace jobAgents {
     export namespace targetGroups {
-      export type TargetGroupsResource = ResourceDefinition<JobTargetGroupProperties>;
+      export type TargetGroupsResource = ResourceDefinition<JobTargetGroupProperties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: JobTargetGroupProperties): TargetGroupsResource {
         return {
@@ -588,7 +594,7 @@ export namespace servers {
 }
 export namespace servers {
   export namespace securityAlertPolicies {
-    export type SecurityAlertPoliciesResource = ResourceDefinition<SecurityAlertPolicyProperties>;
+    export type SecurityAlertPoliciesResource = ResourceDefinition<SecurityAlertPolicyProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: SecurityAlertPolicyProperties): SecurityAlertPoliciesResource {
       return {

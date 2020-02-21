@@ -18,7 +18,7 @@ export interface TemplateExpressionEvaluationScope {
 }
 
 export namespace deployments {
-  export type DeploymentsResource = ResourceDefinition<any>;
+  export type DeploymentsResource = ResourceDefinition<any, undefined>;
   
   export function create(name: Expressionable<string>, properties: any): DeploymentsResource {
     return {
@@ -30,7 +30,7 @@ export namespace deployments {
   }
 }
 export namespace links {
-  export type LinksResource = ResourceDefinition<any>;
+  export type LinksResource = ResourceDefinition<any, undefined>;
   
   export function create(name: Expressionable<string>, properties: any): LinksResource {
     return {

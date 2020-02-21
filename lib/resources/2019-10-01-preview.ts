@@ -53,12 +53,12 @@ export interface UserAssignedIdentity {
 }
 
 export namespace deploymentScripts {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     identity: Expressionable<ManagedServiceIdentity>;
     tags?: Expressionable<any>;
   }
   
-  export type DeploymentScriptsResource = ResourceDefinition<AzurePowerShellScriptProperties | AzureCliScriptProperties> & AddedResourceProps;
+  export type DeploymentScriptsResource = ResourceDefinition<AzurePowerShellScriptProperties | AzureCliScriptProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: AzurePowerShellScriptProperties | AzureCliScriptProperties, location: Expressionable<string>, identity: Expressionable<ManagedServiceIdentity>, tags?: Expressionable<any>): DeploymentScriptsResource {
     return {
@@ -66,9 +66,11 @@ export namespace deploymentScripts {
       apiVersion: '2019-10-01-preview',
       name: [name],
       location,
-      identity,
-      tags,
       properties,
+      additional: {
+        identity,
+        tags,
+      },
     };
   }
 }

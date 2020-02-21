@@ -41,7 +41,7 @@ export interface Sku {
 }
 
 export namespace profiles {
-  export type ProfilesResource = ResourceDefinition<ProfilePropertiesCreateParameters>;
+  export type ProfilesResource = ResourceDefinition<ProfilePropertiesCreateParameters, undefined>;
   
   export function create(name: Expressionable<string>, properties: ProfilePropertiesCreateParameters, location: Expressionable<string>): ProfilesResource {
     return {
@@ -55,7 +55,7 @@ export namespace profiles {
 }
 export namespace profiles {
   export namespace endpoints {
-    export type EndpointsResource = ResourceDefinition<EndpointPropertiesCreateParameters>;
+    export type EndpointsResource = ResourceDefinition<EndpointPropertiesCreateParameters, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: EndpointPropertiesCreateParameters, location: Expressionable<string>): EndpointsResource {
       return {
@@ -71,7 +71,7 @@ export namespace profiles {
 export namespace profiles {
   export namespace endpoints {
     export namespace customDomains {
-      export type CustomDomainsResource = ResourceDefinition<CustomDomainPropertiesParameters>;
+      export type CustomDomainsResource = ResourceDefinition<CustomDomainPropertiesParameters, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: CustomDomainPropertiesParameters): CustomDomainsResource {
         return {
@@ -87,7 +87,7 @@ export namespace profiles {
 export namespace profiles {
   export namespace endpoints {
     export namespace origins {
-      export type OriginsResource = ResourceDefinition<OriginPropertiesParameters>;
+      export type OriginsResource = ResourceDefinition<OriginPropertiesParameters, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: OriginPropertiesParameters): OriginsResource {
         return {

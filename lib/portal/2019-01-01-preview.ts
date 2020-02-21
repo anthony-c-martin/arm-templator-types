@@ -25,11 +25,11 @@ export interface DashboardProperties {
 }
 
 export namespace dashboards {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     tags?: Expressionable<any>;
   }
   
-  export type DashboardsResource = ResourceDefinition<DashboardProperties> & AddedResourceProps;
+  export type DashboardsResource = ResourceDefinition<DashboardProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: DashboardProperties, location: Expressionable<string>, tags?: Expressionable<any>): DashboardsResource {
     return {
@@ -37,8 +37,10 @@ export namespace dashboards {
       apiVersion: '2019-01-01-preview',
       name: [name],
       location,
-      tags,
       properties,
+      additional: {
+        tags,
+      },
     };
   }
 }

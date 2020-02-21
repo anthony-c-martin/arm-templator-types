@@ -35,7 +35,7 @@ export interface UTC {
 }
 
 export namespace jobCollections {
-  export type JobCollectionsResource = ResourceDefinition<any>;
+  export type JobCollectionsResource = ResourceDefinition<any, undefined>;
   
   export function create(name: Expressionable<string>, properties: any): JobCollectionsResource {
     return {
@@ -48,7 +48,7 @@ export namespace jobCollections {
 }
 export namespace jobCollections {
   export namespace jobs {
-    export type JobsResource = ResourceDefinition<any>;
+    export type JobsResource = ResourceDefinition<any, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: any): JobsResource {
       return {

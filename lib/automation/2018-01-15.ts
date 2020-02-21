@@ -30,11 +30,11 @@ export interface DscNodeConfigurationCreateOrUpdateParametersProperties {
 
 export namespace automationAccounts {
   export namespace compilationjobs {
-    export interface AddedResourceProps {
+    export interface AdditionalProps {
       tags?: Expressionable<any>;
     }
     
-    export type CompilationjobsResource = ResourceDefinition<DscCompilationJobCreateProperties> & AddedResourceProps;
+    export type CompilationjobsResource = ResourceDefinition<DscCompilationJobCreateProperties, AdditionalProps>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: DscCompilationJobCreateProperties, location?: Expressionable<string>, tags?: Expressionable<any>): CompilationjobsResource {
       return {
@@ -42,27 +42,31 @@ export namespace automationAccounts {
         apiVersion: '2018-01-15',
         name: name,
         location,
-        tags,
         properties,
+        additional: {
+          tags,
+        },
       };
     }
   }
 }
 export namespace automationAccounts {
   export namespace nodeConfigurations {
-    export interface AddedResourceProps {
+    export interface AdditionalProps {
       tags?: Expressionable<any>;
     }
     
-    export type NodeConfigurationsResource = ResourceDefinition<DscNodeConfigurationCreateOrUpdateParametersProperties> & AddedResourceProps;
+    export type NodeConfigurationsResource = ResourceDefinition<DscNodeConfigurationCreateOrUpdateParametersProperties, AdditionalProps>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: DscNodeConfigurationCreateOrUpdateParametersProperties, tags?: Expressionable<any>): NodeConfigurationsResource {
       return {
         type: 'Microsoft.Automation/automationAccounts/nodeConfigurations',
         apiVersion: '2018-01-15',
         name: name,
-        tags,
         properties,
+        additional: {
+          tags,
+        },
       };
     }
   }

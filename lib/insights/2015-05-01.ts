@@ -30,11 +30,11 @@ export interface WebTestPropertiesConfiguration {
 }
 
 export namespace components {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     kind: Expressionable<string>;
   }
   
-  export type ComponentsResource = ResourceDefinition<ApplicationInsightsComponentProperties> & AddedResourceProps;
+  export type ComponentsResource = ResourceDefinition<ApplicationInsightsComponentProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: ApplicationInsightsComponentProperties, location: Expressionable<string>, kind: Expressionable<string>): ComponentsResource {
     return {
@@ -42,17 +42,19 @@ export namespace components {
       apiVersion: '2015-05-01',
       name: [name],
       location,
-      kind,
       properties,
+      additional: {
+        kind,
+      },
     };
   }
 }
 export namespace webtests {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     kind?: Expressionable<('ping' | 'multistep')>;
   }
   
-  export type WebtestsResource = ResourceDefinition<WebTestProperties> & AddedResourceProps;
+  export type WebtestsResource = ResourceDefinition<WebTestProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: WebTestProperties, location: Expressionable<string>, kind?: Expressionable<('ping' | 'multistep')>): WebtestsResource {
     return {
@@ -60,8 +62,10 @@ export namespace webtests {
       apiVersion: '2015-05-01',
       name: [name],
       location,
-      kind,
       properties,
+      additional: {
+        kind,
+      },
     };
   }
 }

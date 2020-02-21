@@ -29,12 +29,12 @@ export interface StorageAccountPropertiesCreateParameters {
 }
 
 export namespace storageAccounts {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     sku: Expressionable<Sku>;
     kind: Expressionable<('Storage' | 'BlobStorage')>;
   }
   
-  export type StorageAccountsResource = ResourceDefinition<StorageAccountPropertiesCreateParameters> & AddedResourceProps;
+  export type StorageAccountsResource = ResourceDefinition<StorageAccountPropertiesCreateParameters, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: StorageAccountPropertiesCreateParameters, location: Expressionable<string>, sku: Expressionable<Sku>, kind: Expressionable<('Storage' | 'BlobStorage')>): StorageAccountsResource {
     return {
@@ -42,9 +42,11 @@ export namespace storageAccounts {
       apiVersion: '2016-01-01',
       name: [name],
       location,
-      sku,
-      kind,
       properties,
+      additional: {
+        sku,
+        kind,
+      },
     };
   }
 }

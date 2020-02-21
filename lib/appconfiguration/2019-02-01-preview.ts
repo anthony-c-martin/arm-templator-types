@@ -4,7 +4,7 @@ export interface ConfigurationStoreProperties {
 }
 
 export namespace configurationStores {
-  export type ConfigurationStoresResource = ResourceDefinition<ConfigurationStoreProperties>;
+  export type ConfigurationStoresResource = ResourceDefinition<ConfigurationStoreProperties, undefined>;
   
   export function create(name: Expressionable<string>, properties: ConfigurationStoreProperties, location: Expressionable<string>): ConfigurationStoresResource {
     return {

@@ -10,7 +10,7 @@ export interface PricingPlanProperties {
 
 export namespace components {
   export namespace pricingPlans {
-    export type PricingPlansResource = ResourceDefinition<PricingPlanProperties>;
+    export type PricingPlansResource = ResourceDefinition<PricingPlanProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: PricingPlanProperties, location: Expressionable<string>): PricingPlansResource {
       return {

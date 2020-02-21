@@ -102,11 +102,11 @@ export interface SettingsSectionDescription {
 }
 
 export namespace clusters {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     tags?: Expressionable<any>;
   }
   
-  export type ClustersResource = ResourceDefinition<ClusterProperties> & AddedResourceProps;
+  export type ClustersResource = ResourceDefinition<ClusterProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: ClusterProperties, location: Expressionable<string>, tags?: Expressionable<any>): ClustersResource {
     return {
@@ -114,8 +114,10 @@ export namespace clusters {
       apiVersion: '2016-09-01',
       name: [name],
       location,
-      tags,
       properties,
+      additional: {
+        tags,
+      },
     };
   }
 }

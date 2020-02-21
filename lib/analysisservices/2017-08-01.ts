@@ -19,11 +19,11 @@ export interface administrator {
 }
 
 export namespace servers {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     sku: Expressionable<Sku>;
   }
   
-  export type ServersResource = ResourceDefinition<ServerProperties> & AddedResourceProps;
+  export type ServersResource = ResourceDefinition<ServerProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: ServerProperties, location: Expressionable<string>, sku: Expressionable<Sku>): ServersResource {
     return {
@@ -31,8 +31,10 @@ export namespace servers {
       apiVersion: '2017-08-01',
       name: [name],
       location,
-      sku,
       properties,
+      additional: {
+        sku,
+      },
     };
   }
 }

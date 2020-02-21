@@ -2483,12 +2483,12 @@ export interface ZohoSource {
 }
 
 export namespace factories {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     identity?: Expressionable<FactoryIdentity>;
     tags?: Expressionable<any>;
   }
   
-  export type FactoriesResource = ResourceDefinition<FactoryProperties> & AddedResourceProps;
+  export type FactoriesResource = ResourceDefinition<FactoryProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: FactoryProperties, location?: Expressionable<string>, identity?: Expressionable<FactoryIdentity>, tags?: Expressionable<any>): FactoriesResource {
     return {
@@ -2496,15 +2496,17 @@ export namespace factories {
       apiVersion: '2017-09-01-preview',
       name: [name],
       location,
-      identity,
-      tags,
       properties,
+      additional: {
+        identity,
+        tags,
+      },
     };
   }
 }
 export namespace factories {
   export namespace datasets {
-    export type DatasetsResource = ResourceDefinition<Dataset>;
+    export type DatasetsResource = ResourceDefinition<Dataset, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: Dataset): DatasetsResource {
       return {
@@ -2518,7 +2520,7 @@ export namespace factories {
 }
 export namespace factories {
   export namespace integrationRuntimes {
-    export type IntegrationRuntimesResource = ResourceDefinition<IntegrationRuntime>;
+    export type IntegrationRuntimesResource = ResourceDefinition<IntegrationRuntime, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: IntegrationRuntime): IntegrationRuntimesResource {
       return {
@@ -2532,7 +2534,7 @@ export namespace factories {
 }
 export namespace factories {
   export namespace linkedservices {
-    export type LinkedservicesResource = ResourceDefinition<LinkedService>;
+    export type LinkedservicesResource = ResourceDefinition<LinkedService, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: LinkedService): LinkedservicesResource {
       return {
@@ -2546,7 +2548,7 @@ export namespace factories {
 }
 export namespace factories {
   export namespace pipelines {
-    export type PipelinesResource = ResourceDefinition<Pipeline>;
+    export type PipelinesResource = ResourceDefinition<Pipeline, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: Pipeline): PipelinesResource {
       return {
@@ -2560,7 +2562,7 @@ export namespace factories {
 }
 export namespace factories {
   export namespace triggers {
-    export type TriggersResource = ResourceDefinition<Trigger>;
+    export type TriggersResource = ResourceDefinition<Trigger, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: Trigger): TriggersResource {
       return {

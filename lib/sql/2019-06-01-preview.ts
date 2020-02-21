@@ -73,11 +73,11 @@ export interface WorkloadGroupProperties {
 
 export namespace managedInstances {
   export namespace databases {
-    export interface AddedResourceProps {
+    export interface AdditionalProps {
       tags?: Expressionable<any>;
     }
     
-    export type DatabasesResource = ResourceDefinition<ManagedDatabaseProperties> & AddedResourceProps;
+    export type DatabasesResource = ResourceDefinition<ManagedDatabaseProperties, AdditionalProps>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: ManagedDatabaseProperties, location: Expressionable<string>, tags?: Expressionable<any>): DatabasesResource {
       return {
@@ -85,19 +85,21 @@ export namespace managedInstances {
         apiVersion: '2019-06-01-preview',
         name: name,
         location,
-        tags,
         properties,
+        additional: {
+          tags,
+        },
       };
     }
   }
 }
 export namespace servers {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     identity?: Expressionable<ResourceIdentity>;
     tags?: Expressionable<any>;
   }
   
-  export type ServersResource = ResourceDefinition<ServerProperties> & AddedResourceProps;
+  export type ServersResource = ResourceDefinition<ServerProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: ServerProperties, location: Expressionable<string>, identity?: Expressionable<ResourceIdentity>, tags?: Expressionable<any>): ServersResource {
     return {
@@ -105,20 +107,22 @@ export namespace servers {
       apiVersion: '2019-06-01-preview',
       name: [name],
       location,
-      identity,
-      tags,
       properties,
+      additional: {
+        identity,
+        tags,
+      },
     };
   }
 }
 export namespace servers {
   export namespace databases {
-    export interface AddedResourceProps {
+    export interface AdditionalProps {
       sku?: Expressionable<Sku>;
       tags?: Expressionable<any>;
     }
     
-    export type DatabasesResource = ResourceDefinition<DatabaseProperties> & AddedResourceProps;
+    export type DatabasesResource = ResourceDefinition<DatabaseProperties, AdditionalProps>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: DatabaseProperties, location: Expressionable<string>, sku?: Expressionable<Sku>, tags?: Expressionable<any>): DatabasesResource {
       return {
@@ -126,9 +130,11 @@ export namespace servers {
         apiVersion: '2019-06-01-preview',
         name: name,
         location,
-        sku,
-        tags,
         properties,
+        additional: {
+          sku,
+          tags,
+        },
       };
     }
   }
@@ -136,7 +142,7 @@ export namespace servers {
 export namespace servers {
   export namespace databases {
     export namespace workloadGroups {
-      export type WorkloadGroupsResource = ResourceDefinition<WorkloadGroupProperties>;
+      export type WorkloadGroupsResource = ResourceDefinition<WorkloadGroupProperties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: WorkloadGroupProperties): WorkloadGroupsResource {
         return {
@@ -153,7 +159,7 @@ export namespace servers {
   export namespace databases {
     export namespace workloadGroups {
       export namespace workloadClassifiers {
-        export type WorkloadClassifiersResource = ResourceDefinition<WorkloadClassifierProperties>;
+        export type WorkloadClassifiersResource = ResourceDefinition<WorkloadClassifierProperties, undefined>;
         
         export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: WorkloadClassifierProperties): WorkloadClassifiersResource {
           return {

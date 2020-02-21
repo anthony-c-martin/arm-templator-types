@@ -69,7 +69,7 @@ export interface ResourceRange {
 }
 
 export namespace galleries {
-  export type GalleriesResource = ResourceDefinition<GalleryProperties>;
+  export type GalleriesResource = ResourceDefinition<GalleryProperties, undefined>;
   
   export function create(name: Expressionable<string>, properties: GalleryProperties, location: Expressionable<string>): GalleriesResource {
     return {
@@ -83,7 +83,7 @@ export namespace galleries {
 }
 export namespace galleries {
   export namespace images {
-    export type ImagesResource = ResourceDefinition<GalleryImageProperties>;
+    export type ImagesResource = ResourceDefinition<GalleryImageProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: GalleryImageProperties, location: Expressionable<string>): ImagesResource {
       return {
@@ -99,7 +99,7 @@ export namespace galleries {
 export namespace galleries {
   export namespace images {
     export namespace versions {
-      export type VersionsResource = ResourceDefinition<GalleryImageVersionProperties>;
+      export type VersionsResource = ResourceDefinition<GalleryImageVersionProperties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: GalleryImageVersionProperties, location: Expressionable<string>): VersionsResource {
         return {

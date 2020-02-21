@@ -1,7 +1,7 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 
 export namespace deviceServices {
-  export type DeviceServicesResource = ResourceDefinition<any>;
+  export type DeviceServicesResource = ResourceDefinition<any, undefined>;
   
   export function create(name: Expressionable<string>, properties: any): DeviceServicesResource {
     return {

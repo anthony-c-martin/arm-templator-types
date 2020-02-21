@@ -99,11 +99,11 @@ export interface UserSourceInfo {
 }
 
 export namespace Spring {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     tags?: Expressionable<any>;
   }
   
-  export type SpringResource = ResourceDefinition<ClusterResourceProperties> & AddedResourceProps;
+  export type SpringResource = ResourceDefinition<ClusterResourceProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: ClusterResourceProperties, location?: Expressionable<string>, tags?: Expressionable<any>): SpringResource {
     return {
@@ -111,14 +111,16 @@ export namespace Spring {
       apiVersion: '2019-05-01-preview',
       name: [name],
       location,
-      tags,
       properties,
+      additional: {
+        tags,
+      },
     };
   }
 }
 export namespace Spring {
   export namespace apps {
-    export type AppsResource = ResourceDefinition<AppResourceProperties>;
+    export type AppsResource = ResourceDefinition<AppResourceProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: AppResourceProperties): AppsResource {
       return {
@@ -133,7 +135,7 @@ export namespace Spring {
 export namespace Spring {
   export namespace apps {
     export namespace bindings {
-      export type BindingsResource = ResourceDefinition<BindingResourceProperties>;
+      export type BindingsResource = ResourceDefinition<BindingResourceProperties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: BindingResourceProperties): BindingsResource {
         return {
@@ -149,7 +151,7 @@ export namespace Spring {
 export namespace Spring {
   export namespace apps {
     export namespace deployments {
-      export type DeploymentsResource = ResourceDefinition<DeploymentResourceProperties>;
+      export type DeploymentsResource = ResourceDefinition<DeploymentResourceProperties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: DeploymentResourceProperties): DeploymentsResource {
         return {

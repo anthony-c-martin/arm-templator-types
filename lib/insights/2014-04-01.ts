@@ -1,7 +1,7 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 
 export namespace alertrules {
-  export type AlertrulesResource = ResourceDefinition<any>;
+  export type AlertrulesResource = ResourceDefinition<any, undefined>;
   
   export function create(name: Expressionable<string>, properties: any): AlertrulesResource {
     return {
@@ -13,7 +13,7 @@ export namespace alertrules {
   }
 }
 export namespace components {
-  export type ComponentsResource = ResourceDefinition<any>;
+  export type ComponentsResource = ResourceDefinition<any, undefined>;
   
   export function create(name: Expressionable<string>, properties: any): ComponentsResource {
     return {
@@ -25,7 +25,7 @@ export namespace components {
   }
 }
 export namespace webtests {
-  export type WebtestsResource = ResourceDefinition<any>;
+  export type WebtestsResource = ResourceDefinition<any, undefined>;
   
   export function create(name: Expressionable<string>, properties: any): WebtestsResource {
     return {
@@ -37,7 +37,7 @@ export namespace webtests {
   }
 }
 export namespace autoscalesettings {
-  export type AutoscalesettingsResource = ResourceDefinition<any>;
+  export type AutoscalesettingsResource = ResourceDefinition<any, undefined>;
   
   export function create(name: Expressionable<string>, properties: any): AutoscalesettingsResource {
     return {

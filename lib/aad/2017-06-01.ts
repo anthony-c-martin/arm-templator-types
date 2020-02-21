@@ -29,11 +29,11 @@ export interface NotificationSettings {
 }
 
 export namespace domainServices {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     tags?: Expressionable<any>;
   }
   
-  export type DomainServicesResource = ResourceDefinition<DomainServiceProperties> & AddedResourceProps;
+  export type DomainServicesResource = ResourceDefinition<DomainServiceProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: DomainServiceProperties, location?: Expressionable<string>, tags?: Expressionable<any>): DomainServicesResource {
     return {
@@ -41,8 +41,10 @@ export namespace domainServices {
       apiVersion: '2017-06-01',
       name: [name],
       location,
-      tags,
       properties,
+      additional: {
+        tags,
+      },
     };
   }
 }

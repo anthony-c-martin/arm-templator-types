@@ -9,7 +9,7 @@ export interface RegistrationParameterProperties {
 }
 
 export namespace registrations {
-  export type RegistrationsResource = ResourceDefinition<RegistrationParameterProperties>;
+  export type RegistrationsResource = ResourceDefinition<RegistrationParameterProperties, undefined>;
   
   export function create(name: Expressionable<string>, properties: RegistrationParameterProperties, location: Expressionable<('global')>): RegistrationsResource {
     return {
@@ -23,7 +23,7 @@ export namespace registrations {
 }
 export namespace registrations {
   export namespace customerSubscriptions {
-    export type CustomerSubscriptionsResource = ResourceDefinition<CustomerSubscriptionProperties>;
+    export type CustomerSubscriptionsResource = ResourceDefinition<CustomerSubscriptionProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: CustomerSubscriptionProperties, location: Expressionable<('global')>): CustomerSubscriptionsResource {
       return {

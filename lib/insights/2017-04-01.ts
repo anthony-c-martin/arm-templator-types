@@ -50,7 +50,7 @@ export interface WebhookReceiver {
 }
 
 export namespace actionGroups {
-  export type ActionGroupsResource = ResourceDefinition<ActionGroup>;
+  export type ActionGroupsResource = ResourceDefinition<ActionGroup, undefined>;
   
   export function create(name: Expressionable<string>, properties: ActionGroup): ActionGroupsResource {
     return {
@@ -62,7 +62,7 @@ export namespace actionGroups {
   }
 }
 export namespace activityLogAlerts {
-  export type ActivityLogAlertsResource = ResourceDefinition<ActivityLogAlert>;
+  export type ActivityLogAlertsResource = ResourceDefinition<ActivityLogAlert, undefined>;
   
   export function create(name: Expressionable<string>, properties: ActivityLogAlert): ActivityLogAlertsResource {
     return {

@@ -153,11 +153,11 @@ export interface TransparentDataEncryptionProperties {
 }
 
 export namespace servers {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     tags?: Expressionable<any>;
   }
   
-  export type ServersResource = ResourceDefinition<ServerPropertiesModel> & AddedResourceProps;
+  export type ServersResource = ResourceDefinition<ServerPropertiesModel, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: ServerPropertiesModel, location: Expressionable<string>, tags?: Expressionable<any>): ServersResource {
     return {
@@ -165,14 +165,16 @@ export namespace servers {
       apiVersion: '2014-04-01',
       name: [name],
       location,
-      tags,
       properties,
+      additional: {
+        tags,
+      },
     };
   }
 }
 export namespace servers {
   export namespace administrators {
-    export type AdministratorsResource = ResourceDefinition<ServerAdministratorProperties>;
+    export type AdministratorsResource = ResourceDefinition<ServerAdministratorProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: ServerAdministratorProperties): AdministratorsResource {
       return {
@@ -186,7 +188,7 @@ export namespace servers {
 }
 export namespace servers {
   export namespace advisors {
-    export type AdvisorsResource = ResourceDefinition<AdvisorPropertiesModel>;
+    export type AdvisorsResource = ResourceDefinition<AdvisorPropertiesModel, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: AdvisorPropertiesModel): AdvisorsResource {
       return {
@@ -200,7 +202,7 @@ export namespace servers {
 }
 export namespace servers {
   export namespace auditingPolicies {
-    export type AuditingPoliciesResource = ResourceDefinition<ServerTableAuditingPolicyProperties>;
+    export type AuditingPoliciesResource = ResourceDefinition<ServerTableAuditingPolicyProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: ServerTableAuditingPolicyProperties): AuditingPoliciesResource {
       return {
@@ -214,7 +216,7 @@ export namespace servers {
 }
 export namespace servers {
   export namespace backupLongTermRetentionVaults {
-    export type BackupLongTermRetentionVaultsResource = ResourceDefinition<BackupLongTermRetentionVaultProperties>;
+    export type BackupLongTermRetentionVaultsResource = ResourceDefinition<BackupLongTermRetentionVaultProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: BackupLongTermRetentionVaultProperties): BackupLongTermRetentionVaultsResource {
       return {
@@ -228,7 +230,7 @@ export namespace servers {
 }
 export namespace servers {
   export namespace communicationLinks {
-    export type CommunicationLinksResource = ResourceDefinition<ServerCommunicationLinkProperties>;
+    export type CommunicationLinksResource = ResourceDefinition<ServerCommunicationLinkProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: ServerCommunicationLinkProperties): CommunicationLinksResource {
       return {
@@ -242,7 +244,7 @@ export namespace servers {
 }
 export namespace servers {
   export namespace connectionPolicies {
-    export type ConnectionPoliciesResource = ResourceDefinition<ServerConnectionPolicyProperties>;
+    export type ConnectionPoliciesResource = ResourceDefinition<ServerConnectionPolicyProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: ServerConnectionPolicyProperties): ConnectionPoliciesResource {
       return {
@@ -256,11 +258,11 @@ export namespace servers {
 }
 export namespace servers {
   export namespace databases {
-    export interface AddedResourceProps {
+    export interface AdditionalProps {
       tags?: Expressionable<any>;
     }
     
-    export type DatabasesResource = ResourceDefinition<DatabaseProperties> & AddedResourceProps;
+    export type DatabasesResource = ResourceDefinition<DatabaseProperties, AdditionalProps>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: DatabaseProperties, location: Expressionable<string>, tags?: Expressionable<any>): DatabasesResource {
       return {
@@ -268,8 +270,10 @@ export namespace servers {
         apiVersion: '2014-04-01',
         name: name,
         location,
-        tags,
         properties,
+        additional: {
+          tags,
+        },
       };
     }
   }
@@ -277,7 +281,7 @@ export namespace servers {
 export namespace servers {
   export namespace databases {
     export namespace advisors {
-      export type AdvisorsResource = ResourceDefinition<AdvisorPropertiesModel>;
+      export type AdvisorsResource = ResourceDefinition<AdvisorPropertiesModel, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: AdvisorPropertiesModel): AdvisorsResource {
         return {
@@ -293,7 +297,7 @@ export namespace servers {
 export namespace servers {
   export namespace databases {
     export namespace auditingPolicies {
-      export type AuditingPoliciesResource = ResourceDefinition<DatabaseTableAuditingPolicyProperties>;
+      export type AuditingPoliciesResource = ResourceDefinition<DatabaseTableAuditingPolicyProperties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: DatabaseTableAuditingPolicyProperties): AuditingPoliciesResource {
         return {
@@ -309,7 +313,7 @@ export namespace servers {
 export namespace servers {
   export namespace databases {
     export namespace backupLongTermRetentionPolicies {
-      export type BackupLongTermRetentionPoliciesResource = ResourceDefinition<BackupLongTermRetentionPolicyProperties>;
+      export type BackupLongTermRetentionPoliciesResource = ResourceDefinition<BackupLongTermRetentionPolicyProperties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: BackupLongTermRetentionPolicyProperties): BackupLongTermRetentionPoliciesResource {
         return {
@@ -325,7 +329,7 @@ export namespace servers {
 export namespace servers {
   export namespace databases {
     export namespace connectionPolicies {
-      export type ConnectionPoliciesResource = ResourceDefinition<DatabaseConnectionPolicyProperties>;
+      export type ConnectionPoliciesResource = ResourceDefinition<DatabaseConnectionPolicyProperties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: DatabaseConnectionPolicyProperties): ConnectionPoliciesResource {
         return {
@@ -341,7 +345,7 @@ export namespace servers {
 export namespace servers {
   export namespace databases {
     export namespace dataMaskingPolicies {
-      export type DataMaskingPoliciesResource = ResourceDefinition<DataMaskingPolicyProperties>;
+      export type DataMaskingPoliciesResource = ResourceDefinition<DataMaskingPolicyProperties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: DataMaskingPolicyProperties): DataMaskingPoliciesResource {
         return {
@@ -358,7 +362,7 @@ export namespace servers {
   export namespace databases {
     export namespace dataMaskingPolicies {
       export namespace rules {
-        export type RulesResource = ResourceDefinition<DataMaskingRuleProperties>;
+        export type RulesResource = ResourceDefinition<DataMaskingRuleProperties, undefined>;
         
         export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: DataMaskingRuleProperties): RulesResource {
           return {
@@ -375,7 +379,7 @@ export namespace servers {
 export namespace servers {
   export namespace databases {
     export namespace extensions {
-      export type ExtensionsResource = ResourceDefinition<ImportExtensionProperties>;
+      export type ExtensionsResource = ResourceDefinition<ImportExtensionProperties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ImportExtensionProperties): ExtensionsResource {
         return {
@@ -391,7 +395,7 @@ export namespace servers {
 export namespace servers {
   export namespace databases {
     export namespace geoBackupPolicies {
-      export type GeoBackupPoliciesResource = ResourceDefinition<GeoBackupPolicyProperties>;
+      export type GeoBackupPoliciesResource = ResourceDefinition<GeoBackupPolicyProperties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: GeoBackupPolicyProperties): GeoBackupPoliciesResource {
         return {
@@ -407,7 +411,7 @@ export namespace servers {
 export namespace servers {
   export namespace databases {
     export namespace securityAlertPolicies {
-      export type SecurityAlertPoliciesResource = ResourceDefinition<DatabaseSecurityAlertPolicyProperties>;
+      export type SecurityAlertPoliciesResource = ResourceDefinition<DatabaseSecurityAlertPolicyProperties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: DatabaseSecurityAlertPolicyProperties, location?: Expressionable<string>): SecurityAlertPoliciesResource {
         return {
@@ -424,7 +428,7 @@ export namespace servers {
 export namespace servers {
   export namespace databases {
     export namespace transparentDataEncryption {
-      export type TransparentDataEncryptionResource = ResourceDefinition<TransparentDataEncryptionProperties>;
+      export type TransparentDataEncryptionResource = ResourceDefinition<TransparentDataEncryptionProperties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: TransparentDataEncryptionProperties): TransparentDataEncryptionResource {
         return {
@@ -439,7 +443,7 @@ export namespace servers {
 }
 export namespace servers {
   export namespace disasterRecoveryConfiguration {
-    export type DisasterRecoveryConfigurationResource = ResourceDefinition<any>;
+    export type DisasterRecoveryConfigurationResource = ResourceDefinition<any, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: any): DisasterRecoveryConfigurationResource {
       return {
@@ -453,11 +457,11 @@ export namespace servers {
 }
 export namespace servers {
   export namespace elasticPools {
-    export interface AddedResourceProps {
+    export interface AdditionalProps {
       tags?: Expressionable<any>;
     }
     
-    export type ElasticPoolsResource = ResourceDefinition<ElasticPoolPropertiesModel> & AddedResourceProps;
+    export type ElasticPoolsResource = ResourceDefinition<ElasticPoolPropertiesModel, AdditionalProps>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: ElasticPoolPropertiesModel, location: Expressionable<string>, tags?: Expressionable<any>): ElasticPoolsResource {
       return {
@@ -465,15 +469,17 @@ export namespace servers {
         apiVersion: '2014-04-01',
         name: name,
         location,
-        tags,
         properties,
+        additional: {
+          tags,
+        },
       };
     }
   }
 }
 export namespace servers {
   export namespace firewallRules {
-    export type FirewallRulesResource = ResourceDefinition<FirewallRuleProperties>;
+    export type FirewallRulesResource = ResourceDefinition<FirewallRuleProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: FirewallRuleProperties): FirewallRulesResource {
       return {

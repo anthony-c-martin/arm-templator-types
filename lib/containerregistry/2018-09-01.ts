@@ -115,11 +115,11 @@ export interface TriggerProperties {
 
 export namespace registries {
   export namespace tasks {
-    export interface AddedResourceProps {
+    export interface AdditionalProps {
       tags?: Expressionable<any>;
     }
     
-    export type TasksResource = ResourceDefinition<TaskProperties> & AddedResourceProps;
+    export type TasksResource = ResourceDefinition<TaskProperties, AdditionalProps>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: TaskProperties, location: Expressionable<string>, tags?: Expressionable<any>): TasksResource {
       return {
@@ -127,8 +127,10 @@ export namespace registries {
         apiVersion: '2018-09-01',
         name: name,
         location,
-        tags,
         properties,
+        additional: {
+          tags,
+        },
       };
     }
   }

@@ -178,12 +178,12 @@ export interface UserProperties {
 }
 
 export namespace dataBoxEdgeDevices {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     sku?: Expressionable<Sku>;
     tags?: Expressionable<any>;
   }
   
-  export type DataBoxEdgeDevicesResource = ResourceDefinition<DataBoxEdgeDeviceProperties> & AddedResourceProps;
+  export type DataBoxEdgeDevicesResource = ResourceDefinition<DataBoxEdgeDeviceProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: DataBoxEdgeDeviceProperties, location: Expressionable<string>, sku?: Expressionable<Sku>, tags?: Expressionable<any>): DataBoxEdgeDevicesResource {
     return {
@@ -191,15 +191,17 @@ export namespace dataBoxEdgeDevices {
       apiVersion: '2019-07-01',
       name: [name],
       location,
-      sku,
-      tags,
       properties,
+      additional: {
+        sku,
+        tags,
+      },
     };
   }
 }
 export namespace dataBoxEdgeDevices {
   export namespace bandwidthSchedules {
-    export type BandwidthSchedulesResource = ResourceDefinition<BandwidthScheduleProperties>;
+    export type BandwidthSchedulesResource = ResourceDefinition<BandwidthScheduleProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: BandwidthScheduleProperties): BandwidthSchedulesResource {
       return {
@@ -213,7 +215,7 @@ export namespace dataBoxEdgeDevices {
 }
 export namespace dataBoxEdgeDevices {
   export namespace orders {
-    export type OrdersResource = ResourceDefinition<OrderProperties>;
+    export type OrdersResource = ResourceDefinition<OrderProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: OrderProperties): OrdersResource {
       return {
@@ -227,7 +229,7 @@ export namespace dataBoxEdgeDevices {
 }
 export namespace dataBoxEdgeDevices {
   export namespace roles {
-    export type RolesResource = ResourceDefinition<IoTRoleProperties>;
+    export type RolesResource = ResourceDefinition<IoTRoleProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: IoTRoleProperties): RolesResource {
       return {
@@ -241,7 +243,7 @@ export namespace dataBoxEdgeDevices {
 }
 export namespace dataBoxEdgeDevices {
   export namespace shares {
-    export type SharesResource = ResourceDefinition<ShareProperties>;
+    export type SharesResource = ResourceDefinition<ShareProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: ShareProperties): SharesResource {
       return {
@@ -255,7 +257,7 @@ export namespace dataBoxEdgeDevices {
 }
 export namespace dataBoxEdgeDevices {
   export namespace storageAccountCredentials {
-    export type StorageAccountCredentialsResource = ResourceDefinition<StorageAccountCredentialProperties>;
+    export type StorageAccountCredentialsResource = ResourceDefinition<StorageAccountCredentialProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: StorageAccountCredentialProperties): StorageAccountCredentialsResource {
       return {
@@ -269,7 +271,7 @@ export namespace dataBoxEdgeDevices {
 }
 export namespace dataBoxEdgeDevices {
   export namespace triggers {
-    export type TriggersResource = ResourceDefinition<FileTriggerProperties | PeriodicTimerProperties>;
+    export type TriggersResource = ResourceDefinition<FileTriggerProperties | PeriodicTimerProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: FileTriggerProperties | PeriodicTimerProperties): TriggersResource {
       return {
@@ -283,7 +285,7 @@ export namespace dataBoxEdgeDevices {
 }
 export namespace dataBoxEdgeDevices {
   export namespace users {
-    export type UsersResource = ResourceDefinition<UserProperties>;
+    export type UsersResource = ResourceDefinition<UserProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: UserProperties): UsersResource {
       return {

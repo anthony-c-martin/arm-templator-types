@@ -49,12 +49,12 @@ export interface SourceVault {
 }
 
 export namespace disks {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     sku?: Expressionable<DiskSku>;
     zones?: Expressionable<string[]>;
   }
   
-  export type DisksResource = ResourceDefinition<DiskProperties> & AddedResourceProps;
+  export type DisksResource = ResourceDefinition<DiskProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: DiskProperties, location: Expressionable<string>, sku?: Expressionable<DiskSku>, zones?: Expressionable<string[]>): DisksResource {
     return {
@@ -62,18 +62,20 @@ export namespace disks {
       apiVersion: '2018-04-01',
       name: [name],
       location,
-      sku,
-      zones,
       properties,
+      additional: {
+        sku,
+        zones,
+      },
     };
   }
 }
 export namespace snapshots {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     sku?: Expressionable<SnapshotSku>;
   }
   
-  export type SnapshotsResource = ResourceDefinition<DiskProperties> & AddedResourceProps;
+  export type SnapshotsResource = ResourceDefinition<DiskProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: DiskProperties, location: Expressionable<string>, sku?: Expressionable<SnapshotSku>): SnapshotsResource {
     return {
@@ -81,8 +83,10 @@ export namespace snapshots {
       apiVersion: '2018-04-01',
       name: [name],
       location,
-      sku,
       properties,
+      additional: {
+        sku,
+      },
     };
   }
 }

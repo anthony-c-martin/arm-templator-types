@@ -67,7 +67,7 @@ export interface PrivateZoneProperties {
 }
 
 export namespace privateDnsZones {
-  export type PrivateDnsZonesResource = ResourceDefinition<PrivateZoneProperties>;
+  export type PrivateDnsZonesResource = ResourceDefinition<PrivateZoneProperties, undefined>;
   
   export function create(name: Expressionable<string>, properties: PrivateZoneProperties, location: Expressionable<string>): PrivateDnsZonesResource {
     return {
@@ -81,7 +81,7 @@ export namespace privateDnsZones {
 }
 export namespace privateDnsZones {
   export namespace virtualNetworkLinks {
-    export type VirtualNetworkLinksResource = ResourceDefinition<VirtualNetworkLinkProperties>;
+    export type VirtualNetworkLinksResource = ResourceDefinition<VirtualNetworkLinkProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: VirtualNetworkLinkProperties): VirtualNetworkLinksResource {
       return {
@@ -95,7 +95,7 @@ export namespace privateDnsZones {
 }
 export namespace privateDnsZones {
   export namespace A {
-    export type AResource = ResourceDefinition<RecordSetProperties>;
+    export type AResource = ResourceDefinition<RecordSetProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties): AResource {
       return {
@@ -109,7 +109,7 @@ export namespace privateDnsZones {
 }
 export namespace privateDnsZones {
   export namespace AAAA {
-    export type AAAAResource = ResourceDefinition<RecordSetProperties>;
+    export type AAAAResource = ResourceDefinition<RecordSetProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties): AAAAResource {
       return {
@@ -123,7 +123,7 @@ export namespace privateDnsZones {
 }
 export namespace privateDnsZones {
   export namespace CNAME {
-    export type CNAMEResource = ResourceDefinition<RecordSetProperties>;
+    export type CNAMEResource = ResourceDefinition<RecordSetProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties): CNAMEResource {
       return {
@@ -137,7 +137,7 @@ export namespace privateDnsZones {
 }
 export namespace privateDnsZones {
   export namespace MX {
-    export type MXResource = ResourceDefinition<RecordSetProperties>;
+    export type MXResource = ResourceDefinition<RecordSetProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties): MXResource {
       return {
@@ -151,7 +151,7 @@ export namespace privateDnsZones {
 }
 export namespace privateDnsZones {
   export namespace PTR {
-    export type PTRResource = ResourceDefinition<RecordSetProperties>;
+    export type PTRResource = ResourceDefinition<RecordSetProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties): PTRResource {
       return {
@@ -165,7 +165,7 @@ export namespace privateDnsZones {
 }
 export namespace privateDnsZones {
   export namespace SOA {
-    export type SOAResource = ResourceDefinition<RecordSetProperties>;
+    export type SOAResource = ResourceDefinition<RecordSetProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties): SOAResource {
       return {
@@ -179,7 +179,7 @@ export namespace privateDnsZones {
 }
 export namespace privateDnsZones {
   export namespace SRV {
-    export type SRVResource = ResourceDefinition<RecordSetProperties>;
+    export type SRVResource = ResourceDefinition<RecordSetProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties): SRVResource {
       return {
@@ -193,7 +193,7 @@ export namespace privateDnsZones {
 }
 export namespace privateDnsZones {
   export namespace TXT {
-    export type TXTResource = ResourceDefinition<RecordSetProperties>;
+    export type TXTResource = ResourceDefinition<RecordSetProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties): TXTResource {
       return {

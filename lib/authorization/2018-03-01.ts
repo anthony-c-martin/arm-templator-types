@@ -40,24 +40,26 @@ export interface PolicySku {
 }
 
 export namespace policyAssignments {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     sku?: Expressionable<PolicySku>;
   }
   
-  export type PolicyAssignmentsResource = ResourceDefinition<PolicyAssignmentProperties> & AddedResourceProps;
+  export type PolicyAssignmentsResource = ResourceDefinition<PolicyAssignmentProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: PolicyAssignmentProperties, sku?: Expressionable<PolicySku>): PolicyAssignmentsResource {
     return {
       type: 'Microsoft.Authorization/policyAssignments',
       apiVersion: '2018-03-01',
       name: [name],
-      sku,
       properties,
+      additional: {
+        sku,
+      },
     };
   }
 }
 export namespace policyDefinitions {
-  export type PolicyDefinitionsResource = ResourceDefinition<PolicyDefinitionProperties>;
+  export type PolicyDefinitionsResource = ResourceDefinition<PolicyDefinitionProperties, undefined>;
   
   export function create(name: Expressionable<string>, properties: PolicyDefinitionProperties): PolicyDefinitionsResource {
     return {
@@ -69,7 +71,7 @@ export namespace policyDefinitions {
   }
 }
 export namespace policySetDefinitions {
-  export type PolicySetDefinitionsResource = ResourceDefinition<PolicySetDefinitionProperties>;
+  export type PolicySetDefinitionsResource = ResourceDefinition<PolicySetDefinitionProperties, undefined>;
   
   export function create(name: Expressionable<string>, properties: PolicySetDefinitionProperties): PolicySetDefinitionsResource {
     return {

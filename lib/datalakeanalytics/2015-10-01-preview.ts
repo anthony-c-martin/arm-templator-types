@@ -28,11 +28,11 @@ export interface StorageAccountProperties {
 }
 
 export namespace accounts {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     tags?: Expressionable<any>;
   }
   
-  export type AccountsResource = ResourceDefinition<DataLakeAnalyticsAccountProperties> & AddedResourceProps;
+  export type AccountsResource = ResourceDefinition<DataLakeAnalyticsAccountProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: DataLakeAnalyticsAccountProperties, location?: Expressionable<string>, tags?: Expressionable<any>): AccountsResource {
     return {
@@ -40,14 +40,16 @@ export namespace accounts {
       apiVersion: '2015-10-01-preview',
       name: [name],
       location,
-      tags,
       properties,
+      additional: {
+        tags,
+      },
     };
   }
 }
 export namespace accounts {
   export namespace DataLakeStoreAccounts {
-    export type DataLakeStoreAccountsResource = ResourceDefinition<DataLakeStoreAccountInfoProperties>;
+    export type DataLakeStoreAccountsResource = ResourceDefinition<DataLakeStoreAccountInfoProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: DataLakeStoreAccountInfoProperties): DataLakeStoreAccountsResource {
       return {
@@ -61,7 +63,7 @@ export namespace accounts {
 }
 export namespace accounts {
   export namespace StorageAccounts {
-    export type StorageAccountsResource = ResourceDefinition<StorageAccountProperties>;
+    export type StorageAccountsResource = ResourceDefinition<StorageAccountProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: StorageAccountProperties): StorageAccountsResource {
       return {

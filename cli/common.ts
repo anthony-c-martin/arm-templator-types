@@ -1,7 +1,7 @@
 import path = require('path');
 import fs from 'fs';
 import os from 'os';
-import { orderBy, groupBy, includes, partition, filter, pickBy } from 'lodash';
+import { includes, filter, Dictionary, orderBy } from 'lodash';
 
 abstract class Property {
   abstract getType(): string;
@@ -273,6 +273,22 @@ function writeDefinition(output: string[], indent: number, definition: ObjectPro
   appendOutput(output, ``, indent);
 }
 
+interface PropDescriptor {
+  required: boolean,
+  prop: Property,
+  name: string,
+}
+
+function getAdditionalProps(definition: ObjectProperty, additionalKeys: string[]): PropDescriptor[] {
+  const knownProps = filter(additionalKeys, p => p in definition.properties);
+
+  return knownProps.map(prop => ({
+    required: includes(definition.required, prop),
+    prop: definition.properties[prop],
+    name: prop,
+  }));
+}
+
 function writeBuilderFunction(output: string[], schema: any, definition: ObjectProperty, name: string) {
   let resourceProperties = [];
   if (definition.properties.properties instanceof RefProperty) {
@@ -325,31 +341,31 @@ function writeBuilderFunction(output: string[], schema: any, definition: ObjectP
 
   const propertiesType = resourceProperties.length > 0 ? resourceProperties.map(r => r.refName).join(' | ') : 'any';
 
-  const knownProps = filter(['location', 'identity', 'sku', 'zones', 'kind', 'plan', 'tags'], p => p in definition.properties);
-
-  let argsString = '';
-  let hasAddedProps = false;
-  if (knownProps.length > 0) {
-    const [required, optional] = partition(knownProps, k => includes(definition.required, k));
-    const properties = pickBy(definition.properties, (_, p) => includes(knownProps, p));
-  
-    for (const knownProp of [...required, ...optional]) {
-      const isRequired = includes(required, knownProp);
-      const propType = definition.properties[knownProp].getType();
-      argsString += `, ${knownProp}${isRequired ? '' : '?'}: Expressionable<${propType}>`;
+  const additionalProps = getAdditionalProps(definition, ['identity', 'sku', 'zones', 'kind', 'plan', 'tags']);
+  const hasAddedProps = additionalProps.length > 0;
+  if (additionalProps.length > 0) {
+    const properties: Dictionary<Property> = {};
+    for (const prop of additionalProps) {
+      properties[prop.name] = prop.prop;
     }
 
-    delete properties['location'];
-    if (Object.keys(properties).length > 0) {
-      writeDefinition(output, indent, new ObjectProperty(properties, required, [], null), 'AddedResourceProps');
-      hasAddedProps = true;
-    }
+    const required = additionalProps.filter(a => a.required).map(a => a.name);
+
+    const definition = new ObjectProperty(properties, required, [], null)
+    writeDefinition(output, indent, definition, 'AdditionalProps');
   }
+
+  const locationProps = getAdditionalProps(definition, ['location']);
+  const hasLocation = locationProps.length > 0;
+
+  let argsString = orderBy([...locationProps, ...additionalProps], p => !p.required).map(p => `${p.name}${p.required ? '' : '?'}: Expressionable<${p.prop.getType()}>`).join(', ');
+  argsString = argsString ? `, ${argsString}` : '';
 
   let definitionName = `${typeSections[typeSections.length - 1]}Resource`;
   definitionName = definitionName.charAt(0).toUpperCase() + definitionName.slice(1);
+  
 
-  appendOutput(output, `export type ${definitionName} = ResourceDefinition<${propertiesType}>${hasAddedProps ? ' & AddedResourceProps' : ''};`, indent);
+  appendOutput(output, `export type ${definitionName} = ResourceDefinition<${propertiesType}, ${hasAddedProps ? 'AdditionalProps' : 'undefined'}>;`, indent);
   appendOutput(output, ``, indent);
 
   appendOutput(output, `export function create(name: ${nameType}, properties: ${propertiesType}${argsString}): ${definitionName} {`, indent);
@@ -357,10 +373,17 @@ function writeBuilderFunction(output: string[], schema: any, definition: ObjectP
   appendOutput(output, `    type: '${typeName}',`, indent);
   appendOutput(output, `    apiVersion: '${apiVersionName}',`, indent);
   appendOutput(output, `    name: ${typeSections.length === 1 ? '[name]' : 'name'},`, indent);
-  for (const knownProp of knownProps) {
-    appendOutput(output, `    ${knownProp},`, indent);
+  if (hasLocation) {
+    appendOutput(output, `    location,`, indent);
   }
   appendOutput(output, `    properties,`, indent);
+  if (hasAddedProps) {
+    appendOutput(output, `    additional: {`, indent);
+    for (const prop of additionalProps) {
+      appendOutput(output, `      ${prop.name},`, indent);
+    }
+    appendOutput(output, `    },`, indent);
+  }
   appendOutput(output, `  };`, indent);
   appendOutput(output, `}`, indent);
 

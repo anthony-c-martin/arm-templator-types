@@ -5,11 +5,11 @@ export interface Sku {
 }
 
 export namespace accounts {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     sku: Expressionable<Sku>;
   }
   
-  export type AccountsResource = ResourceDefinition<any> & AddedResourceProps;
+  export type AccountsResource = ResourceDefinition<any, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: any, location: Expressionable<string>, sku: Expressionable<Sku>): AccountsResource {
     return {
@@ -17,8 +17,10 @@ export namespace accounts {
       apiVersion: '2018-05-01',
       name: [name],
       location,
-      sku,
       properties,
+      additional: {
+        sku,
+      },
     };
   }
 }

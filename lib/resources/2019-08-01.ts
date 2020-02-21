@@ -30,7 +30,7 @@ export interface TemplateLink {
 }
 
 export namespace deployments {
-  export type DeploymentsResource = ResourceDefinition<DeploymentProperties>;
+  export type DeploymentsResource = ResourceDefinition<DeploymentProperties, undefined>;
   
   export function create(name: Expressionable<string>, properties: DeploymentProperties, location?: Expressionable<string>): DeploymentsResource {
     return {

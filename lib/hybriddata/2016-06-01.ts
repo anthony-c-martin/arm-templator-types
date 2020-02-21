@@ -37,12 +37,12 @@ export interface Sku {
 }
 
 export namespace dataManagers {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     sku?: Expressionable<Sku>;
     tags?: Expressionable<any>;
   }
   
-  export type DataManagersResource = ResourceDefinition<any> & AddedResourceProps;
+  export type DataManagersResource = ResourceDefinition<any, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: any, location: Expressionable<string>, sku?: Expressionable<Sku>, tags?: Expressionable<any>): DataManagersResource {
     return {
@@ -50,16 +50,18 @@ export namespace dataManagers {
       apiVersion: '2016-06-01',
       name: [name],
       location,
-      sku,
-      tags,
       properties,
+      additional: {
+        sku,
+        tags,
+      },
     };
   }
 }
 export namespace dataManagers {
   export namespace dataServices {
     export namespace jobDefinitions {
-      export type JobDefinitionsResource = ResourceDefinition<JobDefinitionProperties>;
+      export type JobDefinitionsResource = ResourceDefinition<JobDefinitionProperties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: JobDefinitionProperties): JobDefinitionsResource {
         return {
@@ -74,7 +76,7 @@ export namespace dataManagers {
 }
 export namespace dataManagers {
   export namespace dataStores {
-    export type DataStoresResource = ResourceDefinition<DataStoreProperties>;
+    export type DataStoresResource = ResourceDefinition<DataStoreProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: DataStoreProperties): DataStoresResource {
       return {

@@ -83,11 +83,11 @@ export interface VolumePropertiesExportPolicy {
 }
 
 export namespace netAppAccounts {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     tags?: Expressionable<any>;
   }
   
-  export type NetAppAccountsResource = ResourceDefinition<AccountProperties> & AddedResourceProps;
+  export type NetAppAccountsResource = ResourceDefinition<AccountProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: AccountProperties, location: Expressionable<string>, tags?: Expressionable<any>): NetAppAccountsResource {
     return {
@@ -95,18 +95,20 @@ export namespace netAppAccounts {
       apiVersion: '2019-08-01',
       name: [name],
       location,
-      tags,
       properties,
+      additional: {
+        tags,
+      },
     };
   }
 }
 export namespace netAppAccounts {
   export namespace capacityPools {
-    export interface AddedResourceProps {
+    export interface AdditionalProps {
       tags?: Expressionable<any>;
     }
     
-    export type CapacityPoolsResource = ResourceDefinition<PoolProperties> & AddedResourceProps;
+    export type CapacityPoolsResource = ResourceDefinition<PoolProperties, AdditionalProps>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: PoolProperties, location: Expressionable<string>, tags?: Expressionable<any>): CapacityPoolsResource {
       return {
@@ -114,8 +116,10 @@ export namespace netAppAccounts {
         apiVersion: '2019-08-01',
         name: name,
         location,
-        tags,
         properties,
+        additional: {
+          tags,
+        },
       };
     }
   }
@@ -123,11 +127,11 @@ export namespace netAppAccounts {
 export namespace netAppAccounts {
   export namespace capacityPools {
     export namespace volumes {
-      export interface AddedResourceProps {
+      export interface AdditionalProps {
         tags?: Expressionable<any>;
       }
       
-      export type VolumesResource = ResourceDefinition<VolumeProperties> & AddedResourceProps;
+      export type VolumesResource = ResourceDefinition<VolumeProperties, AdditionalProps>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: VolumeProperties, location: Expressionable<string>, tags?: Expressionable<any>): VolumesResource {
         return {
@@ -135,8 +139,10 @@ export namespace netAppAccounts {
           apiVersion: '2019-08-01',
           name: name,
           location,
-          tags,
           properties,
+          additional: {
+            tags,
+          },
         };
       }
     }
@@ -146,11 +152,11 @@ export namespace netAppAccounts {
   export namespace capacityPools {
     export namespace volumes {
       export namespace snapshots {
-        export interface AddedResourceProps {
+        export interface AdditionalProps {
           tags?: Expressionable<any>;
         }
         
-        export type SnapshotsResource = ResourceDefinition<SnapshotProperties> & AddedResourceProps;
+        export type SnapshotsResource = ResourceDefinition<SnapshotProperties, AdditionalProps>;
         
         export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: SnapshotProperties, location: Expressionable<string>, tags?: Expressionable<any>): SnapshotsResource {
           return {
@@ -158,8 +164,10 @@ export namespace netAppAccounts {
             apiVersion: '2019-08-01',
             name: name,
             location,
-            tags,
             properties,
+            additional: {
+              tags,
+            },
           };
         }
       }

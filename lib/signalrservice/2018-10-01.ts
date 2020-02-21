@@ -19,11 +19,11 @@ export interface SignalRFeature {
 }
 
 export namespace SignalR {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     sku?: Expressionable<ResourceSku>;
   }
   
-  export type SignalRResource = ResourceDefinition<SignalRCreateOrUpdateProperties> & AddedResourceProps;
+  export type SignalRResource = ResourceDefinition<SignalRCreateOrUpdateProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: SignalRCreateOrUpdateProperties, location: Expressionable<string>, sku?: Expressionable<ResourceSku>): SignalRResource {
     return {
@@ -31,8 +31,10 @@ export namespace SignalR {
       apiVersion: '2018-10-01',
       name: [name],
       location,
-      sku,
       properties,
+      additional: {
+        sku,
+      },
     };
   }
 }

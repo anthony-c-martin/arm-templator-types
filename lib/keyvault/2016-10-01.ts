@@ -47,7 +47,7 @@ export interface VaultProperties {
 }
 
 export namespace vaults {
-  export type VaultsResource = ResourceDefinition<VaultProperties>;
+  export type VaultsResource = ResourceDefinition<VaultProperties, undefined>;
   
   export function create(name: Expressionable<string>, properties: VaultProperties, location: Expressionable<string>): VaultsResource {
     return {
@@ -61,7 +61,7 @@ export namespace vaults {
 }
 export namespace vaults {
   export namespace accessPolicies {
-    export type AccessPoliciesResource = ResourceDefinition<VaultAccessPolicyProperties>;
+    export type AccessPoliciesResource = ResourceDefinition<VaultAccessPolicyProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: VaultAccessPolicyProperties): AccessPoliciesResource {
       return {
@@ -75,7 +75,7 @@ export namespace vaults {
 }
 export namespace vaults {
   export namespace secrets {
-    export type SecretsResource = ResourceDefinition<SecretProperties>;
+    export type SecretsResource = ResourceDefinition<SecretProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: SecretProperties): SecretsResource {
       return {

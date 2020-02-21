@@ -285,7 +285,7 @@ export interface VnetGateway_properties {
 }
 
 export namespace sites {
-  export type SitesResource = ResourceDefinition<Site_properties>;
+  export type SitesResource = ResourceDefinition<Site_properties, undefined>;
   
   export function create(name: Expressionable<string>, properties: Site_properties): SitesResource {
     return {
@@ -298,7 +298,7 @@ export namespace sites {
 }
 export namespace sites {
   export namespace config {
-    export type ConfigResource = ResourceDefinition<SiteConfig>;
+    export type ConfigResource = ResourceDefinition<SiteConfig, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: SiteConfig): ConfigResource {
       return {
@@ -312,7 +312,7 @@ export namespace sites {
 }
 export namespace sites {
   export namespace deployments {
-    export type DeploymentsResource = ResourceDefinition<Deployment_properties>;
+    export type DeploymentsResource = ResourceDefinition<Deployment_properties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: Deployment_properties): DeploymentsResource {
       return {
@@ -326,7 +326,7 @@ export namespace sites {
 }
 export namespace sites {
   export namespace domainOwnershipIdentifiers {
-    export type DomainOwnershipIdentifiersResource = ResourceDefinition<Identifier_properties>;
+    export type DomainOwnershipIdentifiersResource = ResourceDefinition<Identifier_properties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: Identifier_properties): DomainOwnershipIdentifiersResource {
       return {
@@ -340,7 +340,7 @@ export namespace sites {
 }
 export namespace sites {
   export namespace hostNameBindings {
-    export type HostNameBindingsResource = ResourceDefinition<HostNameBinding_properties>;
+    export type HostNameBindingsResource = ResourceDefinition<HostNameBinding_properties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: HostNameBinding_properties): HostNameBindingsResource {
       return {
@@ -354,7 +354,7 @@ export namespace sites {
 }
 export namespace sites {
   export namespace hybridconnection {
-    export type HybridconnectionResource = ResourceDefinition<RelayServiceConnectionEntity_properties>;
+    export type HybridconnectionResource = ResourceDefinition<RelayServiceConnectionEntity_properties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: RelayServiceConnectionEntity_properties): HybridconnectionResource {
       return {
@@ -369,7 +369,7 @@ export namespace sites {
 export namespace sites {
   export namespace hybridConnectionNamespaces {
     export namespace relays {
-      export type RelaysResource = ResourceDefinition<HybridConnection_properties>;
+      export type RelaysResource = ResourceDefinition<HybridConnection_properties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: HybridConnection_properties): RelaysResource {
         return {
@@ -385,7 +385,7 @@ export namespace sites {
 export namespace sites {
   export namespace instances {
     export namespace deployments {
-      export type DeploymentsResource = ResourceDefinition<Deployment_properties>;
+      export type DeploymentsResource = ResourceDefinition<Deployment_properties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: Deployment_properties): DeploymentsResource {
         return {
@@ -400,7 +400,7 @@ export namespace sites {
 }
 export namespace sites {
   export namespace premieraddons {
-    export type PremieraddonsResource = ResourceDefinition<PremierAddOn_properties>;
+    export type PremieraddonsResource = ResourceDefinition<PremierAddOn_properties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: PremierAddOn_properties): PremieraddonsResource {
       return {
@@ -414,7 +414,7 @@ export namespace sites {
 }
 export namespace sites {
   export namespace publiccertificates {
-    export type PubliccertificatesResource = ResourceDefinition<PublicCertificate_properties>;
+    export type PubliccertificatesResource = ResourceDefinition<PublicCertificate_properties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: PublicCertificate_properties): PubliccertificatesResource {
       return {
@@ -428,7 +428,7 @@ export namespace sites {
 }
 export namespace sites {
   export namespace sourcecontrols {
-    export type SourcecontrolsResource = ResourceDefinition<SourceControl>;
+    export type SourcecontrolsResource = ResourceDefinition<SourceControl, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: SourceControl): SourcecontrolsResource {
       return {
@@ -442,7 +442,7 @@ export namespace sites {
 }
 export namespace sites {
   export namespace slots {
-    export type SlotsResource = ResourceDefinition<Site_properties>;
+    export type SlotsResource = ResourceDefinition<Site_properties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: Site_properties): SlotsResource {
       return {
@@ -457,7 +457,7 @@ export namespace sites {
 export namespace sites {
   export namespace slots {
     export namespace config {
-      export type ConfigResource = ResourceDefinition<SiteConfig>;
+      export type ConfigResource = ResourceDefinition<SiteConfig, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: SiteConfig): ConfigResource {
         return {
@@ -473,7 +473,7 @@ export namespace sites {
 export namespace sites {
   export namespace slots {
     export namespace deployments {
-      export type DeploymentsResource = ResourceDefinition<Deployment_properties>;
+      export type DeploymentsResource = ResourceDefinition<Deployment_properties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: Deployment_properties): DeploymentsResource {
         return {
@@ -489,7 +489,7 @@ export namespace sites {
 export namespace sites {
   export namespace slots {
     export namespace domainOwnershipIdentifiers {
-      export type DomainOwnershipIdentifiersResource = ResourceDefinition<Identifier_properties>;
+      export type DomainOwnershipIdentifiersResource = ResourceDefinition<Identifier_properties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: Identifier_properties): DomainOwnershipIdentifiersResource {
         return {
@@ -505,7 +505,7 @@ export namespace sites {
 export namespace sites {
   export namespace slots {
     export namespace hostNameBindings {
-      export type HostNameBindingsResource = ResourceDefinition<HostNameBinding_properties>;
+      export type HostNameBindingsResource = ResourceDefinition<HostNameBinding_properties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: HostNameBinding_properties): HostNameBindingsResource {
         return {
@@ -521,7 +521,7 @@ export namespace sites {
 export namespace sites {
   export namespace slots {
     export namespace hybridconnection {
-      export type HybridconnectionResource = ResourceDefinition<RelayServiceConnectionEntity_properties>;
+      export type HybridconnectionResource = ResourceDefinition<RelayServiceConnectionEntity_properties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: RelayServiceConnectionEntity_properties): HybridconnectionResource {
         return {
@@ -538,7 +538,7 @@ export namespace sites {
   export namespace slots {
     export namespace hybridConnectionNamespaces {
       export namespace relays {
-        export type RelaysResource = ResourceDefinition<HybridConnection_properties>;
+        export type RelaysResource = ResourceDefinition<HybridConnection_properties, undefined>;
         
         export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: HybridConnection_properties): RelaysResource {
           return {
@@ -556,7 +556,7 @@ export namespace sites {
   export namespace slots {
     export namespace instances {
       export namespace deployments {
-        export type DeploymentsResource = ResourceDefinition<Deployment_properties>;
+        export type DeploymentsResource = ResourceDefinition<Deployment_properties, undefined>;
         
         export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: Deployment_properties): DeploymentsResource {
           return {
@@ -573,7 +573,7 @@ export namespace sites {
 export namespace sites {
   export namespace slots {
     export namespace premieraddons {
-      export type PremieraddonsResource = ResourceDefinition<PremierAddOn_properties>;
+      export type PremieraddonsResource = ResourceDefinition<PremierAddOn_properties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: PremierAddOn_properties): PremieraddonsResource {
         return {
@@ -589,7 +589,7 @@ export namespace sites {
 export namespace sites {
   export namespace slots {
     export namespace publiccertificates {
-      export type PubliccertificatesResource = ResourceDefinition<PublicCertificate_properties>;
+      export type PubliccertificatesResource = ResourceDefinition<PublicCertificate_properties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: PublicCertificate_properties): PubliccertificatesResource {
         return {
@@ -605,7 +605,7 @@ export namespace sites {
 export namespace sites {
   export namespace slots {
     export namespace virtualNetworkConnections {
-      export type VirtualNetworkConnectionsResource = ResourceDefinition<any>;
+      export type VirtualNetworkConnectionsResource = ResourceDefinition<any, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: any): VirtualNetworkConnectionsResource {
         return {
@@ -622,7 +622,7 @@ export namespace sites {
   export namespace slots {
     export namespace virtualNetworkConnections {
       export namespace gateways {
-        export type GatewaysResource = ResourceDefinition<VnetGateway_properties>;
+        export type GatewaysResource = ResourceDefinition<VnetGateway_properties, undefined>;
         
         export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: VnetGateway_properties): GatewaysResource {
           return {
@@ -639,7 +639,7 @@ export namespace sites {
 export namespace sites {
   export namespace slots {
     export namespace sourcecontrols {
-      export type SourcecontrolsResource = ResourceDefinition<SourceControl>;
+      export type SourcecontrolsResource = ResourceDefinition<SourceControl, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: SourceControl): SourcecontrolsResource {
         return {
@@ -654,7 +654,7 @@ export namespace sites {
 }
 export namespace sites {
   export namespace virtualNetworkConnections {
-    export type VirtualNetworkConnectionsResource = ResourceDefinition<any>;
+    export type VirtualNetworkConnectionsResource = ResourceDefinition<any, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: any): VirtualNetworkConnectionsResource {
       return {
@@ -669,7 +669,7 @@ export namespace sites {
 export namespace sites {
   export namespace virtualNetworkConnections {
     export namespace gateways {
-      export type GatewaysResource = ResourceDefinition<VnetGateway_properties>;
+      export type GatewaysResource = ResourceDefinition<VnetGateway_properties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: VnetGateway_properties): GatewaysResource {
         return {

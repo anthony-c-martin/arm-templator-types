@@ -133,11 +133,11 @@ export interface WaitStepProperties {
 }
 
 export namespace artifactSources {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     tags?: Expressionable<any>;
   }
   
-  export type ArtifactSourcesResource = ResourceDefinition<ArtifactSourceProperties> & AddedResourceProps;
+  export type ArtifactSourcesResource = ResourceDefinition<ArtifactSourceProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: ArtifactSourceProperties, location: Expressionable<string>, tags?: Expressionable<any>): ArtifactSourcesResource {
     return {
@@ -145,18 +145,20 @@ export namespace artifactSources {
       apiVersion: '2019-11-01-preview',
       name: [name],
       location,
-      tags,
       properties,
+      additional: {
+        tags,
+      },
     };
   }
 }
 export namespace rollouts {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     identity: Expressionable<Identity>;
     tags?: Expressionable<any>;
   }
   
-  export type RolloutsResource = ResourceDefinition<RolloutRequestProperties> & AddedResourceProps;
+  export type RolloutsResource = ResourceDefinition<RolloutRequestProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: RolloutRequestProperties, location: Expressionable<string>, identity: Expressionable<Identity>, tags?: Expressionable<any>): RolloutsResource {
     return {
@@ -164,18 +166,20 @@ export namespace rollouts {
       apiVersion: '2019-11-01-preview',
       name: [name],
       location,
-      identity,
-      tags,
       properties,
+      additional: {
+        identity,
+        tags,
+      },
     };
   }
 }
 export namespace serviceTopologies {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     tags?: Expressionable<any>;
   }
   
-  export type ServiceTopologiesResource = ResourceDefinition<ServiceTopologyResourceProperties> & AddedResourceProps;
+  export type ServiceTopologiesResource = ResourceDefinition<ServiceTopologyResourceProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: ServiceTopologyResourceProperties, location: Expressionable<string>, tags?: Expressionable<any>): ServiceTopologiesResource {
     return {
@@ -183,18 +187,20 @@ export namespace serviceTopologies {
       apiVersion: '2019-11-01-preview',
       name: [name],
       location,
-      tags,
       properties,
+      additional: {
+        tags,
+      },
     };
   }
 }
 export namespace serviceTopologies {
   export namespace services {
-    export interface AddedResourceProps {
+    export interface AdditionalProps {
       tags?: Expressionable<any>;
     }
     
-    export type ServicesResource = ResourceDefinition<ServiceResourceProperties> & AddedResourceProps;
+    export type ServicesResource = ResourceDefinition<ServiceResourceProperties, AdditionalProps>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: ServiceResourceProperties, location: Expressionable<string>, tags?: Expressionable<any>): ServicesResource {
       return {
@@ -202,8 +208,10 @@ export namespace serviceTopologies {
         apiVersion: '2019-11-01-preview',
         name: name,
         location,
-        tags,
         properties,
+        additional: {
+          tags,
+        },
       };
     }
   }
@@ -211,11 +219,11 @@ export namespace serviceTopologies {
 export namespace serviceTopologies {
   export namespace services {
     export namespace serviceUnits {
-      export interface AddedResourceProps {
+      export interface AdditionalProps {
         tags?: Expressionable<any>;
       }
       
-      export type ServiceUnitsResource = ResourceDefinition<ServiceUnitResourceProperties> & AddedResourceProps;
+      export type ServiceUnitsResource = ResourceDefinition<ServiceUnitResourceProperties, AdditionalProps>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ServiceUnitResourceProperties, location: Expressionable<string>, tags?: Expressionable<any>): ServiceUnitsResource {
         return {
@@ -223,19 +231,21 @@ export namespace serviceTopologies {
           apiVersion: '2019-11-01-preview',
           name: name,
           location,
-          tags,
           properties,
+          additional: {
+            tags,
+          },
         };
       }
     }
   }
 }
 export namespace steps {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     tags?: Expressionable<any>;
   }
   
-  export type StepsResource = ResourceDefinition<StepProperties> & AddedResourceProps;
+  export type StepsResource = ResourceDefinition<StepProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: StepProperties, location: Expressionable<string>, tags?: Expressionable<any>): StepsResource {
     return {
@@ -243,8 +253,10 @@ export namespace steps {
       apiVersion: '2019-11-01-preview',
       name: [name],
       location,
-      tags,
       properties,
+      additional: {
+        tags,
+      },
     };
   }
 }

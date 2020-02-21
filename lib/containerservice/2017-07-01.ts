@@ -81,11 +81,11 @@ export interface KeyVaultSecretRef {
 }
 
 export namespace containerServices {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     tags?: Expressionable<any>;
   }
   
-  export type ContainerServicesResource = ResourceDefinition<ContainerServiceProperties> & AddedResourceProps;
+  export type ContainerServicesResource = ResourceDefinition<ContainerServiceProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: ContainerServiceProperties, location: Expressionable<string>, tags?: Expressionable<any>): ContainerServicesResource {
     return {
@@ -93,8 +93,10 @@ export namespace containerServices {
       apiVersion: '2017-07-01',
       name: [name],
       location,
-      tags,
       properties,
+      additional: {
+        tags,
+      },
     };
   }
 }

@@ -55,7 +55,7 @@ export interface CertificateOrderCertificate_properties {
 }
 
 export namespace certificateOrders {
-  export type CertificateOrdersResource = ResourceDefinition<CertificateOrder_properties>;
+  export type CertificateOrdersResource = ResourceDefinition<CertificateOrder_properties, undefined>;
   
   export function create(name: Expressionable<string>, properties: CertificateOrder_properties): CertificateOrdersResource {
     return {
@@ -68,7 +68,7 @@ export namespace certificateOrders {
 }
 export namespace certificateOrders {
   export namespace certificates {
-    export type CertificatesResource = ResourceDefinition<CertificateOrderCertificate_properties>;
+    export type CertificatesResource = ResourceDefinition<CertificateOrderCertificate_properties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: CertificateOrderCertificate_properties): CertificatesResource {
       return {

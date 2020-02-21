@@ -200,12 +200,12 @@ export interface UserIdentityProperties {
 
 export namespace registries {
   export namespace taskRuns {
-    export interface AddedResourceProps {
+    export interface AdditionalProps {
       identity?: Expressionable<IdentityProperties>;
       tags?: Expressionable<any>;
     }
     
-    export type TaskRunsResource = ResourceDefinition<TaskRunProperties> & AddedResourceProps;
+    export type TaskRunsResource = ResourceDefinition<TaskRunProperties, AdditionalProps>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: TaskRunProperties, location: Expressionable<string>, identity?: Expressionable<IdentityProperties>, tags?: Expressionable<any>): TaskRunsResource {
       return {
@@ -213,21 +213,23 @@ export namespace registries {
         apiVersion: '2019-06-01-preview',
         name: name,
         location,
-        identity,
-        tags,
         properties,
+        additional: {
+          identity,
+          tags,
+        },
       };
     }
   }
 }
 export namespace registries {
   export namespace tasks {
-    export interface AddedResourceProps {
+    export interface AdditionalProps {
       identity?: Expressionable<IdentityProperties>;
       tags?: Expressionable<any>;
     }
     
-    export type TasksResource = ResourceDefinition<TaskProperties> & AddedResourceProps;
+    export type TasksResource = ResourceDefinition<TaskProperties, AdditionalProps>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: TaskProperties, location: Expressionable<string>, identity?: Expressionable<IdentityProperties>, tags?: Expressionable<any>): TasksResource {
       return {
@@ -235,9 +237,11 @@ export namespace registries {
         apiVersion: '2019-06-01-preview',
         name: name,
         location,
-        identity,
-        tags,
         properties,
+        additional: {
+          identity,
+          tags,
+        },
       };
     }
   }

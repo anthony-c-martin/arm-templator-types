@@ -79,12 +79,12 @@ export interface Sku {
 }
 
 export namespace jobs {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     sku: Expressionable<Sku>;
     tags?: Expressionable<any>;
   }
   
-  export type JobsResource = ResourceDefinition<JobProperties> & AddedResourceProps;
+  export type JobsResource = ResourceDefinition<JobProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: JobProperties, location: Expressionable<string>, sku: Expressionable<Sku>, tags?: Expressionable<any>): JobsResource {
     return {
@@ -92,9 +92,11 @@ export namespace jobs {
       apiVersion: '2018-01-01',
       name: [name],
       location,
-      sku,
-      tags,
       properties,
+      additional: {
+        sku,
+        tags,
+      },
     };
   }
 }

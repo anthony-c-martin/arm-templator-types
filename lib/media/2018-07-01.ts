@@ -630,7 +630,7 @@ export interface VideoOverlay {
 }
 
 export namespace mediaServices {
-  export type MediaServicesResource = ResourceDefinition<MediaServiceProperties>;
+  export type MediaServicesResource = ResourceDefinition<MediaServiceProperties, undefined>;
   
   export function create(name: Expressionable<string>, properties: MediaServiceProperties, location?: Expressionable<string>): MediaServicesResource {
     return {
@@ -644,7 +644,7 @@ export namespace mediaServices {
 }
 export namespace mediaServices {
   export namespace accountFilters {
-    export type AccountFiltersResource = ResourceDefinition<MediaFilterProperties>;
+    export type AccountFiltersResource = ResourceDefinition<MediaFilterProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: MediaFilterProperties): AccountFiltersResource {
       return {
@@ -658,7 +658,7 @@ export namespace mediaServices {
 }
 export namespace mediaServices {
   export namespace assets {
-    export type AssetsResource = ResourceDefinition<AssetProperties>;
+    export type AssetsResource = ResourceDefinition<AssetProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: AssetProperties): AssetsResource {
       return {
@@ -673,7 +673,7 @@ export namespace mediaServices {
 export namespace mediaServices {
   export namespace assets {
     export namespace assetFilters {
-      export type AssetFiltersResource = ResourceDefinition<MediaFilterProperties>;
+      export type AssetFiltersResource = ResourceDefinition<MediaFilterProperties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: MediaFilterProperties): AssetFiltersResource {
         return {
@@ -688,7 +688,7 @@ export namespace mediaServices {
 }
 export namespace mediaServices {
   export namespace contentKeyPolicies {
-    export type ContentKeyPoliciesResource = ResourceDefinition<ContentKeyPolicyProperties>;
+    export type ContentKeyPoliciesResource = ResourceDefinition<ContentKeyPolicyProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: ContentKeyPolicyProperties): ContentKeyPoliciesResource {
       return {
@@ -702,7 +702,7 @@ export namespace mediaServices {
 }
 export namespace mediaServices {
   export namespace liveEvents {
-    export type LiveEventsResource = ResourceDefinition<LiveEventProperties>;
+    export type LiveEventsResource = ResourceDefinition<LiveEventProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: LiveEventProperties, location?: Expressionable<string>): LiveEventsResource {
       return {
@@ -718,7 +718,7 @@ export namespace mediaServices {
 export namespace mediaServices {
   export namespace liveEvents {
     export namespace liveOutputs {
-      export type LiveOutputsResource = ResourceDefinition<LiveOutputProperties>;
+      export type LiveOutputsResource = ResourceDefinition<LiveOutputProperties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: LiveOutputProperties): LiveOutputsResource {
         return {
@@ -733,7 +733,7 @@ export namespace mediaServices {
 }
 export namespace mediaServices {
   export namespace streamingEndpoints {
-    export type StreamingEndpointsResource = ResourceDefinition<StreamingEndpointProperties>;
+    export type StreamingEndpointsResource = ResourceDefinition<StreamingEndpointProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: StreamingEndpointProperties, location?: Expressionable<string>): StreamingEndpointsResource {
       return {
@@ -748,7 +748,7 @@ export namespace mediaServices {
 }
 export namespace mediaServices {
   export namespace streamingLocators {
-    export type StreamingLocatorsResource = ResourceDefinition<StreamingLocatorProperties>;
+    export type StreamingLocatorsResource = ResourceDefinition<StreamingLocatorProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: StreamingLocatorProperties): StreamingLocatorsResource {
       return {
@@ -762,7 +762,7 @@ export namespace mediaServices {
 }
 export namespace mediaServices {
   export namespace streamingPolicies {
-    export type StreamingPoliciesResource = ResourceDefinition<StreamingPolicyProperties>;
+    export type StreamingPoliciesResource = ResourceDefinition<StreamingPolicyProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: StreamingPolicyProperties): StreamingPoliciesResource {
       return {
@@ -776,7 +776,7 @@ export namespace mediaServices {
 }
 export namespace mediaServices {
   export namespace transforms {
-    export type TransformsResource = ResourceDefinition<TransformProperties>;
+    export type TransformsResource = ResourceDefinition<TransformProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: TransformProperties): TransformsResource {
       return {
@@ -791,7 +791,7 @@ export namespace mediaServices {
 export namespace mediaServices {
   export namespace transforms {
     export namespace jobs {
-      export type JobsResource = ResourceDefinition<JobProperties>;
+      export type JobsResource = ResourceDefinition<JobProperties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: JobProperties): JobsResource {
         return {

@@ -21,11 +21,11 @@ export interface VaultExtendedInfo {
 }
 
 export namespace vaults {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     sku: Expressionable<Sku>;
   }
   
-  export type VaultsResource = ResourceDefinition<RecoveryServicesPropertiesCreateParameters> & AddedResourceProps;
+  export type VaultsResource = ResourceDefinition<RecoveryServicesPropertiesCreateParameters, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: RecoveryServicesPropertiesCreateParameters, location: Expressionable<string>, sku: Expressionable<Sku>): VaultsResource {
     return {
@@ -33,14 +33,16 @@ export namespace vaults {
       apiVersion: '2018-01-10',
       name: [name],
       location,
-      sku,
       properties,
+      additional: {
+        sku,
+      },
     };
   }
 }
 export namespace vaults {
   export namespace certificates {
-    export type CertificatesResource = ResourceDefinition<RawCertificateData>;
+    export type CertificatesResource = ResourceDefinition<RawCertificateData, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: RawCertificateData): CertificatesResource {
       return {
@@ -54,7 +56,7 @@ export namespace vaults {
 }
 export namespace vaults {
   export namespace extendedInformation {
-    export type ExtendedInformationResource = ResourceDefinition<VaultExtendedInfo>;
+    export type ExtendedInformationResource = ResourceDefinition<VaultExtendedInfo, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: VaultExtendedInfo): ExtendedInformationResource {
       return {

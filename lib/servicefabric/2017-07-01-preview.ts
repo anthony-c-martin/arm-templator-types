@@ -212,11 +212,11 @@ export interface StatelessServiceProperties {
 }
 
 export namespace clusters {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     tags?: Expressionable<any>;
   }
   
-  export type ClustersResource = ResourceDefinition<ClusterProperties> & AddedResourceProps;
+  export type ClustersResource = ResourceDefinition<ClusterProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: ClusterProperties, location: Expressionable<string>, tags?: Expressionable<any>): ClustersResource {
     return {
@@ -224,14 +224,16 @@ export namespace clusters {
       apiVersion: '2017-07-01-preview',
       name: [name],
       location,
-      tags,
       properties,
+      additional: {
+        tags,
+      },
     };
   }
 }
 export namespace clusters {
   export namespace applications {
-    export type ApplicationsResource = ResourceDefinition<ApplicationResourceProperties>;
+    export type ApplicationsResource = ResourceDefinition<ApplicationResourceProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: ApplicationResourceProperties, location?: Expressionable<string>): ApplicationsResource {
       return {
@@ -247,7 +249,7 @@ export namespace clusters {
 export namespace clusters {
   export namespace applications {
     export namespace services {
-      export type ServicesResource = ResourceDefinition<ServiceResourceProperties>;
+      export type ServicesResource = ResourceDefinition<ServiceResourceProperties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ServiceResourceProperties, location?: Expressionable<string>): ServicesResource {
         return {
@@ -263,7 +265,7 @@ export namespace clusters {
 }
 export namespace clusters {
   export namespace applicationTypes {
-    export type ApplicationTypesResource = ResourceDefinition<ApplicationTypeResourceProperties>;
+    export type ApplicationTypesResource = ResourceDefinition<ApplicationTypeResourceProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: ApplicationTypeResourceProperties, location?: Expressionable<string>): ApplicationTypesResource {
       return {
@@ -279,7 +281,7 @@ export namespace clusters {
 export namespace clusters {
   export namespace applicationTypes {
     export namespace versions {
-      export type VersionsResource = ResourceDefinition<ApplicationTypeVersionResourceProperties>;
+      export type VersionsResource = ResourceDefinition<ApplicationTypeVersionResourceProperties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ApplicationTypeVersionResourceProperties, location?: Expressionable<string>): VersionsResource {
         return {

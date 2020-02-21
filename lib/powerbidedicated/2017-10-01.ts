@@ -12,11 +12,11 @@ export interface administrator {
 }
 
 export namespace capacities {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     sku: Expressionable<Sku>;
   }
   
-  export type CapacitiesResource = ResourceDefinition<CapacityProperties> & AddedResourceProps;
+  export type CapacitiesResource = ResourceDefinition<CapacityProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: CapacityProperties, location: Expressionable<string>, sku: Expressionable<Sku>): CapacitiesResource {
     return {
@@ -24,8 +24,10 @@ export namespace capacities {
       apiVersion: '2017-10-01',
       name: [name],
       location,
-      sku,
       properties,
+      additional: {
+        sku,
+      },
     };
   }
 }

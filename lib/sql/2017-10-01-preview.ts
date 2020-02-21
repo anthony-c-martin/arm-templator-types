@@ -104,7 +104,7 @@ export interface VulnerabilityAssessmentRecurringScansProperties {
 
 export namespace locations {
   export namespace instanceFailoverGroups {
-    export type InstanceFailoverGroupsResource = ResourceDefinition<InstanceFailoverGroupProperties>;
+    export type InstanceFailoverGroupsResource = ResourceDefinition<InstanceFailoverGroupProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: InstanceFailoverGroupProperties): InstanceFailoverGroupsResource {
       return {
@@ -119,7 +119,7 @@ export namespace locations {
 export namespace managedInstances {
   export namespace databases {
     export namespace vulnerabilityAssessments {
-      export type VulnerabilityAssessmentsResource = ResourceDefinition<DatabaseVulnerabilityAssessmentProperties>;
+      export type VulnerabilityAssessmentsResource = ResourceDefinition<DatabaseVulnerabilityAssessmentProperties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: DatabaseVulnerabilityAssessmentProperties): VulnerabilityAssessmentsResource {
         return {
@@ -137,7 +137,7 @@ export namespace managedInstances {
     export namespace vulnerabilityAssessments {
       export namespace rules {
         export namespace baselines {
-          export type BaselinesResource = ResourceDefinition<DatabaseVulnerabilityAssessmentRuleBaselineProperties>;
+          export type BaselinesResource = ResourceDefinition<DatabaseVulnerabilityAssessmentRuleBaselineProperties, undefined>;
           
           export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: DatabaseVulnerabilityAssessmentRuleBaselineProperties): BaselinesResource {
             return {
@@ -154,7 +154,7 @@ export namespace managedInstances {
 }
 export namespace managedInstances {
   export namespace encryptionProtector {
-    export type EncryptionProtectorResource = ResourceDefinition<ManagedInstanceEncryptionProtectorProperties>;
+    export type EncryptionProtectorResource = ResourceDefinition<ManagedInstanceEncryptionProtectorProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: ManagedInstanceEncryptionProtectorProperties): EncryptionProtectorResource {
       return {
@@ -168,7 +168,7 @@ export namespace managedInstances {
 }
 export namespace managedInstances {
   export namespace keys {
-    export type KeysResource = ResourceDefinition<ManagedInstanceKeyProperties>;
+    export type KeysResource = ResourceDefinition<ManagedInstanceKeyProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: ManagedInstanceKeyProperties): KeysResource {
       return {
@@ -182,12 +182,12 @@ export namespace managedInstances {
 }
 export namespace servers {
   export namespace databases {
-    export interface AddedResourceProps {
+    export interface AdditionalProps {
       sku?: Expressionable<Sku>;
       tags?: Expressionable<any>;
     }
     
-    export type DatabasesResource = ResourceDefinition<DatabaseProperties> & AddedResourceProps;
+    export type DatabasesResource = ResourceDefinition<DatabaseProperties, AdditionalProps>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: DatabaseProperties, location: Expressionable<string>, sku?: Expressionable<Sku>, tags?: Expressionable<any>): DatabasesResource {
       return {
@@ -195,9 +195,11 @@ export namespace servers {
         apiVersion: '2017-10-01-preview',
         name: name,
         location,
-        sku,
-        tags,
         properties,
+        additional: {
+          sku,
+          tags,
+        },
       };
     }
   }
@@ -205,7 +207,7 @@ export namespace servers {
 export namespace servers {
   export namespace databases {
     export namespace backupShortTermRetentionPolicies {
-      export type BackupShortTermRetentionPoliciesResource = ResourceDefinition<BackupShortTermRetentionPolicyProperties>;
+      export type BackupShortTermRetentionPoliciesResource = ResourceDefinition<BackupShortTermRetentionPolicyProperties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: BackupShortTermRetentionPolicyProperties): BackupShortTermRetentionPoliciesResource {
         return {
@@ -220,12 +222,12 @@ export namespace servers {
 }
 export namespace servers {
   export namespace elasticPools {
-    export interface AddedResourceProps {
+    export interface AdditionalProps {
       sku?: Expressionable<Sku>;
       tags?: Expressionable<any>;
     }
     
-    export type ElasticPoolsResource = ResourceDefinition<ElasticPoolProperties> & AddedResourceProps;
+    export type ElasticPoolsResource = ResourceDefinition<ElasticPoolProperties, AdditionalProps>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: ElasticPoolProperties, location: Expressionable<string>, sku?: Expressionable<Sku>, tags?: Expressionable<any>): ElasticPoolsResource {
       return {
@@ -233,9 +235,11 @@ export namespace servers {
         apiVersion: '2017-10-01-preview',
         name: name,
         location,
-        sku,
-        tags,
         properties,
+        additional: {
+          sku,
+          tags,
+        },
       };
     }
   }

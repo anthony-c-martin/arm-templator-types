@@ -15,7 +15,7 @@ export interface WorkflowProperties {
 }
 
 export namespace workflows {
-  export type WorkflowsResource = ResourceDefinition<WorkflowProperties>;
+  export type WorkflowsResource = ResourceDefinition<WorkflowProperties, undefined>;
   
   export function create(name: Expressionable<string>, properties: WorkflowProperties, location?: Expressionable<string>): WorkflowsResource {
     return {

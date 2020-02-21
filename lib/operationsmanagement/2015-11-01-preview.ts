@@ -26,7 +26,7 @@ export interface SolutionProperties {
 }
 
 export namespace ManagementConfigurations {
-  export type ManagementConfigurationsResource = ResourceDefinition<ManagementConfigurationProperties>;
+  export type ManagementConfigurationsResource = ResourceDefinition<ManagementConfigurationProperties, undefined>;
   
   export function create(name: Expressionable<string>, properties: ManagementConfigurationProperties, location?: Expressionable<string>): ManagementConfigurationsResource {
     return {
@@ -39,11 +39,11 @@ export namespace ManagementConfigurations {
   }
 }
 export namespace solutions {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     plan?: Expressionable<SolutionPlan>;
   }
   
-  export type SolutionsResource = ResourceDefinition<SolutionProperties> & AddedResourceProps;
+  export type SolutionsResource = ResourceDefinition<SolutionProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: SolutionProperties, location?: Expressionable<string>, plan?: Expressionable<SolutionPlan>): SolutionsResource {
     return {
@@ -51,8 +51,10 @@ export namespace solutions {
       apiVersion: '2015-11-01-preview',
       name: [name],
       location,
-      plan,
       properties,
+      additional: {
+        plan,
+      },
     };
   }
 }

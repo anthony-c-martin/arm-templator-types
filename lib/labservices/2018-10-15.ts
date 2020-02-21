@@ -59,11 +59,11 @@ export interface UserProperties {
 }
 
 export namespace labaccounts {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     tags?: Expressionable<any>;
   }
   
-  export type LabaccountsResource = ResourceDefinition<LabAccountProperties> & AddedResourceProps;
+  export type LabaccountsResource = ResourceDefinition<LabAccountProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: LabAccountProperties, location?: Expressionable<string>, tags?: Expressionable<any>): LabaccountsResource {
     return {
@@ -71,18 +71,20 @@ export namespace labaccounts {
       apiVersion: '2018-10-15',
       name: [name],
       location,
-      tags,
       properties,
+      additional: {
+        tags,
+      },
     };
   }
 }
 export namespace labaccounts {
   export namespace galleryimages {
-    export interface AddedResourceProps {
+    export interface AdditionalProps {
       tags?: Expressionable<any>;
     }
     
-    export type GalleryimagesResource = ResourceDefinition<GalleryImageProperties> & AddedResourceProps;
+    export type GalleryimagesResource = ResourceDefinition<GalleryImageProperties, AdditionalProps>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: GalleryImageProperties, location?: Expressionable<string>, tags?: Expressionable<any>): GalleryimagesResource {
       return {
@@ -90,19 +92,21 @@ export namespace labaccounts {
         apiVersion: '2018-10-15',
         name: name,
         location,
-        tags,
         properties,
+        additional: {
+          tags,
+        },
       };
     }
   }
 }
 export namespace labaccounts {
   export namespace labs {
-    export interface AddedResourceProps {
+    export interface AdditionalProps {
       tags?: Expressionable<any>;
     }
     
-    export type LabsResource = ResourceDefinition<LabProperties> & AddedResourceProps;
+    export type LabsResource = ResourceDefinition<LabProperties, AdditionalProps>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: LabProperties, location?: Expressionable<string>, tags?: Expressionable<any>): LabsResource {
       return {
@@ -110,8 +114,10 @@ export namespace labaccounts {
         apiVersion: '2018-10-15',
         name: name,
         location,
-        tags,
         properties,
+        additional: {
+          tags,
+        },
       };
     }
   }
@@ -119,11 +125,11 @@ export namespace labaccounts {
 export namespace labaccounts {
   export namespace labs {
     export namespace environmentsettings {
-      export interface AddedResourceProps {
+      export interface AdditionalProps {
         tags?: Expressionable<any>;
       }
       
-      export type EnvironmentsettingsResource = ResourceDefinition<EnvironmentSettingProperties> & AddedResourceProps;
+      export type EnvironmentsettingsResource = ResourceDefinition<EnvironmentSettingProperties, AdditionalProps>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: EnvironmentSettingProperties, location?: Expressionable<string>, tags?: Expressionable<any>): EnvironmentsettingsResource {
         return {
@@ -131,8 +137,10 @@ export namespace labaccounts {
           apiVersion: '2018-10-15',
           name: name,
           location,
-          tags,
           properties,
+          additional: {
+            tags,
+          },
         };
       }
     }
@@ -142,11 +150,11 @@ export namespace labaccounts {
   export namespace labs {
     export namespace environmentsettings {
       export namespace environments {
-        export interface AddedResourceProps {
+        export interface AdditionalProps {
           tags?: Expressionable<any>;
         }
         
-        export type EnvironmentsResource = ResourceDefinition<EnvironmentProperties> & AddedResourceProps;
+        export type EnvironmentsResource = ResourceDefinition<EnvironmentProperties, AdditionalProps>;
         
         export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: EnvironmentProperties, location?: Expressionable<string>, tags?: Expressionable<any>): EnvironmentsResource {
           return {
@@ -154,8 +162,10 @@ export namespace labaccounts {
             apiVersion: '2018-10-15',
             name: name,
             location,
-            tags,
             properties,
+            additional: {
+              tags,
+            },
           };
         }
       }
@@ -165,11 +175,11 @@ export namespace labaccounts {
 export namespace labaccounts {
   export namespace labs {
     export namespace users {
-      export interface AddedResourceProps {
+      export interface AdditionalProps {
         tags?: Expressionable<any>;
       }
       
-      export type UsersResource = ResourceDefinition<UserProperties> & AddedResourceProps;
+      export type UsersResource = ResourceDefinition<UserProperties, AdditionalProps>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: UserProperties, location?: Expressionable<string>, tags?: Expressionable<any>): UsersResource {
         return {
@@ -177,8 +187,10 @@ export namespace labaccounts {
           apiVersion: '2018-10-15',
           name: name,
           location,
-          tags,
           properties,
+          additional: {
+            tags,
+          },
         };
       }
     }

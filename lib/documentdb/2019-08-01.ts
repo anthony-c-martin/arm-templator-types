@@ -261,12 +261,12 @@ export interface VirtualNetworkRule {
 }
 
 export namespace databaseAccounts {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     kind?: Expressionable<('GlobalDocumentDB' | 'MongoDB' | 'Parse')>;
     tags?: Expressionable<any>;
   }
   
-  export type DatabaseAccountsResource = ResourceDefinition<DatabaseAccountCreateUpdateProperties> & AddedResourceProps;
+  export type DatabaseAccountsResource = ResourceDefinition<DatabaseAccountCreateUpdateProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: DatabaseAccountCreateUpdateProperties, location?: Expressionable<string>, kind?: Expressionable<('GlobalDocumentDB' | 'MongoDB' | 'Parse')>, tags?: Expressionable<any>): DatabaseAccountsResource {
     return {
@@ -274,19 +274,21 @@ export namespace databaseAccounts {
       apiVersion: '2019-08-01',
       name: [name],
       location,
-      kind,
-      tags,
       properties,
+      additional: {
+        kind,
+        tags,
+      },
     };
   }
 }
 export namespace databaseAccounts {
   export namespace cassandraKeyspaces {
-    export interface AddedResourceProps {
+    export interface AdditionalProps {
       tags?: Expressionable<any>;
     }
     
-    export type CassandraKeyspacesResource = ResourceDefinition<CassandraKeyspaceCreateUpdateProperties> & AddedResourceProps;
+    export type CassandraKeyspacesResource = ResourceDefinition<CassandraKeyspaceCreateUpdateProperties, AdditionalProps>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: CassandraKeyspaceCreateUpdateProperties, location?: Expressionable<string>, tags?: Expressionable<any>): CassandraKeyspacesResource {
       return {
@@ -294,8 +296,10 @@ export namespace databaseAccounts {
         apiVersion: '2019-08-01',
         name: name,
         location,
-        tags,
         properties,
+        additional: {
+          tags,
+        },
       };
     }
   }
@@ -303,11 +307,11 @@ export namespace databaseAccounts {
 export namespace databaseAccounts {
   export namespace cassandraKeyspaces {
     export namespace tables {
-      export interface AddedResourceProps {
+      export interface AdditionalProps {
         tags?: Expressionable<any>;
       }
       
-      export type TablesResource = ResourceDefinition<CassandraTableCreateUpdateProperties> & AddedResourceProps;
+      export type TablesResource = ResourceDefinition<CassandraTableCreateUpdateProperties, AdditionalProps>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: CassandraTableCreateUpdateProperties, location?: Expressionable<string>, tags?: Expressionable<any>): TablesResource {
         return {
@@ -315,8 +319,10 @@ export namespace databaseAccounts {
           apiVersion: '2019-08-01',
           name: name,
           location,
-          tags,
           properties,
+          additional: {
+            tags,
+          },
         };
       }
     }
@@ -326,11 +332,11 @@ export namespace databaseAccounts {
   export namespace cassandraKeyspaces {
     export namespace tables {
       export namespace throughputSettings {
-        export interface AddedResourceProps {
+        export interface AdditionalProps {
           tags?: Expressionable<any>;
         }
         
-        export type ThroughputSettingsResource = ResourceDefinition<ThroughputSettingsUpdateProperties> & AddedResourceProps;
+        export type ThroughputSettingsResource = ResourceDefinition<ThroughputSettingsUpdateProperties, AdditionalProps>;
         
         export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ThroughputSettingsUpdateProperties, location?: Expressionable<string>, tags?: Expressionable<any>): ThroughputSettingsResource {
           return {
@@ -338,8 +344,10 @@ export namespace databaseAccounts {
             apiVersion: '2019-08-01',
             name: name,
             location,
-            tags,
             properties,
+            additional: {
+              tags,
+            },
           };
         }
       }
@@ -349,11 +357,11 @@ export namespace databaseAccounts {
 export namespace databaseAccounts {
   export namespace cassandraKeyspaces {
     export namespace throughputSettings {
-      export interface AddedResourceProps {
+      export interface AdditionalProps {
         tags?: Expressionable<any>;
       }
       
-      export type ThroughputSettingsResource = ResourceDefinition<ThroughputSettingsUpdateProperties> & AddedResourceProps;
+      export type ThroughputSettingsResource = ResourceDefinition<ThroughputSettingsUpdateProperties, AdditionalProps>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ThroughputSettingsUpdateProperties, location?: Expressionable<string>, tags?: Expressionable<any>): ThroughputSettingsResource {
         return {
@@ -361,8 +369,10 @@ export namespace databaseAccounts {
           apiVersion: '2019-08-01',
           name: name,
           location,
-          tags,
           properties,
+          additional: {
+            tags,
+          },
         };
       }
     }
@@ -370,11 +380,11 @@ export namespace databaseAccounts {
 }
 export namespace databaseAccounts {
   export namespace gremlinDatabases {
-    export interface AddedResourceProps {
+    export interface AdditionalProps {
       tags?: Expressionable<any>;
     }
     
-    export type GremlinDatabasesResource = ResourceDefinition<GremlinDatabaseCreateUpdateProperties> & AddedResourceProps;
+    export type GremlinDatabasesResource = ResourceDefinition<GremlinDatabaseCreateUpdateProperties, AdditionalProps>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: GremlinDatabaseCreateUpdateProperties, location?: Expressionable<string>, tags?: Expressionable<any>): GremlinDatabasesResource {
       return {
@@ -382,8 +392,10 @@ export namespace databaseAccounts {
         apiVersion: '2019-08-01',
         name: name,
         location,
-        tags,
         properties,
+        additional: {
+          tags,
+        },
       };
     }
   }
@@ -391,11 +403,11 @@ export namespace databaseAccounts {
 export namespace databaseAccounts {
   export namespace gremlinDatabases {
     export namespace graphs {
-      export interface AddedResourceProps {
+      export interface AdditionalProps {
         tags?: Expressionable<any>;
       }
       
-      export type GraphsResource = ResourceDefinition<GremlinGraphCreateUpdateProperties> & AddedResourceProps;
+      export type GraphsResource = ResourceDefinition<GremlinGraphCreateUpdateProperties, AdditionalProps>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: GremlinGraphCreateUpdateProperties, location?: Expressionable<string>, tags?: Expressionable<any>): GraphsResource {
         return {
@@ -403,8 +415,10 @@ export namespace databaseAccounts {
           apiVersion: '2019-08-01',
           name: name,
           location,
-          tags,
           properties,
+          additional: {
+            tags,
+          },
         };
       }
     }
@@ -414,11 +428,11 @@ export namespace databaseAccounts {
   export namespace gremlinDatabases {
     export namespace graphs {
       export namespace throughputSettings {
-        export interface AddedResourceProps {
+        export interface AdditionalProps {
           tags?: Expressionable<any>;
         }
         
-        export type ThroughputSettingsResource = ResourceDefinition<ThroughputSettingsUpdateProperties> & AddedResourceProps;
+        export type ThroughputSettingsResource = ResourceDefinition<ThroughputSettingsUpdateProperties, AdditionalProps>;
         
         export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ThroughputSettingsUpdateProperties, location?: Expressionable<string>, tags?: Expressionable<any>): ThroughputSettingsResource {
           return {
@@ -426,8 +440,10 @@ export namespace databaseAccounts {
             apiVersion: '2019-08-01',
             name: name,
             location,
-            tags,
             properties,
+            additional: {
+              tags,
+            },
           };
         }
       }
@@ -437,11 +453,11 @@ export namespace databaseAccounts {
 export namespace databaseAccounts {
   export namespace gremlinDatabases {
     export namespace throughputSettings {
-      export interface AddedResourceProps {
+      export interface AdditionalProps {
         tags?: Expressionable<any>;
       }
       
-      export type ThroughputSettingsResource = ResourceDefinition<ThroughputSettingsUpdateProperties> & AddedResourceProps;
+      export type ThroughputSettingsResource = ResourceDefinition<ThroughputSettingsUpdateProperties, AdditionalProps>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ThroughputSettingsUpdateProperties, location?: Expressionable<string>, tags?: Expressionable<any>): ThroughputSettingsResource {
         return {
@@ -449,8 +465,10 @@ export namespace databaseAccounts {
           apiVersion: '2019-08-01',
           name: name,
           location,
-          tags,
           properties,
+          additional: {
+            tags,
+          },
         };
       }
     }
@@ -458,11 +476,11 @@ export namespace databaseAccounts {
 }
 export namespace databaseAccounts {
   export namespace mongodbDatabases {
-    export interface AddedResourceProps {
+    export interface AdditionalProps {
       tags?: Expressionable<any>;
     }
     
-    export type MongodbDatabasesResource = ResourceDefinition<MongoDBDatabaseCreateUpdateProperties> & AddedResourceProps;
+    export type MongodbDatabasesResource = ResourceDefinition<MongoDBDatabaseCreateUpdateProperties, AdditionalProps>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: MongoDBDatabaseCreateUpdateProperties, location?: Expressionable<string>, tags?: Expressionable<any>): MongodbDatabasesResource {
       return {
@@ -470,8 +488,10 @@ export namespace databaseAccounts {
         apiVersion: '2019-08-01',
         name: name,
         location,
-        tags,
         properties,
+        additional: {
+          tags,
+        },
       };
     }
   }
@@ -479,11 +499,11 @@ export namespace databaseAccounts {
 export namespace databaseAccounts {
   export namespace mongodbDatabases {
     export namespace collections {
-      export interface AddedResourceProps {
+      export interface AdditionalProps {
         tags?: Expressionable<any>;
       }
       
-      export type CollectionsResource = ResourceDefinition<MongoDBCollectionCreateUpdateProperties> & AddedResourceProps;
+      export type CollectionsResource = ResourceDefinition<MongoDBCollectionCreateUpdateProperties, AdditionalProps>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: MongoDBCollectionCreateUpdateProperties, location?: Expressionable<string>, tags?: Expressionable<any>): CollectionsResource {
         return {
@@ -491,8 +511,10 @@ export namespace databaseAccounts {
           apiVersion: '2019-08-01',
           name: name,
           location,
-          tags,
           properties,
+          additional: {
+            tags,
+          },
         };
       }
     }
@@ -502,11 +524,11 @@ export namespace databaseAccounts {
   export namespace mongodbDatabases {
     export namespace collections {
       export namespace throughputSettings {
-        export interface AddedResourceProps {
+        export interface AdditionalProps {
           tags?: Expressionable<any>;
         }
         
-        export type ThroughputSettingsResource = ResourceDefinition<ThroughputSettingsUpdateProperties> & AddedResourceProps;
+        export type ThroughputSettingsResource = ResourceDefinition<ThroughputSettingsUpdateProperties, AdditionalProps>;
         
         export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ThroughputSettingsUpdateProperties, location?: Expressionable<string>, tags?: Expressionable<any>): ThroughputSettingsResource {
           return {
@@ -514,8 +536,10 @@ export namespace databaseAccounts {
             apiVersion: '2019-08-01',
             name: name,
             location,
-            tags,
             properties,
+            additional: {
+              tags,
+            },
           };
         }
       }
@@ -525,11 +549,11 @@ export namespace databaseAccounts {
 export namespace databaseAccounts {
   export namespace mongodbDatabases {
     export namespace throughputSettings {
-      export interface AddedResourceProps {
+      export interface AdditionalProps {
         tags?: Expressionable<any>;
       }
       
-      export type ThroughputSettingsResource = ResourceDefinition<ThroughputSettingsUpdateProperties> & AddedResourceProps;
+      export type ThroughputSettingsResource = ResourceDefinition<ThroughputSettingsUpdateProperties, AdditionalProps>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ThroughputSettingsUpdateProperties, location?: Expressionable<string>, tags?: Expressionable<any>): ThroughputSettingsResource {
         return {
@@ -537,8 +561,10 @@ export namespace databaseAccounts {
           apiVersion: '2019-08-01',
           name: name,
           location,
-          tags,
           properties,
+          additional: {
+            tags,
+          },
         };
       }
     }
@@ -546,11 +572,11 @@ export namespace databaseAccounts {
 }
 export namespace databaseAccounts {
   export namespace sqlDatabases {
-    export interface AddedResourceProps {
+    export interface AdditionalProps {
       tags?: Expressionable<any>;
     }
     
-    export type SqlDatabasesResource = ResourceDefinition<SqlDatabaseCreateUpdateProperties> & AddedResourceProps;
+    export type SqlDatabasesResource = ResourceDefinition<SqlDatabaseCreateUpdateProperties, AdditionalProps>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: SqlDatabaseCreateUpdateProperties, location?: Expressionable<string>, tags?: Expressionable<any>): SqlDatabasesResource {
       return {
@@ -558,8 +584,10 @@ export namespace databaseAccounts {
         apiVersion: '2019-08-01',
         name: name,
         location,
-        tags,
         properties,
+        additional: {
+          tags,
+        },
       };
     }
   }
@@ -567,11 +595,11 @@ export namespace databaseAccounts {
 export namespace databaseAccounts {
   export namespace sqlDatabases {
     export namespace containers {
-      export interface AddedResourceProps {
+      export interface AdditionalProps {
         tags?: Expressionable<any>;
       }
       
-      export type ContainersResource = ResourceDefinition<SqlContainerCreateUpdateProperties> & AddedResourceProps;
+      export type ContainersResource = ResourceDefinition<SqlContainerCreateUpdateProperties, AdditionalProps>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: SqlContainerCreateUpdateProperties, location?: Expressionable<string>, tags?: Expressionable<any>): ContainersResource {
         return {
@@ -579,8 +607,10 @@ export namespace databaseAccounts {
           apiVersion: '2019-08-01',
           name: name,
           location,
-          tags,
           properties,
+          additional: {
+            tags,
+          },
         };
       }
     }
@@ -590,11 +620,11 @@ export namespace databaseAccounts {
   export namespace sqlDatabases {
     export namespace containers {
       export namespace storedProcedures {
-        export interface AddedResourceProps {
+        export interface AdditionalProps {
           tags?: Expressionable<any>;
         }
         
-        export type StoredProceduresResource = ResourceDefinition<SqlStoredProcedureCreateUpdateProperties> & AddedResourceProps;
+        export type StoredProceduresResource = ResourceDefinition<SqlStoredProcedureCreateUpdateProperties, AdditionalProps>;
         
         export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: SqlStoredProcedureCreateUpdateProperties, location?: Expressionable<string>, tags?: Expressionable<any>): StoredProceduresResource {
           return {
@@ -602,8 +632,10 @@ export namespace databaseAccounts {
             apiVersion: '2019-08-01',
             name: name,
             location,
-            tags,
             properties,
+            additional: {
+              tags,
+            },
           };
         }
       }
@@ -614,11 +646,11 @@ export namespace databaseAccounts {
   export namespace sqlDatabases {
     export namespace containers {
       export namespace throughputSettings {
-        export interface AddedResourceProps {
+        export interface AdditionalProps {
           tags?: Expressionable<any>;
         }
         
-        export type ThroughputSettingsResource = ResourceDefinition<ThroughputSettingsUpdateProperties> & AddedResourceProps;
+        export type ThroughputSettingsResource = ResourceDefinition<ThroughputSettingsUpdateProperties, AdditionalProps>;
         
         export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ThroughputSettingsUpdateProperties, location?: Expressionable<string>, tags?: Expressionable<any>): ThroughputSettingsResource {
           return {
@@ -626,8 +658,10 @@ export namespace databaseAccounts {
             apiVersion: '2019-08-01',
             name: name,
             location,
-            tags,
             properties,
+            additional: {
+              tags,
+            },
           };
         }
       }
@@ -638,11 +672,11 @@ export namespace databaseAccounts {
   export namespace sqlDatabases {
     export namespace containers {
       export namespace triggers {
-        export interface AddedResourceProps {
+        export interface AdditionalProps {
           tags?: Expressionable<any>;
         }
         
-        export type TriggersResource = ResourceDefinition<SqlTriggerCreateUpdateProperties> & AddedResourceProps;
+        export type TriggersResource = ResourceDefinition<SqlTriggerCreateUpdateProperties, AdditionalProps>;
         
         export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: SqlTriggerCreateUpdateProperties, location?: Expressionable<string>, tags?: Expressionable<any>): TriggersResource {
           return {
@@ -650,8 +684,10 @@ export namespace databaseAccounts {
             apiVersion: '2019-08-01',
             name: name,
             location,
-            tags,
             properties,
+            additional: {
+              tags,
+            },
           };
         }
       }
@@ -662,11 +698,11 @@ export namespace databaseAccounts {
   export namespace sqlDatabases {
     export namespace containers {
       export namespace userDefinedFunctions {
-        export interface AddedResourceProps {
+        export interface AdditionalProps {
           tags?: Expressionable<any>;
         }
         
-        export type UserDefinedFunctionsResource = ResourceDefinition<SqlUserDefinedFunctionCreateUpdateProperties> & AddedResourceProps;
+        export type UserDefinedFunctionsResource = ResourceDefinition<SqlUserDefinedFunctionCreateUpdateProperties, AdditionalProps>;
         
         export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: SqlUserDefinedFunctionCreateUpdateProperties, location?: Expressionable<string>, tags?: Expressionable<any>): UserDefinedFunctionsResource {
           return {
@@ -674,8 +710,10 @@ export namespace databaseAccounts {
             apiVersion: '2019-08-01',
             name: name,
             location,
-            tags,
             properties,
+            additional: {
+              tags,
+            },
           };
         }
       }
@@ -685,11 +723,11 @@ export namespace databaseAccounts {
 export namespace databaseAccounts {
   export namespace sqlDatabases {
     export namespace throughputSettings {
-      export interface AddedResourceProps {
+      export interface AdditionalProps {
         tags?: Expressionable<any>;
       }
       
-      export type ThroughputSettingsResource = ResourceDefinition<ThroughputSettingsUpdateProperties> & AddedResourceProps;
+      export type ThroughputSettingsResource = ResourceDefinition<ThroughputSettingsUpdateProperties, AdditionalProps>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ThroughputSettingsUpdateProperties, location?: Expressionable<string>, tags?: Expressionable<any>): ThroughputSettingsResource {
         return {
@@ -697,8 +735,10 @@ export namespace databaseAccounts {
           apiVersion: '2019-08-01',
           name: name,
           location,
-          tags,
           properties,
+          additional: {
+            tags,
+          },
         };
       }
     }
@@ -706,11 +746,11 @@ export namespace databaseAccounts {
 }
 export namespace databaseAccounts {
   export namespace tables {
-    export interface AddedResourceProps {
+    export interface AdditionalProps {
       tags?: Expressionable<any>;
     }
     
-    export type TablesResource = ResourceDefinition<TableCreateUpdateProperties> & AddedResourceProps;
+    export type TablesResource = ResourceDefinition<TableCreateUpdateProperties, AdditionalProps>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: TableCreateUpdateProperties, location?: Expressionable<string>, tags?: Expressionable<any>): TablesResource {
       return {
@@ -718,8 +758,10 @@ export namespace databaseAccounts {
         apiVersion: '2019-08-01',
         name: name,
         location,
-        tags,
         properties,
+        additional: {
+          tags,
+        },
       };
     }
   }
@@ -727,11 +769,11 @@ export namespace databaseAccounts {
 export namespace databaseAccounts {
   export namespace tables {
     export namespace throughputSettings {
-      export interface AddedResourceProps {
+      export interface AdditionalProps {
         tags?: Expressionable<any>;
       }
       
-      export type ThroughputSettingsResource = ResourceDefinition<ThroughputSettingsUpdateProperties> & AddedResourceProps;
+      export type ThroughputSettingsResource = ResourceDefinition<ThroughputSettingsUpdateProperties, AdditionalProps>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ThroughputSettingsUpdateProperties, location?: Expressionable<string>, tags?: Expressionable<any>): ThroughputSettingsResource {
         return {
@@ -739,8 +781,10 @@ export namespace databaseAccounts {
           apiVersion: '2019-08-01',
           name: name,
           location,
-          tags,
           properties,
+          additional: {
+            tags,
+          },
         };
       }
     }

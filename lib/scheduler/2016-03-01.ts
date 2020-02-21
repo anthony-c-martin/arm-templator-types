@@ -133,7 +133,7 @@ export interface StorageQueueMessage {
 }
 
 export namespace jobCollections {
-  export type JobCollectionsResource = ResourceDefinition<JobCollectionProperties>;
+  export type JobCollectionsResource = ResourceDefinition<JobCollectionProperties, undefined>;
   
   export function create(name: Expressionable<string>, properties: JobCollectionProperties, location?: Expressionable<string>): JobCollectionsResource {
     return {
@@ -147,7 +147,7 @@ export namespace jobCollections {
 }
 export namespace jobCollections {
   export namespace jobs {
-    export type JobsResource = ResourceDefinition<JobProperties>;
+    export type JobsResource = ResourceDefinition<JobProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: JobProperties): JobsResource {
       return {

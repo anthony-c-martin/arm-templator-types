@@ -38,12 +38,12 @@ export interface Sku {
 }
 
 export namespace Redis {
-  export interface AddedResourceProps {
-    tags?: Expressionable<any>;
+  export interface AdditionalProps {
     zones?: Expressionable<string[]>;
+    tags?: Expressionable<any>;
   }
   
-  export type RedisResource = ResourceDefinition<RedisCreateProperties> & AddedResourceProps;
+  export type RedisResource = ResourceDefinition<RedisCreateProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: RedisCreateProperties, location: Expressionable<string>, zones?: Expressionable<string[]>, tags?: Expressionable<any>): RedisResource {
     return {
@@ -51,15 +51,17 @@ export namespace Redis {
       apiVersion: '2017-10-01',
       name: [name],
       location,
-      zones,
-      tags,
       properties,
+      additional: {
+        zones,
+        tags,
+      },
     };
   }
 }
 export namespace Redis {
   export namespace firewallRules {
-    export type FirewallRulesResource = ResourceDefinition<RedisFirewallRuleProperties>;
+    export type FirewallRulesResource = ResourceDefinition<RedisFirewallRuleProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: RedisFirewallRuleProperties): FirewallRulesResource {
       return {
@@ -73,7 +75,7 @@ export namespace Redis {
 }
 export namespace Redis {
   export namespace linkedServers {
-    export type LinkedServersResource = ResourceDefinition<RedisLinkedServerCreateProperties>;
+    export type LinkedServersResource = ResourceDefinition<RedisLinkedServerCreateProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: RedisLinkedServerCreateProperties): LinkedServersResource {
       return {
@@ -87,7 +89,7 @@ export namespace Redis {
 }
 export namespace Redis {
   export namespace patchSchedules {
-    export type PatchSchedulesResource = ResourceDefinition<ScheduleEntries>;
+    export type PatchSchedulesResource = ResourceDefinition<ScheduleEntries, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: ScheduleEntries): PatchSchedulesResource {
       return {

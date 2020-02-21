@@ -81,7 +81,7 @@ export interface VolumeProperties {
 }
 
 export namespace managers {
-  export type ManagersResource = ResourceDefinition<ManagerProperties>;
+  export type ManagersResource = ResourceDefinition<ManagerProperties, undefined>;
   
   export function create(name: Expressionable<string>, properties: ManagerProperties, location: Expressionable<string>): ManagersResource {
     return {
@@ -95,38 +95,42 @@ export namespace managers {
 }
 export namespace managers {
   export namespace accessControlRecords {
-    export interface AddedResourceProps {
+    export interface AdditionalProps {
       kind?: Expressionable<('Series8000')>;
     }
     
-    export type AccessControlRecordsResource = ResourceDefinition<AccessControlRecordProperties> & AddedResourceProps;
+    export type AccessControlRecordsResource = ResourceDefinition<AccessControlRecordProperties, AdditionalProps>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: AccessControlRecordProperties, kind?: Expressionable<('Series8000')>): AccessControlRecordsResource {
       return {
         type: 'Microsoft.StorSimple/managers/accessControlRecords',
         apiVersion: '2017-06-01',
         name: name,
-        kind,
         properties,
+        additional: {
+          kind,
+        },
       };
     }
   }
 }
 export namespace managers {
   export namespace bandwidthSettings {
-    export interface AddedResourceProps {
+    export interface AdditionalProps {
       kind?: Expressionable<('Series8000')>;
     }
     
-    export type BandwidthSettingsResource = ResourceDefinition<BandwidthRateSettingProperties> & AddedResourceProps;
+    export type BandwidthSettingsResource = ResourceDefinition<BandwidthRateSettingProperties, AdditionalProps>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: BandwidthRateSettingProperties, kind?: Expressionable<('Series8000')>): BandwidthSettingsResource {
       return {
         type: 'Microsoft.StorSimple/managers/bandwidthSettings',
         apiVersion: '2017-06-01',
         name: name,
-        kind,
         properties,
+        additional: {
+          kind,
+        },
       };
     }
   }
@@ -134,19 +138,21 @@ export namespace managers {
 export namespace managers {
   export namespace devices {
     export namespace backupPolicies {
-      export interface AddedResourceProps {
+      export interface AdditionalProps {
         kind?: Expressionable<('Series8000')>;
       }
       
-      export type BackupPoliciesResource = ResourceDefinition<BackupPolicyProperties> & AddedResourceProps;
+      export type BackupPoliciesResource = ResourceDefinition<BackupPolicyProperties, AdditionalProps>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: BackupPolicyProperties, kind?: Expressionable<('Series8000')>): BackupPoliciesResource {
         return {
           type: 'Microsoft.StorSimple/managers/devices/backupPolicies',
           apiVersion: '2017-06-01',
           name: name,
-          kind,
           properties,
+          additional: {
+            kind,
+          },
         };
       }
     }
@@ -156,19 +162,21 @@ export namespace managers {
   export namespace devices {
     export namespace backupPolicies {
       export namespace schedules {
-        export interface AddedResourceProps {
+        export interface AdditionalProps {
           kind?: Expressionable<('Series8000')>;
         }
         
-        export type SchedulesResource = ResourceDefinition<BackupScheduleProperties> & AddedResourceProps;
+        export type SchedulesResource = ResourceDefinition<BackupScheduleProperties, AdditionalProps>;
         
         export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: BackupScheduleProperties, kind?: Expressionable<('Series8000')>): SchedulesResource {
           return {
             type: 'Microsoft.StorSimple/managers/devices/backupPolicies/schedules',
             apiVersion: '2017-06-01',
             name: name,
-            kind,
             properties,
+            additional: {
+              kind,
+            },
           };
         }
       }
@@ -178,19 +186,21 @@ export namespace managers {
 export namespace managers {
   export namespace devices {
     export namespace volumeContainers {
-      export interface AddedResourceProps {
+      export interface AdditionalProps {
         kind?: Expressionable<('Series8000')>;
       }
       
-      export type VolumeContainersResource = ResourceDefinition<VolumeContainerProperties> & AddedResourceProps;
+      export type VolumeContainersResource = ResourceDefinition<VolumeContainerProperties, AdditionalProps>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: VolumeContainerProperties, kind?: Expressionable<('Series8000')>): VolumeContainersResource {
         return {
           type: 'Microsoft.StorSimple/managers/devices/volumeContainers',
           apiVersion: '2017-06-01',
           name: name,
-          kind,
           properties,
+          additional: {
+            kind,
+          },
         };
       }
     }
@@ -200,19 +210,21 @@ export namespace managers {
   export namespace devices {
     export namespace volumeContainers {
       export namespace volumes {
-        export interface AddedResourceProps {
+        export interface AdditionalProps {
           kind?: Expressionable<('Series8000')>;
         }
         
-        export type VolumesResource = ResourceDefinition<VolumeProperties> & AddedResourceProps;
+        export type VolumesResource = ResourceDefinition<VolumeProperties, AdditionalProps>;
         
         export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: VolumeProperties, kind?: Expressionable<('Series8000')>): VolumesResource {
           return {
             type: 'Microsoft.StorSimple/managers/devices/volumeContainers/volumes',
             apiVersion: '2017-06-01',
             name: name,
-            kind,
             properties,
+            additional: {
+              kind,
+            },
           };
         }
       }
@@ -221,19 +233,21 @@ export namespace managers {
 }
 export namespace managers {
   export namespace storageAccountCredentials {
-    export interface AddedResourceProps {
+    export interface AdditionalProps {
       kind?: Expressionable<('Series8000')>;
     }
     
-    export type StorageAccountCredentialsResource = ResourceDefinition<StorageAccountCredentialProperties> & AddedResourceProps;
+    export type StorageAccountCredentialsResource = ResourceDefinition<StorageAccountCredentialProperties, AdditionalProps>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: StorageAccountCredentialProperties, kind?: Expressionable<('Series8000')>): StorageAccountCredentialsResource {
       return {
         type: 'Microsoft.StorSimple/managers/storageAccountCredentials',
         apiVersion: '2017-06-01',
         name: name,
-        kind,
         properties,
+        additional: {
+          kind,
+        },
       };
     }
   }

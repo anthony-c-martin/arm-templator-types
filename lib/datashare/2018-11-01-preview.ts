@@ -318,12 +318,12 @@ export interface SqlDWTableProperties {
 }
 
 export namespace accounts {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     identity: Expressionable<Identity>;
     tags?: Expressionable<any>;
   }
   
-  export type AccountsResource = ResourceDefinition<AccountProperties> & AddedResourceProps;
+  export type AccountsResource = ResourceDefinition<AccountProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: AccountProperties, identity: Expressionable<Identity>, location?: Expressionable<string>, tags?: Expressionable<any>): AccountsResource {
     return {
@@ -331,15 +331,17 @@ export namespace accounts {
       apiVersion: '2018-11-01-preview',
       name: [name],
       location,
-      identity,
-      tags,
       properties,
+      additional: {
+        identity,
+        tags,
+      },
     };
   }
 }
 export namespace accounts {
   export namespace shares {
-    export type SharesResource = ResourceDefinition<ShareProperties>;
+    export type SharesResource = ResourceDefinition<ShareProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: ShareProperties): SharesResource {
       return {
@@ -353,7 +355,7 @@ export namespace accounts {
 }
 export namespace accounts {
   export namespace shareSubscriptions {
-    export type ShareSubscriptionsResource = ResourceDefinition<ShareSubscriptionProperties>;
+    export type ShareSubscriptionsResource = ResourceDefinition<ShareSubscriptionProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: ShareSubscriptionProperties): ShareSubscriptionsResource {
       return {
@@ -368,7 +370,7 @@ export namespace accounts {
 export namespace accounts {
   export namespace shareSubscriptions {
     export namespace dataSetMappings {
-      export type DataSetMappingsResource = ResourceDefinition<BlobMappingProperties | BlobFolderMappingProperties | BlobContainerMappingProperties | ADLSGen2FileDataSetMappingProperties | ADLSGen2FolderDataSetMappingProperties | ADLSGen2FileSystemDataSetMappingProperties | KustoClusterDataSetMappingProperties | KustoDatabaseDataSetMappingProperties | SqlDWTableDataSetMappingProperties | SqlDBTableDataSetMappingProperties>;
+      export type DataSetMappingsResource = ResourceDefinition<BlobMappingProperties | BlobFolderMappingProperties | BlobContainerMappingProperties | ADLSGen2FileDataSetMappingProperties | ADLSGen2FolderDataSetMappingProperties | ADLSGen2FileSystemDataSetMappingProperties | KustoClusterDataSetMappingProperties | KustoDatabaseDataSetMappingProperties | SqlDWTableDataSetMappingProperties | SqlDBTableDataSetMappingProperties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: BlobMappingProperties | BlobFolderMappingProperties | BlobContainerMappingProperties | ADLSGen2FileDataSetMappingProperties | ADLSGen2FolderDataSetMappingProperties | ADLSGen2FileSystemDataSetMappingProperties | KustoClusterDataSetMappingProperties | KustoDatabaseDataSetMappingProperties | SqlDWTableDataSetMappingProperties | SqlDBTableDataSetMappingProperties): DataSetMappingsResource {
         return {
@@ -384,7 +386,7 @@ export namespace accounts {
 export namespace accounts {
   export namespace shareSubscriptions {
     export namespace triggers {
-      export type TriggersResource = ResourceDefinition<ScheduledTriggerProperties>;
+      export type TriggersResource = ResourceDefinition<ScheduledTriggerProperties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ScheduledTriggerProperties): TriggersResource {
         return {
@@ -400,7 +402,7 @@ export namespace accounts {
 export namespace accounts {
   export namespace shares {
     export namespace dataSets {
-      export type DataSetsResource = ResourceDefinition<BlobProperties | BlobFolderProperties | BlobContainerProperties | ADLSGen2FileProperties | ADLSGen2FolderProperties | ADLSGen2FileSystemProperties | ADLSGen1FolderProperties | ADLSGen1FileProperties | KustoClusterDataSetProperties | KustoDatabaseDataSetProperties | SqlDWTableProperties | SqlDBTableProperties>;
+      export type DataSetsResource = ResourceDefinition<BlobProperties | BlobFolderProperties | BlobContainerProperties | ADLSGen2FileProperties | ADLSGen2FolderProperties | ADLSGen2FileSystemProperties | ADLSGen1FolderProperties | ADLSGen1FileProperties | KustoClusterDataSetProperties | KustoDatabaseDataSetProperties | SqlDWTableProperties | SqlDBTableProperties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: BlobProperties | BlobFolderProperties | BlobContainerProperties | ADLSGen2FileProperties | ADLSGen2FolderProperties | ADLSGen2FileSystemProperties | ADLSGen1FolderProperties | ADLSGen1FileProperties | KustoClusterDataSetProperties | KustoDatabaseDataSetProperties | SqlDWTableProperties | SqlDBTableProperties): DataSetsResource {
         return {
@@ -416,7 +418,7 @@ export namespace accounts {
 export namespace accounts {
   export namespace shares {
     export namespace invitations {
-      export type InvitationsResource = ResourceDefinition<InvitationProperties>;
+      export type InvitationsResource = ResourceDefinition<InvitationProperties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: InvitationProperties): InvitationsResource {
         return {
@@ -432,7 +434,7 @@ export namespace accounts {
 export namespace accounts {
   export namespace shares {
     export namespace synchronizationSettings {
-      export type SynchronizationSettingsResource = ResourceDefinition<ScheduledSynchronizationSettingProperties>;
+      export type SynchronizationSettingsResource = ResourceDefinition<ScheduledSynchronizationSettingProperties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ScheduledSynchronizationSettingProperties): SynchronizationSettingsResource {
         return {

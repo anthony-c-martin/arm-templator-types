@@ -178,7 +178,7 @@ export interface SubResource {
 }
 
 export namespace publicIPAddresses {
-  export type PublicIPAddressesResource = ResourceDefinition<any>;
+  export type PublicIPAddressesResource = ResourceDefinition<any, undefined>;
   
   export function create(name: Expressionable<string>, properties: any): PublicIPAddressesResource {
     return {
@@ -190,7 +190,7 @@ export namespace publicIPAddresses {
   }
 }
 export namespace networkInterfaces {
-  export type NetworkInterfacesResource = ResourceDefinition<any>;
+  export type NetworkInterfacesResource = ResourceDefinition<any, undefined>;
   
   export function create(name: Expressionable<string>, properties: any): NetworkInterfacesResource {
     return {
@@ -202,7 +202,7 @@ export namespace networkInterfaces {
   }
 }
 export namespace virtualNetworks {
-  export type VirtualNetworksResource = ResourceDefinition<any>;
+  export type VirtualNetworksResource = ResourceDefinition<any, undefined>;
   
   export function create(name: Expressionable<string>, properties: any): VirtualNetworksResource {
     return {
@@ -214,7 +214,7 @@ export namespace virtualNetworks {
   }
 }
 export namespace loadBalancers {
-  export type LoadBalancersResource = ResourceDefinition<any>;
+  export type LoadBalancersResource = ResourceDefinition<any, undefined>;
   
   export function create(name: Expressionable<string>, properties: any): LoadBalancersResource {
     return {
@@ -226,7 +226,7 @@ export namespace loadBalancers {
   }
 }
 export namespace networkSecurityGroups {
-  export type NetworkSecurityGroupsResource = ResourceDefinition<any>;
+  export type NetworkSecurityGroupsResource = ResourceDefinition<any, undefined>;
   
   export function create(name: Expressionable<string>, properties: any): NetworkSecurityGroupsResource {
     return {
@@ -238,7 +238,7 @@ export namespace networkSecurityGroups {
   }
 }
 export namespace routeTables {
-  export type RouteTablesResource = ResourceDefinition<any>;
+  export type RouteTablesResource = ResourceDefinition<any, undefined>;
   
   export function create(name: Expressionable<string>, properties: any): RouteTablesResource {
     return {

@@ -476,7 +476,7 @@ export interface networkWatcherAgentLinux {
 }
 
 export namespace availabilitySets {
-  export type AvailabilitySetsResource = ResourceDefinition<any>;
+  export type AvailabilitySetsResource = ResourceDefinition<any, undefined>;
   
   export function create(name: Expressionable<string>, properties: any): AvailabilitySetsResource {
     return {
@@ -488,7 +488,7 @@ export namespace availabilitySets {
   }
 }
 export namespace virtualMachines {
-  export type VirtualMachinesResource = ResourceDefinition<any>;
+  export type VirtualMachinesResource = ResourceDefinition<any, undefined>;
   
   export function create(name: Expressionable<string>, properties: any): VirtualMachinesResource {
     return {
@@ -500,25 +500,27 @@ export namespace virtualMachines {
   }
 }
 export namespace virtualMachineScaleSets {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     sku: Expressionable<sku>;
   }
   
-  export type VirtualMachineScaleSetsResource = ResourceDefinition<any> & AddedResourceProps;
+  export type VirtualMachineScaleSetsResource = ResourceDefinition<any, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: any, sku: Expressionable<sku>): VirtualMachineScaleSetsResource {
     return {
       type: 'Microsoft.Compute/virtualMachineScaleSets',
       apiVersion: '2015-05-01-preview',
       name: [name],
-      sku,
       properties,
+      additional: {
+        sku,
+      },
     };
   }
 }
 export namespace virtualMachines {
   export namespace extensions {
-    export type ExtensionsResource = ResourceDefinition<any>;
+    export type ExtensionsResource = ResourceDefinition<any, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: any): ExtensionsResource {
       return {

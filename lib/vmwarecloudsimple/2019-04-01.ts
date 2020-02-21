@@ -92,12 +92,12 @@ export interface VirtualNic {
 }
 
 export namespace dedicatedCloudNodes {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     sku?: Expressionable<Sku>;
     tags?: Expressionable<any>;
   }
   
-  export type DedicatedCloudNodesResource = ResourceDefinition<DedicatedCloudNodeProperties> & AddedResourceProps;
+  export type DedicatedCloudNodesResource = ResourceDefinition<DedicatedCloudNodeProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: DedicatedCloudNodeProperties, location: Expressionable<string>, sku?: Expressionable<Sku>, tags?: Expressionable<any>): DedicatedCloudNodesResource {
     return {
@@ -105,18 +105,20 @@ export namespace dedicatedCloudNodes {
       apiVersion: '2019-04-01',
       name: [name],
       location,
-      sku,
-      tags,
       properties,
+      additional: {
+        sku,
+        tags,
+      },
     };
   }
 }
 export namespace dedicatedCloudServices {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     tags?: Expressionable<any>;
   }
   
-  export type DedicatedCloudServicesResource = ResourceDefinition<DedicatedCloudServiceProperties> & AddedResourceProps;
+  export type DedicatedCloudServicesResource = ResourceDefinition<DedicatedCloudServiceProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: DedicatedCloudServiceProperties, location: Expressionable<string>, tags?: Expressionable<any>): DedicatedCloudServicesResource {
     return {
@@ -124,17 +126,19 @@ export namespace dedicatedCloudServices {
       apiVersion: '2019-04-01',
       name: [name],
       location,
-      tags,
       properties,
+      additional: {
+        tags,
+      },
     };
   }
 }
 export namespace virtualMachines {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     tags?: Expressionable<any>;
   }
   
-  export type VirtualMachinesResource = ResourceDefinition<VirtualMachineProperties> & AddedResourceProps;
+  export type VirtualMachinesResource = ResourceDefinition<VirtualMachineProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: VirtualMachineProperties, location: Expressionable<string>, tags?: Expressionable<any>): VirtualMachinesResource {
     return {
@@ -142,8 +146,10 @@ export namespace virtualMachines {
       apiVersion: '2019-04-01',
       name: [name],
       location,
-      tags,
       properties,
+      additional: {
+        tags,
+      },
     };
   }
 }

@@ -11,11 +11,11 @@ export interface StorageAccountProperties {
 }
 
 export namespace registries {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     tags?: Expressionable<any>;
   }
   
-  export type RegistriesResource = ResourceDefinition<RegistryProperties> & AddedResourceProps;
+  export type RegistriesResource = ResourceDefinition<RegistryProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: RegistryProperties, location: Expressionable<string>, tags?: Expressionable<any>): RegistriesResource {
     return {
@@ -23,8 +23,10 @@ export namespace registries {
       apiVersion: '2016-06-27-preview',
       name: [name],
       location,
-      tags,
       properties,
+      additional: {
+        tags,
+      },
     };
   }
 }

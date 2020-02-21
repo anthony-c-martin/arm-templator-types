@@ -30,11 +30,11 @@ export interface ServicesProperties {
 }
 
 export namespace services {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     kind: Expressionable<('fhir' | 'fhir-Stu3' | 'fhir-R4')>;
   }
   
-  export type ServicesResource = ResourceDefinition<ServicesProperties> & AddedResourceProps;
+  export type ServicesResource = ResourceDefinition<ServicesProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: ServicesProperties, location: Expressionable<string>, kind: Expressionable<('fhir' | 'fhir-Stu3' | 'fhir-R4')>): ServicesResource {
     return {
@@ -42,8 +42,10 @@ export namespace services {
       apiVersion: '2018-08-20-preview',
       name: [name],
       location,
-      kind,
       properties,
+      additional: {
+        kind,
+      },
     };
   }
 }

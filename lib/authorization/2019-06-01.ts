@@ -45,12 +45,12 @@ export interface PolicySku {
 }
 
 export namespace policyAssignments {
-  export interface AddedResourceProps {
-    sku?: Expressionable<PolicySku>;
+  export interface AdditionalProps {
     identity?: Expressionable<Identity>;
+    sku?: Expressionable<PolicySku>;
   }
   
-  export type PolicyAssignmentsResource = ResourceDefinition<PolicyAssignmentProperties> & AddedResourceProps;
+  export type PolicyAssignmentsResource = ResourceDefinition<PolicyAssignmentProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: PolicyAssignmentProperties, location?: Expressionable<string>, identity?: Expressionable<Identity>, sku?: Expressionable<PolicySku>): PolicyAssignmentsResource {
     return {
@@ -58,14 +58,16 @@ export namespace policyAssignments {
       apiVersion: '2019-06-01',
       name: [name],
       location,
-      identity,
-      sku,
       properties,
+      additional: {
+        identity,
+        sku,
+      },
     };
   }
 }
 export namespace policyDefinitions {
-  export type PolicyDefinitionsResource = ResourceDefinition<PolicyDefinitionProperties>;
+  export type PolicyDefinitionsResource = ResourceDefinition<PolicyDefinitionProperties, undefined>;
   
   export function create(name: Expressionable<string>, properties: PolicyDefinitionProperties): PolicyDefinitionsResource {
     return {
@@ -77,7 +79,7 @@ export namespace policyDefinitions {
   }
 }
 export namespace policySetDefinitions {
-  export type PolicySetDefinitionsResource = ResourceDefinition<PolicySetDefinitionProperties>;
+  export type PolicySetDefinitionsResource = ResourceDefinition<PolicySetDefinitionProperties, undefined>;
   
   export function create(name: Expressionable<string>, properties: PolicySetDefinitionProperties): PolicySetDefinitionsResource {
     return {

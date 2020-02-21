@@ -6,7 +6,7 @@ export interface ManagementLockProperties {
 }
 
 export namespace locks {
-  export type LocksResource = ResourceDefinition<ManagementLockProperties>;
+  export type LocksResource = ResourceDefinition<ManagementLockProperties, undefined>;
   
   export function create(name: Expressionable<string>, properties: ManagementLockProperties): LocksResource {
     return {

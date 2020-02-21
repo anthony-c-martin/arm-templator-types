@@ -18,7 +18,7 @@ export interface sku {
 
 export namespace vaults {
   export namespace secrets {
-    export type SecretsResource = ResourceDefinition<any>;
+    export type SecretsResource = ResourceDefinition<any, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: any): SecretsResource {
       return {
@@ -30,7 +30,7 @@ export namespace vaults {
     }
   }
 }
-export type UndefinedResource = ResourceDefinition<any>;
+export type UndefinedResource = ResourceDefinition<any, undefined>;
 
 export function create(name: [], properties: any): UndefinedResource {
   return {
@@ -41,7 +41,7 @@ export function create(name: [], properties: any): UndefinedResource {
   };
 }
 export namespace vaults {
-  export type VaultsResource = ResourceDefinition<any>;
+  export type VaultsResource = ResourceDefinition<any, undefined>;
   
   export function create(name: Expressionable<string>, properties: any): VaultsResource {
     return {

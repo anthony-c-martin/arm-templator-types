@@ -26,7 +26,7 @@ export interface WorkspaceProperties {
 }
 
 export namespace accounts {
-  export type AccountsResource = ResourceDefinition<AccountProperties>;
+  export type AccountsResource = ResourceDefinition<AccountProperties, undefined>;
   
   export function create(name: Expressionable<string>, properties: AccountProperties, location: Expressionable<string>): AccountsResource {
     return {
@@ -40,7 +40,7 @@ export namespace accounts {
 }
 export namespace accounts {
   export namespace workspaces {
-    export type WorkspacesResource = ResourceDefinition<WorkspaceProperties>;
+    export type WorkspacesResource = ResourceDefinition<WorkspaceProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: WorkspaceProperties, location: Expressionable<string>): WorkspacesResource {
       return {
@@ -56,7 +56,7 @@ export namespace accounts {
 export namespace accounts {
   export namespace workspaces {
     export namespace projects {
-      export type ProjectsResource = ResourceDefinition<ProjectProperties>;
+      export type ProjectsResource = ResourceDefinition<ProjectProperties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ProjectProperties, location: Expressionable<string>): ProjectsResource {
         return {

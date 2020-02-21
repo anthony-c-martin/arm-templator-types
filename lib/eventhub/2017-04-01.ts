@@ -73,12 +73,12 @@ export interface Subnet {
 }
 
 export namespace namespaces {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     sku?: Expressionable<Sku>;
     tags?: Expressionable<any>;
   }
   
-  export type NamespacesResource = ResourceDefinition<EHNamespaceProperties> & AddedResourceProps;
+  export type NamespacesResource = ResourceDefinition<EHNamespaceProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: EHNamespaceProperties, location?: Expressionable<string>, sku?: Expressionable<Sku>, tags?: Expressionable<any>): NamespacesResource {
     return {
@@ -86,15 +86,17 @@ export namespace namespaces {
       apiVersion: '2017-04-01',
       name: [name],
       location,
-      sku,
-      tags,
       properties,
+      additional: {
+        sku,
+        tags,
+      },
     };
   }
 }
 export namespace namespaces {
   export namespace AuthorizationRules {
-    export type AuthorizationRulesResource = ResourceDefinition<AuthorizationRuleProperties>;
+    export type AuthorizationRulesResource = ResourceDefinition<AuthorizationRuleProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: AuthorizationRuleProperties): AuthorizationRulesResource {
       return {
@@ -108,7 +110,7 @@ export namespace namespaces {
 }
 export namespace namespaces {
   export namespace disasterRecoveryConfigs {
-    export type DisasterRecoveryConfigsResource = ResourceDefinition<ArmDisasterRecoveryProperties>;
+    export type DisasterRecoveryConfigsResource = ResourceDefinition<ArmDisasterRecoveryProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: ArmDisasterRecoveryProperties): DisasterRecoveryConfigsResource {
       return {
@@ -122,7 +124,7 @@ export namespace namespaces {
 }
 export namespace namespaces {
   export namespace eventhubs {
-    export type EventhubsResource = ResourceDefinition<EventhubProperties>;
+    export type EventhubsResource = ResourceDefinition<EventhubProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: EventhubProperties): EventhubsResource {
       return {
@@ -137,7 +139,7 @@ export namespace namespaces {
 export namespace namespaces {
   export namespace eventhubs {
     export namespace authorizationRules {
-      export type AuthorizationRulesResource = ResourceDefinition<AuthorizationRuleProperties>;
+      export type AuthorizationRulesResource = ResourceDefinition<AuthorizationRuleProperties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: AuthorizationRuleProperties): AuthorizationRulesResource {
         return {
@@ -153,7 +155,7 @@ export namespace namespaces {
 export namespace namespaces {
   export namespace eventhubs {
     export namespace consumergroups {
-      export type ConsumergroupsResource = ResourceDefinition<ConsumerGroupProperties>;
+      export type ConsumergroupsResource = ResourceDefinition<ConsumerGroupProperties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ConsumerGroupProperties): ConsumergroupsResource {
         return {
@@ -168,7 +170,7 @@ export namespace namespaces {
 }
 export namespace namespaces {
   export namespace networkRuleSets {
-    export type NetworkRuleSetsResource = ResourceDefinition<NetworkRuleSetProperties>;
+    export type NetworkRuleSetsResource = ResourceDefinition<NetworkRuleSetProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: NetworkRuleSetProperties): NetworkRuleSetsResource {
       return {

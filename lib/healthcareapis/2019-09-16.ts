@@ -34,12 +34,12 @@ export interface Identity {
 }
 
 export namespace services {
-  export interface AddedResourceProps {
-    kind: Expressionable<('fhir' | 'fhir-Stu3' | 'fhir-R4')>;
+  export interface AdditionalProps {
     identity: Expressionable<Identity>;
+    kind: Expressionable<('fhir' | 'fhir-Stu3' | 'fhir-R4')>;
   }
   
-  export type ServicesResource = ResourceDefinition<ServicesProperties> & AddedResourceProps;
+  export type ServicesResource = ResourceDefinition<ServicesProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: ServicesProperties, location: Expressionable<string>, identity: Expressionable<Identity>, kind: Expressionable<('fhir' | 'fhir-Stu3' | 'fhir-R4')>): ServicesResource {
     return {
@@ -47,9 +47,11 @@ export namespace services {
       apiVersion: '2019-09-16',
       name: [name],
       location,
-      identity,
-      kind,
       properties,
+      additional: {
+        identity,
+        kind,
+      },
     };
   }
 }

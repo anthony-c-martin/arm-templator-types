@@ -76,12 +76,12 @@ export interface Unknown {
 }
 
 export namespace services {
-  export interface AddedResourceProps {
-    kind?: Expressionable<string>;
+  export interface AdditionalProps {
     sku?: Expressionable<ServiceSku>;
+    kind?: Expressionable<string>;
   }
   
-  export type ServicesResource = ResourceDefinition<DataMigrationServiceProperties> & AddedResourceProps;
+  export type ServicesResource = ResourceDefinition<DataMigrationServiceProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: DataMigrationServiceProperties, location: Expressionable<string>, sku?: Expressionable<ServiceSku>, kind?: Expressionable<string>): ServicesResource {
     return {
@@ -89,15 +89,17 @@ export namespace services {
       apiVersion: '2017-11-15-preview',
       name: [name],
       location,
-      sku,
-      kind,
       properties,
+      additional: {
+        sku,
+        kind,
+      },
     };
   }
 }
 export namespace services {
   export namespace projects {
-    export type ProjectsResource = ResourceDefinition<ProjectProperties>;
+    export type ProjectsResource = ResourceDefinition<ProjectProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: ProjectProperties, location: Expressionable<string>): ProjectsResource {
       return {
@@ -113,7 +115,7 @@ export namespace services {
 export namespace services {
   export namespace projects {
     export namespace tasks {
-      export type TasksResource = ResourceDefinition<Unknown>;
+      export type TasksResource = ResourceDefinition<Unknown, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: Unknown): TasksResource {
         return {

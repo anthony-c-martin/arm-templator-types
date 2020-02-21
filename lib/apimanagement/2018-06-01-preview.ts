@@ -408,12 +408,12 @@ export interface X509CertificateName {
 }
 
 export namespace service {
-  export interface AddedResourceProps {
-    sku: Expressionable<ApiManagementServiceSkuProperties>;
+  export interface AdditionalProps {
     identity?: Expressionable<ApiManagementServiceIdentity>;
+    sku: Expressionable<ApiManagementServiceSkuProperties>;
   }
   
-  export type ServiceResource = ResourceDefinition<ApiManagementServiceProperties> & AddedResourceProps;
+  export type ServiceResource = ResourceDefinition<ApiManagementServiceProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: ApiManagementServiceProperties, location: Expressionable<string>, sku: Expressionable<ApiManagementServiceSkuProperties>, identity?: Expressionable<ApiManagementServiceIdentity>): ServiceResource {
     return {
@@ -421,15 +421,17 @@ export namespace service {
       apiVersion: '2018-06-01-preview',
       name: [name],
       location,
-      identity,
-      sku,
       properties,
+      additional: {
+        identity,
+        sku,
+      },
     };
   }
 }
 export namespace service {
   export namespace apis {
-    export type ApisResource = ResourceDefinition<ApiCreateOrUpdateProperties>;
+    export type ApisResource = ResourceDefinition<ApiCreateOrUpdateProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: ApiCreateOrUpdateProperties): ApisResource {
       return {
@@ -444,7 +446,7 @@ export namespace service {
 export namespace service {
   export namespace apis {
     export namespace diagnostics {
-      export type DiagnosticsResource = ResourceDefinition<DiagnosticContractProperties>;
+      export type DiagnosticsResource = ResourceDefinition<DiagnosticContractProperties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: DiagnosticContractProperties): DiagnosticsResource {
         return {
@@ -460,7 +462,7 @@ export namespace service {
 export namespace service {
   export namespace apis {
     export namespace issues {
-      export type IssuesResource = ResourceDefinition<IssueContractProperties>;
+      export type IssuesResource = ResourceDefinition<IssueContractProperties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: IssueContractProperties): IssuesResource {
         return {
@@ -477,7 +479,7 @@ export namespace service {
   export namespace apis {
     export namespace issues {
       export namespace attachments {
-        export type AttachmentsResource = ResourceDefinition<IssueAttachmentContractProperties>;
+        export type AttachmentsResource = ResourceDefinition<IssueAttachmentContractProperties, undefined>;
         
         export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: IssueAttachmentContractProperties): AttachmentsResource {
           return {
@@ -495,7 +497,7 @@ export namespace service {
   export namespace apis {
     export namespace issues {
       export namespace comments {
-        export type CommentsResource = ResourceDefinition<IssueCommentContractProperties>;
+        export type CommentsResource = ResourceDefinition<IssueCommentContractProperties, undefined>;
         
         export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: IssueCommentContractProperties): CommentsResource {
           return {
@@ -512,7 +514,7 @@ export namespace service {
 export namespace service {
   export namespace apis {
     export namespace operations {
-      export type OperationsResource = ResourceDefinition<OperationContractProperties>;
+      export type OperationsResource = ResourceDefinition<OperationContractProperties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: OperationContractProperties): OperationsResource {
         return {
@@ -529,7 +531,7 @@ export namespace service {
   export namespace apis {
     export namespace operations {
       export namespace policies {
-        export type PoliciesResource = ResourceDefinition<PolicyContractProperties>;
+        export type PoliciesResource = ResourceDefinition<PolicyContractProperties, undefined>;
         
         export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: PolicyContractProperties): PoliciesResource {
           return {
@@ -547,7 +549,7 @@ export namespace service {
   export namespace apis {
     export namespace operations {
       export namespace tags {
-        export type TagsResource = ResourceDefinition<any>;
+        export type TagsResource = ResourceDefinition<any, undefined>;
         
         export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: any): TagsResource {
           return {
@@ -564,7 +566,7 @@ export namespace service {
 export namespace service {
   export namespace apis {
     export namespace policies {
-      export type PoliciesResource = ResourceDefinition<PolicyContractProperties>;
+      export type PoliciesResource = ResourceDefinition<PolicyContractProperties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: PolicyContractProperties): PoliciesResource {
         return {
@@ -580,7 +582,7 @@ export namespace service {
 export namespace service {
   export namespace apis {
     export namespace releases {
-      export type ReleasesResource = ResourceDefinition<ApiReleaseContractProperties>;
+      export type ReleasesResource = ResourceDefinition<ApiReleaseContractProperties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ApiReleaseContractProperties): ReleasesResource {
         return {
@@ -596,7 +598,7 @@ export namespace service {
 export namespace service {
   export namespace apis {
     export namespace schemas {
-      export type SchemasResource = ResourceDefinition<SchemaContractProperties>;
+      export type SchemasResource = ResourceDefinition<SchemaContractProperties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: SchemaContractProperties): SchemasResource {
         return {
@@ -612,7 +614,7 @@ export namespace service {
 export namespace service {
   export namespace apis {
     export namespace tagDescriptions {
-      export type TagDescriptionsResource = ResourceDefinition<TagDescriptionBaseProperties>;
+      export type TagDescriptionsResource = ResourceDefinition<TagDescriptionBaseProperties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: TagDescriptionBaseProperties): TagDescriptionsResource {
         return {
@@ -628,7 +630,7 @@ export namespace service {
 export namespace service {
   export namespace apis {
     export namespace tags {
-      export type TagsResource = ResourceDefinition<any>;
+      export type TagsResource = ResourceDefinition<any, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: any): TagsResource {
         return {
@@ -643,7 +645,7 @@ export namespace service {
 }
 export namespace service {
   export namespace apiversionsets {
-    export type ApiversionsetsResource = ResourceDefinition<ApiVersionSetContractProperties>;
+    export type ApiversionsetsResource = ResourceDefinition<ApiVersionSetContractProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: ApiVersionSetContractProperties): ApiversionsetsResource {
       return {
@@ -657,7 +659,7 @@ export namespace service {
 }
 export namespace service {
   export namespace authorizationServers {
-    export type AuthorizationServersResource = ResourceDefinition<AuthorizationServerContractProperties>;
+    export type AuthorizationServersResource = ResourceDefinition<AuthorizationServerContractProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: AuthorizationServerContractProperties): AuthorizationServersResource {
       return {
@@ -671,7 +673,7 @@ export namespace service {
 }
 export namespace service {
   export namespace backends {
-    export type BackendsResource = ResourceDefinition<BackendContractProperties>;
+    export type BackendsResource = ResourceDefinition<BackendContractProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: BackendContractProperties): BackendsResource {
       return {
@@ -685,7 +687,7 @@ export namespace service {
 }
 export namespace service {
   export namespace certificates {
-    export type CertificatesResource = ResourceDefinition<CertificateCreateOrUpdateProperties>;
+    export type CertificatesResource = ResourceDefinition<CertificateCreateOrUpdateProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: CertificateCreateOrUpdateProperties): CertificatesResource {
       return {
@@ -699,7 +701,7 @@ export namespace service {
 }
 export namespace service {
   export namespace diagnostics {
-    export type DiagnosticsResource = ResourceDefinition<DiagnosticContractProperties>;
+    export type DiagnosticsResource = ResourceDefinition<DiagnosticContractProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: DiagnosticContractProperties): DiagnosticsResource {
       return {
@@ -713,7 +715,7 @@ export namespace service {
 }
 export namespace service {
   export namespace groups {
-    export type GroupsResource = ResourceDefinition<GroupCreateParametersProperties>;
+    export type GroupsResource = ResourceDefinition<GroupCreateParametersProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: GroupCreateParametersProperties): GroupsResource {
       return {
@@ -728,7 +730,7 @@ export namespace service {
 export namespace service {
   export namespace groups {
     export namespace users {
-      export type UsersResource = ResourceDefinition<any>;
+      export type UsersResource = ResourceDefinition<any, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: any): UsersResource {
         return {
@@ -743,7 +745,7 @@ export namespace service {
 }
 export namespace service {
   export namespace identityProviders {
-    export type IdentityProvidersResource = ResourceDefinition<IdentityProviderContractProperties>;
+    export type IdentityProvidersResource = ResourceDefinition<IdentityProviderContractProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: IdentityProviderContractProperties): IdentityProvidersResource {
       return {
@@ -757,7 +759,7 @@ export namespace service {
 }
 export namespace service {
   export namespace loggers {
-    export type LoggersResource = ResourceDefinition<LoggerContractProperties>;
+    export type LoggersResource = ResourceDefinition<LoggerContractProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: LoggerContractProperties): LoggersResource {
       return {
@@ -771,7 +773,7 @@ export namespace service {
 }
 export namespace service {
   export namespace notifications {
-    export type NotificationsResource = ResourceDefinition<any>;
+    export type NotificationsResource = ResourceDefinition<any, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: any): NotificationsResource {
       return {
@@ -786,7 +788,7 @@ export namespace service {
 export namespace service {
   export namespace notifications {
     export namespace recipientEmails {
-      export type RecipientEmailsResource = ResourceDefinition<any>;
+      export type RecipientEmailsResource = ResourceDefinition<any, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: any): RecipientEmailsResource {
         return {
@@ -802,7 +804,7 @@ export namespace service {
 export namespace service {
   export namespace notifications {
     export namespace recipientUsers {
-      export type RecipientUsersResource = ResourceDefinition<any>;
+      export type RecipientUsersResource = ResourceDefinition<any, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: any): RecipientUsersResource {
         return {
@@ -817,7 +819,7 @@ export namespace service {
 }
 export namespace service {
   export namespace openidConnectProviders {
-    export type OpenidConnectProvidersResource = ResourceDefinition<OpenidConnectProviderContractProperties>;
+    export type OpenidConnectProvidersResource = ResourceDefinition<OpenidConnectProviderContractProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: OpenidConnectProviderContractProperties): OpenidConnectProvidersResource {
       return {
@@ -831,7 +833,7 @@ export namespace service {
 }
 export namespace service {
   export namespace policies {
-    export type PoliciesResource = ResourceDefinition<PolicyContractProperties>;
+    export type PoliciesResource = ResourceDefinition<PolicyContractProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: PolicyContractProperties): PoliciesResource {
       return {
@@ -845,7 +847,7 @@ export namespace service {
 }
 export namespace service {
   export namespace products {
-    export type ProductsResource = ResourceDefinition<ProductContractProperties>;
+    export type ProductsResource = ResourceDefinition<ProductContractProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: ProductContractProperties): ProductsResource {
       return {
@@ -860,7 +862,7 @@ export namespace service {
 export namespace service {
   export namespace products {
     export namespace apis {
-      export type ApisResource = ResourceDefinition<any>;
+      export type ApisResource = ResourceDefinition<any, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: any): ApisResource {
         return {
@@ -876,7 +878,7 @@ export namespace service {
 export namespace service {
   export namespace products {
     export namespace groups {
-      export type GroupsResource = ResourceDefinition<any>;
+      export type GroupsResource = ResourceDefinition<any, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: any): GroupsResource {
         return {
@@ -892,7 +894,7 @@ export namespace service {
 export namespace service {
   export namespace products {
     export namespace policies {
-      export type PoliciesResource = ResourceDefinition<PolicyContractProperties>;
+      export type PoliciesResource = ResourceDefinition<PolicyContractProperties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: PolicyContractProperties): PoliciesResource {
         return {
@@ -908,7 +910,7 @@ export namespace service {
 export namespace service {
   export namespace products {
     export namespace tags {
-      export type TagsResource = ResourceDefinition<any>;
+      export type TagsResource = ResourceDefinition<any, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: any): TagsResource {
         return {
@@ -923,7 +925,7 @@ export namespace service {
 }
 export namespace service {
   export namespace properties {
-    export type PropertiesResource = ResourceDefinition<PropertyContractProperties>;
+    export type PropertiesResource = ResourceDefinition<PropertyContractProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: PropertyContractProperties): PropertiesResource {
       return {
@@ -937,7 +939,7 @@ export namespace service {
 }
 export namespace service {
   export namespace subscriptions {
-    export type SubscriptionsResource = ResourceDefinition<SubscriptionCreateParameterProperties>;
+    export type SubscriptionsResource = ResourceDefinition<SubscriptionCreateParameterProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: SubscriptionCreateParameterProperties): SubscriptionsResource {
       return {
@@ -951,7 +953,7 @@ export namespace service {
 }
 export namespace service {
   export namespace tags {
-    export type TagsResource = ResourceDefinition<TagContractProperties>;
+    export type TagsResource = ResourceDefinition<TagContractProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: TagContractProperties): TagsResource {
       return {
@@ -965,7 +967,7 @@ export namespace service {
 }
 export namespace service {
   export namespace templates {
-    export type TemplatesResource = ResourceDefinition<EmailTemplateUpdateParameterProperties>;
+    export type TemplatesResource = ResourceDefinition<EmailTemplateUpdateParameterProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: EmailTemplateUpdateParameterProperties): TemplatesResource {
       return {
@@ -979,7 +981,7 @@ export namespace service {
 }
 export namespace service {
   export namespace users {
-    export type UsersResource = ResourceDefinition<UserCreateParameterProperties>;
+    export type UsersResource = ResourceDefinition<UserCreateParameterProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: UserCreateParameterProperties): UsersResource {
       return {

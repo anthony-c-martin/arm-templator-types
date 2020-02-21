@@ -67,12 +67,12 @@ export interface TopicProperties {
 }
 
 export namespace namespaces {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     sku?: Expressionable<Sku>;
     tags?: Expressionable<any>;
   }
   
-  export type NamespacesResource = ResourceDefinition<NamespaceProperties> & AddedResourceProps;
+  export type NamespacesResource = ResourceDefinition<NamespaceProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: NamespaceProperties, location: Expressionable<string>, sku?: Expressionable<Sku>, tags?: Expressionable<any>): NamespacesResource {
     return {
@@ -80,15 +80,17 @@ export namespace namespaces {
       apiVersion: '2015-08-01',
       name: [name],
       location,
-      sku,
-      tags,
       properties,
+      additional: {
+        sku,
+        tags,
+      },
     };
   }
 }
 export namespace namespaces {
   export namespace AuthorizationRules {
-    export type AuthorizationRulesResource = ResourceDefinition<SharedAccessAuthorizationRuleProperties>;
+    export type AuthorizationRulesResource = ResourceDefinition<SharedAccessAuthorizationRuleProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: SharedAccessAuthorizationRuleProperties, location?: Expressionable<string>): AuthorizationRulesResource {
       return {
@@ -103,7 +105,7 @@ export namespace namespaces {
 }
 export namespace namespaces {
   export namespace queues {
-    export type QueuesResource = ResourceDefinition<QueueProperties>;
+    export type QueuesResource = ResourceDefinition<QueueProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: QueueProperties, location: Expressionable<string>): QueuesResource {
       return {
@@ -119,7 +121,7 @@ export namespace namespaces {
 export namespace namespaces {
   export namespace queues {
     export namespace authorizationRules {
-      export type AuthorizationRulesResource = ResourceDefinition<SharedAccessAuthorizationRuleProperties>;
+      export type AuthorizationRulesResource = ResourceDefinition<SharedAccessAuthorizationRuleProperties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: SharedAccessAuthorizationRuleProperties, location?: Expressionable<string>): AuthorizationRulesResource {
         return {
@@ -135,7 +137,7 @@ export namespace namespaces {
 }
 export namespace namespaces {
   export namespace topics {
-    export type TopicsResource = ResourceDefinition<TopicProperties>;
+    export type TopicsResource = ResourceDefinition<TopicProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: TopicProperties, location: Expressionable<string>): TopicsResource {
       return {
@@ -151,7 +153,7 @@ export namespace namespaces {
 export namespace namespaces {
   export namespace topics {
     export namespace authorizationRules {
-      export type AuthorizationRulesResource = ResourceDefinition<SharedAccessAuthorizationRuleProperties>;
+      export type AuthorizationRulesResource = ResourceDefinition<SharedAccessAuthorizationRuleProperties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: SharedAccessAuthorizationRuleProperties, location?: Expressionable<string>): AuthorizationRulesResource {
         return {
@@ -168,7 +170,7 @@ export namespace namespaces {
 export namespace namespaces {
   export namespace topics {
     export namespace subscriptions {
-      export type SubscriptionsResource = ResourceDefinition<SubscriptionProperties>;
+      export type SubscriptionsResource = ResourceDefinition<SubscriptionProperties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: SubscriptionProperties, location: Expressionable<string>): SubscriptionsResource {
         return {

@@ -26,11 +26,11 @@ export interface ProjectProperties {
 }
 
 export namespace projects {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     tags?: Expressionable<any>;
   }
   
-  export type ProjectsResource = ResourceDefinition<ProjectProperties> & AddedResourceProps;
+  export type ProjectsResource = ResourceDefinition<ProjectProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: ProjectProperties, location?: Expressionable<string>, tags?: Expressionable<any>): ProjectsResource {
     return {
@@ -38,14 +38,16 @@ export namespace projects {
       apiVersion: '2018-02-02',
       name: [name],
       location,
-      tags,
       properties,
+      additional: {
+        tags,
+      },
     };
   }
 }
 export namespace projects {
   export namespace groups {
-    export type GroupsResource = ResourceDefinition<GroupProperties>;
+    export type GroupsResource = ResourceDefinition<GroupProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: GroupProperties): GroupsResource {
       return {
@@ -60,7 +62,7 @@ export namespace projects {
 export namespace projects {
   export namespace groups {
     export namespace assessments {
-      export type AssessmentsResource = ResourceDefinition<AssessmentProperties>;
+      export type AssessmentsResource = ResourceDefinition<AssessmentProperties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: AssessmentProperties): AssessmentsResource {
         return {

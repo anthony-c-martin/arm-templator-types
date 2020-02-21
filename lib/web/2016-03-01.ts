@@ -21,7 +21,7 @@ export interface Csr_properties {
 }
 
 export namespace certificates {
-  export type CertificatesResource = ResourceDefinition<Certificate_properties>;
+  export type CertificatesResource = ResourceDefinition<Certificate_properties, undefined>;
   
   export function create(name: Expressionable<string>, properties: Certificate_properties): CertificatesResource {
     return {
@@ -33,7 +33,7 @@ export namespace certificates {
   }
 }
 export namespace csrs {
-  export type CsrsResource = ResourceDefinition<Csr_properties>;
+  export type CsrsResource = ResourceDefinition<Csr_properties, undefined>;
   
   export function create(name: Expressionable<string>, properties: Csr_properties): CsrsResource {
     return {

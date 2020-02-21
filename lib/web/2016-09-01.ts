@@ -98,26 +98,28 @@ export interface VnetRoute_properties {
 }
 
 export namespace serverfarms {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     sku?: Expressionable<SkuDescription>;
   }
   
-  export type ServerfarmsResource = ResourceDefinition<AppServicePlan_properties> & AddedResourceProps;
+  export type ServerfarmsResource = ResourceDefinition<AppServicePlan_properties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: AppServicePlan_properties, sku?: Expressionable<SkuDescription>): ServerfarmsResource {
     return {
       type: 'Microsoft.Web/serverfarms',
       apiVersion: '2016-09-01',
       name: [name],
-      sku,
       properties,
+      additional: {
+        sku,
+      },
     };
   }
 }
 export namespace serverfarms {
   export namespace virtualNetworkConnections {
     export namespace gateways {
-      export type GatewaysResource = ResourceDefinition<VnetGateway_properties>;
+      export type GatewaysResource = ResourceDefinition<VnetGateway_properties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: VnetGateway_properties): GatewaysResource {
         return {
@@ -133,7 +135,7 @@ export namespace serverfarms {
 export namespace serverfarms {
   export namespace virtualNetworkConnections {
     export namespace routes {
-      export type RoutesResource = ResourceDefinition<VnetRoute_properties>;
+      export type RoutesResource = ResourceDefinition<VnetRoute_properties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: VnetRoute_properties): RoutesResource {
         return {
@@ -147,7 +149,7 @@ export namespace serverfarms {
   }
 }
 export namespace hostingEnvironments {
-  export type HostingEnvironmentsResource = ResourceDefinition<AppServiceEnvironment_properties>;
+  export type HostingEnvironmentsResource = ResourceDefinition<AppServiceEnvironment_properties, undefined>;
   
   export function create(name: Expressionable<string>, properties: AppServiceEnvironment_properties): HostingEnvironmentsResource {
     return {
@@ -160,7 +162,7 @@ export namespace hostingEnvironments {
 }
 export namespace hostingEnvironments {
   export namespace workerPools {
-    export type WorkerPoolsResource = ResourceDefinition<any>;
+    export type WorkerPoolsResource = ResourceDefinition<any, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: any): WorkerPoolsResource {
       return {
@@ -174,7 +176,7 @@ export namespace hostingEnvironments {
 }
 export namespace hostingEnvironments {
   export namespace multiRolePools {
-    export type MultiRolePoolsResource = ResourceDefinition<any>;
+    export type MultiRolePoolsResource = ResourceDefinition<any, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: any): MultiRolePoolsResource {
       return {

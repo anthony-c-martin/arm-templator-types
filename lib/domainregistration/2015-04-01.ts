@@ -54,7 +54,7 @@ export interface HostName {
 }
 
 export namespace domains {
-  export type DomainsResource = ResourceDefinition<Domain_properties>;
+  export type DomainsResource = ResourceDefinition<Domain_properties, undefined>;
   
   export function create(name: Expressionable<string>, properties: Domain_properties): DomainsResource {
     return {
@@ -67,7 +67,7 @@ export namespace domains {
 }
 export namespace domains {
   export namespace domainOwnershipIdentifiers {
-    export type DomainOwnershipIdentifiersResource = ResourceDefinition<DomainOwnershipIdentifier_properties>;
+    export type DomainOwnershipIdentifiersResource = ResourceDefinition<DomainOwnershipIdentifier_properties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: DomainOwnershipIdentifier_properties): DomainOwnershipIdentifiersResource {
       return {

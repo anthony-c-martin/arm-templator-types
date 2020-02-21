@@ -19,7 +19,7 @@ export interface RoleDefinitionProperties {
 }
 
 export namespace roleAssignments {
-  export type RoleAssignmentsResource = ResourceDefinition<RoleAssignmentProperties>;
+  export type RoleAssignmentsResource = ResourceDefinition<RoleAssignmentProperties, undefined>;
   
   export function create(name: Expressionable<string>, properties: RoleAssignmentProperties): RoleAssignmentsResource {
     return {
@@ -31,7 +31,7 @@ export namespace roleAssignments {
   }
 }
 export namespace roleDefinitions {
-  export type RoleDefinitionsResource = ResourceDefinition<RoleDefinitionProperties>;
+  export type RoleDefinitionsResource = ResourceDefinition<RoleDefinitionProperties, undefined>;
   
   export function create(name: Expressionable<string>, properties: RoleDefinitionProperties): RoleDefinitionsResource {
     return {

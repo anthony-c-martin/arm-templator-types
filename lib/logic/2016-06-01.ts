@@ -100,7 +100,7 @@ export interface batchReleaseCriteriaProperties {
 }
 
 export namespace workflows {
-  export type WorkflowsResource = ResourceDefinition<WorkflowProperties>;
+  export type WorkflowsResource = ResourceDefinition<WorkflowProperties, undefined>;
   
   export function create(name: Expressionable<string>, properties: WorkflowProperties, location?: Expressionable<string>): WorkflowsResource {
     return {
@@ -113,7 +113,7 @@ export namespace workflows {
   }
 }
 export namespace integrationAccounts {
-  export type IntegrationAccountsResource = ResourceDefinition<any>;
+  export type IntegrationAccountsResource = ResourceDefinition<any, undefined>;
   
   export function create(name: Expressionable<string>, properties: any, location?: Expressionable<string>): IntegrationAccountsResource {
     return {
@@ -127,7 +127,7 @@ export namespace integrationAccounts {
 }
 export namespace integrationAccounts {
   export namespace agreements {
-    export type AgreementsResource = ResourceDefinition<integrationAccountsAgreementsProperties>;
+    export type AgreementsResource = ResourceDefinition<integrationAccountsAgreementsProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: integrationAccountsAgreementsProperties, location?: Expressionable<string>): AgreementsResource {
       return {
@@ -142,7 +142,7 @@ export namespace integrationAccounts {
 }
 export namespace integrationAccounts {
   export namespace certificates {
-    export type CertificatesResource = ResourceDefinition<integrationAccountsCertificatesProperties>;
+    export type CertificatesResource = ResourceDefinition<integrationAccountsCertificatesProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: integrationAccountsCertificatesProperties, location?: Expressionable<string>): CertificatesResource {
       return {
@@ -157,7 +157,7 @@ export namespace integrationAccounts {
 }
 export namespace integrationAccounts {
   export namespace maps {
-    export type MapsResource = ResourceDefinition<integrationAccountsMapsProperties>;
+    export type MapsResource = ResourceDefinition<integrationAccountsMapsProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: integrationAccountsMapsProperties, location?: Expressionable<string>): MapsResource {
       return {
@@ -172,7 +172,7 @@ export namespace integrationAccounts {
 }
 export namespace integrationAccounts {
   export namespace partners {
-    export type PartnersResource = ResourceDefinition<integrationAccountsPartnersProperties>;
+    export type PartnersResource = ResourceDefinition<integrationAccountsPartnersProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: integrationAccountsPartnersProperties, location?: Expressionable<string>): PartnersResource {
       return {
@@ -187,7 +187,7 @@ export namespace integrationAccounts {
 }
 export namespace integrationAccounts {
   export namespace schemas {
-    export type SchemasResource = ResourceDefinition<integrationAccountsSchemasProperties>;
+    export type SchemasResource = ResourceDefinition<integrationAccountsSchemasProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: integrationAccountsSchemasProperties, location?: Expressionable<string>): SchemasResource {
       return {
@@ -202,7 +202,7 @@ export namespace integrationAccounts {
 }
 export namespace integrationAccounts {
   export namespace assemblies {
-    export type AssembliesResource = ResourceDefinition<integrationAccountsAssembliesProperties>;
+    export type AssembliesResource = ResourceDefinition<integrationAccountsAssembliesProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: integrationAccountsAssembliesProperties, location?: Expressionable<string>): AssembliesResource {
       return {
@@ -217,7 +217,7 @@ export namespace integrationAccounts {
 }
 export namespace integrationAccounts {
   export namespace batchConfigurations {
-    export type BatchConfigurationsResource = ResourceDefinition<integrationAccountsBatchConfigurationsProperties>;
+    export type BatchConfigurationsResource = ResourceDefinition<integrationAccountsBatchConfigurationsProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: integrationAccountsBatchConfigurationsProperties, location?: Expressionable<string>): BatchConfigurationsResource {
       return {

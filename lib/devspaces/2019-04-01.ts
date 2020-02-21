@@ -11,12 +11,12 @@ export interface Sku {
 }
 
 export namespace controllers {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     sku: Expressionable<Sku>;
     tags?: Expressionable<any>;
   }
   
-  export type ControllersResource = ResourceDefinition<ControllerProperties> & AddedResourceProps;
+  export type ControllersResource = ResourceDefinition<ControllerProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: ControllerProperties, sku: Expressionable<Sku>, location?: Expressionable<string>, tags?: Expressionable<any>): ControllersResource {
     return {
@@ -24,9 +24,11 @@ export namespace controllers {
       apiVersion: '2019-04-01',
       name: [name],
       location,
-      sku,
-      tags,
       properties,
+      additional: {
+        sku,
+        tags,
+      },
     };
   }
 }

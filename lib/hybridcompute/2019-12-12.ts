@@ -56,12 +56,12 @@ export interface MachinePropertiesOsProfile {
 }
 
 export namespace machines {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     identity?: Expressionable<MachineIdentity>;
     tags?: Expressionable<any>;
   }
   
-  export type MachinesResource = ResourceDefinition<MachinePropertiesModel> & AddedResourceProps;
+  export type MachinesResource = ResourceDefinition<MachinePropertiesModel, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: MachinePropertiesModel, location: Expressionable<string>, identity?: Expressionable<MachineIdentity>, tags?: Expressionable<any>): MachinesResource {
     return {
@@ -69,19 +69,21 @@ export namespace machines {
       apiVersion: '2019-12-12',
       name: [name],
       location,
-      identity,
-      tags,
       properties,
+      additional: {
+        identity,
+        tags,
+      },
     };
   }
 }
 export namespace machines {
   export namespace extensions {
-    export interface AddedResourceProps {
+    export interface AdditionalProps {
       tags?: Expressionable<any>;
     }
     
-    export type ExtensionsResource = ResourceDefinition<MachineExtensionProperties> & AddedResourceProps;
+    export type ExtensionsResource = ResourceDefinition<MachineExtensionProperties, AdditionalProps>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: MachineExtensionProperties, location: Expressionable<string>, tags?: Expressionable<any>): ExtensionsResource {
       return {
@@ -89,8 +91,10 @@ export namespace machines {
         apiVersion: '2019-12-12',
         name: name,
         location,
-        tags,
         properties,
+        additional: {
+          tags,
+        },
       };
     }
   }

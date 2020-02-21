@@ -11,11 +11,11 @@ export interface Sku {
 }
 
 export namespace searchServices {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     sku: Expressionable<Sku>;
   }
   
-  export type SearchServicesResource = ResourceDefinition<SearchServiceProperties> & AddedResourceProps;
+  export type SearchServicesResource = ResourceDefinition<SearchServiceProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: SearchServiceProperties, location: Expressionable<string>, sku: Expressionable<Sku>): SearchServicesResource {
     return {
@@ -23,8 +23,10 @@ export namespace searchServices {
       apiVersion: '2015-08-19',
       name: [name],
       location,
-      sku,
       properties,
+      additional: {
+        sku,
+      },
     };
   }
 }

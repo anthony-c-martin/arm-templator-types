@@ -144,7 +144,7 @@ export interface DeadLetterDestination {
 }
 
 export namespace topics {
-  export type TopicsResource = ResourceDefinition<TopicProperties>;
+  export type TopicsResource = ResourceDefinition<TopicProperties, undefined>;
   
   export function create(name: Expressionable<string>, properties: TopicProperties, location: Expressionable<string>): TopicsResource {
     return {
@@ -157,7 +157,7 @@ export namespace topics {
   }
 }
 export namespace eventSubscriptions {
-  export type EventSubscriptionsResource = ResourceDefinition<EventSubscriptionProperties>;
+  export type EventSubscriptionsResource = ResourceDefinition<EventSubscriptionProperties, undefined>;
   
   export function create(name: Expressionable<string>, properties: EventSubscriptionProperties): EventSubscriptionsResource {
     return {
@@ -169,7 +169,7 @@ export namespace eventSubscriptions {
   }
 }
 export namespace domains {
-  export type DomainsResource = ResourceDefinition<DomainProperties>;
+  export type DomainsResource = ResourceDefinition<DomainProperties, undefined>;
   
   export function create(name: Expressionable<string>, properties: DomainProperties, location: Expressionable<string>): DomainsResource {
     return {
@@ -183,7 +183,7 @@ export namespace domains {
 }
 export namespace domains {
   export namespace topics {
-    export type TopicsResource = ResourceDefinition<any>;
+    export type TopicsResource = ResourceDefinition<any, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: any): TopicsResource {
       return {

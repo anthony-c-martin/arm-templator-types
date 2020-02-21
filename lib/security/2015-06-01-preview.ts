@@ -66,19 +66,21 @@ export interface PortNumber {
 
 export namespace locations {
   export namespace jitNetworkAccessPolicies {
-    export interface AddedResourceProps {
+    export interface AdditionalProps {
       kind: Expressionable<('Basic')>;
     }
     
-    export type JitNetworkAccessPoliciesResource = ResourceDefinition<JitNetworkAccessPolicyProperties> & AddedResourceProps;
+    export type JitNetworkAccessPoliciesResource = ResourceDefinition<JitNetworkAccessPolicyProperties, AdditionalProps>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: JitNetworkAccessPolicyProperties, kind: Expressionable<('Basic')>): JitNetworkAccessPoliciesResource {
       return {
         type: 'Microsoft.Security/locations/jitNetworkAccessPolicies',
         apiVersion: '2015-06-01-preview',
         name: name,
-        kind,
         properties,
+        additional: {
+          kind,
+        },
       };
     }
   }

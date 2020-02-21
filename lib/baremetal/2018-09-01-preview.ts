@@ -6,7 +6,7 @@ export interface crayServersProperties {
 }
 
 export namespace crayServers {
-  export type CrayServersResource = ResourceDefinition<crayServersProperties>;
+  export type CrayServersResource = ResourceDefinition<crayServersProperties, undefined>;
   
   export function create(name: Expressionable<string>, properties: crayServersProperties, location: Expressionable<string>): CrayServersResource {
     return {

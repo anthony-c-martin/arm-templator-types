@@ -6,7 +6,7 @@ export interface user {
 }
 
 export namespace catalogs {
-  export type CatalogsResource = ResourceDefinition<any>;
+  export type CatalogsResource = ResourceDefinition<any, undefined>;
   
   export function create(name: Expressionable<string>, properties: any): CatalogsResource {
     return {

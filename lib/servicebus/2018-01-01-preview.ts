@@ -59,12 +59,12 @@ export interface VirtualNetworkRuleProperties {
 }
 
 export namespace namespaces {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     sku?: Expressionable<SBSku>;
     tags?: Expressionable<any>;
   }
   
-  export type NamespacesResource = ResourceDefinition<SBNamespaceProperties> & AddedResourceProps;
+  export type NamespacesResource = ResourceDefinition<SBNamespaceProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: SBNamespaceProperties, location: Expressionable<string>, sku?: Expressionable<SBSku>, tags?: Expressionable<any>): NamespacesResource {
     return {
@@ -72,15 +72,17 @@ export namespace namespaces {
       apiVersion: '2018-01-01-preview',
       name: [name],
       location,
-      sku,
-      tags,
       properties,
+      additional: {
+        sku,
+        tags,
+      },
     };
   }
 }
 export namespace namespaces {
   export namespace ipfilterrules {
-    export type IpfilterrulesResource = ResourceDefinition<IpFilterRuleProperties>;
+    export type IpfilterrulesResource = ResourceDefinition<IpFilterRuleProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: IpFilterRuleProperties): IpfilterrulesResource {
       return {
@@ -94,7 +96,7 @@ export namespace namespaces {
 }
 export namespace namespaces {
   export namespace networkrulesets {
-    export type NetworkrulesetsResource = ResourceDefinition<NetworkRuleSetProperties>;
+    export type NetworkrulesetsResource = ResourceDefinition<NetworkRuleSetProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: NetworkRuleSetProperties): NetworkrulesetsResource {
       return {
@@ -108,7 +110,7 @@ export namespace namespaces {
 }
 export namespace namespaces {
   export namespace virtualnetworkrules {
-    export type VirtualnetworkrulesResource = ResourceDefinition<VirtualNetworkRuleProperties>;
+    export type VirtualnetworkrulesResource = ResourceDefinition<VirtualNetworkRuleProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: VirtualNetworkRuleProperties): VirtualnetworkrulesResource {
       return {

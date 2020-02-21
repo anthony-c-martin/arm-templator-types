@@ -73,11 +73,11 @@ export interface SystemService {
 }
 
 export namespace operationalizationClusters {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     tags?: Expressionable<any>;
   }
   
-  export type OperationalizationClustersResource = ResourceDefinition<OperationalizationClusterProperties> & AddedResourceProps;
+  export type OperationalizationClustersResource = ResourceDefinition<OperationalizationClusterProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: OperationalizationClusterProperties, location: Expressionable<string>, tags?: Expressionable<any>): OperationalizationClustersResource {
     return {
@@ -85,8 +85,10 @@ export namespace operationalizationClusters {
       apiVersion: '2017-08-01-preview',
       name: [name],
       location,
-      tags,
       properties,
+      additional: {
+        tags,
+      },
     };
   }
 }

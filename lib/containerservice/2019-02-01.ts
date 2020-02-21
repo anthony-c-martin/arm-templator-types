@@ -85,11 +85,11 @@ export interface ManagedClusterServicePrincipalProfile {
 }
 
 export namespace managedClusters {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     tags?: Expressionable<any>;
   }
   
-  export type ManagedClustersResource = ResourceDefinition<ManagedClusterProperties> & AddedResourceProps;
+  export type ManagedClustersResource = ResourceDefinition<ManagedClusterProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: ManagedClusterProperties, location: Expressionable<string>, tags?: Expressionable<any>): ManagedClustersResource {
     return {
@@ -97,14 +97,16 @@ export namespace managedClusters {
       apiVersion: '2019-02-01',
       name: [name],
       location,
-      tags,
       properties,
+      additional: {
+        tags,
+      },
     };
   }
 }
 export namespace managedClusters {
   export namespace agentPools {
-    export type AgentPoolsResource = ResourceDefinition<ManagedClusterAgentPoolProfileProperties>;
+    export type AgentPoolsResource = ResourceDefinition<ManagedClusterAgentPoolProfileProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: ManagedClusterAgentPoolProfileProperties): AgentPoolsResource {
       return {

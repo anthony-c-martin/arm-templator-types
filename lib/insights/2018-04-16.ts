@@ -67,11 +67,11 @@ export interface TriggerCondition {
 }
 
 export namespace scheduledQueryRules {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     tags?: Expressionable<any>;
   }
   
-  export type ScheduledQueryRulesResource = ResourceDefinition<LogSearchRule> & AddedResourceProps;
+  export type ScheduledQueryRulesResource = ResourceDefinition<LogSearchRule, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: LogSearchRule, location: Expressionable<string>, tags?: Expressionable<any>): ScheduledQueryRulesResource {
     return {
@@ -79,8 +79,10 @@ export namespace scheduledQueryRules {
       apiVersion: '2018-04-16',
       name: [name],
       location,
-      tags,
       properties,
+      additional: {
+        tags,
+      },
     };
   }
 }

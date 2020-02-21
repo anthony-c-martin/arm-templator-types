@@ -65,7 +65,7 @@ export interface ZoneProperties {
 }
 
 export namespace dnszones {
-  export type DnszonesResource = ResourceDefinition<ZoneProperties>;
+  export type DnszonesResource = ResourceDefinition<ZoneProperties, undefined>;
   
   export function create(name: Expressionable<string>, properties: ZoneProperties): DnszonesResource {
     return {
@@ -78,7 +78,7 @@ export namespace dnszones {
 }
 export namespace dnszones {
   export namespace A {
-    export type AResource = ResourceDefinition<RecordSetProperties>;
+    export type AResource = ResourceDefinition<RecordSetProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties): AResource {
       return {
@@ -92,7 +92,7 @@ export namespace dnszones {
 }
 export namespace dnszones {
   export namespace AAAA {
-    export type AAAAResource = ResourceDefinition<RecordSetProperties>;
+    export type AAAAResource = ResourceDefinition<RecordSetProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties): AAAAResource {
       return {
@@ -106,7 +106,7 @@ export namespace dnszones {
 }
 export namespace dnszones {
   export namespace CNAME {
-    export type CNAMEResource = ResourceDefinition<RecordSetProperties>;
+    export type CNAMEResource = ResourceDefinition<RecordSetProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties): CNAMEResource {
       return {
@@ -120,7 +120,7 @@ export namespace dnszones {
 }
 export namespace dnszones {
   export namespace MX {
-    export type MXResource = ResourceDefinition<RecordSetProperties>;
+    export type MXResource = ResourceDefinition<RecordSetProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties): MXResource {
       return {
@@ -134,7 +134,7 @@ export namespace dnszones {
 }
 export namespace dnszones {
   export namespace NS {
-    export type NSResource = ResourceDefinition<RecordSetProperties>;
+    export type NSResource = ResourceDefinition<RecordSetProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties): NSResource {
       return {
@@ -148,7 +148,7 @@ export namespace dnszones {
 }
 export namespace dnszones {
   export namespace PTR {
-    export type PTRResource = ResourceDefinition<RecordSetProperties>;
+    export type PTRResource = ResourceDefinition<RecordSetProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties): PTRResource {
       return {
@@ -162,7 +162,7 @@ export namespace dnszones {
 }
 export namespace dnszones {
   export namespace SOA {
-    export type SOAResource = ResourceDefinition<RecordSetProperties>;
+    export type SOAResource = ResourceDefinition<RecordSetProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties): SOAResource {
       return {
@@ -176,7 +176,7 @@ export namespace dnszones {
 }
 export namespace dnszones {
   export namespace SRV {
-    export type SRVResource = ResourceDefinition<RecordSetProperties>;
+    export type SRVResource = ResourceDefinition<RecordSetProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties): SRVResource {
       return {
@@ -190,7 +190,7 @@ export namespace dnszones {
 }
 export namespace dnszones {
   export namespace TXT {
-    export type TXTResource = ResourceDefinition<RecordSetProperties>;
+    export type TXTResource = ResourceDefinition<RecordSetProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: RecordSetProperties): TXTResource {
       return {

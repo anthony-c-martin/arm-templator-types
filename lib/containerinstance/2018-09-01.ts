@@ -134,11 +134,11 @@ export interface VolumeMount {
 }
 
 export namespace containerGroups {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     tags?: Expressionable<any>;
   }
   
-  export type ContainerGroupsResource = ResourceDefinition<ContainerGroupProperties> & AddedResourceProps;
+  export type ContainerGroupsResource = ResourceDefinition<ContainerGroupProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: ContainerGroupProperties, location?: Expressionable<string>, tags?: Expressionable<any>): ContainerGroupsResource {
     return {
@@ -146,8 +146,10 @@ export namespace containerGroups {
       apiVersion: '2018-09-01',
       name: [name],
       location,
-      tags,
       properties,
+      additional: {
+        tags,
+      },
     };
   }
 }

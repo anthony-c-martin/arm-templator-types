@@ -510,11 +510,11 @@ export interface WinRMListener {
 }
 
 export namespace availabilitySets {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     sku?: Expressionable<Sku>;
   }
   
-  export type AvailabilitySetsResource = ResourceDefinition<AvailabilitySetProperties> & AddedResourceProps;
+  export type AvailabilitySetsResource = ResourceDefinition<AvailabilitySetProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: AvailabilitySetProperties, location: Expressionable<string>, sku?: Expressionable<Sku>): AvailabilitySetsResource {
     return {
@@ -522,17 +522,19 @@ export namespace availabilitySets {
       apiVersion: '2019-03-01',
       name: [name],
       location,
-      sku,
       properties,
+      additional: {
+        sku,
+      },
     };
   }
 }
 export namespace hostGroups {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     zones?: Expressionable<string[]>;
   }
   
-  export type HostGroupsResource = ResourceDefinition<DedicatedHostGroupProperties> & AddedResourceProps;
+  export type HostGroupsResource = ResourceDefinition<DedicatedHostGroupProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: DedicatedHostGroupProperties, location: Expressionable<string>, zones?: Expressionable<string[]>): HostGroupsResource {
     return {
@@ -540,18 +542,20 @@ export namespace hostGroups {
       apiVersion: '2019-03-01',
       name: [name],
       location,
-      zones,
       properties,
+      additional: {
+        zones,
+      },
     };
   }
 }
 export namespace hostGroups {
   export namespace hosts {
-    export interface AddedResourceProps {
+    export interface AdditionalProps {
       sku: Expressionable<Sku>;
     }
     
-    export type HostsResource = ResourceDefinition<DedicatedHostProperties> & AddedResourceProps;
+    export type HostsResource = ResourceDefinition<DedicatedHostProperties, AdditionalProps>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: DedicatedHostProperties, location: Expressionable<string>, sku: Expressionable<Sku>): HostsResource {
       return {
@@ -559,14 +563,16 @@ export namespace hostGroups {
         apiVersion: '2019-03-01',
         name: name,
         location,
-        sku,
         properties,
+        additional: {
+          sku,
+        },
       };
     }
   }
 }
 export namespace images {
-  export type ImagesResource = ResourceDefinition<ImageProperties>;
+  export type ImagesResource = ResourceDefinition<ImageProperties, undefined>;
   
   export function create(name: Expressionable<string>, properties: ImageProperties, location: Expressionable<string>): ImagesResource {
     return {
@@ -579,7 +585,7 @@ export namespace images {
   }
 }
 export namespace proximityPlacementGroups {
-  export type ProximityPlacementGroupsResource = ResourceDefinition<ProximityPlacementGroupProperties>;
+  export type ProximityPlacementGroupsResource = ResourceDefinition<ProximityPlacementGroupProperties, undefined>;
   
   export function create(name: Expressionable<string>, properties: ProximityPlacementGroupProperties, location: Expressionable<string>): ProximityPlacementGroupsResource {
     return {
@@ -592,13 +598,13 @@ export namespace proximityPlacementGroups {
   }
 }
 export namespace virtualMachines {
-  export interface AddedResourceProps {
-    plan?: Expressionable<Plan>;
+  export interface AdditionalProps {
     identity?: Expressionable<VirtualMachineIdentity>;
     zones?: Expressionable<string[]>;
+    plan?: Expressionable<Plan>;
   }
   
-  export type VirtualMachinesResource = ResourceDefinition<VirtualMachineProperties> & AddedResourceProps;
+  export type VirtualMachinesResource = ResourceDefinition<VirtualMachineProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: VirtualMachineProperties, location: Expressionable<string>, identity?: Expressionable<VirtualMachineIdentity>, zones?: Expressionable<string[]>, plan?: Expressionable<Plan>): VirtualMachinesResource {
     return {
@@ -606,22 +612,24 @@ export namespace virtualMachines {
       apiVersion: '2019-03-01',
       name: [name],
       location,
-      identity,
-      zones,
-      plan,
       properties,
+      additional: {
+        identity,
+        zones,
+        plan,
+      },
     };
   }
 }
 export namespace virtualMachineScaleSets {
-  export interface AddedResourceProps {
-    sku?: Expressionable<Sku>;
-    plan?: Expressionable<Plan>;
+  export interface AdditionalProps {
     identity?: Expressionable<VirtualMachineScaleSetIdentity>;
+    sku?: Expressionable<Sku>;
     zones?: Expressionable<string[]>;
+    plan?: Expressionable<Plan>;
   }
   
-  export type VirtualMachineScaleSetsResource = ResourceDefinition<VirtualMachineScaleSetProperties> & AddedResourceProps;
+  export type VirtualMachineScaleSetsResource = ResourceDefinition<VirtualMachineScaleSetProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: VirtualMachineScaleSetProperties, location: Expressionable<string>, identity?: Expressionable<VirtualMachineScaleSetIdentity>, sku?: Expressionable<Sku>, zones?: Expressionable<string[]>, plan?: Expressionable<Plan>): VirtualMachineScaleSetsResource {
     return {
@@ -629,21 +637,23 @@ export namespace virtualMachineScaleSets {
       apiVersion: '2019-03-01',
       name: [name],
       location,
-      identity,
-      sku,
-      zones,
-      plan,
       properties,
+      additional: {
+        identity,
+        sku,
+        zones,
+        plan,
+      },
     };
   }
 }
 export namespace virtualMachineScaleSets {
   export namespace virtualmachines {
-    export interface AddedResourceProps {
+    export interface AdditionalProps {
       plan?: Expressionable<Plan>;
     }
     
-    export type VirtualmachinesResource = ResourceDefinition<VirtualMachineScaleSetVMProperties> & AddedResourceProps;
+    export type VirtualmachinesResource = ResourceDefinition<VirtualMachineScaleSetVMProperties, AdditionalProps>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: VirtualMachineScaleSetVMProperties, location: Expressionable<string>, plan?: Expressionable<Plan>): VirtualmachinesResource {
       return {
@@ -651,8 +661,10 @@ export namespace virtualMachineScaleSets {
         apiVersion: '2019-03-01',
         name: name,
         location,
-        plan,
         properties,
+        additional: {
+          plan,
+        },
       };
     }
   }

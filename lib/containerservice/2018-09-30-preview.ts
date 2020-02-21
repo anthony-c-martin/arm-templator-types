@@ -66,12 +66,12 @@ export interface PurchasePlan {
 }
 
 export namespace openShiftManagedClusters {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     plan?: Expressionable<PurchasePlan>;
     tags?: Expressionable<any>;
   }
   
-  export type OpenShiftManagedClustersResource = ResourceDefinition<OpenShiftManagedClusterProperties> & AddedResourceProps;
+  export type OpenShiftManagedClustersResource = ResourceDefinition<OpenShiftManagedClusterProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: OpenShiftManagedClusterProperties, location: Expressionable<string>, plan?: Expressionable<PurchasePlan>, tags?: Expressionable<any>): OpenShiftManagedClustersResource {
     return {
@@ -79,9 +79,11 @@ export namespace openShiftManagedClusters {
       apiVersion: '2018-09-30-preview',
       name: [name],
       location,
-      plan,
-      tags,
       properties,
+      additional: {
+        plan,
+        tags,
+      },
     };
   }
 }

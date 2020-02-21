@@ -52,11 +52,11 @@ export interface SourceRepositoryProperties {
 
 export namespace registries {
   export namespace buildTasks {
-    export interface AddedResourceProps {
+    export interface AdditionalProps {
       tags?: Expressionable<any>;
     }
     
-    export type BuildTasksResource = ResourceDefinition<BuildTaskProperties> & AddedResourceProps;
+    export type BuildTasksResource = ResourceDefinition<BuildTaskProperties, AdditionalProps>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: BuildTaskProperties, location: Expressionable<string>, tags?: Expressionable<any>): BuildTasksResource {
       return {
@@ -64,8 +64,10 @@ export namespace registries {
         apiVersion: '2018-02-01-preview',
         name: name,
         location,
-        tags,
         properties,
+        additional: {
+          tags,
+        },
       };
     }
   }
@@ -73,7 +75,7 @@ export namespace registries {
 export namespace registries {
   export namespace buildTasks {
     export namespace steps {
-      export type StepsResource = ResourceDefinition<BuildStepProperties>;
+      export type StepsResource = ResourceDefinition<BuildStepProperties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: BuildStepProperties): StepsResource {
         return {

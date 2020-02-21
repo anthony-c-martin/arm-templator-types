@@ -349,11 +349,11 @@ export interface TransformationProperties {
 }
 
 export namespace streamingjobs {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     tags?: Expressionable<any>;
   }
   
-  export type StreamingjobsResource = ResourceDefinition<StreamingJobProperties> & AddedResourceProps;
+  export type StreamingjobsResource = ResourceDefinition<StreamingJobProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: StreamingJobProperties, location?: Expressionable<string>, tags?: Expressionable<any>): StreamingjobsResource {
     return {
@@ -361,14 +361,16 @@ export namespace streamingjobs {
       apiVersion: '2016-03-01',
       name: [name],
       location,
-      tags,
       properties,
+      additional: {
+        tags,
+      },
     };
   }
 }
 export namespace streamingjobs {
   export namespace functions {
-    export type FunctionsResource = ResourceDefinition<FunctionProperties>;
+    export type FunctionsResource = ResourceDefinition<FunctionProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: FunctionProperties): FunctionsResource {
       return {
@@ -382,7 +384,7 @@ export namespace streamingjobs {
 }
 export namespace streamingjobs {
   export namespace inputs {
-    export type InputsResource = ResourceDefinition<InputProperties>;
+    export type InputsResource = ResourceDefinition<InputProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: InputProperties): InputsResource {
       return {
@@ -396,7 +398,7 @@ export namespace streamingjobs {
 }
 export namespace streamingjobs {
   export namespace outputs {
-    export type OutputsResource = ResourceDefinition<OutputProperties>;
+    export type OutputsResource = ResourceDefinition<OutputProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: OutputProperties): OutputsResource {
       return {
@@ -410,7 +412,7 @@ export namespace streamingjobs {
 }
 export namespace streamingjobs {
   export namespace transformations {
-    export type TransformationsResource = ResourceDefinition<TransformationProperties>;
+    export type TransformationsResource = ResourceDefinition<TransformationProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: TransformationProperties): TransformationsResource {
       return {

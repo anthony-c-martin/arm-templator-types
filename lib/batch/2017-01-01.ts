@@ -16,11 +16,11 @@ export interface KeyVaultReference {
 }
 
 export namespace batchAccounts {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     tags?: Expressionable<any>;
   }
   
-  export type BatchAccountsResource = ResourceDefinition<BatchAccountBaseProperties> & AddedResourceProps;
+  export type BatchAccountsResource = ResourceDefinition<BatchAccountBaseProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: BatchAccountBaseProperties, location: Expressionable<string>, tags?: Expressionable<any>): BatchAccountsResource {
     return {
@@ -28,14 +28,16 @@ export namespace batchAccounts {
       apiVersion: '2017-01-01',
       name: [name],
       location,
-      tags,
       properties,
+      additional: {
+        tags,
+      },
     };
   }
 }
 export namespace batchAccounts {
   export namespace applications {
-    export type ApplicationsResource = ResourceDefinition<any>;
+    export type ApplicationsResource = ResourceDefinition<any, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: any): ApplicationsResource {
       return {
@@ -50,7 +52,7 @@ export namespace batchAccounts {
 export namespace batchAccounts {
   export namespace applications {
     export namespace versions {
-      export type VersionsResource = ResourceDefinition<any>;
+      export type VersionsResource = ResourceDefinition<any, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: any): VersionsResource {
         return {

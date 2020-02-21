@@ -15,11 +15,11 @@ export interface SqlServerRegistrationProperties {
 }
 
 export namespace sqlServerRegistrations {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     tags?: Expressionable<any>;
   }
   
-  export type SqlServerRegistrationsResource = ResourceDefinition<SqlServerRegistrationProperties> & AddedResourceProps;
+  export type SqlServerRegistrationsResource = ResourceDefinition<SqlServerRegistrationProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: SqlServerRegistrationProperties, location: Expressionable<string>, tags?: Expressionable<any>): SqlServerRegistrationsResource {
     return {
@@ -27,14 +27,16 @@ export namespace sqlServerRegistrations {
       apiVersion: '2017-03-01-preview',
       name: [name],
       location,
-      tags,
       properties,
+      additional: {
+        tags,
+      },
     };
   }
 }
 export namespace sqlServerRegistrations {
   export namespace sqlServers {
-    export type SqlServersResource = ResourceDefinition<SqlServerProperties>;
+    export type SqlServersResource = ResourceDefinition<SqlServerProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: SqlServerProperties): SqlServersResource {
       return {

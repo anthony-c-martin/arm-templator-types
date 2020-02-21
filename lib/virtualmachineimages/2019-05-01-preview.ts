@@ -103,12 +103,12 @@ export interface ImageTemplateVmProfile {
 }
 
 export namespace imageTemplates {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     identity?: Expressionable<ImageTemplateIdentity>;
     tags?: Expressionable<any>;
   }
   
-  export type ImageTemplatesResource = ResourceDefinition<ImageTemplateProperties> & AddedResourceProps;
+  export type ImageTemplatesResource = ResourceDefinition<ImageTemplateProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: ImageTemplateProperties, location: Expressionable<string>, identity?: Expressionable<ImageTemplateIdentity>, tags?: Expressionable<any>): ImageTemplatesResource {
     return {
@@ -116,9 +116,11 @@ export namespace imageTemplates {
       apiVersion: '2019-05-01-preview',
       name: [name],
       location,
-      identity,
-      tags,
       properties,
+      additional: {
+        identity,
+        tags,
+      },
     };
   }
 }

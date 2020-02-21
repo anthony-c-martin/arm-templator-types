@@ -32,11 +32,11 @@ export interface Scope {
 }
 
 export namespace actionRules {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     tags?: Expressionable<any>;
   }
   
-  export type ActionRulesResource = ResourceDefinition<ActionRuleProperties> & AddedResourceProps;
+  export type ActionRulesResource = ResourceDefinition<ActionRuleProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: ActionRuleProperties, location: Expressionable<string>, tags?: Expressionable<any>): ActionRulesResource {
     return {
@@ -44,8 +44,10 @@ export namespace actionRules {
       apiVersion: '2019-05-05-preview',
       name: [name],
       location,
-      tags,
       properties,
+      additional: {
+        tags,
+      },
     };
   }
 }

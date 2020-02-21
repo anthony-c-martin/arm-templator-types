@@ -49,11 +49,11 @@ export interface VirtualNetworkConfiguration {
 }
 
 export namespace service {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     sku: Expressionable<ApiServiceSkuProperties>;
   }
   
-  export type ServiceResource = ResourceDefinition<ApiServiceProperties> & AddedResourceProps;
+  export type ServiceResource = ResourceDefinition<ApiServiceProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: ApiServiceProperties, location: Expressionable<string>, sku: Expressionable<ApiServiceSkuProperties>): ServiceResource {
     return {
@@ -61,8 +61,10 @@ export namespace service {
       apiVersion: '2016-07-07',
       name: [name],
       location,
-      sku,
       properties,
+      additional: {
+        sku,
+      },
     };
   }
 }

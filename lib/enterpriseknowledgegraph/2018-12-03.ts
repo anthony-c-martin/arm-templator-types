@@ -11,12 +11,12 @@ export interface Sku {
 }
 
 export namespace services {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     sku?: Expressionable<Sku>;
     tags?: Expressionable<any>;
   }
   
-  export type ServicesResource = ResourceDefinition<EnterpriseKnowledgeGraphProperties> & AddedResourceProps;
+  export type ServicesResource = ResourceDefinition<EnterpriseKnowledgeGraphProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: EnterpriseKnowledgeGraphProperties, location?: Expressionable<string>, sku?: Expressionable<Sku>, tags?: Expressionable<any>): ServicesResource {
     return {
@@ -24,9 +24,11 @@ export namespace services {
       apiVersion: '2018-12-03',
       name: [name],
       location,
-      sku,
-      tags,
       properties,
+      additional: {
+        sku,
+        tags,
+      },
     };
   }
 }

@@ -27,11 +27,11 @@ export interface ServerEndpointCreateParametersPropertiesModelModel {
 }
 
 export namespace storageSyncServices {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     tags?: Expressionable<any>;
   }
   
-  export type StorageSyncServicesResource = ResourceDefinition<any> & AddedResourceProps;
+  export type StorageSyncServicesResource = ResourceDefinition<any, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: any, location?: Expressionable<string>, tags?: Expressionable<any>): StorageSyncServicesResource {
     return {
@@ -39,18 +39,20 @@ export namespace storageSyncServices {
       apiVersion: '2018-04-02',
       name: [name],
       location,
-      tags,
       properties,
+      additional: {
+        tags,
+      },
     };
   }
 }
 export namespace storageSyncServices {
   export namespace registeredServers {
-    export interface AddedResourceProps {
+    export interface AdditionalProps {
       tags?: Expressionable<any>;
     }
     
-    export type RegisteredServersResource = ResourceDefinition<RegisteredServerCreateParametersProperties> & AddedResourceProps;
+    export type RegisteredServersResource = ResourceDefinition<RegisteredServerCreateParametersProperties, AdditionalProps>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: RegisteredServerCreateParametersProperties, location?: Expressionable<string>, tags?: Expressionable<any>): RegisteredServersResource {
       return {
@@ -58,19 +60,21 @@ export namespace storageSyncServices {
         apiVersion: '2018-04-02',
         name: name,
         location,
-        tags,
         properties,
+        additional: {
+          tags,
+        },
       };
     }
   }
 }
 export namespace storageSyncServices {
   export namespace syncGroups {
-    export interface AddedResourceProps {
+    export interface AdditionalProps {
       tags?: Expressionable<any>;
     }
     
-    export type SyncGroupsResource = ResourceDefinition<any> & AddedResourceProps;
+    export type SyncGroupsResource = ResourceDefinition<any, AdditionalProps>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: any, location?: Expressionable<string>, tags?: Expressionable<any>): SyncGroupsResource {
       return {
@@ -78,8 +82,10 @@ export namespace storageSyncServices {
         apiVersion: '2018-04-02',
         name: name,
         location,
-        tags,
         properties,
+        additional: {
+          tags,
+        },
       };
     }
   }
@@ -87,11 +93,11 @@ export namespace storageSyncServices {
 export namespace storageSyncServices {
   export namespace syncGroups {
     export namespace cloudEndpoints {
-      export interface AddedResourceProps {
+      export interface AdditionalProps {
         tags?: Expressionable<any>;
       }
       
-      export type CloudEndpointsResource = ResourceDefinition<CloudEndpointCreateParametersPropertiesModelModel> & AddedResourceProps;
+      export type CloudEndpointsResource = ResourceDefinition<CloudEndpointCreateParametersPropertiesModelModel, AdditionalProps>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: CloudEndpointCreateParametersPropertiesModelModel, location?: Expressionable<string>, tags?: Expressionable<any>): CloudEndpointsResource {
         return {
@@ -99,8 +105,10 @@ export namespace storageSyncServices {
           apiVersion: '2018-04-02',
           name: name,
           location,
-          tags,
           properties,
+          additional: {
+            tags,
+          },
         };
       }
     }
@@ -109,11 +117,11 @@ export namespace storageSyncServices {
 export namespace storageSyncServices {
   export namespace syncGroups {
     export namespace serverEndpoints {
-      export interface AddedResourceProps {
+      export interface AdditionalProps {
         tags?: Expressionable<any>;
       }
       
-      export type ServerEndpointsResource = ResourceDefinition<ServerEndpointCreateParametersPropertiesModelModel> & AddedResourceProps;
+      export type ServerEndpointsResource = ResourceDefinition<ServerEndpointCreateParametersPropertiesModelModel, AdditionalProps>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ServerEndpointCreateParametersPropertiesModelModel, location?: Expressionable<string>, tags?: Expressionable<any>): ServerEndpointsResource {
         return {
@@ -121,8 +129,10 @@ export namespace storageSyncServices {
           apiVersion: '2018-04-02',
           name: name,
           location,
-          tags,
           properties,
+          additional: {
+            tags,
+          },
         };
       }
     }

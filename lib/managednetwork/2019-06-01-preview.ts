@@ -34,11 +34,11 @@ export interface ScopeAssignmentProperties {
 }
 
 export namespace managedNetworks {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     tags?: Expressionable<any>;
   }
   
-  export type ManagedNetworksResource = ResourceDefinition<ManagedNetworkProperties> & AddedResourceProps;
+  export type ManagedNetworksResource = ResourceDefinition<ManagedNetworkProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: ManagedNetworkProperties, location?: Expressionable<string>, tags?: Expressionable<any>): ManagedNetworksResource {
     return {
@@ -46,18 +46,20 @@ export namespace managedNetworks {
       apiVersion: '2019-06-01-preview',
       name: [name],
       location,
-      tags,
       properties,
+      additional: {
+        tags,
+      },
     };
   }
 }
 export namespace managedNetworks {
   export namespace managedNetworkGroups {
-    export interface AddedResourceProps {
+    export interface AdditionalProps {
       kind?: Expressionable<('Connectivity')>;
     }
     
-    export type ManagedNetworkGroupsResource = ResourceDefinition<ManagedNetworkGroupProperties> & AddedResourceProps;
+    export type ManagedNetworkGroupsResource = ResourceDefinition<ManagedNetworkGroupProperties, AdditionalProps>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: ManagedNetworkGroupProperties, location?: Expressionable<string>, kind?: Expressionable<('Connectivity')>): ManagedNetworkGroupsResource {
       return {
@@ -65,15 +67,17 @@ export namespace managedNetworks {
         apiVersion: '2019-06-01-preview',
         name: name,
         location,
-        kind,
         properties,
+        additional: {
+          kind,
+        },
       };
     }
   }
 }
 export namespace managedNetworks {
   export namespace managedNetworkPeeringPolicies {
-    export type ManagedNetworkPeeringPoliciesResource = ResourceDefinition<ManagedNetworkPeeringPolicyProperties>;
+    export type ManagedNetworkPeeringPoliciesResource = ResourceDefinition<ManagedNetworkPeeringPolicyProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: ManagedNetworkPeeringPolicyProperties, location?: Expressionable<string>): ManagedNetworkPeeringPoliciesResource {
       return {

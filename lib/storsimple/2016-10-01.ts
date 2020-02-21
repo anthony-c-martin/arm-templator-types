@@ -106,7 +106,7 @@ export interface Time {
 }
 
 export namespace managers {
-  export type ManagersResource = ResourceDefinition<ManagerProperties>;
+  export type ManagersResource = ResourceDefinition<ManagerProperties, undefined>;
   
   export function create(name: Expressionable<string>, properties: ManagerProperties, location: Expressionable<string>): ManagersResource {
     return {
@@ -120,7 +120,7 @@ export namespace managers {
 }
 export namespace managers {
   export namespace accessControlRecords {
-    export type AccessControlRecordsResource = ResourceDefinition<AccessControlRecordProperties>;
+    export type AccessControlRecordsResource = ResourceDefinition<AccessControlRecordProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: AccessControlRecordProperties): AccessControlRecordsResource {
       return {
@@ -134,7 +134,7 @@ export namespace managers {
 }
 export namespace managers {
   export namespace certificates {
-    export type CertificatesResource = ResourceDefinition<RawCertificateData>;
+    export type CertificatesResource = ResourceDefinition<RawCertificateData, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: RawCertificateData): CertificatesResource {
       return {
@@ -149,7 +149,7 @@ export namespace managers {
 export namespace managers {
   export namespace devices {
     export namespace alertSettings {
-      export type AlertSettingsResource = ResourceDefinition<AlertSettingsProperties>;
+      export type AlertSettingsResource = ResourceDefinition<AlertSettingsProperties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: AlertSettingsProperties): AlertSettingsResource {
         return {
@@ -165,7 +165,7 @@ export namespace managers {
 export namespace managers {
   export namespace devices {
     export namespace backupScheduleGroups {
-      export type BackupScheduleGroupsResource = ResourceDefinition<BackupScheduleGroupProperties>;
+      export type BackupScheduleGroupsResource = ResourceDefinition<BackupScheduleGroupProperties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: BackupScheduleGroupProperties): BackupScheduleGroupsResource {
         return {
@@ -181,7 +181,7 @@ export namespace managers {
 export namespace managers {
   export namespace devices {
     export namespace chapSettings {
-      export type ChapSettingsResource = ResourceDefinition<ChapProperties>;
+      export type ChapSettingsResource = ResourceDefinition<ChapProperties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ChapProperties): ChapSettingsResource {
         return {
@@ -197,7 +197,7 @@ export namespace managers {
 export namespace managers {
   export namespace devices {
     export namespace fileservers {
-      export type FileserversResource = ResourceDefinition<FileServerProperties>;
+      export type FileserversResource = ResourceDefinition<FileServerProperties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: FileServerProperties): FileserversResource {
         return {
@@ -214,7 +214,7 @@ export namespace managers {
   export namespace devices {
     export namespace fileservers {
       export namespace shares {
-        export type SharesResource = ResourceDefinition<FileShareProperties>;
+        export type SharesResource = ResourceDefinition<FileShareProperties, undefined>;
         
         export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: FileShareProperties): SharesResource {
           return {
@@ -231,7 +231,7 @@ export namespace managers {
 export namespace managers {
   export namespace devices {
     export namespace iscsiservers {
-      export type IscsiserversResource = ResourceDefinition<ISCSIServerProperties>;
+      export type IscsiserversResource = ResourceDefinition<ISCSIServerProperties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ISCSIServerProperties): IscsiserversResource {
         return {
@@ -248,7 +248,7 @@ export namespace managers {
   export namespace devices {
     export namespace iscsiservers {
       export namespace disks {
-        export type DisksResource = ResourceDefinition<ISCSIDiskProperties>;
+        export type DisksResource = ResourceDefinition<ISCSIDiskProperties, undefined>;
         
         export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ISCSIDiskProperties): DisksResource {
           return {
@@ -264,7 +264,7 @@ export namespace managers {
 }
 export namespace managers {
   export namespace extendedInformation {
-    export type ExtendedInformationResource = ResourceDefinition<ManagerExtendedInfoProperties>;
+    export type ExtendedInformationResource = ResourceDefinition<ManagerExtendedInfoProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: ManagerExtendedInfoProperties): ExtendedInformationResource {
       return {
@@ -278,7 +278,7 @@ export namespace managers {
 }
 export namespace managers {
   export namespace storageAccountCredentials {
-    export type StorageAccountCredentialsResource = ResourceDefinition<StorageAccountCredentialProperties>;
+    export type StorageAccountCredentialsResource = ResourceDefinition<StorageAccountCredentialProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: StorageAccountCredentialProperties): StorageAccountCredentialsResource {
       return {
@@ -292,7 +292,7 @@ export namespace managers {
 }
 export namespace managers {
   export namespace storageDomains {
-    export type StorageDomainsResource = ResourceDefinition<StorageDomainProperties>;
+    export type StorageDomainsResource = ResourceDefinition<StorageDomainProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: StorageDomainProperties): StorageDomainsResource {
       return {

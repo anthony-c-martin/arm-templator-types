@@ -198,13 +198,13 @@ export interface VirtualNetworkRule {
 }
 
 export namespace storageAccounts {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
+    identity?: Expressionable<Identity>;
     sku: Expressionable<Sku>;
     kind: Expressionable<('Storage' | 'StorageV2' | 'BlobStorage' | 'FileStorage' | 'BlockBlobStorage')>;
-    identity?: Expressionable<Identity>;
   }
   
-  export type StorageAccountsResource = ResourceDefinition<StorageAccountPropertiesCreateParameters> & AddedResourceProps;
+  export type StorageAccountsResource = ResourceDefinition<StorageAccountPropertiesCreateParameters, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: StorageAccountPropertiesCreateParameters, location: Expressionable<string>, sku: Expressionable<Sku>, kind: Expressionable<('Storage' | 'StorageV2' | 'BlobStorage' | 'FileStorage' | 'BlockBlobStorage')>, identity?: Expressionable<Identity>): StorageAccountsResource {
     return {
@@ -212,16 +212,18 @@ export namespace storageAccounts {
       apiVersion: '2019-06-01',
       name: [name],
       location,
-      identity,
-      sku,
-      kind,
       properties,
+      additional: {
+        identity,
+        sku,
+        kind,
+      },
     };
   }
 }
 export namespace storageAccounts {
   export namespace blobServices {
-    export type BlobServicesResource = ResourceDefinition<BlobServicePropertiesProperties>;
+    export type BlobServicesResource = ResourceDefinition<BlobServicePropertiesProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: BlobServicePropertiesProperties): BlobServicesResource {
       return {
@@ -236,7 +238,7 @@ export namespace storageAccounts {
 export namespace storageAccounts {
   export namespace blobServices {
     export namespace containers {
-      export type ContainersResource = ResourceDefinition<ContainerProperties>;
+      export type ContainersResource = ResourceDefinition<ContainerProperties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ContainerProperties): ContainersResource {
         return {
@@ -253,7 +255,7 @@ export namespace storageAccounts {
   export namespace blobServices {
     export namespace containers {
       export namespace immutabilityPolicies {
-        export type ImmutabilityPoliciesResource = ResourceDefinition<ImmutabilityPolicyProperty>;
+        export type ImmutabilityPoliciesResource = ResourceDefinition<ImmutabilityPolicyProperty, undefined>;
         
         export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ImmutabilityPolicyProperty): ImmutabilityPoliciesResource {
           return {
@@ -269,7 +271,7 @@ export namespace storageAccounts {
 }
 export namespace storageAccounts {
   export namespace fileServices {
-    export type FileServicesResource = ResourceDefinition<FileServicePropertiesProperties>;
+    export type FileServicesResource = ResourceDefinition<FileServicePropertiesProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: FileServicePropertiesProperties): FileServicesResource {
       return {
@@ -284,7 +286,7 @@ export namespace storageAccounts {
 export namespace storageAccounts {
   export namespace fileServices {
     export namespace shares {
-      export type SharesResource = ResourceDefinition<FileShareProperties>;
+      export type SharesResource = ResourceDefinition<FileShareProperties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: FileShareProperties): SharesResource {
         return {
@@ -299,7 +301,7 @@ export namespace storageAccounts {
 }
 export namespace storageAccounts {
   export namespace managementPolicies {
-    export type ManagementPoliciesResource = ResourceDefinition<ManagementPolicyProperties>;
+    export type ManagementPoliciesResource = ResourceDefinition<ManagementPolicyProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: ManagementPolicyProperties): ManagementPoliciesResource {
       return {
@@ -313,7 +315,7 @@ export namespace storageAccounts {
 }
 export namespace storageAccounts {
   export namespace privateEndpointConnections {
-    export type PrivateEndpointConnectionsResource = ResourceDefinition<PrivateEndpointConnectionProperties>;
+    export type PrivateEndpointConnectionsResource = ResourceDefinition<PrivateEndpointConnectionProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: PrivateEndpointConnectionProperties): PrivateEndpointConnectionsResource {
       return {

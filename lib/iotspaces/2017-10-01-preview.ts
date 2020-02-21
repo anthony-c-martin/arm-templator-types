@@ -16,12 +16,12 @@ export interface StorageContainerProperties {
 }
 
 export namespace Graph {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     sku: Expressionable<IoTSpacesSkuInfo>;
     tags?: Expressionable<any>;
   }
   
-  export type GraphResource = ResourceDefinition<IoTSpacesProperties> & AddedResourceProps;
+  export type GraphResource = ResourceDefinition<IoTSpacesProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: IoTSpacesProperties, location: Expressionable<string>, sku: Expressionable<IoTSpacesSkuInfo>, tags?: Expressionable<any>): GraphResource {
     return {
@@ -29,9 +29,11 @@ export namespace Graph {
       apiVersion: '2017-10-01-preview',
       name: [name],
       location,
-      sku,
-      tags,
       properties,
+      additional: {
+        sku,
+        tags,
+      },
     };
   }
 }

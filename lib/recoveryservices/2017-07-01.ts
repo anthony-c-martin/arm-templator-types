@@ -30,7 +30,7 @@ export interface ProtectionIntent {
 export namespace vaults {
   export namespace backupFabrics {
     export namespace backupProtectionIntent {
-      export type BackupProtectionIntentResource = ResourceDefinition<ProtectionIntent>;
+      export type BackupProtectionIntentResource = ResourceDefinition<ProtectionIntent, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ProtectionIntent, location?: Expressionable<string>): BackupProtectionIntentResource {
         return {

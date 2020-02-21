@@ -29,12 +29,12 @@ export interface Identity {
 }
 
 export namespace clusters {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     identity?: Expressionable<Identity>;
     tags?: Expressionable<any>;
   }
   
-  export type ClustersResource = ResourceDefinition<ClusterProperties> & AddedResourceProps;
+  export type ClustersResource = ResourceDefinition<ClusterProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: ClusterProperties, location?: Expressionable<string>, identity?: Expressionable<Identity>, tags?: Expressionable<any>): ClustersResource {
     return {
@@ -42,15 +42,17 @@ export namespace clusters {
       apiVersion: '2019-08-01-preview',
       name: [name],
       location,
-      identity,
-      tags,
       properties,
+      additional: {
+        identity,
+        tags,
+      },
     };
   }
 }
 export namespace workspaces {
   export namespace dataExports {
-    export type DataExportsResource = ResourceDefinition<DataExportProperties>;
+    export type DataExportsResource = ResourceDefinition<DataExportProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: DataExportProperties): DataExportsResource {
       return {

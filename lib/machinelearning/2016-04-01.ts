@@ -7,7 +7,7 @@ export interface WorkspaceProperties {
 }
 
 export namespace workspaces {
-  export type WorkspacesResource = ResourceDefinition<WorkspaceProperties>;
+  export type WorkspacesResource = ResourceDefinition<WorkspaceProperties, undefined>;
   
   export function create(name: Expressionable<string>, properties: WorkspaceProperties): WorkspacesResource {
     return {

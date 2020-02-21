@@ -465,7 +465,7 @@ export interface YearlyRetentionSchedule {
 export namespace vaults {
   export namespace backupFabrics {
     export namespace protectionContainers {
-      export type ProtectionContainersResource = ResourceDefinition<ProtectionContainer>;
+      export type ProtectionContainersResource = ResourceDefinition<ProtectionContainer, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ProtectionContainer, location?: Expressionable<string>): ProtectionContainersResource {
         return {
@@ -483,7 +483,7 @@ export namespace vaults {
   export namespace backupFabrics {
     export namespace protectionContainers {
       export namespace protectedItems {
-        export type ProtectedItemsResource = ResourceDefinition<ProtectedItem>;
+        export type ProtectedItemsResource = ResourceDefinition<ProtectedItem, undefined>;
         
         export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ProtectedItem, location?: Expressionable<string>): ProtectedItemsResource {
           return {
@@ -500,7 +500,7 @@ export namespace vaults {
 }
 export namespace vaults {
   export namespace backupPolicies {
-    export type BackupPoliciesResource = ResourceDefinition<ProtectionPolicy>;
+    export type BackupPoliciesResource = ResourceDefinition<ProtectionPolicy, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: ProtectionPolicy, location?: Expressionable<string>): BackupPoliciesResource {
       return {
@@ -515,7 +515,7 @@ export namespace vaults {
 }
 export namespace vaults {
   export namespace backupstorageconfig {
-    export type BackupstorageconfigResource = ResourceDefinition<BackupResourceConfig>;
+    export type BackupstorageconfigResource = ResourceDefinition<BackupResourceConfig, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: BackupResourceConfig, location?: Expressionable<string>): BackupstorageconfigResource {
       return {

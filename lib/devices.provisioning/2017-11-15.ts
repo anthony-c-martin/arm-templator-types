@@ -28,12 +28,12 @@ export interface SharedAccessSignatureAuthorizationRuleAccessRightsDescription {
 }
 
 export namespace provisioningServices {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     sku: Expressionable<IotDpsSkuInfo>;
     tags?: Expressionable<any>;
   }
   
-  export type ProvisioningServicesResource = ResourceDefinition<IotDpsPropertiesDescription> & AddedResourceProps;
+  export type ProvisioningServicesResource = ResourceDefinition<IotDpsPropertiesDescription, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: IotDpsPropertiesDescription, location: Expressionable<string>, sku: Expressionable<IotDpsSkuInfo>, tags?: Expressionable<any>): ProvisioningServicesResource {
     return {
@@ -41,15 +41,17 @@ export namespace provisioningServices {
       apiVersion: '2017-11-15',
       name: [name],
       location,
-      sku,
-      tags,
       properties,
+      additional: {
+        sku,
+        tags,
+      },
     };
   }
 }
 export namespace provisioningServices {
   export namespace certificates {
-    export type CertificatesResource = ResourceDefinition<any>;
+    export type CertificatesResource = ResourceDefinition<any, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: any): CertificatesResource {
       return {

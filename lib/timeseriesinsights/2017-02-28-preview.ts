@@ -55,12 +55,12 @@ export interface Sku {
 }
 
 export namespace environments {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     sku: Expressionable<Sku>;
     tags?: Expressionable<any>;
   }
   
-  export type EnvironmentsResource = ResourceDefinition<EnvironmentCreationProperties> & AddedResourceProps;
+  export type EnvironmentsResource = ResourceDefinition<EnvironmentCreationProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: EnvironmentCreationProperties, location: Expressionable<string>, sku: Expressionable<Sku>, tags?: Expressionable<any>): EnvironmentsResource {
     return {
@@ -68,15 +68,17 @@ export namespace environments {
       apiVersion: '2017-02-28-preview',
       name: [name],
       location,
-      sku,
-      tags,
       properties,
+      additional: {
+        sku,
+        tags,
+      },
     };
   }
 }
 export namespace environments {
   export namespace accessPolicies {
-    export type AccessPoliciesResource = ResourceDefinition<AccessPolicyResourceProperties>;
+    export type AccessPoliciesResource = ResourceDefinition<AccessPolicyResourceProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: AccessPolicyResourceProperties): AccessPoliciesResource {
       return {
@@ -90,11 +92,11 @@ export namespace environments {
 }
 export namespace environments {
   export namespace eventSources {
-    export interface AddedResourceProps {
+    export interface AdditionalProps {
       tags?: Expressionable<any>;
     }
     
-    export type EventSourcesResource = ResourceDefinition<EventHubEventSourceCreationProperties | IoTHubEventSourceCreationProperties> & AddedResourceProps;
+    export type EventSourcesResource = ResourceDefinition<EventHubEventSourceCreationProperties | IoTHubEventSourceCreationProperties, AdditionalProps>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: EventHubEventSourceCreationProperties | IoTHubEventSourceCreationProperties, location: Expressionable<string>, tags?: Expressionable<any>): EventSourcesResource {
       return {
@@ -102,19 +104,21 @@ export namespace environments {
         apiVersion: '2017-02-28-preview',
         name: name,
         location,
-        tags,
         properties,
+        additional: {
+          tags,
+        },
       };
     }
   }
 }
 export namespace environments {
   export namespace referenceDataSets {
-    export interface AddedResourceProps {
+    export interface AdditionalProps {
       tags?: Expressionable<any>;
     }
     
-    export type ReferenceDataSetsResource = ResourceDefinition<ReferenceDataSetCreationProperties> & AddedResourceProps;
+    export type ReferenceDataSetsResource = ResourceDefinition<ReferenceDataSetCreationProperties, AdditionalProps>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: ReferenceDataSetCreationProperties, location: Expressionable<string>, tags?: Expressionable<any>): ReferenceDataSetsResource {
       return {
@@ -122,8 +126,10 @@ export namespace environments {
         apiVersion: '2017-02-28-preview',
         name: name,
         location,
-        tags,
         properties,
+        additional: {
+          tags,
+        },
       };
     }
   }

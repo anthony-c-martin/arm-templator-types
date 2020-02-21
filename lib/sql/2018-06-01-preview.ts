@@ -108,12 +108,12 @@ export interface VulnerabilityAssessmentRecurringScansProperties {
 }
 
 export namespace instancePools {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     sku?: Expressionable<Sku>;
     tags?: Expressionable<any>;
   }
   
-  export type InstancePoolsResource = ResourceDefinition<InstancePoolProperties> & AddedResourceProps;
+  export type InstancePoolsResource = ResourceDefinition<InstancePoolProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: InstancePoolProperties, location: Expressionable<string>, sku?: Expressionable<Sku>, tags?: Expressionable<any>): InstancePoolsResource {
     return {
@@ -121,20 +121,22 @@ export namespace instancePools {
       apiVersion: '2018-06-01-preview',
       name: [name],
       location,
-      sku,
-      tags,
       properties,
+      additional: {
+        sku,
+        tags,
+      },
     };
   }
 }
 export namespace managedInstances {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     identity?: Expressionable<ResourceIdentity>;
     sku?: Expressionable<Sku>;
     tags?: Expressionable<any>;
   }
   
-  export type ManagedInstancesResource = ResourceDefinition<ManagedInstanceProperties> & AddedResourceProps;
+  export type ManagedInstancesResource = ResourceDefinition<ManagedInstanceProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: ManagedInstanceProperties, location: Expressionable<string>, identity?: Expressionable<ResourceIdentity>, sku?: Expressionable<Sku>, tags?: Expressionable<any>): ManagedInstancesResource {
     return {
@@ -142,20 +144,22 @@ export namespace managedInstances {
       apiVersion: '2018-06-01-preview',
       name: [name],
       location,
-      identity,
-      sku,
-      tags,
       properties,
+      additional: {
+        identity,
+        sku,
+        tags,
+      },
     };
   }
 }
 export namespace managedInstances {
   export namespace databases {
-    export interface AddedResourceProps {
+    export interface AdditionalProps {
       tags?: Expressionable<any>;
     }
     
-    export type DatabasesResource = ResourceDefinition<ManagedDatabaseProperties> & AddedResourceProps;
+    export type DatabasesResource = ResourceDefinition<ManagedDatabaseProperties, AdditionalProps>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: ManagedDatabaseProperties, location: Expressionable<string>, tags?: Expressionable<any>): DatabasesResource {
       return {
@@ -163,8 +167,10 @@ export namespace managedInstances {
         apiVersion: '2018-06-01-preview',
         name: name,
         location,
-        tags,
         properties,
+        additional: {
+          tags,
+        },
       };
     }
   }
@@ -175,7 +181,7 @@ export namespace managedInstances {
       export namespace tables {
         export namespace columns {
           export namespace sensitivityLabels {
-            export type SensitivityLabelsResource = ResourceDefinition<SensitivityLabelProperties>;
+            export type SensitivityLabelsResource = ResourceDefinition<SensitivityLabelProperties, undefined>;
             
             export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: SensitivityLabelProperties): SensitivityLabelsResource {
               return {
@@ -193,7 +199,7 @@ export namespace managedInstances {
 }
 export namespace managedInstances {
   export namespace vulnerabilityAssessments {
-    export type VulnerabilityAssessmentsResource = ResourceDefinition<ManagedInstanceVulnerabilityAssessmentProperties>;
+    export type VulnerabilityAssessmentsResource = ResourceDefinition<ManagedInstanceVulnerabilityAssessmentProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: ManagedInstanceVulnerabilityAssessmentProperties): VulnerabilityAssessmentsResource {
       return {
@@ -207,7 +213,7 @@ export namespace managedInstances {
 }
 export namespace servers {
   export namespace administrators {
-    export type AdministratorsResource = ResourceDefinition<AdministratorProperties>;
+    export type AdministratorsResource = ResourceDefinition<AdministratorProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: AdministratorProperties): AdministratorsResource {
       return {
@@ -222,7 +228,7 @@ export namespace servers {
 export namespace servers {
   export namespace databases {
     export namespace securityAlertPolicies {
-      export type SecurityAlertPoliciesResource = ResourceDefinition<SecurityAlertPolicyProperties>;
+      export type SecurityAlertPoliciesResource = ResourceDefinition<SecurityAlertPolicyProperties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: SecurityAlertPolicyProperties): SecurityAlertPoliciesResource {
         return {
@@ -237,7 +243,7 @@ export namespace servers {
 }
 export namespace servers {
   export namespace privateEndpointConnections {
-    export type PrivateEndpointConnectionsResource = ResourceDefinition<PrivateEndpointConnectionProperties>;
+    export type PrivateEndpointConnectionsResource = ResourceDefinition<PrivateEndpointConnectionProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: PrivateEndpointConnectionProperties): PrivateEndpointConnectionsResource {
       return {
@@ -251,7 +257,7 @@ export namespace servers {
 }
 export namespace servers {
   export namespace vulnerabilityAssessments {
-    export type VulnerabilityAssessmentsResource = ResourceDefinition<ServerVulnerabilityAssessmentProperties>;
+    export type VulnerabilityAssessmentsResource = ResourceDefinition<ServerVulnerabilityAssessmentProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: ServerVulnerabilityAssessmentProperties): VulnerabilityAssessmentsResource {
       return {

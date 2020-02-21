@@ -242,11 +242,11 @@ export interface VolumeResourceProperties {
 }
 
 export namespace applications {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     tags?: Expressionable<any>;
   }
   
-  export type ApplicationsResource = ResourceDefinition<ApplicationResourceProperties> & AddedResourceProps;
+  export type ApplicationsResource = ResourceDefinition<ApplicationResourceProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: ApplicationResourceProperties, location: Expressionable<string>, tags?: Expressionable<any>): ApplicationsResource {
     return {
@@ -254,17 +254,19 @@ export namespace applications {
       apiVersion: '2018-09-01-preview',
       name: [name],
       location,
-      tags,
       properties,
+      additional: {
+        tags,
+      },
     };
   }
 }
 export namespace gateways {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     tags?: Expressionable<any>;
   }
   
-  export type GatewaysResource = ResourceDefinition<GatewayResourceProperties> & AddedResourceProps;
+  export type GatewaysResource = ResourceDefinition<GatewayResourceProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: GatewayResourceProperties, location: Expressionable<string>, tags?: Expressionable<any>): GatewaysResource {
     return {
@@ -272,17 +274,19 @@ export namespace gateways {
       apiVersion: '2018-09-01-preview',
       name: [name],
       location,
-      tags,
       properties,
+      additional: {
+        tags,
+      },
     };
   }
 }
 export namespace networks {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     tags?: Expressionable<any>;
   }
   
-  export type NetworksResource = ResourceDefinition<NetworkResourceProperties> & AddedResourceProps;
+  export type NetworksResource = ResourceDefinition<NetworkResourceProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: NetworkResourceProperties, location: Expressionable<string>, tags?: Expressionable<any>): NetworksResource {
     return {
@@ -290,17 +294,19 @@ export namespace networks {
       apiVersion: '2018-09-01-preview',
       name: [name],
       location,
-      tags,
       properties,
+      additional: {
+        tags,
+      },
     };
   }
 }
 export namespace secrets {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     tags?: Expressionable<any>;
   }
   
-  export type SecretsResource = ResourceDefinition<SecretResourceProperties> & AddedResourceProps;
+  export type SecretsResource = ResourceDefinition<SecretResourceProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: SecretResourceProperties, location: Expressionable<string>, tags?: Expressionable<any>): SecretsResource {
     return {
@@ -308,18 +314,20 @@ export namespace secrets {
       apiVersion: '2018-09-01-preview',
       name: [name],
       location,
-      tags,
       properties,
+      additional: {
+        tags,
+      },
     };
   }
 }
 export namespace secrets {
   export namespace values {
-    export interface AddedResourceProps {
+    export interface AdditionalProps {
       tags?: Expressionable<any>;
     }
     
-    export type ValuesResource = ResourceDefinition<SecretValueResourceProperties> & AddedResourceProps;
+    export type ValuesResource = ResourceDefinition<SecretValueResourceProperties, AdditionalProps>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: SecretValueResourceProperties, location: Expressionable<string>, tags?: Expressionable<any>): ValuesResource {
       return {
@@ -327,18 +335,20 @@ export namespace secrets {
         apiVersion: '2018-09-01-preview',
         name: name,
         location,
-        tags,
         properties,
+        additional: {
+          tags,
+        },
       };
     }
   }
 }
 export namespace volumes {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     tags?: Expressionable<any>;
   }
   
-  export type VolumesResource = ResourceDefinition<VolumeResourceProperties> & AddedResourceProps;
+  export type VolumesResource = ResourceDefinition<VolumeResourceProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: VolumeResourceProperties, location: Expressionable<string>, tags?: Expressionable<any>): VolumesResource {
     return {
@@ -346,8 +356,10 @@ export namespace volumes {
       apiVersion: '2018-09-01-preview',
       name: [name],
       location,
-      tags,
       properties,
+      additional: {
+        tags,
+      },
     };
   }
 }

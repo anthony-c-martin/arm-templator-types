@@ -63,12 +63,12 @@ export interface WebhookPropertiesCreateParameters {
 }
 
 export namespace registries {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     sku: Expressionable<Sku>;
     tags?: Expressionable<any>;
   }
   
-  export type RegistriesResource = ResourceDefinition<RegistryProperties> & AddedResourceProps;
+  export type RegistriesResource = ResourceDefinition<RegistryProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: RegistryProperties, location: Expressionable<string>, sku: Expressionable<Sku>, tags?: Expressionable<any>): RegistriesResource {
     return {
@@ -76,19 +76,21 @@ export namespace registries {
       apiVersion: '2019-05-01',
       name: [name],
       location,
-      sku,
-      tags,
       properties,
+      additional: {
+        sku,
+        tags,
+      },
     };
   }
 }
 export namespace registries {
   export namespace replications {
-    export interface AddedResourceProps {
+    export interface AdditionalProps {
       tags?: Expressionable<any>;
     }
     
-    export type ReplicationsResource = ResourceDefinition<ReplicationProperties> & AddedResourceProps;
+    export type ReplicationsResource = ResourceDefinition<ReplicationProperties, AdditionalProps>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: ReplicationProperties, location: Expressionable<string>, tags?: Expressionable<any>): ReplicationsResource {
       return {
@@ -96,19 +98,21 @@ export namespace registries {
         apiVersion: '2019-05-01',
         name: name,
         location,
-        tags,
         properties,
+        additional: {
+          tags,
+        },
       };
     }
   }
 }
 export namespace registries {
   export namespace webhooks {
-    export interface AddedResourceProps {
+    export interface AdditionalProps {
       tags?: Expressionable<any>;
     }
     
-    export type WebhooksResource = ResourceDefinition<WebhookPropertiesCreateParameters> & AddedResourceProps;
+    export type WebhooksResource = ResourceDefinition<WebhookPropertiesCreateParameters, AdditionalProps>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: WebhookPropertiesCreateParameters, location: Expressionable<string>, tags?: Expressionable<any>): WebhooksResource {
       return {
@@ -116,8 +120,10 @@ export namespace registries {
         apiVersion: '2019-05-01',
         name: name,
         location,
-        tags,
         properties,
+        additional: {
+          tags,
+        },
       };
     }
   }

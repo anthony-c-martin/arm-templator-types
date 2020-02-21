@@ -145,11 +145,11 @@ export interface WebhookReceiver {
 }
 
 export namespace actionGroups {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     tags?: Expressionable<any>;
   }
   
-  export type ActionGroupsResource = ResourceDefinition<ActionGroup> & AddedResourceProps;
+  export type ActionGroupsResource = ResourceDefinition<ActionGroup, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: ActionGroup, location: Expressionable<string>, tags?: Expressionable<any>): ActionGroupsResource {
     return {
@@ -157,17 +157,19 @@ export namespace actionGroups {
       apiVersion: '2018-03-01',
       name: [name],
       location,
-      tags,
       properties,
+      additional: {
+        tags,
+      },
     };
   }
 }
 export namespace metricAlerts {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     tags?: Expressionable<any>;
   }
   
-  export type MetricAlertsResource = ResourceDefinition<MetricAlertProperties> & AddedResourceProps;
+  export type MetricAlertsResource = ResourceDefinition<MetricAlertProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: MetricAlertProperties, location: Expressionable<string>, tags?: Expressionable<any>): MetricAlertsResource {
     return {
@@ -175,8 +177,10 @@ export namespace metricAlerts {
       apiVersion: '2018-03-01',
       name: [name],
       location,
-      tags,
       properties,
+      additional: {
+        tags,
+      },
     };
   }
 }

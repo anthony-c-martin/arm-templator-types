@@ -7,11 +7,11 @@ export interface DeviceServiceProperties {
 }
 
 export namespace deviceServices {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     tags?: Expressionable<any>;
   }
   
-  export type DeviceServicesResource = ResourceDefinition<DeviceServiceProperties> & AddedResourceProps;
+  export type DeviceServicesResource = ResourceDefinition<DeviceServiceProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: DeviceServiceProperties, location?: Expressionable<string>, tags?: Expressionable<any>): DeviceServicesResource {
     return {
@@ -19,8 +19,10 @@ export namespace deviceServices {
       apiVersion: '2018-02-16-preview',
       name: [name],
       location,
-      tags,
       properties,
+      additional: {
+        tags,
+      },
     };
   }
 }

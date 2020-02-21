@@ -122,12 +122,12 @@ export interface Subnet {
 }
 
 export namespace namespaces {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     sku?: Expressionable<SBSku>;
     tags?: Expressionable<any>;
   }
   
-  export type NamespacesResource = ResourceDefinition<SBNamespaceProperties> & AddedResourceProps;
+  export type NamespacesResource = ResourceDefinition<SBNamespaceProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: SBNamespaceProperties, location: Expressionable<string>, sku?: Expressionable<SBSku>, tags?: Expressionable<any>): NamespacesResource {
     return {
@@ -135,15 +135,17 @@ export namespace namespaces {
       apiVersion: '2017-04-01',
       name: [name],
       location,
-      sku,
-      tags,
       properties,
+      additional: {
+        sku,
+        tags,
+      },
     };
   }
 }
 export namespace namespaces {
   export namespace AuthorizationRules {
-    export type AuthorizationRulesResource = ResourceDefinition<SBAuthorizationRuleProperties>;
+    export type AuthorizationRulesResource = ResourceDefinition<SBAuthorizationRuleProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: SBAuthorizationRuleProperties): AuthorizationRulesResource {
       return {
@@ -157,7 +159,7 @@ export namespace namespaces {
 }
 export namespace namespaces {
   export namespace disasterRecoveryConfigs {
-    export type DisasterRecoveryConfigsResource = ResourceDefinition<ArmDisasterRecoveryProperties>;
+    export type DisasterRecoveryConfigsResource = ResourceDefinition<ArmDisasterRecoveryProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: ArmDisasterRecoveryProperties): DisasterRecoveryConfigsResource {
       return {
@@ -171,7 +173,7 @@ export namespace namespaces {
 }
 export namespace namespaces {
   export namespace migrationConfigurations {
-    export type MigrationConfigurationsResource = ResourceDefinition<MigrationConfigPropertiesProperties>;
+    export type MigrationConfigurationsResource = ResourceDefinition<MigrationConfigPropertiesProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: MigrationConfigPropertiesProperties): MigrationConfigurationsResource {
       return {
@@ -185,7 +187,7 @@ export namespace namespaces {
 }
 export namespace namespaces {
   export namespace networkRuleSets {
-    export type NetworkRuleSetsResource = ResourceDefinition<NetworkRuleSetProperties>;
+    export type NetworkRuleSetsResource = ResourceDefinition<NetworkRuleSetProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: NetworkRuleSetProperties): NetworkRuleSetsResource {
       return {
@@ -199,7 +201,7 @@ export namespace namespaces {
 }
 export namespace namespaces {
   export namespace queues {
-    export type QueuesResource = ResourceDefinition<SBQueueProperties>;
+    export type QueuesResource = ResourceDefinition<SBQueueProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: SBQueueProperties): QueuesResource {
       return {
@@ -214,7 +216,7 @@ export namespace namespaces {
 export namespace namespaces {
   export namespace queues {
     export namespace authorizationRules {
-      export type AuthorizationRulesResource = ResourceDefinition<SBAuthorizationRuleProperties>;
+      export type AuthorizationRulesResource = ResourceDefinition<SBAuthorizationRuleProperties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: SBAuthorizationRuleProperties): AuthorizationRulesResource {
         return {
@@ -229,7 +231,7 @@ export namespace namespaces {
 }
 export namespace namespaces {
   export namespace topics {
-    export type TopicsResource = ResourceDefinition<SBTopicProperties>;
+    export type TopicsResource = ResourceDefinition<SBTopicProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: SBTopicProperties): TopicsResource {
       return {
@@ -244,7 +246,7 @@ export namespace namespaces {
 export namespace namespaces {
   export namespace topics {
     export namespace authorizationRules {
-      export type AuthorizationRulesResource = ResourceDefinition<SBAuthorizationRuleProperties>;
+      export type AuthorizationRulesResource = ResourceDefinition<SBAuthorizationRuleProperties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: SBAuthorizationRuleProperties): AuthorizationRulesResource {
         return {
@@ -260,7 +262,7 @@ export namespace namespaces {
 export namespace namespaces {
   export namespace topics {
     export namespace subscriptions {
-      export type SubscriptionsResource = ResourceDefinition<SBSubscriptionProperties>;
+      export type SubscriptionsResource = ResourceDefinition<SBSubscriptionProperties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: SBSubscriptionProperties): SubscriptionsResource {
         return {
@@ -277,7 +279,7 @@ export namespace namespaces {
   export namespace topics {
     export namespace subscriptions {
       export namespace rules {
-        export type RulesResource = ResourceDefinition<Ruleproperties>;
+        export type RulesResource = ResourceDefinition<Ruleproperties, undefined>;
         
         export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: Ruleproperties): RulesResource {
           return {

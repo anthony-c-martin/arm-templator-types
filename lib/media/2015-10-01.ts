@@ -8,7 +8,7 @@ export interface storageAccount {
 }
 
 export namespace mediaServices {
-  export type MediaServicesResource = ResourceDefinition<storageAccounts>;
+  export type MediaServicesResource = ResourceDefinition<storageAccounts, undefined>;
   
   export function create(name: Expressionable<string>, properties: storageAccounts): MediaServicesResource {
     return {

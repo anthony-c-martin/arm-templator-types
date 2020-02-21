@@ -125,7 +125,7 @@ export interface InformationProtectionKeyword {
 }
 
 export namespace pricings {
-  export type PricingsResource = ResourceDefinition<PricingProperties>;
+  export type PricingsResource = ResourceDefinition<PricingProperties, undefined>;
   
   export function create(name: Expressionable<string>, properties: PricingProperties): PricingsResource {
     return {
@@ -137,7 +137,7 @@ export namespace pricings {
   }
 }
 export namespace securityContacts {
-  export type SecurityContactsResource = ResourceDefinition<SecurityContactProperties>;
+  export type SecurityContactsResource = ResourceDefinition<SecurityContactProperties, undefined>;
   
   export function create(name: Expressionable<string>, properties: SecurityContactProperties): SecurityContactsResource {
     return {
@@ -149,7 +149,7 @@ export namespace securityContacts {
   }
 }
 export namespace workspaceSettings {
-  export type WorkspaceSettingsResource = ResourceDefinition<WorkspaceSettingProperties>;
+  export type WorkspaceSettingsResource = ResourceDefinition<WorkspaceSettingProperties, undefined>;
   
   export function create(name: Expressionable<string>, properties: WorkspaceSettingProperties): WorkspaceSettingsResource {
     return {
@@ -161,7 +161,7 @@ export namespace workspaceSettings {
   }
 }
 export namespace autoProvisioningSettings {
-  export type AutoProvisioningSettingsResource = ResourceDefinition<AutoProvisioningSettingProperties>;
+  export type AutoProvisioningSettingsResource = ResourceDefinition<AutoProvisioningSettingProperties, undefined>;
   
   export function create(name: Expressionable<string>, properties: AutoProvisioningSettingProperties): AutoProvisioningSettingsResource {
     return {
@@ -173,7 +173,7 @@ export namespace autoProvisioningSettings {
   }
 }
 export namespace advancedThreatProtectionSettings {
-  export type AdvancedThreatProtectionSettingsResource = ResourceDefinition<AdvancedThreatProtectionProperties>;
+  export type AdvancedThreatProtectionSettingsResource = ResourceDefinition<AdvancedThreatProtectionProperties, undefined>;
   
   export function create(name: Expressionable<string>, properties: AdvancedThreatProtectionProperties): AdvancedThreatProtectionSettingsResource {
     return {
@@ -185,7 +185,7 @@ export namespace advancedThreatProtectionSettings {
   }
 }
 export namespace settings {
-  export type SettingsResource = ResourceDefinition<SettingResource>;
+  export type SettingsResource = ResourceDefinition<SettingResource, undefined>;
   
   export function create(name: Expressionable<string>, properties: SettingResource): SettingsResource {
     return {
@@ -197,7 +197,7 @@ export namespace settings {
   }
 }
 export namespace informationProtectionPolicies {
-  export type InformationProtectionPoliciesResource = ResourceDefinition<InformationProtectionPolicyProperties>;
+  export type InformationProtectionPoliciesResource = ResourceDefinition<InformationProtectionPolicyProperties, undefined>;
   
   export function create(name: Expressionable<string>, properties: InformationProtectionPolicyProperties): InformationProtectionPoliciesResource {
     return {

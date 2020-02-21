@@ -34,13 +34,13 @@ export interface VirtualNetworkRule {
 }
 
 export namespace accounts {
-  export interface AddedResourceProps {
-    kind?: Expressionable<string>;
+  export interface AdditionalProps {
     sku?: Expressionable<Sku>;
+    kind?: Expressionable<string>;
     tags?: Expressionable<any>;
   }
   
-  export type AccountsResource = ResourceDefinition<CognitiveServicesAccountProperties> & AddedResourceProps;
+  export type AccountsResource = ResourceDefinition<CognitiveServicesAccountProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: CognitiveServicesAccountProperties, location?: Expressionable<string>, sku?: Expressionable<Sku>, kind?: Expressionable<string>, tags?: Expressionable<any>): AccountsResource {
     return {
@@ -48,10 +48,12 @@ export namespace accounts {
       apiVersion: '2017-04-18',
       name: [name],
       location,
-      sku,
-      kind,
-      tags,
       properties,
+      additional: {
+        sku,
+        kind,
+        tags,
+      },
     };
   }
 }

@@ -262,11 +262,11 @@ export interface WindowsUserConfiguration {
 }
 
 export namespace batchAccounts {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     tags?: Expressionable<any>;
   }
   
-  export type BatchAccountsResource = ResourceDefinition<BatchAccountCreateProperties> & AddedResourceProps;
+  export type BatchAccountsResource = ResourceDefinition<BatchAccountCreateProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: BatchAccountCreateProperties, location: Expressionable<string>, tags?: Expressionable<any>): BatchAccountsResource {
     return {
@@ -274,14 +274,16 @@ export namespace batchAccounts {
       apiVersion: '2019-08-01',
       name: [name],
       location,
-      tags,
       properties,
+      additional: {
+        tags,
+      },
     };
   }
 }
 export namespace batchAccounts {
   export namespace applications {
-    export type ApplicationsResource = ResourceDefinition<ApplicationProperties>;
+    export type ApplicationsResource = ResourceDefinition<ApplicationProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: ApplicationProperties): ApplicationsResource {
       return {
@@ -296,7 +298,7 @@ export namespace batchAccounts {
 export namespace batchAccounts {
   export namespace applications {
     export namespace versions {
-      export type VersionsResource = ResourceDefinition<ApplicationPackageProperties>;
+      export type VersionsResource = ResourceDefinition<ApplicationPackageProperties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ApplicationPackageProperties): VersionsResource {
         return {
@@ -311,7 +313,7 @@ export namespace batchAccounts {
 }
 export namespace batchAccounts {
   export namespace certificates {
-    export type CertificatesResource = ResourceDefinition<CertificateCreateOrUpdateProperties>;
+    export type CertificatesResource = ResourceDefinition<CertificateCreateOrUpdateProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: CertificateCreateOrUpdateProperties): CertificatesResource {
       return {
@@ -325,7 +327,7 @@ export namespace batchAccounts {
 }
 export namespace batchAccounts {
   export namespace pools {
-    export type PoolsResource = ResourceDefinition<PoolProperties>;
+    export type PoolsResource = ResourceDefinition<PoolProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: PoolProperties): PoolsResource {
       return {

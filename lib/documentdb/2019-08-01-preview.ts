@@ -16,7 +16,7 @@ export interface PrivateLinkServiceConnectionStateProperty {
 
 export namespace databaseAccounts {
   export namespace privateEndpointConnections {
-    export type PrivateEndpointConnectionsResource = ResourceDefinition<PrivateEndpointConnectionProperties>;
+    export type PrivateEndpointConnectionsResource = ResourceDefinition<PrivateEndpointConnectionProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: PrivateEndpointConnectionProperties): PrivateEndpointConnectionsResource {
       return {

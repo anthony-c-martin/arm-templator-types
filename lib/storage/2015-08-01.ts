@@ -1,7 +1,7 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 
 export namespace storageAccounts {
-  export type StorageAccountsResource = ResourceDefinition<any>;
+  export type StorageAccountsResource = ResourceDefinition<any, undefined>;
   
   export function create(name: Expressionable<string>, properties: any): StorageAccountsResource {
     return {

@@ -9,11 +9,11 @@ export interface MultipleActivationKeyProperties {
 }
 
 export namespace multipleActivationKeys {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     tags?: Expressionable<any>;
   }
   
-  export type MultipleActivationKeysResource = ResourceDefinition<MultipleActivationKeyProperties> & AddedResourceProps;
+  export type MultipleActivationKeysResource = ResourceDefinition<MultipleActivationKeyProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: MultipleActivationKeyProperties, location: Expressionable<string>, tags?: Expressionable<any>): MultipleActivationKeysResource {
     return {
@@ -21,8 +21,10 @@ export namespace multipleActivationKeys {
       apiVersion: '2019-09-16-preview',
       name: [name],
       location,
-      tags,
       properties,
+      additional: {
+        tags,
+      },
     };
   }
 }

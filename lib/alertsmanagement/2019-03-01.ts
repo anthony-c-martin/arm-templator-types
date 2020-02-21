@@ -31,7 +31,7 @@ export interface ThrottlingInformation {
 }
 
 export namespace smartDetectorAlertRules {
-  export type SmartDetectorAlertRulesResource = ResourceDefinition<AlertRuleProperties>;
+  export type SmartDetectorAlertRulesResource = ResourceDefinition<AlertRuleProperties, undefined>;
   
   export function create(name: Expressionable<string>, properties: AlertRuleProperties): SmartDetectorAlertRulesResource {
     return {

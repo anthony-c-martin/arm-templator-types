@@ -253,11 +253,11 @@ export interface UserAssignedIdentity {
 }
 
 export namespace clusters {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     tags?: Expressionable<any>;
   }
   
-  export type ClustersResource = ResourceDefinition<ClusterProperties> & AddedResourceProps;
+  export type ClustersResource = ResourceDefinition<ClusterProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: ClusterProperties, location: Expressionable<string>, tags?: Expressionable<any>): ClustersResource {
     return {
@@ -265,19 +265,21 @@ export namespace clusters {
       apiVersion: '2019-06-01-preview',
       name: [name],
       location,
-      tags,
       properties,
+      additional: {
+        tags,
+      },
     };
   }
 }
 export namespace clusters {
   export namespace applications {
-    export interface AddedResourceProps {
+    export interface AdditionalProps {
       identity?: Expressionable<ManagedIdentity>;
       tags?: Expressionable<any>;
     }
     
-    export type ApplicationsResource = ResourceDefinition<ApplicationResourceProperties> & AddedResourceProps;
+    export type ApplicationsResource = ResourceDefinition<ApplicationResourceProperties, AdditionalProps>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: ApplicationResourceProperties, location?: Expressionable<string>, identity?: Expressionable<ManagedIdentity>, tags?: Expressionable<any>): ApplicationsResource {
       return {
@@ -285,9 +287,11 @@ export namespace clusters {
         apiVersion: '2019-06-01-preview',
         name: name,
         location,
-        identity,
-        tags,
         properties,
+        additional: {
+          identity,
+          tags,
+        },
       };
     }
   }
@@ -295,11 +299,11 @@ export namespace clusters {
 export namespace clusters {
   export namespace applications {
     export namespace services {
-      export interface AddedResourceProps {
+      export interface AdditionalProps {
         tags?: Expressionable<any>;
       }
       
-      export type ServicesResource = ResourceDefinition<ServiceResourceProperties> & AddedResourceProps;
+      export type ServicesResource = ResourceDefinition<ServiceResourceProperties, AdditionalProps>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ServiceResourceProperties, location?: Expressionable<string>, tags?: Expressionable<any>): ServicesResource {
         return {
@@ -307,8 +311,10 @@ export namespace clusters {
           apiVersion: '2019-06-01-preview',
           name: name,
           location,
-          tags,
           properties,
+          additional: {
+            tags,
+          },
         };
       }
     }
@@ -316,11 +322,11 @@ export namespace clusters {
 }
 export namespace clusters {
   export namespace applicationTypes {
-    export interface AddedResourceProps {
+    export interface AdditionalProps {
       tags?: Expressionable<any>;
     }
     
-    export type ApplicationTypesResource = ResourceDefinition<ApplicationTypeResourceProperties> & AddedResourceProps;
+    export type ApplicationTypesResource = ResourceDefinition<ApplicationTypeResourceProperties, AdditionalProps>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: ApplicationTypeResourceProperties, location?: Expressionable<string>, tags?: Expressionable<any>): ApplicationTypesResource {
       return {
@@ -328,8 +334,10 @@ export namespace clusters {
         apiVersion: '2019-06-01-preview',
         name: name,
         location,
-        tags,
         properties,
+        additional: {
+          tags,
+        },
       };
     }
   }
@@ -337,11 +345,11 @@ export namespace clusters {
 export namespace clusters {
   export namespace applicationTypes {
     export namespace versions {
-      export interface AddedResourceProps {
+      export interface AdditionalProps {
         tags?: Expressionable<any>;
       }
       
-      export type VersionsResource = ResourceDefinition<ApplicationTypeVersionResourceProperties> & AddedResourceProps;
+      export type VersionsResource = ResourceDefinition<ApplicationTypeVersionResourceProperties, AdditionalProps>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: ApplicationTypeVersionResourceProperties, location?: Expressionable<string>, tags?: Expressionable<any>): VersionsResource {
         return {
@@ -349,8 +357,10 @@ export namespace clusters {
           apiVersion: '2019-06-01-preview',
           name: name,
           location,
-          tags,
           properties,
+          additional: {
+            tags,
+          },
         };
       }
     }

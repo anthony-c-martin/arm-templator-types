@@ -230,11 +230,11 @@ export interface VirtualMachineConfiguration {
 }
 
 export namespace clusters {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     tags?: Expressionable<any>;
   }
   
-  export type ClustersResource = ResourceDefinition<ClusterBaseProperties> & AddedResourceProps;
+  export type ClustersResource = ResourceDefinition<ClusterBaseProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: ClusterBaseProperties, location: Expressionable<string>, tags?: Expressionable<any>): ClustersResource {
     return {
@@ -242,17 +242,19 @@ export namespace clusters {
       apiVersion: '2017-09-01-preview',
       name: [name],
       location,
-      tags,
       properties,
+      additional: {
+        tags,
+      },
     };
   }
 }
 export namespace fileServers {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     tags?: Expressionable<any>;
   }
   
-  export type FileServersResource = ResourceDefinition<FileServerBaseProperties> & AddedResourceProps;
+  export type FileServersResource = ResourceDefinition<FileServerBaseProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: FileServerBaseProperties, location: Expressionable<string>, tags?: Expressionable<any>): FileServersResource {
     return {
@@ -260,17 +262,19 @@ export namespace fileServers {
       apiVersion: '2017-09-01-preview',
       name: [name],
       location,
-      tags,
       properties,
+      additional: {
+        tags,
+      },
     };
   }
 }
 export namespace jobs {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     tags?: Expressionable<any>;
   }
   
-  export type JobsResource = ResourceDefinition<JobBaseProperties> & AddedResourceProps;
+  export type JobsResource = ResourceDefinition<JobBaseProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: JobBaseProperties, location: Expressionable<string>, tags?: Expressionable<any>): JobsResource {
     return {
@@ -278,8 +282,10 @@ export namespace jobs {
       apiVersion: '2017-09-01-preview',
       name: [name],
       location,
-      tags,
       properties,
+      additional: {
+        tags,
+      },
     };
   }
 }

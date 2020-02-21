@@ -188,12 +188,12 @@ export interface VirtualNetworkProfile {
 }
 
 export namespace clusters {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     identity?: Expressionable<ClusterIdentity>;
     tags?: Expressionable<any>;
   }
   
-  export type ClustersResource = ResourceDefinition<ClusterCreateProperties> & AddedResourceProps;
+  export type ClustersResource = ResourceDefinition<ClusterCreateProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: ClusterCreateProperties, location?: Expressionable<string>, identity?: Expressionable<ClusterIdentity>, tags?: Expressionable<any>): ClustersResource {
     return {
@@ -201,34 +201,38 @@ export namespace clusters {
       apiVersion: '2015-03-01-preview',
       name: [name],
       location,
-      identity,
-      tags,
       properties,
+      additional: {
+        identity,
+        tags,
+      },
     };
   }
 }
 export namespace clusters {
   export namespace applications {
-    export interface AddedResourceProps {
+    export interface AdditionalProps {
       tags?: Expressionable<any>;
     }
     
-    export type ApplicationsResource = ResourceDefinition<ApplicationProperties> & AddedResourceProps;
+    export type ApplicationsResource = ResourceDefinition<ApplicationProperties, AdditionalProps>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: ApplicationProperties, tags?: Expressionable<any>): ApplicationsResource {
       return {
         type: 'Microsoft.HDInsight/clusters/applications',
         apiVersion: '2015-03-01-preview',
         name: name,
-        tags,
         properties,
+        additional: {
+          tags,
+        },
       };
     }
   }
 }
 export namespace clusters {
   export namespace extensions {
-    export type ExtensionsResource = ResourceDefinition<any>;
+    export type ExtensionsResource = ResourceDefinition<any, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: any): ExtensionsResource {
       return {

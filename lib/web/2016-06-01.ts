@@ -27,7 +27,7 @@ export interface ConnectionGatewayProperties {
 }
 
 export namespace connections {
-  export type ConnectionsResource = ResourceDefinition<ConnectionProperties>;
+  export type ConnectionsResource = ResourceDefinition<ConnectionProperties, undefined>;
   
   export function create(name: Expressionable<string>, properties: ConnectionProperties, location?: Expressionable<string>): ConnectionsResource {
     return {
@@ -40,7 +40,7 @@ export namespace connections {
   }
 }
 export namespace connectionGateways {
-  export type ConnectionGatewaysResource = ResourceDefinition<ConnectionGatewayProperties>;
+  export type ConnectionGatewaysResource = ResourceDefinition<ConnectionGatewayProperties, undefined>;
   
   export function create(name: Expressionable<string>, properties: ConnectionGatewayProperties, location?: Expressionable<string>): ConnectionGatewaysResource {
     return {
@@ -53,7 +53,7 @@ export namespace connectionGateways {
   }
 }
 export namespace customApis {
-  export type CustomApisResource = ResourceDefinition<CustomApiProperties>;
+  export type CustomApisResource = ResourceDefinition<CustomApiProperties, undefined>;
   
   export function create(name: Expressionable<string>, properties: CustomApiProperties, location?: Expressionable<string>): CustomApisResource {
     return {

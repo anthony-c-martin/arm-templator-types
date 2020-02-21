@@ -31,11 +31,11 @@ export interface ThrottlingInformation {
 }
 
 export namespace smartDetectorAlertRules {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     tags?: Expressionable<any>;
   }
   
-  export type SmartDetectorAlertRulesResource = ResourceDefinition<AlertRuleProperties> & AddedResourceProps;
+  export type SmartDetectorAlertRulesResource = ResourceDefinition<AlertRuleProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: AlertRuleProperties, location?: Expressionable<string>, tags?: Expressionable<any>): SmartDetectorAlertRulesResource {
     return {
@@ -43,8 +43,10 @@ export namespace smartDetectorAlertRules {
       apiVersion: '2019-06-01',
       name: [name],
       location,
-      tags,
       properties,
+      additional: {
+        tags,
+      },
     };
   }
 }

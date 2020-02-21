@@ -50,7 +50,7 @@ export interface StorageProfile {
 }
 
 export namespace hanaInstances {
-  export type HanaInstancesResource = ResourceDefinition<HanaInstanceProperties>;
+  export type HanaInstancesResource = ResourceDefinition<HanaInstanceProperties, undefined>;
   
   export function create(name: Expressionable<string>, properties: HanaInstanceProperties, location?: Expressionable<string>): HanaInstancesResource {
     return {
@@ -63,7 +63,7 @@ export namespace hanaInstances {
   }
 }
 export namespace sapMonitors {
-  export type SapMonitorsResource = ResourceDefinition<SapMonitorProperties>;
+  export type SapMonitorsResource = ResourceDefinition<SapMonitorProperties, undefined>;
   
   export function create(name: Expressionable<string>, properties: SapMonitorProperties, location?: Expressionable<string>): SapMonitorsResource {
     return {

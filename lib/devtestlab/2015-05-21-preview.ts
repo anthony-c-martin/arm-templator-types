@@ -177,11 +177,11 @@ export interface WindowsOsInfo {
 }
 
 export namespace labs {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     tags?: Expressionable<any>;
   }
   
-  export type LabsResource = ResourceDefinition<LabProperties> & AddedResourceProps;
+  export type LabsResource = ResourceDefinition<LabProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: LabProperties, location?: Expressionable<string>, tags?: Expressionable<any>): LabsResource {
     return {
@@ -189,18 +189,20 @@ export namespace labs {
       apiVersion: '2015-05-21-preview',
       name: [name],
       location,
-      tags,
       properties,
+      additional: {
+        tags,
+      },
     };
   }
 }
 export namespace labs {
   export namespace artifactsources {
-    export interface AddedResourceProps {
+    export interface AdditionalProps {
       tags?: Expressionable<any>;
     }
     
-    export type ArtifactsourcesResource = ResourceDefinition<ArtifactSourceProperties> & AddedResourceProps;
+    export type ArtifactsourcesResource = ResourceDefinition<ArtifactSourceProperties, AdditionalProps>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: ArtifactSourceProperties, location?: Expressionable<string>, tags?: Expressionable<any>): ArtifactsourcesResource {
       return {
@@ -208,19 +210,21 @@ export namespace labs {
         apiVersion: '2015-05-21-preview',
         name: name,
         location,
-        tags,
         properties,
+        additional: {
+          tags,
+        },
       };
     }
   }
 }
 export namespace labs {
   export namespace customimages {
-    export interface AddedResourceProps {
+    export interface AdditionalProps {
       tags?: Expressionable<any>;
     }
     
-    export type CustomimagesResource = ResourceDefinition<CustomImageProperties> & AddedResourceProps;
+    export type CustomimagesResource = ResourceDefinition<CustomImageProperties, AdditionalProps>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: CustomImageProperties, location?: Expressionable<string>, tags?: Expressionable<any>): CustomimagesResource {
       return {
@@ -228,19 +232,21 @@ export namespace labs {
         apiVersion: '2015-05-21-preview',
         name: name,
         location,
-        tags,
         properties,
+        additional: {
+          tags,
+        },
       };
     }
   }
 }
 export namespace labs {
   export namespace formulas {
-    export interface AddedResourceProps {
+    export interface AdditionalProps {
       tags?: Expressionable<any>;
     }
     
-    export type FormulasResource = ResourceDefinition<FormulaProperties> & AddedResourceProps;
+    export type FormulasResource = ResourceDefinition<FormulaProperties, AdditionalProps>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: FormulaProperties, location?: Expressionable<string>, tags?: Expressionable<any>): FormulasResource {
       return {
@@ -248,8 +254,10 @@ export namespace labs {
         apiVersion: '2015-05-21-preview',
         name: name,
         location,
-        tags,
         properties,
+        additional: {
+          tags,
+        },
       };
     }
   }
@@ -257,11 +265,11 @@ export namespace labs {
 export namespace labs {
   export namespace policysets {
     export namespace policies {
-      export interface AddedResourceProps {
+      export interface AdditionalProps {
         tags?: Expressionable<any>;
       }
       
-      export type PoliciesResource = ResourceDefinition<PolicyProperties> & AddedResourceProps;
+      export type PoliciesResource = ResourceDefinition<PolicyProperties, AdditionalProps>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: PolicyProperties, location?: Expressionable<string>, tags?: Expressionable<any>): PoliciesResource {
         return {
@@ -269,8 +277,10 @@ export namespace labs {
           apiVersion: '2015-05-21-preview',
           name: name,
           location,
-          tags,
           properties,
+          additional: {
+            tags,
+          },
         };
       }
     }
@@ -278,11 +288,11 @@ export namespace labs {
 }
 export namespace labs {
   export namespace schedules {
-    export interface AddedResourceProps {
+    export interface AdditionalProps {
       tags?: Expressionable<any>;
     }
     
-    export type SchedulesResource = ResourceDefinition<ScheduleProperties> & AddedResourceProps;
+    export type SchedulesResource = ResourceDefinition<ScheduleProperties, AdditionalProps>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: ScheduleProperties, location?: Expressionable<string>, tags?: Expressionable<any>): SchedulesResource {
       return {
@@ -290,19 +300,21 @@ export namespace labs {
         apiVersion: '2015-05-21-preview',
         name: name,
         location,
-        tags,
         properties,
+        additional: {
+          tags,
+        },
       };
     }
   }
 }
 export namespace labs {
   export namespace virtualmachines {
-    export interface AddedResourceProps {
+    export interface AdditionalProps {
       tags?: Expressionable<any>;
     }
     
-    export type VirtualmachinesResource = ResourceDefinition<LabVirtualMachineProperties> & AddedResourceProps;
+    export type VirtualmachinesResource = ResourceDefinition<LabVirtualMachineProperties, AdditionalProps>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: LabVirtualMachineProperties, location?: Expressionable<string>, tags?: Expressionable<any>): VirtualmachinesResource {
       return {
@@ -310,19 +322,21 @@ export namespace labs {
         apiVersion: '2015-05-21-preview',
         name: name,
         location,
-        tags,
         properties,
+        additional: {
+          tags,
+        },
       };
     }
   }
 }
 export namespace labs {
   export namespace virtualnetworks {
-    export interface AddedResourceProps {
+    export interface AdditionalProps {
       tags?: Expressionable<any>;
     }
     
-    export type VirtualnetworksResource = ResourceDefinition<VirtualNetworkProperties> & AddedResourceProps;
+    export type VirtualnetworksResource = ResourceDefinition<VirtualNetworkProperties, AdditionalProps>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: VirtualNetworkProperties, location?: Expressionable<string>, tags?: Expressionable<any>): VirtualnetworksResource {
       return {
@@ -330,8 +344,10 @@ export namespace labs {
         apiVersion: '2015-05-21-preview',
         name: name,
         location,
-        tags,
         properties,
+        additional: {
+          tags,
+        },
       };
     }
   }

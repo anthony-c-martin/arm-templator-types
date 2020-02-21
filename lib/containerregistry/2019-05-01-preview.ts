@@ -32,7 +32,7 @@ export interface TokenProperties {
 
 export namespace registries {
   export namespace scopeMaps {
-    export type ScopeMapsResource = ResourceDefinition<ScopeMapProperties>;
+    export type ScopeMapsResource = ResourceDefinition<ScopeMapProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: ScopeMapProperties): ScopeMapsResource {
       return {
@@ -46,7 +46,7 @@ export namespace registries {
 }
 export namespace registries {
   export namespace tokens {
-    export type TokensResource = ResourceDefinition<TokenProperties>;
+    export type TokensResource = ResourceDefinition<TokenProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: TokenProperties): TokensResource {
       return {

@@ -31,7 +31,7 @@ export interface Notification {
 }
 
 export namespace budgets {
-  export type BudgetsResource = ResourceDefinition<BudgetProperties>;
+  export type BudgetsResource = ResourceDefinition<BudgetProperties, undefined>;
   
   export function create(name: Expressionable<string>, properties: BudgetProperties): BudgetsResource {
     return {

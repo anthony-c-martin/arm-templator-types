@@ -127,7 +127,7 @@ export interface WindowsProperties {
 
 export namespace automationAccounts {
   export namespace jobs {
-    export type JobsResource = ResourceDefinition<JobCreateProperties>;
+    export type JobsResource = ResourceDefinition<JobCreateProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: JobCreateProperties): JobsResource {
       return {
@@ -141,7 +141,7 @@ export namespace automationAccounts {
 }
 export namespace automationAccounts {
   export namespace softwareUpdateConfigurations {
-    export type SoftwareUpdateConfigurationsResource = ResourceDefinition<SoftwareUpdateConfigurationProperties>;
+    export type SoftwareUpdateConfigurationsResource = ResourceDefinition<SoftwareUpdateConfigurationProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: SoftwareUpdateConfigurationProperties): SoftwareUpdateConfigurationsResource {
       return {
@@ -155,7 +155,7 @@ export namespace automationAccounts {
 }
 export namespace automationAccounts {
   export namespace sourceControls {
-    export type SourceControlsResource = ResourceDefinition<SourceControlCreateOrUpdateProperties>;
+    export type SourceControlsResource = ResourceDefinition<SourceControlCreateOrUpdateProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: SourceControlCreateOrUpdateProperties): SourceControlsResource {
       return {
@@ -170,7 +170,7 @@ export namespace automationAccounts {
 export namespace automationAccounts {
   export namespace sourceControls {
     export namespace sourceControlSyncJobs {
-      export type SourceControlSyncJobsResource = ResourceDefinition<SourceControlSyncJobCreateProperties>;
+      export type SourceControlSyncJobsResource = ResourceDefinition<SourceControlSyncJobCreateProperties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: SourceControlSyncJobCreateProperties): SourceControlSyncJobsResource {
         return {

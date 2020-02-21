@@ -14,25 +14,27 @@ export interface appsettings {
 }
 
 export namespace serverfarms {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     sku?: Expressionable<any>;
   }
   
-  export type ServerfarmsResource = ResourceDefinition<any> & AddedResourceProps;
+  export type ServerfarmsResource = ResourceDefinition<any, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: any, sku?: Expressionable<any>): ServerfarmsResource {
     return {
       type: 'Microsoft.Web/serverfarms',
       apiVersion: '2015-08-01',
       name: [name],
-      sku,
       properties,
+      additional: {
+        sku,
+      },
     };
   }
 }
 export namespace sites {
   export namespace config {
-    export type ConfigResource = ResourceDefinition<any>;
+    export type ConfigResource = ResourceDefinition<any, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: any): ConfigResource {
       return {
@@ -46,7 +48,7 @@ export namespace sites {
 }
 export namespace sites {
   export namespace extensions {
-    export type ExtensionsResource = ResourceDefinition<any>;
+    export type ExtensionsResource = ResourceDefinition<any, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: any): ExtensionsResource {
       return {
@@ -59,7 +61,7 @@ export namespace sites {
   }
 }
 export namespace sites {
-  export type SitesResource = ResourceDefinition<any>;
+  export type SitesResource = ResourceDefinition<any, undefined>;
   
   export function create(name: Expressionable<string>, properties: any): SitesResource {
     return {
@@ -71,7 +73,7 @@ export namespace sites {
   }
 }
 export namespace certificates {
-  export type CertificatesResource = ResourceDefinition<any>;
+  export type CertificatesResource = ResourceDefinition<any, undefined>;
   
   export function create(name: Expressionable<string>, properties: any): CertificatesResource {
     return {

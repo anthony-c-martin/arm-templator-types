@@ -28,11 +28,11 @@ export interface CustomRPValidations {
 }
 
 export namespace resourceProviders {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     tags?: Expressionable<any>;
   }
   
-  export type ResourceProvidersResource = ResourceDefinition<CustomRPManifestProperties> & AddedResourceProps;
+  export type ResourceProvidersResource = ResourceDefinition<CustomRPManifestProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: CustomRPManifestProperties, location: Expressionable<string>, tags?: Expressionable<any>): ResourceProvidersResource {
     return {
@@ -40,8 +40,10 @@ export namespace resourceProviders {
       apiVersion: '2018-09-01-preview',
       name: [name],
       location,
-      tags,
       properties,
+      additional: {
+        tags,
+      },
     };
   }
 }

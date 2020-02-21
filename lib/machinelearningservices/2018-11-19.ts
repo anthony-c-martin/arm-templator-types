@@ -126,7 +126,7 @@ export interface WorkspaceProperties {
 }
 
 export namespace workspaces {
-  export type WorkspacesResource = ResourceDefinition<WorkspaceProperties>;
+  export type WorkspacesResource = ResourceDefinition<WorkspaceProperties, undefined>;
   
   export function create(name: Expressionable<string>, properties: WorkspaceProperties, location?: Expressionable<string>): WorkspacesResource {
     return {
@@ -140,7 +140,7 @@ export namespace workspaces {
 }
 export namespace workspaces {
   export namespace computes {
-    export type ComputesResource = ResourceDefinition<Compute>;
+    export type ComputesResource = ResourceDefinition<Compute, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: Compute, location?: Expressionable<string>): ComputesResource {
       return {

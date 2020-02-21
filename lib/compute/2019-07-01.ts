@@ -720,11 +720,11 @@ export interface WinRMListener {
 }
 
 export namespace availabilitySets {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     sku?: Expressionable<Sku>;
   }
   
-  export type AvailabilitySetsResource = ResourceDefinition<AvailabilitySetProperties> & AddedResourceProps;
+  export type AvailabilitySetsResource = ResourceDefinition<AvailabilitySetProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: AvailabilitySetProperties, location: Expressionable<string>, sku?: Expressionable<Sku>): AvailabilitySetsResource {
     return {
@@ -732,17 +732,19 @@ export namespace availabilitySets {
       apiVersion: '2019-07-01',
       name: [name],
       location,
-      sku,
       properties,
+      additional: {
+        sku,
+      },
     };
   }
 }
 export namespace diskEncryptionSets {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     identity?: Expressionable<EncryptionSetIdentity>;
   }
   
-  export type DiskEncryptionSetsResource = ResourceDefinition<EncryptionSetProperties> & AddedResourceProps;
+  export type DiskEncryptionSetsResource = ResourceDefinition<EncryptionSetProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: EncryptionSetProperties, location: Expressionable<string>, identity?: Expressionable<EncryptionSetIdentity>): DiskEncryptionSetsResource {
     return {
@@ -750,18 +752,20 @@ export namespace diskEncryptionSets {
       apiVersion: '2019-07-01',
       name: [name],
       location,
-      identity,
       properties,
+      additional: {
+        identity,
+      },
     };
   }
 }
 export namespace disks {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     sku?: Expressionable<DiskSku>;
     zones?: Expressionable<string[]>;
   }
   
-  export type DisksResource = ResourceDefinition<DiskProperties> & AddedResourceProps;
+  export type DisksResource = ResourceDefinition<DiskProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: DiskProperties, location: Expressionable<string>, sku?: Expressionable<DiskSku>, zones?: Expressionable<string[]>): DisksResource {
     return {
@@ -769,14 +773,16 @@ export namespace disks {
       apiVersion: '2019-07-01',
       name: [name],
       location,
-      sku,
-      zones,
       properties,
+      additional: {
+        sku,
+        zones,
+      },
     };
   }
 }
 export namespace galleries {
-  export type GalleriesResource = ResourceDefinition<GalleryProperties>;
+  export type GalleriesResource = ResourceDefinition<GalleryProperties, undefined>;
   
   export function create(name: Expressionable<string>, properties: GalleryProperties, location: Expressionable<string>): GalleriesResource {
     return {
@@ -790,7 +796,7 @@ export namespace galleries {
 }
 export namespace galleries {
   export namespace applications {
-    export type ApplicationsResource = ResourceDefinition<GalleryApplicationProperties>;
+    export type ApplicationsResource = ResourceDefinition<GalleryApplicationProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: GalleryApplicationProperties, location: Expressionable<string>): ApplicationsResource {
       return {
@@ -806,7 +812,7 @@ export namespace galleries {
 export namespace galleries {
   export namespace applications {
     export namespace versions {
-      export type VersionsResource = ResourceDefinition<GalleryApplicationVersionProperties>;
+      export type VersionsResource = ResourceDefinition<GalleryApplicationVersionProperties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: GalleryApplicationVersionProperties, location: Expressionable<string>): VersionsResource {
         return {
@@ -822,7 +828,7 @@ export namespace galleries {
 }
 export namespace galleries {
   export namespace images {
-    export type ImagesResource = ResourceDefinition<GalleryImageProperties>;
+    export type ImagesResource = ResourceDefinition<GalleryImageProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: GalleryImageProperties, location: Expressionable<string>): ImagesResource {
       return {
@@ -838,7 +844,7 @@ export namespace galleries {
 export namespace galleries {
   export namespace images {
     export namespace versions {
-      export type VersionsResource = ResourceDefinition<GalleryImageVersionProperties>;
+      export type VersionsResource = ResourceDefinition<GalleryImageVersionProperties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: GalleryImageVersionProperties, location: Expressionable<string>): VersionsResource {
         return {
@@ -853,11 +859,11 @@ export namespace galleries {
   }
 }
 export namespace hostGroups {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     zones?: Expressionable<string[]>;
   }
   
-  export type HostGroupsResource = ResourceDefinition<DedicatedHostGroupProperties> & AddedResourceProps;
+  export type HostGroupsResource = ResourceDefinition<DedicatedHostGroupProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: DedicatedHostGroupProperties, location: Expressionable<string>, zones?: Expressionable<string[]>): HostGroupsResource {
     return {
@@ -865,18 +871,20 @@ export namespace hostGroups {
       apiVersion: '2019-07-01',
       name: [name],
       location,
-      zones,
       properties,
+      additional: {
+        zones,
+      },
     };
   }
 }
 export namespace hostGroups {
   export namespace hosts {
-    export interface AddedResourceProps {
+    export interface AdditionalProps {
       sku: Expressionable<Sku>;
     }
     
-    export type HostsResource = ResourceDefinition<DedicatedHostProperties> & AddedResourceProps;
+    export type HostsResource = ResourceDefinition<DedicatedHostProperties, AdditionalProps>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: DedicatedHostProperties, location: Expressionable<string>, sku: Expressionable<Sku>): HostsResource {
       return {
@@ -884,14 +892,16 @@ export namespace hostGroups {
         apiVersion: '2019-07-01',
         name: name,
         location,
-        sku,
         properties,
+        additional: {
+          sku,
+        },
       };
     }
   }
 }
 export namespace images {
-  export type ImagesResource = ResourceDefinition<ImageProperties>;
+  export type ImagesResource = ResourceDefinition<ImageProperties, undefined>;
   
   export function create(name: Expressionable<string>, properties: ImageProperties, location: Expressionable<string>): ImagesResource {
     return {
@@ -904,7 +914,7 @@ export namespace images {
   }
 }
 export namespace proximityPlacementGroups {
-  export type ProximityPlacementGroupsResource = ResourceDefinition<ProximityPlacementGroupProperties>;
+  export type ProximityPlacementGroupsResource = ResourceDefinition<ProximityPlacementGroupProperties, undefined>;
   
   export function create(name: Expressionable<string>, properties: ProximityPlacementGroupProperties, location: Expressionable<string>): ProximityPlacementGroupsResource {
     return {
@@ -917,11 +927,11 @@ export namespace proximityPlacementGroups {
   }
 }
 export namespace snapshots {
-  export interface AddedResourceProps {
+  export interface AdditionalProps {
     sku?: Expressionable<SnapshotSku>;
   }
   
-  export type SnapshotsResource = ResourceDefinition<SnapshotProperties> & AddedResourceProps;
+  export type SnapshotsResource = ResourceDefinition<SnapshotProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: SnapshotProperties, location: Expressionable<string>, sku?: Expressionable<SnapshotSku>): SnapshotsResource {
     return {
@@ -929,19 +939,21 @@ export namespace snapshots {
       apiVersion: '2019-07-01',
       name: [name],
       location,
-      sku,
       properties,
+      additional: {
+        sku,
+      },
     };
   }
 }
 export namespace virtualMachines {
-  export interface AddedResourceProps {
-    plan?: Expressionable<Plan>;
+  export interface AdditionalProps {
     identity?: Expressionable<VirtualMachineIdentity>;
     zones?: Expressionable<string[]>;
+    plan?: Expressionable<Plan>;
   }
   
-  export type VirtualMachinesResource = ResourceDefinition<VirtualMachineProperties> & AddedResourceProps;
+  export type VirtualMachinesResource = ResourceDefinition<VirtualMachineProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: VirtualMachineProperties, location: Expressionable<string>, identity?: Expressionable<VirtualMachineIdentity>, zones?: Expressionable<string[]>, plan?: Expressionable<Plan>): VirtualMachinesResource {
     return {
@@ -949,22 +961,24 @@ export namespace virtualMachines {
       apiVersion: '2019-07-01',
       name: [name],
       location,
-      identity,
-      zones,
-      plan,
       properties,
+      additional: {
+        identity,
+        zones,
+        plan,
+      },
     };
   }
 }
 export namespace virtualMachineScaleSets {
-  export interface AddedResourceProps {
-    sku?: Expressionable<Sku>;
-    plan?: Expressionable<Plan>;
+  export interface AdditionalProps {
     identity?: Expressionable<VirtualMachineScaleSetIdentity>;
+    sku?: Expressionable<Sku>;
     zones?: Expressionable<string[]>;
+    plan?: Expressionable<Plan>;
   }
   
-  export type VirtualMachineScaleSetsResource = ResourceDefinition<VirtualMachineScaleSetProperties> & AddedResourceProps;
+  export type VirtualMachineScaleSetsResource = ResourceDefinition<VirtualMachineScaleSetProperties, AdditionalProps>;
   
   export function create(name: Expressionable<string>, properties: VirtualMachineScaleSetProperties, location: Expressionable<string>, identity?: Expressionable<VirtualMachineScaleSetIdentity>, sku?: Expressionable<Sku>, zones?: Expressionable<string[]>, plan?: Expressionable<Plan>): VirtualMachineScaleSetsResource {
     return {
@@ -972,21 +986,23 @@ export namespace virtualMachineScaleSets {
       apiVersion: '2019-07-01',
       name: [name],
       location,
-      identity,
-      sku,
-      zones,
-      plan,
       properties,
+      additional: {
+        identity,
+        sku,
+        zones,
+        plan,
+      },
     };
   }
 }
 export namespace virtualMachineScaleSets {
   export namespace virtualmachines {
-    export interface AddedResourceProps {
+    export interface AdditionalProps {
       plan?: Expressionable<Plan>;
     }
     
-    export type VirtualmachinesResource = ResourceDefinition<VirtualMachineScaleSetVMProperties> & AddedResourceProps;
+    export type VirtualmachinesResource = ResourceDefinition<VirtualMachineScaleSetVMProperties, AdditionalProps>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: VirtualMachineScaleSetVMProperties, location: Expressionable<string>, plan?: Expressionable<Plan>): VirtualmachinesResource {
       return {
@@ -994,8 +1010,10 @@ export namespace virtualMachineScaleSets {
         apiVersion: '2019-07-01',
         name: name,
         location,
-        plan,
         properties,
+        additional: {
+          plan,
+        },
       };
     }
   }
@@ -1003,7 +1021,7 @@ export namespace virtualMachineScaleSets {
 export namespace virtualMachineScaleSets {
   export namespace virtualMachines {
     export namespace extensions {
-      export type ExtensionsResource = ResourceDefinition<VirtualMachineExtensionProperties>;
+      export type ExtensionsResource = ResourceDefinition<VirtualMachineExtensionProperties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: VirtualMachineExtensionProperties, location: Expressionable<string>): ExtensionsResource {
         return {

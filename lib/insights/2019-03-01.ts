@@ -87,7 +87,7 @@ export interface Action {
 }
 
 export namespace actionGroups {
-  export type ActionGroupsResource = ResourceDefinition<ActionGroup>;
+  export type ActionGroupsResource = ResourceDefinition<ActionGroup, undefined>;
   
   export function create(name: Expressionable<string>, properties: ActionGroup): ActionGroupsResource {
     return {

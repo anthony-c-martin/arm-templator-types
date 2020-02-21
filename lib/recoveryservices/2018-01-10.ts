@@ -264,7 +264,7 @@ export interface VMwareV2FabricCreationInput {
 
 export namespace vaults {
   export namespace replicationAlertSettings {
-    export type ReplicationAlertSettingsResource = ResourceDefinition<ConfigureAlertRequestProperties>;
+    export type ReplicationAlertSettingsResource = ResourceDefinition<ConfigureAlertRequestProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: ConfigureAlertRequestProperties): ReplicationAlertSettingsResource {
       return {
@@ -278,7 +278,7 @@ export namespace vaults {
 }
 export namespace vaults {
   export namespace replicationFabrics {
-    export type ReplicationFabricsResource = ResourceDefinition<FabricCreationInputProperties>;
+    export type ReplicationFabricsResource = ResourceDefinition<FabricCreationInputProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: FabricCreationInputProperties): ReplicationFabricsResource {
       return {
@@ -294,7 +294,7 @@ export namespace vaults {
   export namespace replicationFabrics {
     export namespace replicationNetworks {
       export namespace replicationNetworkMappings {
-        export type ReplicationNetworkMappingsResource = ResourceDefinition<CreateNetworkMappingInputProperties>;
+        export type ReplicationNetworkMappingsResource = ResourceDefinition<CreateNetworkMappingInputProperties, undefined>;
         
         export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: CreateNetworkMappingInputProperties): ReplicationNetworkMappingsResource {
           return {
@@ -311,7 +311,7 @@ export namespace vaults {
 export namespace vaults {
   export namespace replicationFabrics {
     export namespace replicationProtectionContainers {
-      export type ReplicationProtectionContainersResource = ResourceDefinition<CreateProtectionContainerInputProperties>;
+      export type ReplicationProtectionContainersResource = ResourceDefinition<CreateProtectionContainerInputProperties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: CreateProtectionContainerInputProperties): ReplicationProtectionContainersResource {
         return {
@@ -328,7 +328,7 @@ export namespace vaults {
   export namespace replicationFabrics {
     export namespace replicationProtectionContainers {
       export namespace replicationMigrationItems {
-        export type ReplicationMigrationItemsResource = ResourceDefinition<EnableMigrationInputProperties>;
+        export type ReplicationMigrationItemsResource = ResourceDefinition<EnableMigrationInputProperties, undefined>;
         
         export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: EnableMigrationInputProperties): ReplicationMigrationItemsResource {
           return {
@@ -346,7 +346,7 @@ export namespace vaults {
   export namespace replicationFabrics {
     export namespace replicationProtectionContainers {
       export namespace replicationProtectedItems {
-        export type ReplicationProtectedItemsResource = ResourceDefinition<EnableProtectionInputProperties>;
+        export type ReplicationProtectedItemsResource = ResourceDefinition<EnableProtectionInputProperties, undefined>;
         
         export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: EnableProtectionInputProperties): ReplicationProtectedItemsResource {
           return {
@@ -364,7 +364,7 @@ export namespace vaults {
   export namespace replicationFabrics {
     export namespace replicationProtectionContainers {
       export namespace replicationProtectionContainerMappings {
-        export type ReplicationProtectionContainerMappingsResource = ResourceDefinition<CreateProtectionContainerMappingInputProperties>;
+        export type ReplicationProtectionContainerMappingsResource = ResourceDefinition<CreateProtectionContainerMappingInputProperties, undefined>;
         
         export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: CreateProtectionContainerMappingInputProperties): ReplicationProtectionContainerMappingsResource {
           return {
@@ -381,7 +381,7 @@ export namespace vaults {
 export namespace vaults {
   export namespace replicationFabrics {
     export namespace replicationRecoveryServicesProviders {
-      export type ReplicationRecoveryServicesProvidersResource = ResourceDefinition<AddRecoveryServicesProviderInputProperties>;
+      export type ReplicationRecoveryServicesProvidersResource = ResourceDefinition<AddRecoveryServicesProviderInputProperties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: AddRecoveryServicesProviderInputProperties): ReplicationRecoveryServicesProvidersResource {
         return {
@@ -398,7 +398,7 @@ export namespace vaults {
   export namespace replicationFabrics {
     export namespace replicationStorageClassifications {
       export namespace replicationStorageClassificationMappings {
-        export type ReplicationStorageClassificationMappingsResource = ResourceDefinition<StorageMappingInputProperties>;
+        export type ReplicationStorageClassificationMappingsResource = ResourceDefinition<StorageMappingInputProperties, undefined>;
         
         export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: StorageMappingInputProperties): ReplicationStorageClassificationMappingsResource {
           return {
@@ -415,7 +415,7 @@ export namespace vaults {
 export namespace vaults {
   export namespace replicationFabrics {
     export namespace replicationvCenters {
-      export type ReplicationvCentersResource = ResourceDefinition<AddVCenterRequestProperties>;
+      export type ReplicationvCentersResource = ResourceDefinition<AddVCenterRequestProperties, undefined>;
       
       export function create(name: [Expressionable<string>, Expressionable<string>, Expressionable<string>], properties: AddVCenterRequestProperties): ReplicationvCentersResource {
         return {
@@ -430,7 +430,7 @@ export namespace vaults {
 }
 export namespace vaults {
   export namespace replicationPolicies {
-    export type ReplicationPoliciesResource = ResourceDefinition<CreatePolicyInputProperties>;
+    export type ReplicationPoliciesResource = ResourceDefinition<CreatePolicyInputProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: CreatePolicyInputProperties): ReplicationPoliciesResource {
       return {
@@ -444,7 +444,7 @@ export namespace vaults {
 }
 export namespace vaults {
   export namespace replicationRecoveryPlans {
-    export type ReplicationRecoveryPlansResource = ResourceDefinition<CreateRecoveryPlanInputProperties>;
+    export type ReplicationRecoveryPlansResource = ResourceDefinition<CreateRecoveryPlanInputProperties, undefined>;
     
     export function create(name: [Expressionable<string>, Expressionable<string>], properties: CreateRecoveryPlanInputProperties): ReplicationRecoveryPlansResource {
       return {

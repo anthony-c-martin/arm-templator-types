@@ -1,7 +1,7 @@
 import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
 
 export namespace roleAssignments {
-  export type RoleAssignmentsResource = ResourceDefinition<any>;
+  export type RoleAssignmentsResource = ResourceDefinition<any, undefined>;
   
   export function create(name: Expressionable<string>, properties: any): RoleAssignmentsResource {
     return {
