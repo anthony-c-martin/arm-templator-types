@@ -1,4 +1,4 @@
-import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
+import { Expressionable, ResourceDefinition } from 'arm-templator';
 
 export interface AzureSku {
   name: Expressionable<('KC8' | 'KC16' | 'KS8' | 'KS16' | 'D13_v2' | 'D14_v2' | 'L8' | 'L16' | 'Standard_DS13_v2+1TB_PS' | 'Standard_DS13_v2+2TB_PS' | 'Standard_DS14_v2+3TB_PS' | 'Standard_DS14_v2+4TB_PS' | 'Standard_D13_v2' | 'Standard_D14_v2' | 'Standard_L8s' | 'Standard_L16s' | 'Standard_D11_v2' | 'Standard_D12_v2' | 'Standard_L4s' | 'Dev(No SLA)_Standard_D11_v2')>;

@@ -1,4 +1,4 @@
-import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
+import { Expressionable, ResourceDefinition } from 'arm-templator';
 
 export interface Sku {
   name?: Expressionable<('A1' | 'A2' | 'A3' | 'A4' | 'A5' | 'A6')>;

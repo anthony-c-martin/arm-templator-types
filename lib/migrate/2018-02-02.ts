@@ -1,4 +1,4 @@
-import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
+import { Expressionable, ResourceDefinition } from 'arm-templator';
 
 export interface AssessmentProperties {
   azureLocation: Expressionable<('Unknown' | 'EastAsia' | 'SoutheastAsia' | 'AustraliaEast' | 'AustraliaSoutheast' | 'BrazilSouth' | 'CanadaCentral' | 'CanadaEast' | 'WestEurope' | 'NorthEurope' | 'CentralIndia' | 'SouthIndia' | 'WestIndia' | 'JapanEast' | 'JapanWest' | 'KoreaCentral' | 'KoreaSouth' | 'UkWest' | 'UkSouth' | 'NorthCentralUs' | 'EastUs' | 'WestUs2' | 'SouthCentralUs' | 'CentralUs' | 'EastUs2' | 'WestUs' | 'WestCentralUs' | 'GermanyCentral' | 'GermanyNortheast' | 'ChinaNorth' | 'ChinaEast')>;

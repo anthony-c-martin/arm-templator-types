@@ -1,4 +1,4 @@
-import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
+import { Expressionable, ResourceDefinition } from 'arm-templator';
 
 export interface AuthorizationRuleProperties {
   rights: Expressionable<('Manage' | 'Send' | 'Listen')[]>;

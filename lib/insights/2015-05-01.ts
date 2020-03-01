@@ -1,4 +1,4 @@
-import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
+import { Expressionable, ResourceDefinition } from 'arm-templator';
 
 export interface ApplicationInsightsComponentProperties {
   Application_Type: Expressionable<('web' | 'other')>;

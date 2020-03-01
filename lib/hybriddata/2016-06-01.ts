@@ -1,4 +1,4 @@
-import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
+import { Expressionable, ResourceDefinition } from 'arm-templator';
 
 export interface CustomerSecret {
   algorithm: Expressionable<('None' | 'RSA1_5' | 'RSA_OAEP' | 'PlainText')>;

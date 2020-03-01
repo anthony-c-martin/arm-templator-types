@@ -258,7 +258,7 @@ function appendOutput(output: string[], line: string, indent?: number) {
 }
 
 function writeHeaders(output: string[]) {
-  appendOutput(output, `import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';`);
+  appendOutput(output, `import { Expressionable, ResourceDefinition } from 'arm-templator';`);
   appendOutput(output, ``);
 }
 

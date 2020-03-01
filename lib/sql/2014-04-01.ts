@@ -1,4 +1,4 @@
-import { Expressionable, ResourceDefinition } from 'arm-templator/dist/common';
+import { Expressionable, ResourceDefinition } from 'arm-templator';
 
 export interface AdvisorPropertiesModel {
   autoExecuteValue: Expressionable<('Enabled' | 'Disabled' | 'Default')>;
